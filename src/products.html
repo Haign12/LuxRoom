@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LuxRoom | Products</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="./index.html">LuxRoom</a>
+        <nav class="main-nav">
+          <a href="./index.html">Home</a>
+          <a class="active" href="./products.html">Product</a>
+          <a href="./detail.html">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="topbar-actions">
+          <span class="icon-button">Search</span>
+          <span class="icon-button">Saved</span>
+          <span class="icon-button">Cart <span data-cart-count>0</span></span>
+        </div>
+      </header>
+
+      <main>
+        <section class="catalog-header">
+          <div>
+            <p class="eyebrow">Furniture</p>
+            <h1>Curated product collection</h1>
+          </div>
+          <div class="sort-pill">Sort by: Featured</div>
+        </section>
+
+        <section class="catalog-layout">
+          <aside class="filters">
+            <div>
+              <h3>Category</h3>
+              <ul>
+                <li>Furniture</li>
+                <li>Accessories</li>
+                <li>Lighting</li>
+                <li>Outdoor</li>
+                <li>Decor</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Subcategories</h3>
+              <ul>
+                <li>All Products</li>
+                <li>Sofas & Daybeds</li>
+                <li>Dining Chairs</li>
+                <li>Coffee Tables</li>
+                <li>Sideboards</li>
+                <li>Mirrors</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Price</h3>
+              <div class="price-range">
+                <span>$100</span>
+                <div class="range-line"></div>
+                <span>$1500</span>
+              </div>
+            </div>
+          </aside>
+          <div class="product-grid" id="product-grid"></div>
+        </section>
+
+        <section class="newsletter">
+          <p class="eyebrow">Stay connected</p>
+          <h2>Subscribe to our newsletter</h2>
+          <p>Enter your email and get 10% off your first order on our product line.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Type your email address" />
+            <button type="submit" class="icon-button">Go</button>
+          </form>
+        </section>
+      </main>
+
+      <footer class="footer" id="contact">
+        <div>
+          <h3>Contact</h3>
+          <p>hello@luxroom.com</p>
+          <p>+84 987 654 321</p>
+          <p>District 1, Ho Chi Minh City</p>
+        </div>
+        <div>
+          <h3>Information</h3>
+          <p>About us</p>
+          <p>Privacy policy</p>
+          <p>Terms & conditions</p>
+        </div>
+        <div>
+          <h3>Customer Service</h3>
+          <p>Contact support</p>
+          <p>Shipping information</p>
+          <p>Returns & exchanges</p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="./js/app.js"></script>
+  </body>
+</html>

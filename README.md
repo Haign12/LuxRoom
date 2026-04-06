@@ -8,7 +8,9 @@ Open `index.html` directly in the browser to preview the current static prototyp
 
 ## Current structure
 
-- `index.html`: Home, product listing, and detail experience in one flow
-- `styles.css`: Editorial luxury/minimal styling and responsive layout
-- `app.js`: Product rendering, page switching, quantity picker, and cart count
+- `index.html`: Home page
+- `products.html`: Product listing page
+- `detail.html`: Product detail page
+- `css/styles.css`: Shared editorial luxury/minimal styling
+- `js/app.js`: Shared product rendering, detail binding, quantity picker, and cart count
 - `public/assets`: Original UI reference images copied from the provided mockups

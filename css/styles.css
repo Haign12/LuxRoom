@@ -62,14 +62,18 @@ a {
 }
 
 .brand,
-.main-nav a,
-.main-nav button {
+.main-nav a {
   font-size: 0.94rem;
   color: var(--muted);
 }
 
 .brand {
   font-weight: 700;
+  color: var(--ink);
+}
+
+.brand.active,
+.main-nav a.active {
   color: var(--ink);
 }
 
@@ -87,10 +91,6 @@ a {
   gap: 22px;
 }
 
-.main-nav .active {
-  color: var(--ink);
-}
-
 .icon-button,
 .secondary-button,
 .primary-button,
@@ -99,6 +99,9 @@ a {
 }
 
 .icon-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   padding: 10px 14px;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.45);
@@ -121,15 +124,6 @@ a {
 .secondary-button {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.35);
-}
-
-.page {
-  display: none;
-  animation: fadeUp 0.5s ease;
-}
-
-.page.active {
-  display: block;
 }
 
 .hero,
@@ -351,13 +345,17 @@ h2 {
 .values,
 .footer {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
 .category-grid {
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
+}
+
+.values,
+.footer {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .category-card {
@@ -698,11 +696,6 @@ h2 {
 
 .footer {
   padding: 22px 0 48px;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 1080px) {
