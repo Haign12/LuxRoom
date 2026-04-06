@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LuxRoom | Luxury Minimal Furniture</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <button class="brand nav-link" data-target="home" type="button">LuxRoom</button>
+        <nav class="main-nav">
+          <button class="nav-link active" data-target="home" type="button">Home</button>
+          <button class="nav-link" data-target="products" type="button">Product</button>
+          <button class="nav-link" data-target="detail" type="button">About</button>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="topbar-actions">
+          <button class="icon-button" type="button" aria-label="Search">⌕</button>
+          <button class="icon-button" type="button" aria-label="Wishlist">♡</button>
+          <button class="icon-button" type="button" aria-label="Cart">
+            Cart
+            <span id="cart-count">0</span>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="page active" id="page-home">
+          <section class="hero">
+            <div class="hero-copy">
+              <p class="eyebrow">Luxury interior essentials</p>
+              <h1>Make your indoor style uniquely calm.</h1>
+              <p class="hero-text">
+                LuxRoom curates premium furniture with a soft editorial feel:
+                sculptural silhouettes, muted materials, and timeless comfort
+                for elevated living.
+              </p>
+              <div class="hero-actions">
+                <button class="primary-button nav-link" data-target="products" type="button">
+                  Explore Collection
+                </button>
+                <button class="secondary-button nav-link" data-target="detail" type="button">
+                  View Signature Piece
+                </button>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <div class="hero-room">
+                <div class="room-glow"></div>
+                <div class="room-lamp"></div>
+                <div class="room-sofa"></div>
+                <div class="room-table"></div>
+              </div>
+              <aside class="hero-note">
+                <span>Curated for quiet luxury</span>
+                <strong>Interior styling with modern restraint</strong>
+              </aside>
+            </div>
+          </section>
+
+          <section class="intro-grid">
+            <article class="section-heading">
+              <p class="eyebrow">Who We Are</p>
+              <h2>We shape understated spaces for modern homes.</h2>
+            </article>
+            <article class="story-card story-large warm-one">
+              <div class="story-overlay">
+                <span>01</span>
+                <h3>Soft Sculptural Seating</h3>
+                <p>Rounded silhouettes designed for comfort-first living rooms.</p>
+              </div>
+            </article>
+            <article class="story-card warm-two">
+              <div class="story-overlay">
+                <span>02</span>
+                <h3>Textural Lighting</h3>
+                <p>Ambient pieces that soften corners and highlight materials.</p>
+              </div>
+            </article>
+            <article class="story-card warm-three">
+              <div class="story-overlay">
+                <span>03</span>
+                <h3>Natural Details</h3>
+                <p>Oak, boucle, linen and stone in a refined neutral palette.</p>
+              </div>
+            </article>
+            <article class="story-card story-tall warm-four">
+              <div class="story-overlay">
+                <span>04</span>
+                <h3>Quiet Styling</h3>
+                <p>Luxury with balance, breathing room, and minimal clutter.</p>
+              </div>
+            </article>
+          </section>
+
+          <section class="categories">
+            <article class="section-heading center">
+              <p class="eyebrow">Shop By Category</p>
+              <h2>Essentials tailored to a high-end home story.</h2>
+            </article>
+            <div class="category-grid">
+              <article class="category-card category-living"><span>Living</span></article>
+              <article class="category-card category-bedroom"><span>Bedroom</span></article>
+              <article class="category-card category-kitchen"><span>Kitchen</span></article>
+              <article class="category-card category-bath"><span>Bath</span></article>
+            </div>
+          </section>
+
+          <section class="values">
+            <article>
+              <h3>Free shipping</h3>
+              <p>Complimentary delivery for signature furniture pieces above $500.</p>
+            </article>
+            <article>
+              <h3>Best price</h3>
+              <p>Design-led quality with a transparent premium positioning.</p>
+            </article>
+            <article>
+              <h3>Furniture store</h3>
+              <p>Built for customers who love warm minimal interiors and calm details.</p>
+            </article>
+          </section>
+
+          <section class="brands">
+            <div class="brands-copy">
+              <p class="eyebrow">Shop By Brands</p>
+              <h2>Mix collectible forms with practical daily comfort.</h2>
+              <p>
+                Our product direction blends boutique showroom aesthetics with
+                approachable residential warmth.
+              </p>
+              <ul class="brand-list">
+                <li>Ethnicraft</li>
+                <li>Ferm Living</li>
+                <li>Audo Copenhagen</li>
+                <li>Gubi</li>
+                <li>Menu</li>
+              </ul>
+            </div>
+            <div class="brand-mosaic">
+              <div class="mosaic-card tone-stone"></div>
+              <div class="mosaic-card tone-sand"></div>
+              <div class="mosaic-card tone-olive"></div>
+              <div class="mosaic-card tone-wood"></div>
+            </div>
+          </section>
+
+          <section class="consulting">
+            <div class="consulting-copy">
+              <p class="eyebrow">Design support</p>
+              <h2>We design your space around the way you want to live.</h2>
+              <p>
+                Share your idea, room dimensions, and preferred mood. We will
+                help you curate a coherent luxury-minimal furniture set.
+              </p>
+              <a class="primary-button" href="mailto:hello@luxroom.com">Contact Us</a>
+            </div>
+            <div class="consulting-visual">
+              <div class="fabric-roll"></div>
+              <div class="fabric-shadow"></div>
+            </div>
+          </section>
+        </section>
+
+        <section class="page" id="page-products">
+          <section class="catalog-header">
+            <div>
+              <p class="eyebrow">Furniture</p>
+              <h1>Curated product collection</h1>
+            </div>
+            <div class="sort-pill">Sort by: Featured</div>
+          </section>
+
+          <section class="catalog-layout">
+            <aside class="filters">
+              <div>
+                <h3>Category</h3>
+                <ul>
+                  <li>Furniture</li>
+                  <li>Accessories</li>
+                  <li>Lighting</li>
+                  <li>Outdoor</li>
+                  <li>Decor</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Subcategories</h3>
+                <ul>
+                  <li>All Products</li>
+                  <li>Sofas & Daybeds</li>
+                  <li>Dining Chairs</li>
+                  <li>Coffee Tables</li>
+                  <li>Sideboards</li>
+                  <li>Mirrors</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Price</h3>
+                <div class="price-range">
+                  <span>$100</span>
+                  <div class="range-line"></div>
+                  <span>$1500</span>
+                </div>
+              </div>
+            </aside>
+            <div class="product-grid" id="product-grid"></div>
+          </section>
+        </section>
+
+        <section class="page" id="page-detail">
+          <section class="detail-header">
+            <p class="breadcrumb">Home / Product / All Product / Detail Product</p>
+            <h1>Detailed Product</h1>
+            <span class="detail-subtitle" id="detail-name">Luxe Chair</span>
+          </section>
+
+          <section class="detail-layout">
+            <div class="detail-gallery">
+              <div class="gallery-card gallery-main olive-room"></div>
+              <div class="gallery-card gallery-leaf"></div>
+              <div class="gallery-card gallery-closeup"></div>
+            </div>
+
+            <div class="detail-info">
+              <div class="product-meta">
+                <div>
+                  <h2 id="detail-title">Luxe Chair</h2>
+                  <p class="material">Boucle | Walnut frame</p>
+                </div>
+                <strong class="price" id="detail-price">$100</strong>
+              </div>
+              <p class="detail-description">
+                Wrapped in soft tactile upholstery and balanced by a refined
+                wooden frame, this statement chair brings an elegant yet
+                inviting note into quiet luxury interiors.
+              </p>
+              <ul class="detail-bullets">
+                <li>Comfort foam with layered density</li>
+                <li>Solid oak legs with matte finish</li>
+                <li>Ideal for lounge corners and reading nooks</li>
+              </ul>
+              <div class="purchase-row">
+                <div class="quantity-picker">
+                  <button type="button" id="qty-minus">-</button>
+                  <span id="qty-value">1</span>
+                  <button type="button" id="qty-plus">+</button>
+                </div>
+                <button class="primary-button" id="add-to-cart" type="button">
+                  Add To Cart
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section class="values detail-values">
+            <article>
+              <h3>Free shipping</h3>
+              <p>On all home furniture over $500 with secure delivery coordination.</p>
+            </article>
+            <article>
+              <h3>Best price</h3>
+              <p>Premium materials sourced with a clean, intentional catalog edit.</p>
+            </article>
+            <article>
+              <h3>Furniture store</h3>
+              <p>Luxury residential pieces designed to layer beautifully together.</p>
+            </article>
+          </section>
+
+          <section class="spec-layout">
+            <div class="spec-card">
+              <h3>Specifications</h3>
+              <ul>
+                <li>Overall width: 76 cm</li>
+                <li>Seat height: 43 cm</li>
+                <li>Finish: Performance boucle upholstery</li>
+                <li>Frame: FSC-certified oak and webbed support</li>
+              </ul>
+            </div>
+            <div class="spec-visual olive-sofa"></div>
+          </section>
+
+          <section class="review-section">
+            <div class="review-summary">
+              <p class="eyebrow">Reviews</p>
+              <div class="score">4.00</div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="review-list">
+              <article class="review-card">
+                <div class="review-card-header">
+                  <strong>Great Product, Love It</strong>
+                  <span>May 3rd, 2026</span>
+                </div>
+                <p>
+                  Beautiful proportion, very comfortable seat depth, and the
+                  olive tone feels rich without overpowering the room.
+                </p>
+              </article>
+              <article class="review-card">
+                <div class="review-card-header">
+                  <strong>Refined and cozy</strong>
+                  <span>May 8th, 2026</span>
+                </div>
+                <p>
+                  The curved shape looks high-end in person and pairs perfectly
+                  with neutral rugs and wooden accents.
+                </p>
+              </article>
+            </div>
+          </section>
+        </section>
+
+        <section class="newsletter">
+          <p class="eyebrow">Stay connected</p>
+          <h2>Subscribe to our newsletter</h2>
+          <p>Enter your email and get 10% off your first order on our product line.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Type your email address" />
+            <button type="submit" class="icon-button">→</button>
+          </form>
+        </section>
+      </main>
+
+      <footer class="footer" id="contact">
+        <div>
+          <h3>Contact</h3>
+          <p>hello@luxroom.com</p>
+          <p>+84 987 654 321</p>
+          <p>District 1, Ho Chi Minh City</p>
+        </div>
+        <div>
+          <h3>Information</h3>
+          <p>About us</p>
+          <p>Privacy policy</p>
+          <p>Terms & conditions</p>
+        </div>
+        <div>
+          <h3>Customer Service</h3>
+          <p>Contact support</p>
+          <p>Shipping information</p>
+          <p>Returns & exchanges</p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
