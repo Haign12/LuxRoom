@@ -1,0 +1,279 @@
+.hero,
+.brands,
+.consulting {
+  display: grid;
+  gap: 32px;
+}
+
+.hero {
+  grid-template-columns: 1.05fr 0.95fr;
+  min-height: 78vh;
+  align-items: center;
+  padding: 28px 0 52px;
+}
+
+.hero-visual,
+.story-card,
+.hero-room,
+.consulting-visual,
+.category-card,
+.mosaic-card {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.hero-visual {
+  position: relative;
+}
+
+.hero-room {
+  position: relative;
+  min-height: 580px;
+  background:
+    linear-gradient(180deg, rgba(22, 20, 18, 0.18), rgba(22, 20, 18, 0.12)),
+    linear-gradient(135deg, #3c332b 0%, #88725e 40%, #d8c7b0 100%);
+  box-shadow: var(--shadow);
+}
+
+.room-glow {
+  position: absolute;
+  inset: 16% 18% auto auto;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 242, 209, 0.8), rgba(255, 242, 209, 0));
+}
+
+.room-lamp {
+  position: absolute;
+  top: 14%;
+  right: 14%;
+  width: 74px;
+  height: 210px;
+  border-radius: 40px;
+  background:
+    radial-gradient(circle at top, #fff5d8 0 28%, #a48e72 29% 44%, transparent 45%),
+    linear-gradient(180deg, transparent 0 54%, #5b4a39 54% 62%, transparent 62%),
+    linear-gradient(180deg, transparent 0 72%, #3d3126 72% 100%);
+}
+
+.room-sofa {
+  position: absolute;
+  inset: auto 9% 10% 7%;
+  height: 210px;
+  border-radius: 50px 50px 28px 28px;
+  background:
+    radial-gradient(circle at 22% 24%, rgba(255, 255, 255, 0.14), transparent 30%),
+    linear-gradient(180deg, #e5d6c0 0%, #bda58a 100%);
+  box-shadow: inset 0 12px 40px rgba(255, 255, 255, 0.18);
+}
+
+.room-table {
+  position: absolute;
+  bottom: 8%;
+  left: 28%;
+  width: 170px;
+  height: 72px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #5c4636, #2c211a);
+  box-shadow: 0 22px 40px rgba(20, 15, 10, 0.25);
+}
+
+.hero-note {
+  position: absolute;
+  right: 28px;
+  bottom: 26px;
+  max-width: 220px;
+  padding: 20px;
+  border-radius: 24px;
+  background: rgba(251, 248, 242, 0.88);
+  box-shadow: var(--shadow);
+}
+
+.hero-note span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr 0.95fr;
+  gap: 24px;
+  padding: 40px 0 24px;
+}
+
+.story-card {
+  min-height: 260px;
+  position: relative;
+}
+
+.story-large {
+  grid-row: span 2;
+  min-height: 544px;
+}
+
+.story-tall {
+  grid-row: span 2;
+}
+
+.warm-one {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.34)),
+    linear-gradient(135deg, #d8cfbf, #a98d74 55%, #6f5946);
+}
+
+.warm-two {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.24)),
+    linear-gradient(135deg, #d9c7af, #9f876f 55%, #4e3b2f);
+}
+
+.warm-three {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.24)),
+    linear-gradient(135deg, #d9d0c5, #a4927b 55%, #6c5646);
+}
+
+.warm-four {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.24)),
+    linear-gradient(135deg, #c8b9a5, #927763 52%, #5b4639);
+}
+
+.story-overlay {
+  position: absolute;
+  inset: auto 22px 22px;
+  color: #fffdf8;
+}
+
+.story-overlay span {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-family: Baskerville, "Times New Roman", serif;
+  font-size: 2rem;
+}
+
+.categories {
+  padding: 64px 0 24px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.category-card {
+  min-height: 230px;
+  display: flex;
+  align-items: end;
+  padding: 20px;
+  font-family: Baskerville, "Times New Roman", serif;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.category-living { background: linear-gradient(135deg, rgba(39, 29, 22, 0.18), rgba(39, 29, 22, 0.48)), linear-gradient(135deg, #b9ab98, #675447); }
+.category-bedroom { background: linear-gradient(135deg, rgba(39, 29, 22, 0.18), rgba(39, 29, 22, 0.48)), linear-gradient(135deg, #d9cfc0, #91816e); }
+.category-kitchen { background: linear-gradient(135deg, rgba(39, 29, 22, 0.18), rgba(39, 29, 22, 0.48)), linear-gradient(135deg, #aa9684, #534337); }
+.category-bath { background: linear-gradient(135deg, rgba(39, 29, 22, 0.18), rgba(39, 29, 22, 0.48)), linear-gradient(135deg, #d3c7b8, #746556); }
+
+.brands {
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  padding: 28px 0 58px;
+}
+
+.brand-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 0;
+  margin: 28px 0 0;
+  list-style: none;
+}
+
+.brand-mosaic {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.mosaic-card {
+  min-height: 220px;
+  box-shadow: var(--shadow);
+}
+
+.tone-stone { background: linear-gradient(135deg, #d6cdc0, #8b7763); }
+.tone-sand { background: linear-gradient(135deg, #efe4d3, #b79f83); }
+.tone-olive { background: linear-gradient(135deg, #76806b, #40493c); }
+.tone-wood { background: linear-gradient(135deg, #9b7f63, #4b3527); }
+
+.consulting {
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  padding: 18px 0 42px;
+}
+
+.consulting-visual {
+  min-height: 420px;
+  position: relative;
+  background: linear-gradient(135deg, #d8c8b5, #9d856f);
+}
+
+.fabric-roll {
+  position: absolute;
+  inset: auto 12% 20% auto;
+  width: 52%;
+  height: 42%;
+  border-radius: 48px;
+  background: linear-gradient(135deg, #c8aa8d, #90745c 62%, #534032);
+  transform: rotate(-16deg);
+}
+
+.fabric-shadow {
+  position: absolute;
+  inset: auto 18% 12% 12%;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(70, 46, 31, 0.16);
+  filter: blur(16px);
+}
+
+@media (max-width: 1080px) {
+  .hero,
+  .brands,
+  .consulting,
+  .intro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-large,
+  .story-tall {
+    grid-row: auto;
+    min-height: 320px;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 12px;
+  }
+
+  .hero-room,
+  .story-card,
+  .consulting-visual {
+    min-height: 280px;
+  }
+}

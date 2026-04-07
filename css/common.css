@@ -1,0 +1,269 @@
+:root {
+  --bg: #f5f1ea;
+  --surface: #fbf8f2;
+  --ink: #181511;
+  --muted: #75695d;
+  --line: rgba(24, 21, 17, 0.12);
+  --shadow: 0 24px 60px rgba(29, 24, 18, 0.08);
+  --radius-xl: 34px;
+  --radius-lg: 24px;
+  --content: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.9), transparent 32%),
+    linear-gradient(180deg, #f9f5ee 0%, #f2ece2 100%);
+  color: var(--ink);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-shell {
+  width: min(calc(100% - 32px), var(--content));
+  margin: 0 auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 0;
+  backdrop-filter: blur(12px);
+  background: rgba(245, 241, 234, 0.76);
+}
+
+.brand,
+.main-nav a {
+  font-size: 0.94rem;
+  color: var(--muted);
+}
+
+.brand {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.brand.active,
+.main-nav a.active {
+  color: var(--ink);
+}
+
+.main-nav,
+.topbar-actions,
+.hero-actions,
+.purchase-row,
+.review-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.main-nav {
+  gap: 22px;
+}
+
+.icon-button,
+.secondary-button,
+.primary-button,
+.sort-pill {
+  border-radius: 999px;
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.primary-button,
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+  padding: 14px 24px;
+}
+
+.primary-button {
+  background: var(--ink);
+  color: #fff;
+}
+
+.secondary-button {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: Baskerville, "Times New Roman", serif;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: clamp(3rem, 6vw, 5.4rem);
+  line-height: 0.95;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  line-height: 1.02;
+}
+
+.hero-text,
+.brands-copy p,
+.consulting-copy p,
+.detail-description,
+.review-card p,
+.newsletter p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.section-heading {
+  padding: 26px 8px 0 0;
+}
+
+.section-heading.center {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 24px;
+}
+
+.values,
+.footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.values {
+  padding: 56px 0;
+}
+
+.values article {
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.values p,
+.filters li,
+.spec-card li,
+.footer p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.newsletter {
+  margin: 40px 0 30px;
+  padding: 64px 0 24px;
+  text-align: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.38);
+}
+
+.newsletter-form {
+  width: min(100%, 520px);
+  margin: 28px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px 10px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.newsletter-form input {
+  flex: 1;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+
+.footer {
+  padding: 22px 0 48px;
+}
+
+.footer h3 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+@media (max-width: 1080px) {
+  .values,
+  .footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .site-shell {
+    width: min(calc(100% - 20px), var(--content));
+  }
+
+  .topbar,
+  .main-nav,
+  .topbar-actions,
+  .hero-actions,
+  .purchase-row,
+  .review-card-header {
+    flex-wrap: wrap;
+  }
+
+  .topbar {
+    justify-content: center;
+  }
+
+  .values,
+  .footer {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 2.9rem;
+  }
+}

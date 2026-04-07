@@ -1,0 +1,117 @@
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  align-items: start;
+  gap: 32px;
+  padding: 26px 0 48px;
+}
+
+.catalog-header {
+  padding: 24px 0 16px;
+  text-align: center;
+}
+
+.catalog-header h1 {
+  font-size: clamp(2.5rem, 5vw, 4.3rem);
+}
+
+.sort-pill {
+  display: inline-flex;
+  padding: 12px 18px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.45);
+  color: var(--muted);
+}
+
+.filters {
+  position: sticky;
+  top: 100px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--line);
+}
+
+.filters h3 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+.filters ul {
+  padding-left: 18px;
+  margin: 0 0 24px;
+}
+
+.price-range {
+  display: grid;
+  gap: 12px;
+}
+
+.range-line {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #c4b5a4, #5b4c40);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.product-card {
+  display: grid;
+  gap: 14px;
+}
+
+.product-thumb {
+  min-height: 240px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.thumb-a { background: linear-gradient(135deg, #d4c4af, #8a6b54); }
+.thumb-b { background: linear-gradient(135deg, #f0e5d4, #b49d84); }
+.thumb-c { background: linear-gradient(135deg, #d3d1ca, #8c877e); }
+.thumb-d { background: linear-gradient(135deg, #ab906e, #5f4737); }
+.thumb-e { background: linear-gradient(135deg, #d5c3b7, #786355); }
+.thumb-f { background: linear-gradient(135deg, #b3b7b7, #5e6162); }
+.thumb-g { background: linear-gradient(135deg, #b39a7b, #5d4936); }
+.thumb-h { background: linear-gradient(135deg, #7c644b, #34261d); }
+.thumb-i { background: linear-gradient(135deg, #90a07f, #4f5a47); }
+.thumb-j { background: linear-gradient(135deg, #c9b59f, #7b624f); }
+.thumb-k { background: linear-gradient(135deg, #b79f82, #5c493c); }
+.thumb-l { background: linear-gradient(135deg, #c8cabf, #8b8c84); }
+
+.product-meta-row {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.product-card h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+@media (max-width: 1080px) {
+  .catalog-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filters {
+    position: static;
+  }
+}
+
+@media (max-width: 760px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
