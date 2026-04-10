@@ -44,7 +44,9 @@ function setupQuantityControls() {
   });
 
   addToCartButton.addEventListener("click", () => {
-    window.LuxRoom.addToCart(quantity);
+    const params = new URLSearchParams(window.location.search);
+    const productId = Number(params.get("product")) || 1;
+    window.LuxRoom.addToCart(productId, quantity);
   });
 
   updateQuantity();

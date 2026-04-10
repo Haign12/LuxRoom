@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LuxRoom | Cart</title>
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/cart.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="./index.html">LuxRoom</a>
+        <nav class="main-nav">
+          <a href="./index.html">Home</a>
+          <a href="./products.html">Product</a>
+          <a href="./detail.html">About</a>
+          <a href="./index.html#contact">Contact</a>
+        </nav>
+        <div class="topbar-actions">
+          <a href="./auth.html" class="icon-button" style="color: inherit; text-decoration: none;">Login</a>
+          <span class="icon-button">Saved</span>
+          <a href="./cart.html" class="icon-button active" style="color: inherit; text-decoration: none; border-color: var(--ink);">Cart <span data-cart-count>0</span></a>
+        </div>
+      </header>
+
+      <main class="cart-container">
+        <article class="section-heading">
+          <h1>Shopping Cart</h1>
+          <p class="hero-text">Review your selected pieces before proceeding to checkout.</p>
+        </article>
+
+        <div class="cart-layout">
+          <div class="cart-items" id="cart-items-container">
+            <!-- Items rendered via cart.js -->
+          </div>
+
+          <aside class="cart-summary">
+            <h3>Order Summary</h3>
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span id="cart-subtotal">$0</span>
+            </div>
+            <div class="summary-row">
+              <span>Shipping</span>
+              <span id="cart-shipping">$0</span>
+            </div>
+            <div class="summary-row total">
+              <span>Total</span>
+              <span id="cart-total">$0</span>
+            </div>
+            <a href="./checkout.html" class="primary-button checkout-btn">Proceed to Checkout</a>
+          </aside>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div>
+          <h3>Contact</h3>
+          <p>hello@luxroom.com</p>
+          <p>+84 987 654 321</p>
+          <p>District 1, Ho Chi Minh City</p>
+        </div>
+        <div>
+          <h3>Information</h3>
+          <p>About us</p>
+          <p>Privacy policy</p>
+          <p>Terms & conditions</p>
+        </div>
+        <div>
+          <h3>Customer Service</h3>
+          <p>Contact support</p>
+          <p>Shipping information</p>
+          <p>Returns & exchanges</p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/cart.js"></script>
+  </body>
+</html>

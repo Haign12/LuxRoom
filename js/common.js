@@ -16,17 +16,53 @@ const products = [
 const cartCountNodes = document.querySelectorAll("[data-cart-count]");
 const newsletterForms = document.querySelectorAll(".newsletter-form");
 
-let cart = Number(localStorage.getItem("luxroom-cart-count") || 0);
+let cartItems = JSON.parse(localStorage.getItem("luxroom-cart-items") || "[]");
+
+function getCartItemCount() {
+  return cartItems.reduce((total, item) => total + item.quantity, 0);
+}
 
 function syncCartCount() {
+  const count = getCartItemCount();
   cartCountNodes.forEach((node) => {
-    node.textContent = String(cart);
+    node.textContent = String(count);
   });
 }
 
-function addToCart(quantity) {
-  cart += quantity;
-  localStorage.setItem("luxroom-cart-count", String(cart));
+function addToCart(productId, quantity) {
+  const existingItem = cartItems.find((item) => item.id === productId);
+  if (existingItem) {
+    existingItem.quantity += quantity;
+  } else {
+    const product = products.find((p) => p.id === productId);
+    if (product) {
+      cartItems.push({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        tone: product.tone,
+        quantity: quantity,
+      });
+    }
+  }
+  localStorage.setItem("luxroom-cart-items", JSON.stringify(cartItems));
+  syncCartCount();
+}
+
+function updateCartItem(productId, quantity) {
+  if (quantity <= 0) {
+    cartItems = cartItems.filter((item) => item.id !== productId);
+  } else {
+    const item = cartItems.find((item) => item.id === productId);
+    if (item) item.quantity = quantity;
+  }
+  localStorage.setItem("luxroom-cart-items", JSON.stringify(cartItems));
+  syncCartCount();
+}
+
+function clearCart() {
+  cartItems = [];
+  localStorage.removeItem("luxroom-cart-items");
   syncCartCount();
 }
 
@@ -40,5 +76,8 @@ syncCartCount();
 
 window.LuxRoom = {
   products,
+  cartItems,
   addToCart,
+  updateCartItem,
+  clearCart,
 };
