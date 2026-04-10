@@ -14,44 +14,137 @@
         <nav class="main-nav">
           <a href="./index.html">Home</a>
           <a href="./products.html">Product</a>
-          <a href="./detail.html">About</a>
-          <a href="./index.html#contact">Contact</a>
+          <a href="./about.html">About Us</a>
+          <a href="./contact.html">Contact</a>
         </nav>
-        <div class="topbar-actions">
-          <a href="./auth.html" class="icon-button" style="color: inherit; text-decoration: none;">Login</a>
-          <span class="icon-button">Saved</span>
-          <a href="./cart.html" class="icon-button active" style="color: inherit; text-decoration: none; border-color: var(--ink);">Cart <span data-cart-count>0</span></a>
+                <div class="topbar-actions">
+          <button class="icon-button" aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          </button>
+          <a href="./cart.html" class="icon-button" aria-label="Cart">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>
+            <div class="cart-badge" data-cart-count style="display: none;">0</div>
+          </a>
+          <a href="./auth.html" class="icon-button" aria-label="User">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </a>
         </div>
       </header>
 
-      <main class="cart-container">
-        <article class="section-heading">
-          <h1>Shopping Cart</h1>
-          <p class="hero-text">Review your selected pieces before proceeding to checkout.</p>
-        </article>
+      <main class="mega-cart-container">
+        <section class="cart-title-area">
+          <h1 style="text-align: center; margin: 40px 0; font-family: Baskerville, 'Times New Roman', serif; font-size: 3.5rem;">Cart</h1>
+          <nav class="breadcrumb">
+            <span style="color: var(--muted);">Home</span> &nbsp;&gt;&nbsp; <strong>Cart</strong>
+          </nav>
+        </section>
 
-        <div class="cart-layout">
-          <div class="cart-items" id="cart-items-container">
+        <section class="cart-table-section">
+          <div class="cart-table-header">
+            <div class="col-item">Items</div>
+            <div class="col-desc">Description</div>
+            <div class="col-qty">Quantity</div>
+            <div class="col-price">Price</div>
+            <div class="col-action"></div>
+          </div>
+          <div class="cart-table-body" id="cart-items-container">
             <!-- Items rendered via cart.js -->
           </div>
+        </section>
 
-          <aside class="cart-summary">
+        <section class="checkout-split-section">
+          <div class="checkout-forms">
+            
+            <div class="shipping-info">
+              <div class="shipping-header">
+                <h3>Shipping Information</h3>
+                <a href="#" class="change-address-btn">Change Address 
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+                </a>
+              </div>
+              <p class="address-text">
+                aaaaaaa<br>
+                bbbbbbb<br>
+                012345678
+              </p>
+            </div>
+
+            <div class="payment-card-box">
+              <h3>Select Your Payment Card</h3>
+              <div class="payment-methods">
+                <label class="pay-method-radio">
+                  <input type="radio" name="paymethod" checked>
+                  <div class="card-icons">
+                    <span style="color:#1a1f71; font-weight:800; font-style:italic;">VISA</span>
+                    <span style="color:#eb001b; font-weight:700;">MasterCard</span>
+                    <span style="color:#f79e1b; font-weight:700;">JCB</span>
+                  </div>
+                </label>
+                <label class="pay-method-radio">
+                  <input type="radio" name="paymethod">
+                  <span>Cash on Delivery</span>
+                </label>
+              </div>
+
+              <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" placeholder="Enter your card number">
+              </div>
+              
+              <div class="form-group">
+                <label>Card Number</label>
+                <input type="text" placeholder="Enter your card number">
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label>Expire Date</label>
+                  <input type="text" placeholder="Expire Date">
+                </div>
+                <div class="form-group">
+                  <label>CVV 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+                  </label>
+                  <input type="text" placeholder="CVV">
+                </div>
+              </div>
+
+              <label class="save-card-cb">
+                <input type="checkbox" checked> Save this card for a faster checkout experience
+              </label>
+            </div>
+
+            <div class="promo-bar">
+              <div class="promo-input-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path></svg>
+                <input type="text" placeholder="Add promo code" />
+              </div>
+              <button class="primary-button btn-apply">Apply</button>
+            </div>
+
+            <button class="primary-button btn-confirm">Confirm your Pay</button>
+
+          </div>
+
+          <aside class="order-summary-box">
             <h3>Order Summary</h3>
-            <div class="summary-row">
-              <span>Subtotal</span>
-              <span id="cart-subtotal">$0</span>
+            <div class="os-row">
+              <span class="os-label">Subtotal</span>
+              <strong id="cart-subtotal">$0</strong>
             </div>
-            <div class="summary-row">
-              <span>Shipping</span>
-              <span id="cart-shipping">$0</span>
+            <div class="os-row">
+              <span class="os-label">Delivery Fee</span>
+              <span class="os-label" id="cart-shipping">$30</span>
             </div>
-            <div class="summary-row total">
+            <div class="os-row total">
               <span>Total</span>
-              <span id="cart-total">$0</span>
+              <strong id="cart-total">$0</strong>
             </div>
-            <a href="./checkout.html" class="primary-button checkout-btn">Proceed to Checkout</a>
+            
+            <a href="./checkout.html" class="primary-button btn-checkout">Go to Checkout</a>
+            <a href="./products.html" class="secondary-button btn-continue">Continue Shopping</a>
           </aside>
-        </div>
+        </section>
       </main>
 
       <footer class="footer">
@@ -76,6 +169,65 @@
       </footer>
     </div>
 
+
+    <!-- Global Search Overlay -->
+    <div class="search-overlay" id="global-search-overlay">
+      <div class="search-modal">
+        <div class="search-input-wrapper">
+          <svg class="search-modal-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <input type="text" id="global-search-input" placeholder="Search..." autocomplete="off"/>
+          <svg class="search-modal-close" id="close-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg>
+        </div>
+        <div class="search-dropdown">
+          <div class="search-section">
+            <h4>Search Suggestions</h4>
+            <div class="search-item">
+              <div class="search-item-img luxury-bg"></div>
+              <div class="search-item-info">
+                <strong>Divani Chair</strong>
+                <span>Chair · Fabric · Oak</span>
+              </div>
+              <div class="search-item-price">$200</div>
+            </div>
+            <div class="search-item active">
+              <div class="search-item-img luxury-bg"></div>
+              <div class="search-item-info">
+                <strong>Divani Chair</strong>
+                <span>Chair · Fabric · Oak</span>
+              </div>
+              <div class="search-item-price">$200</div>
+            </div>
+            <div class="search-item">
+              <div class="search-item-img luxury-bg"></div>
+              <div class="search-item-info">
+                <strong>Divani Chair</strong>
+                <span>Chair · Fabric · Oak</span>
+              </div>
+              <div class="search-item-price">$200</div>
+            </div>
+          </div>
+          <div class="search-section">
+            <h4>All Products (24)</h4>
+            <div class="search-item">
+              <div class="search-item-img luxury-bg"></div>
+              <div class="search-item-info">
+                <strong>Divani Chair</strong>
+                <span>Chair · Fabric · Oak</span>
+              </div>
+              <div class="search-item-price">$200</div>
+            </div>
+            <div class="search-item">
+              <div class="search-item-img luxury-bg"></div>
+              <div class="search-item-info">
+                <strong>Divani Chair</strong>
+                <span>Chair · Fabric · Oak</span>
+              </div>
+              <div class="search-item-price">$200</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="../js/common.js"></script>
     <script src="../js/cart.js"></script>
   </body>

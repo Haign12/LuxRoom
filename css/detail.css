@@ -43,15 +43,15 @@
 }
 
 .olive-room {
-  background: radial-gradient(circle at 22% 28%, rgba(255, 255, 255, 0.1), transparent 22%), linear-gradient(135deg, #8c997a 0%, #657256 45%, #434f3d 100%);
+  background: url('../img/lux_gallery_main.png') center/cover no-repeat;
 }
 
 .gallery-leaf {
-  background: radial-gradient(circle at 60% 18%, rgba(255, 255, 255, 0.16), transparent 22%), linear-gradient(135deg, #f0eadf 10%, #aab49a 55%, #646e56 100%);
+  background: url('../img/lux_gallery_leaf.png') center/cover no-repeat;
 }
 
 .gallery-closeup {
-  background: radial-gradient(circle at 68% 28%, rgba(255, 255, 255, 0.12), transparent 25%), linear-gradient(135deg, #7a8769 0%, #58654d 52%, #414a3b 100%);
+  background: url('../img/lux_gallery_closeup.png') center/cover no-repeat;
 }
 
 .detail-info {
@@ -67,8 +67,8 @@
 
 .price,
 .score {
-  font-family: Baskerville, "Times New Roman", serif;
   font-size: 2rem;
+  font-weight: 500;
 }
 
 .detail-bullets {
@@ -87,15 +87,15 @@
   align-items: center;
   gap: 18px;
   padding: 8px 14px;
-  border-radius: 999px;
+  border-radius: 0;
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.4);
+  background: transparent;
 }
 
 .quantity-picker button {
   width: 28px;
   height: 28px;
-  border-radius: 50%;
+  border-radius: 0;
   border: 1px solid var(--line);
 }
 
@@ -106,8 +106,8 @@
 
 .spec-card {
   padding: 26px;
-  border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.48);
+  border-radius: 0;
+  background: transparent;
   border: 1px solid var(--line);
 }
 
@@ -127,7 +127,7 @@
 }
 
 .olive-sofa {
-  background: radial-gradient(circle at 66% 24%, rgba(255, 255, 255, 0.1), transparent 20%), linear-gradient(135deg, #909d82 0%, #657156 44%, #434d3c 100%);
+  background: url('../img/lux_story_1.png') center/cover no-repeat;
 }
 
 .review-section {
@@ -146,9 +146,9 @@
 
 .review-card {
   padding: 22px 24px;
-  border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.44);
-  border: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line);
 }
 
 .review-card strong {

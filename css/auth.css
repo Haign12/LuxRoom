@@ -9,10 +9,9 @@
 .auth-card {
   width: 100%;
   max-width: 460px;
-  background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(12px);
+  background: transparent;
   border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
+  border-radius: 0;
   padding: 40px;
   text-align: center;
 }
@@ -75,10 +74,11 @@
 }
 
 .form-group input {
-  padding: 14px 16px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.8);
+  padding: 14px 0;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
   outline: none;
 }
 

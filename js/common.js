@@ -26,6 +26,11 @@ function syncCartCount() {
   const count = getCartItemCount();
   cartCountNodes.forEach((node) => {
     node.textContent = String(count);
+    if (count > 0) {
+      node.style.display = "flex";
+    } else {
+      node.style.display = "none";
+    }
   });
 }
 
@@ -81,3 +86,38 @@ window.LuxRoom = {
   updateCartItem,
   clearCart,
 };
+
+// Global Search Overlay Logic
+const searchButtons = document.querySelectorAll('button[aria-label="Search"], .icon-button[aria-label="Search"]');
+const searchOverlay = document.getElementById('global-search-overlay');
+const closeSearch = document.getElementById('close-search');
+
+if (searchOverlay) {
+  const toggleSearch = (e) => {
+    if (e) e.preventDefault();
+    searchOverlay.classList.toggle('show');
+    if (searchOverlay.classList.contains('show')) {
+      document.getElementById('global-search-input').focus();
+    }
+  };
+
+  searchButtons.forEach(btn => btn.addEventListener('click', toggleSearch));
+  
+  if (closeSearch) {
+    closeSearch.addEventListener('click', toggleSearch);
+  }
+
+  // Close when clicking outside modal
+  searchOverlay.addEventListener('click', (e) => {
+    if (e.target === searchOverlay) {
+      toggleSearch();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && searchOverlay.classList.contains('show')) {
+      toggleSearch();
+    }
+  });
+}

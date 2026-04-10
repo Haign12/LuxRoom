@@ -14,13 +14,20 @@
         <nav class="main-nav">
           <a href="./index.html">Home</a>
           <a href="./products.html">Product</a>
-          <a href="./detail.html">About</a>
-          <a href="./index.html#contact">Contact</a>
+          <a href="./about.html">About Us</a>
+          <a href="./contact.html">Contact</a>
         </nav>
-        <div class="topbar-actions">
-          <a href="./auth.html" class="icon-button" style="color: inherit; text-decoration: none;">Login</a>
-          <span class="icon-button">Saved</span>
-          <a href="./cart.html" class="icon-button" style="color: inherit; text-decoration: none;">Cart <span data-cart-count>0</span></a>
+                <div class="topbar-actions">
+          <button class="icon-button" aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          </button>
+          <a href="./cart.html" class="icon-button" aria-label="Cart">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>
+            <div class="cart-badge" data-cart-count style="display: none;">0</div>
+          </a>
+          <a href="./auth.html" class="icon-button" aria-label="User">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </a>
         </div>
       </header>
 
@@ -131,6 +138,65 @@
       </footer>
     </div>
 
+
+    <!-- Global Search Overlay -->
+    <div class="search-overlay" id="global-search-overlay">
+      <div class="search-modal">
+        <div class="search-input-wrapper">
+          <svg class="search-modal-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <input type="text" id="global-search-input" placeholder="Search..." autocomplete="off"/>
+          <svg class="search-modal-close" id="close-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg>
+        </div>
+        <div class="search-dropdown">
+          <div class="search-section">
+            <h4>Search Suggestions</h4>
+            <div class="search-item">
+              <div class="search-item-img luxury-bg"></div>
+              <div class="search-item-info">
+                <strong>Divani Chair</strong>
+                <span>Chair · Fabric · Oak</span>
+              </div>
+              <div class="search-item-price">$200</div>
+            </div>
+            <div class="search-item active">
+              <div class="search-item-img luxury-bg"></div>
+              <div class="search-item-info">
+                <strong>Divani Chair</strong>
+                <span>Chair · Fabric · Oak</span>
+              </div>
+              <div class="search-item-price">$200</div>
+            </div>
+            <div class="search-item">
+              <div class="search-item-img luxury-bg"></div>
+              <div class="search-item-info">
+                <strong>Divani Chair</strong>
+                <span>Chair · Fabric · Oak</span>
+              </div>
+              <div class="search-item-price">$200</div>
+            </div>
+          </div>
+          <div class="search-section">
+            <h4>All Products (24)</h4>
+            <div class="search-item">
+              <div class="search-item-img luxury-bg"></div>
+              <div class="search-item-info">
+                <strong>Divani Chair</strong>
+                <span>Chair · Fabric · Oak</span>
+              </div>
+              <div class="search-item-price">$200</div>
+            </div>
+            <div class="search-item">
+              <div class="search-item-img luxury-bg"></div>
+              <div class="search-item-info">
+                <strong>Divani Chair</strong>
+                <span>Chair · Fabric · Oak</span>
+              </div>
+              <div class="search-item-price">$200</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="../js/common.js"></script>
     <script src="../js/checkout.js"></script>
   </body>

@@ -14,59 +14,92 @@
         <nav class="main-nav">
           <a href="./index.html">Home</a>
           <a class="active" href="./products.html">Product</a>
-          <a href="./detail.html">About</a>
-          <a href="#contact">Contact</a>
+          <a href="./about.html">About Us</a>
+          <a href="./contact.html">Contact</a>
         </nav>
-        <div class="topbar-actions">
-          <a href="./auth.html" class="icon-button" style="color: inherit; text-decoration: none;">Login</a>
-          <span class="icon-button">Saved</span>
-          <a href="./cart.html" class="icon-button" style="color: inherit; text-decoration: none;">Cart <span data-cart-count>0</span></a>
+                <div class="topbar-actions">
+          <button class="icon-button" aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          </button>
+          <a href="./cart.html" class="icon-button" aria-label="Cart">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>
+            <div class="cart-badge" data-cart-count style="display: none;">0</div>
+          </a>
+          <a href="./auth.html" class="icon-button" aria-label="User">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </a>
         </div>
       </header>
 
       <main>
-        <section class="catalog-header">
-          <div>
-            <p class="eyebrow">Furniture</p>
-            <h1>Curated product collection</h1>
-          </div>
-          <div class="sort-pill">Sort by: Featured</div>
+        <section class="page-title">
+          <h1 style="text-align: center; margin: 24px 0; font-family: Baskerville, 'Times New Roman', serif;">Furniture</h1>
         </section>
 
-        <section class="catalog-layout">
-          <aside class="filters">
-            <div>
-              <h3>Category</h3>
-              <ul>
-                <li>Furniture</li>
-                <li>Accessories</li>
-                <li>Lighting</li>
-                <li>Outdoor</li>
-                <li>Decor</li>
-              </ul>
-            </div>
-            <div>
-              <h3>Subcategories</h3>
-              <ul>
-                <li>All Products</li>
-                <li>Sofas & Daybeds</li>
-                <li>Dining Chairs</li>
-                <li>Coffee Tables</li>
-                <li>Sideboards</li>
-                <li>Mirrors</li>
-              </ul>
-            </div>
-            <div>
-              <h3>Price</h3>
-              <div class="price-range">
-                <span>$100</span>
-                <div class="range-line"></div>
-                <span>$1500</span>
+        <nav class="breadcrumb">
+          <span>Home</span> &gt; <span>Product</span> &gt; <strong>All Product</strong>
+        </nav>
+
+        <section class="filter-toolbar">
+          <div class="filter-toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M1 14h6"/><path d="M9 8h6"/><path d="M17 16h6"/>
+            </svg>
+            <span>Filter</span>
+          </div>
+          <div class="sort-dropdown">
+            <span>Sort By</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+        </section>
+
+        <section class="expanded-filters">
+          <div class="filter-col">
+            <h3>Category</h3>
+            <ul class="filter-list">
+              <li class="active">Furniture</li>
+              <li>Accessories</li>
+              <li>Lightning</li>
+              <li>Outdoor</li>
+              <li>Outlet</li>
+            </ul>
+          </div>
+          <div class="filter-col">
+            <h3>Subcategories</h3>
+            <ul class="filter-list">
+              <li class="active">All Products</li>
+              <li>Dressers & Nightstands</li>
+              <li>Pouf</li>
+              <li>Doors & Separat</li>
+              <li>Coating</li>
+              <li>Consoles & Toilets</li>
+              <li>Beds</li>
+              <li>Armchairs</li>
+              <li>Stools</li>
+              <li>Coffee Tables</li>
+              <li>Sofas</li>
+              <li>Chairs</li>
+              <li>Rugs</li>
+            </ul>
+          </div>
+          <div class="filter-col">
+            <h3>Price</h3>
+            <div class="price-slider-box">
+              <div class="slider-controls">
+                <div class="price-slider-track"></div>
+                <div class="price-slider-fill" id="price-fill"></div>
+                <input type="range" class="range-min" min="0" max="2000" value="200" step="50">
+                <input type="range" class="range-max" min="0" max="2000" value="1200" step="50">
+              </div>
+              <div class="price-labels">
+                <span id="price-min-val">$200</span>
+                <span id="price-max-val">$1200</span>
               </div>
             </div>
-          </aside>
-          <div class="product-grid" id="product-grid"></div>
+          </div>
         </section>
+
+        <section class="product-grid-masonry" id="product-grid"></section>
 
         <section class="newsletter">
           <p class="eyebrow">Stay connected</p>
@@ -101,6 +134,65 @@
       </footer>
     </div>
 
+
+    <!-- Global Search Overlay -->
+    <div class="search-overlay" id="global-search-overlay">
+      <div class="search-modal">
+        <div class="search-input-wrapper">
+          <svg class="search-modal-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <input type="text" id="global-search-input" placeholder="Search..." autocomplete="off"/>
+          <svg class="search-modal-close" id="close-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg>
+        </div>
+        <div class="search-dropdown">
+          <div class="search-section">
+            <h4>Search Suggestions</h4>
+            <div class="search-item">
+              <div class="search-item-img luxury-bg"></div>
+              <div class="search-item-info">
+                <strong>Divani Chair</strong>
+                <span>Chair · Fabric · Oak</span>
+              </div>
+              <div class="search-item-price">$200</div>
+            </div>
+            <div class="search-item active">
+              <div class="search-item-img luxury-bg"></div>
+              <div class="search-item-info">
+                <strong>Divani Chair</strong>
+                <span>Chair · Fabric · Oak</span>
+              </div>
+              <div class="search-item-price">$200</div>
+            </div>
+            <div class="search-item">
+              <div class="search-item-img luxury-bg"></div>
+              <div class="search-item-info">
+                <strong>Divani Chair</strong>
+                <span>Chair · Fabric · Oak</span>
+              </div>
+              <div class="search-item-price">$200</div>
+            </div>
+          </div>
+          <div class="search-section">
+            <h4>All Products (24)</h4>
+            <div class="search-item">
+              <div class="search-item-img luxury-bg"></div>
+              <div class="search-item-info">
+                <strong>Divani Chair</strong>
+                <span>Chair · Fabric · Oak</span>
+              </div>
+              <div class="search-item-price">$200</div>
+            </div>
+            <div class="search-item">
+              <div class="search-item-img luxury-bg"></div>
+              <div class="search-item-info">
+                <strong>Divani Chair</strong>
+                <span>Chair · Fabric · Oak</span>
+              </div>
+              <div class="search-item-price">$200</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="../js/common.js"></script>
     <script src="../js/products.js"></script>
   </body>

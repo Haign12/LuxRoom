@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LuxRoom | Authentication</title>
+    <title>LuxRoom | About Us</title>
     <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/auth.css" />
+    <link rel="stylesheet" href="../css/about.css" />
   </head>
   <body>
     <div class="site-shell">
@@ -14,10 +14,10 @@
         <nav class="main-nav">
           <a href="./index.html">Home</a>
           <a href="./products.html">Product</a>
-          <a href="./about.html">About Us</a>
+          <a class="active" href="./about.html">About Us</a>
           <a href="./contact.html">Contact</a>
         </nav>
-                <div class="topbar-actions">
+        <div class="topbar-actions">
           <button class="icon-button" aria-label="Search">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
           </button>
@@ -31,47 +31,58 @@
         </div>
       </header>
 
-      <main class="auth-container">
-        <div class="auth-card">
-          <div class="auth-tabs">
-            <button class="auth-tab active" id="tab-login">Sign In</button>
-            <button class="auth-tab" id="tab-register">Create Account</button>
-          </div>
-
-          <!-- Login Form -->
-          <form class="auth-form active" id="form-login">
-            <div class="form-group">
-              <label for="login-email">Email Address</label>
-              <input type="email" id="login-email" required placeholder="hello@luxroom.com" />
-            </div>
-            <div class="form-group">
-              <label for="login-password">Password</label>
-              <input type="password" id="login-password" required placeholder="••••••••" />
-            </div>
-            <div class="auth-actions">
-              <button type="submit" class="primary-button">Sign In</button>
-            </div>
-          </form>
-
-          <!-- Register Form -->
-          <form class="auth-form" id="form-register">
-            <div class="form-group">
-              <label for="reg-name">Full Name</label>
-              <input type="text" id="reg-name" required placeholder="John Doe" />
-            </div>
-            <div class="form-group">
-              <label for="reg-email">Email Address</label>
-              <input type="email" id="reg-email" required placeholder="hello@luxroom.com" />
-            </div>
-            <div class="form-group">
-              <label for="reg-password">Password</label>
-              <input type="password" id="reg-password" required placeholder="••••••••" />
-            </div>
-            <div class="auth-actions">
-              <button type="submit" class="primary-button">Create Account</button>
-            </div>
-          </form>
+      <main class="about-container">
+        
+        <div class="about-header">
+          <h1>About Us</h1>
+          <nav class="breadcrumb">
+            <span style="color: var(--muted);">Home</span> &nbsp;&gt;&nbsp; <strong>About Us</strong>
+          </nav>
         </div>
+
+        <section class="about-feature">
+          <div class="about-img thumb-h"></div>
+          <div class="about-content">
+            <h2>Crafted For<br>Modern Living</h2>
+            <p>At Luxroom, we believe furniture is more than an object — it is a part of everyday life. Each piece is designed to bring balance, comfort, and quiet elegance into modern living spaces.</p>
+            <p>We focus on simplicity, timeless forms, and thoughtful details that stand the test of time.</p>
+            <a href="./products.html" class="primary-button black-btn">View Collection</a>
+          </div>
+        </section>
+
+        <section class="about-feature reverse">
+          <div class="about-content">
+            <h2>Our Philosophy</h2>
+            <p>Good design should feel natural. It should support how people live, move, and rest — without demanding attention.</p>
+            <p>Every decision is intentional, from proportion to texture, from form to finish.</p>
+            <a href="./products.html" class="primary-button black-btn">View Collection</a>
+          </div>
+          <div class="about-img thumb-j"></div>
+        </section>
+
+        <section class="about-feature">
+          <div class="about-img thumb-l"></div>
+          <div class="about-content">
+            <h2>Designed To Last</h2>
+            <p>We do not follow trends. Instead, we create pieces that age beautifully and remain relevant over time.</p>
+            <p>By focusing on timeless design and long-lasting quality, Luxroom encourages a more thoughtful and sustainable way of living.</p>
+            <a href="./products.html" class="primary-button black-btn">View Collection</a>
+          </div>
+        </section>
+
+        <hr class="about-divider" />
+
+        <section class="standalone-newsletter">
+          <h2>Subscribe to our newsletter</h2>
+          <p>Enter your email and sign up today and get 7% discount on any product you buy!</p>
+          <div class="newsletter-input-group">
+            <input type="email" placeholder="Type your email address" />
+            <button aria-label="Submit">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </button>
+          </div>
+        </section>
+
       </main>
 
       <footer class="footer">
@@ -96,7 +107,6 @@
       </footer>
     </div>
 
-
     <!-- Global Search Overlay -->
     <div class="search-overlay" id="global-search-overlay">
       <div class="search-modal">
@@ -116,46 +126,10 @@
               </div>
               <div class="search-item-price">$200</div>
             </div>
-            <div class="search-item active">
-              <div class="search-item-img luxury-bg"></div>
-              <div class="search-item-info">
-                <strong>Divani Chair</strong>
-                <span>Chair · Fabric · Oak</span>
-              </div>
-              <div class="search-item-price">$200</div>
-            </div>
-            <div class="search-item">
-              <div class="search-item-img luxury-bg"></div>
-              <div class="search-item-info">
-                <strong>Divani Chair</strong>
-                <span>Chair · Fabric · Oak</span>
-              </div>
-              <div class="search-item-price">$200</div>
-            </div>
-          </div>
-          <div class="search-section">
-            <h4>All Products (24)</h4>
-            <div class="search-item">
-              <div class="search-item-img luxury-bg"></div>
-              <div class="search-item-info">
-                <strong>Divani Chair</strong>
-                <span>Chair · Fabric · Oak</span>
-              </div>
-              <div class="search-item-price">$200</div>
-            </div>
-            <div class="search-item">
-              <div class="search-item-img luxury-bg"></div>
-              <div class="search-item-info">
-                <strong>Divani Chair</strong>
-                <span>Chair · Fabric · Oak</span>
-              </div>
-              <div class="search-item-price">$200</div>
-            </div>
           </div>
         </div>
       </div>
     </div>
     <script src="../js/common.js"></script>
-    <script src="../js/auth.js"></script>
   </body>
 </html>

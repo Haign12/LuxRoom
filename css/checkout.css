@@ -22,9 +22,9 @@
 }
 
 .form-section {
-  background: rgba(255, 255, 255, 0.45);
+  background: transparent;
   border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
+  border-radius: 0;
   padding: 32px;
 }
 
@@ -55,10 +55,11 @@
 
 .form-group input {
   width: 100%;
-  padding: 14px 16px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.8);
+  padding: 14px 0;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
   outline: none;
   font-size: 1rem;
 }
@@ -68,9 +69,9 @@
 }
 
 .order-summary {
-  background: rgba(255, 255, 255, 0.6);
+  background: transparent;
   border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
+  border-radius: 0;
   padding: 24px;
   height: fit-content;
 }
@@ -100,7 +101,7 @@
 .summary-item-img {
   width: 60px;
   height: 60px;
-  border-radius: 8px;
+  border-radius: 0;
   background-color: var(--line);
 }
 

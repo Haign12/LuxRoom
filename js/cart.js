@@ -22,25 +22,32 @@ function renderCart() {
   cartContainer.innerHTML = "";
   let subtotal = 0;
 
-  items.forEach((item) => {
-    subtotal += item.price * item.quantity;
-    const itemEl = document.createElement("div");
-    itemEl.className = "cart-item";
-    itemEl.innerHTML = `
-      <div class="cart-item-img ${item.tone || 'tone-sand'}"></div>
-      <div class="cart-item-details">
-        <h3 class="cart-item-name">${item.name}</h3>
-        <p class="cart-item-price">$${item.price}</p>
-        <div class="cart-quantity-controls">
-          <button class="cart-qty-btn decrease" data-id="${item.id}">-</button>
-          <span>${item.quantity}</span>
-          <button class="cart-qty-btn increase" data-id="${item.id}">+</button>
+    items.forEach((item) => {
+      subtotal += item.price * item.quantity;
+      const itemEl = document.createElement("div");
+      itemEl.className = "cart-item-row";
+      
+      // We will map product tone to a local utility or fallback to luxury-bg if tone missing.
+      const bgClass = item.tone ? item.tone : 'luxury-bg';
+      
+      itemEl.innerHTML = \`
+        <div class="cart-item-img \${bgClass}"></div>
+        <div class="cart-item-desc">
+          <h4>\${item.name}</h4>
+          <p>The \${item.name} boasts a harmonious blend of style and comfort.</p>
         </div>
-      </div>
-      <button class="cart-item-remove" data-id="${item.id}">Remove</button>
-    `;
-    cartContainer.appendChild(itemEl);
-  });
+        <div class="cart-quantity-controls">
+          <button class="cart-qty-btn decrease" data-id="\${item.id}">-</button>
+          <span class="cart-qty-val">\${item.quantity}</span>
+          <button class="cart-qty-btn increase" data-id="\${item.id}">+</button>
+        </div>
+        <div class="cart-item-price">$\${item.price}</div>
+        <button class="cart-item-remove" data-id="\${item.id}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="var(--ink)"/><path d="m15 9-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="m9 9 6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      \`;
+      cartContainer.appendChild(itemEl);
+    });
 
   const shipping = subtotal > 500 ? 0 : 30; // Free shipping over $500
   const total = subtotal + shipping;

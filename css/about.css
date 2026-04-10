@@ -1,0 +1,142 @@
+.about-container {
+  padding: 0 0 100px;
+}
+
+.about-header {
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.about-header h1 {
+  font-family: Baskerville, 'Times New Roman', serif;
+  font-size: 3.5rem;
+  margin-bottom: 24px;
+}
+
+.about-header .breadcrumb {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.about-feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 120px;
+}
+
+.about-feature.reverse {
+  grid-template-areas: "content img";
+}
+
+.about-feature.reverse .about-img {
+  grid-area: img;
+}
+
+.about-feature.reverse .about-content {
+  grid-area: content;
+}
+
+@media (max-width: 960px) {
+  .about-feature,
+  .about-feature.reverse {
+    grid-template-columns: 1fr;
+    grid-template-areas: "img" "content";
+    gap: 40px;
+  }
+}
+
+.about-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px; /* Based on user request to keep slightly rounded corners */
+  background-color: var(--line);
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.about-content h2 {
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.about-content p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.black-btn {
+  background: var(--ink);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 4px; /* matching subtle rounded look */
+  text-transform: none;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.about-divider {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 80px 0;
+}
+
+.standalone-newsletter {
+  padding: 60px 40px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.standalone-newsletter h2 {
+  font-family: Baskerville, 'Times New Roman', serif;
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.standalone-newsletter p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 40px;
+}
+
+.newsletter-input-group {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--ink);
+  max-width: 480px;
+  margin: 0 auto;
+  padding-bottom: 8px;
+}
+
+.newsletter-input-group input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+.newsletter-input-group input::placeholder {
+  color: var(--muted);
+}
+
+.newsletter-input-group button {
+  padding: 0 10px;
+  color: var(--ink);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}

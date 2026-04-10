@@ -1,0 +1,269 @@
+.contact-page {
+  padding: 40px 0 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-card {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  width: 100%;
+  max-width: 900px;
+  min-height: 550px;
+  background: #fff;
+  border-radius: 8px; /* Match mockup card border radius */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08); /* Floating shadow */
+  overflow: hidden;
+}
+
+@media (max-width: 860px) {
+  .contact-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Left Sidebar (Dark) --- */
+.contact-sidebar {
+  background: #2a2a2a; /* Dark gray match */
+  color: #ffffff;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar-header {
+  margin-bottom: 60px;
+}
+
+.sidebar-header h2 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.sidebar-header p {
+  color: #b0b0b0;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.sidebar-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: auto; /* Push socials to bottom */
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.85rem;
+}
+
+.info-row svg {
+  color: #fff;
+  opacity: 0.8;
+}
+
+.sidebar-socials {
+  display: flex;
+  gap: 16px;
+  margin-top: 60px;
+  z-index: 2;
+}
+
+.sidebar-socials a {
+  color: #fff;
+  background: #444;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.sidebar-socials a svg {
+  width: 16px;
+  height: 16px;
+}
+
+.sidebar-socials a:hover {
+  background: #666;
+}
+
+.sidebar-decor-circle {
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  z-index: 1;
+}
+
+/* --- Right Form (Light) --- */
+.contact-form-container {
+  padding: 50px 60px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .contact-form-container {
+    padding: 40px 30px;
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+@media (max-width: 500px) {
+  .form-row-2 {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.form-group.pure {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group.pure label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.form-group.pure input,
+.form-group.pure textarea {
+  border: none;
+  border-bottom: 1px solid var(--line);
+  padding: 8px 0;
+  outline: none;
+  background: transparent;
+  font-size: 0.85rem;
+  font-family: inherit;
+  color: var(--ink);
+  transition: border-color 0.2s;
+  resize: vertical;
+}
+
+.form-group.pure input::placeholder,
+.form-group.pure textarea::placeholder {
+  color: var(--muted);
+}
+
+.form-group.pure input:focus,
+.form-group.pure textarea:focus {
+  border-bottom-color: var(--ink);
+}
+
+/* Custom Radio Buttons */
+.subject-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.subject-group > label {
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.subject-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.custom-radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--ink);
+  cursor: pointer;
+  position: relative;
+}
+
+.custom-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.custom-radio-mark {
+  height: 14px;
+  width: 14px;
+  background-color: transparent;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.custom-radio input:checked ~ .custom-radio-mark {
+  background-color: var(--ink);
+  border-color: var(--ink);
+}
+
+.custom-radio-mark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 3px;
+  left: 3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+}
+
+.custom-radio input:checked ~ .custom-radio-mark:after {
+  display: block;
+}
+
+.form-submit-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.submit-btn {
+  padding: 12px 32px;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  border-radius: 6px; /* Pill edge from image */
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.submit-btn:hover {
+  opacity: 0.85;
+}
