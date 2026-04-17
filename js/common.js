@@ -79,12 +79,42 @@ newsletterForms.forEach((form) => {
 
 syncCartCount();
 
+function showToast(message) {
+  let container = document.querySelector(".toast-container");
+  if (!container) {
+    container = document.createElement("div");
+    container.className = "toast-container";
+    document.body.appendChild(container);
+  }
+
+  const toast = document.createElement("div");
+  toast.className = "toast-msg";
+  toast.textContent = message;
+
+  container.appendChild(toast);
+
+  // Trigger reflow to apply animation
+  requestAnimationFrame(() => {
+    toast.classList.add("show");
+  });
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+    setTimeout(() => {
+      if (toast.parentNode) {
+        toast.parentNode.removeChild(toast);
+      }
+    }, 300); // Wait for transition
+  }, 3000); // Notice duration
+}
+
 window.LuxRoom = {
   products,
   cartItems,
   addToCart,
   updateCartItem,
   clearCart,
+  showToast,
 };
 
 // Global Search Overlay Logic

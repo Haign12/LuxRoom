@@ -93,4 +93,34 @@ function attachCartEvents() {
 
 document.addEventListener("DOMContentLoaded", () => {
   renderCart();
+
+  const btnConfirm = document.querySelector(".btn-confirm");
+  if (btnConfirm) {
+    btnConfirm.addEventListener("click", () => {
+      const items = window.LuxRoom.cartItems || [];
+      if (items.length === 0) {
+        window.LuxRoom.showToast("Oops! Your cart is empty.");
+        return;
+      }
+      
+      const paymentInputs = document.querySelectorAll('.payment-card-box input[type="text"]');
+      const isFilled = Array.from(paymentInputs).every(input => input.value.trim() !== "");
+      if (!isFilled) {
+        window.LuxRoom.showToast("Please fill out your payment details.");
+        return;
+      }
+
+      window.LuxRoom.showToast("Payment successful! Thank you.");
+      
+      // Simulate loading state
+      btnConfirm.textContent = "Processing...";
+      btnConfirm.style.opacity = "0.7";
+      btnConfirm.style.pointerEvents = "none";
+
+      setTimeout(() => {
+        window.LuxRoom.clearCart();
+        window.location.href = "index.html";
+      }, 2000);
+    });
+  }
 });

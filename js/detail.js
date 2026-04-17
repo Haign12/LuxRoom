@@ -47,6 +47,9 @@ function setupQuantityControls() {
     const params = new URLSearchParams(window.location.search);
     const productId = Number(params.get("product")) || 1;
     window.LuxRoom.addToCart(productId, quantity);
+    
+    const selected = window.LuxRoom.products.find((product) => product.id === productId) || window.LuxRoom.products[0];
+    window.LuxRoom.showToast(`Added ${quantity}x ${selected.name} to cart!`);
   });
 
   updateQuantity();

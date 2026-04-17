@@ -1,7 +1,19 @@
 .contact-page {
   padding: 40px 0 100px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-title-area {
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 40px;
+}
+
+.breadcrumb {
+  font-size: 0.95rem;
+  color: var(--ink);
 }
 
 .contact-card {

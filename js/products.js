@@ -12,7 +12,7 @@ function renderProducts() {
       (product, index) => `
         <article class="product-card" style="animation-delay: ${index * 0.05}s">
           <a href="./detail.html?product=${product.id}" class="product-thumb ${product.tone}" style="height: ${heights[index % heights.length]}px;">
-            <button class="add-to-cart-overlay" onclick="event.preventDefault(); window.LuxRoom.addToCart(${product.id}, 1); alert('Added to cart!');">Add to cart</button>
+            <button class="add-to-cart-overlay" onclick="event.preventDefault(); window.LuxRoom.addToCart(${product.id}, 1); window.LuxRoom.showToast('Added 1x ${product.name} to cart!');">Add to cart</button>
           </a>
           <div class="product-meta-row">
             <h3>${product.name}</h3>
