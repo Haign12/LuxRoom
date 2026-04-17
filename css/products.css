@@ -40,6 +40,53 @@
   font-size: 0.95rem;
 }
 
+.filter-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.active-filters {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-size: 0.8rem;
+  color: var(--ink);
+  cursor: default;
+}
+
+.pill-close {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.pill-close:hover {
+  color: var(--ink);
+}
+
+.filter-clear {
+  font-size: 0.85rem;
+  color: #a0a0a0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.filter-clear:hover {
+  color: var(--ink);
+}
+
 .sort-dropdown {
   display: flex;
   align-items: center;
@@ -186,10 +233,10 @@
 
 .product-card {
   break-inside: avoid;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
   opacity: 0;
   animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -212,32 +259,15 @@
 
 .product-thumb img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
-/* Base image sizes for masonry simulation in CSS if no img tags */
-/* We will just rely on the background padding trick or set height in JS */
-
-.add-to-cart-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff;
-  color: var(--ink);
-  padding: 12px 24px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  border-radius: 0;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  pointer-events: none; /* Let the parent handle clicks or re-enable if it's a real button */
-}
-
-/* When hover on card, show button */
-.product-card:hover .add-to-cart-overlay {
-  opacity: 1;
+.product-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .product-meta-row {
@@ -257,4 +287,66 @@
   font-size: 0.95rem;
   font-weight: 400;
   color: var(--muted);
+}
+
+.add-to-cart-action {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: underline;
+  padding: 0;
+  text-align: left;
+  transition: color 0.2s ease;
+  background: transparent;
+  width: fit-content;
+}
+
+.add-to-cart-action:hover {
+  color: var(--ink);
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 48px 0 20px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.page-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-radius: 0;
+}
+
+.page-btn:hover:not(.disabled) {
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.page-btn.active {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+.page-btn.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.page-btn svg {
+  margin: 0;
 }

@@ -20,13 +20,11 @@ if (tabLogin && tabRegister && formLogin && formRegister) {
 
   formLogin.addEventListener("submit", (e) => {
     e.preventDefault();
-    alert("Logged in successfully!");
-    window.location.href = "index.html";
+    window.location.href = "profile.html";
   });
 
   formRegister.addEventListener("submit", (e) => {
     e.preventDefault();
-    alert("Account created successfully!");
-    window.location.href = "index.html";
+    window.location.href = "profile.html";
   });
 }

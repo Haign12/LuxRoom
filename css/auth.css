@@ -67,9 +67,26 @@
   gap: 8px;
 }
 
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .form-group label {
   font-size: 0.85rem;
   font-weight: 600;
+  color: var(--ink);
+}
+
+.forgot-password {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.forgot-password:hover {
   color: var(--ink);
 }
 

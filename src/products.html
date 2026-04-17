@@ -41,11 +41,17 @@
         </nav>
 
         <section class="filter-toolbar">
-          <div class="filter-toggle">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M1 14h6"/><path d="M9 8h6"/><path d="M17 16h6"/>
-            </svg>
-            <span>Filter</span>
+          <div class="filter-toolbar-left">
+            <div class="filter-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M1 14h6"/><path d="M9 8h6"/><path d="M17 16h6"/>
+              </svg>
+              <span>Filter</span>
+            </div>
+            <div class="active-filters">
+              <span class="filter-pill">Furniture <span class="pill-close">✕</span></span>
+              <span class="filter-clear">Clear All</span>
+            </div>
           </div>
           <div class="sort-dropdown">
             <span>Sort By</span>
@@ -100,6 +106,8 @@
         </section>
 
         <section class="product-grid-masonry" id="product-grid"></section>
+
+        <section class="pagination" id="pagination-container"></section>
 
         <section class="newsletter">
           <p class="eyebrow">Stay connected</p>

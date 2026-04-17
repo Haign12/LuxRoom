@@ -44,9 +44,8 @@ function renderCheckoutSummary() {
 if (checkoutForm) {
   checkoutForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    alert("Thank you for your order! Your payment was successful.");
     window.LuxRoom.clearCart();
-    window.location.href = "index.html";
+    window.location.href = "success.html";
   });
 }
 
