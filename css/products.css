@@ -290,19 +290,26 @@
 }
 
 .add-to-cart-action {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--muted);
-  text-decoration: underline;
-  padding: 0;
-  text-align: left;
-  transition: color 0.2s ease;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 8px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
   background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 30px;
   width: fit-content;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
 }
 
 .add-to-cart-action:hover {
-  color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
 }
 
 /* Pagination */

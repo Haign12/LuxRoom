@@ -31,117 +31,161 @@
         </div>
       </header>
 
-      <main>
-        <section class="detail-header">
-          <p class="breadcrumb">Home / Product / All Product / Detail Product</p>
-          <h1>Detailed Product</h1>
-          <span class="detail-subtitle" id="detail-name">Luxe Chair</span>
+      <main class="page-detail">
+        <!-- 1. Top Image Gallery -->
+        <section class="d-gallery">
+          <div class="dg-img bg-lux-room"></div>
+          <div class="dg-img bg-lux-leaf"></div>
+          <div class="dg-img bg-lux-closeup"></div>
         </section>
 
-        <section class="detail-layout">
-          <div class="detail-gallery">
-            <div class="gallery-card gallery-main olive-room"></div>
-            <div class="gallery-card gallery-leaf"></div>
-            <div class="gallery-card gallery-closeup"></div>
+        <!-- 2. Product Info -->
+        <section class="d-info">
+          <div class="di-header">
+            <h1 class="di-title">Lux Chair</h1>
+            <div class="di-line"></div>
+            <span class="di-price">$ 100</span>
           </div>
+          <p class="di-brand">Divani</p>
 
-          <div class="detail-info">
-            <div class="product-meta">
-              <div>
-                <h2 id="detail-title">Luxe Chair</h2>
-                <p class="material">Boucle | Walnut frame</p>
-              </div>
-              <strong class="price" id="detail-price">$100</strong>
+          <p class="di-desc">
+            "Elevate your living space with this sculptural masterpiece. Defined by its fluid, organic curves and an enveloping high-back silhouette, this armchair seamlessly blends contemporary art with everyday comfort. Upholstered in a rich, textured olive green fabric, it sits atop sleek, tapered wooden legs that add a touch of natural warmth and mid-century flair. Perfect for a sophisticated lounge or a serene reading nook, this piece is a testament to refined modern living."
+          </p>
+
+          <ul class="di-bullets">
+            <li><strong>Color:</strong> Olive Green / Beige / Charcoal</li>
+            <li><strong>Leg Finish:</strong> Natural Oak / Walnut</li>
+            <li><strong>Size:</strong> Standard</li>
+          </ul>
+
+          <div class="di-actions">
+            <div class="quantity-picker">
+              <button type="button" class="btn-qty">-</button>
+              <span class="qty-num">1</span>
+              <button type="button" class="btn-qty">+</button>
             </div>
-            <p class="detail-description">
-              Wrapped in soft tactile upholstery and balanced by a refined wooden
-              frame, this statement chair brings an elegant yet inviting note
-              into quiet luxury interiors.
-            </p>
-            <ul class="detail-bullets">
-              <li>Comfort foam with layered density</li>
-              <li>Solid oak legs with matte finish</li>
-              <li>Ideal for lounge corners and reading nooks</li>
-            </ul>
-            <div class="purchase-row">
-              <div class="quantity-picker">
-                <button type="button" id="qty-minus">-</button>
-                <span id="qty-value">1</span>
-                <button type="button" id="qty-plus">+</button>
+            <button class="add-cart-btn" type="button">Add to Cart</button>
+          </div>
+        </section>
+
+        <!-- 3. Values -->
+        <section class="core-values d-values">
+          <article>
+            <h3>Free Shipping<br>In Viet Nam</h3>
+            <p>It Is Essential For Us To Offer You The Best Possible Shipping Service, And To Offer You The Guarantee That Our Products Travel Insured.</p>
+          </article>
+          <article>
+            <h3>Best Price<br>Online</h3>
+            <p>For Us, Trust Is Important, Which Is Why We Want Our Customers To Buy In Certainty That They Have Chosen Design At The Best Price Online.</p>
+          </article>
+          <article>
+            <h3>Furniture Bonus<br>2020</h3>
+            <p>The Mobile Bonus Is The Tax Concession, Which Allows Those Who Have Undergone A Renovation In 2019 To Benefit From The 50% Deduction.</p>
+          </article>
+        </section>
+
+        <!-- 4. Specifications -->
+        <section class="d-spec">
+          <div class="spec-accordions">
+            <div class="acc-item acc-open">
+              <div class="acc-head">
+                <span>Specifications</span>
+                <span class="acc-icon">-</span>
               </div>
-              <button class="primary-button" id="add-to-cart" type="button">
-                Add To Cart
-              </button>
+              <div class="acc-body">
+                <ul>
+                  <li>Structure: Wooden Frame With MDF Pan, Padding In Differentiated Density Polyurethane Foam, Covered In Coupled Diferential Resin.</li>
+                  <li>Seat Cushions: Dual-Differentiated Polyurethane, White Feather And 100% Cotton Fabric-Leather Covers.</li>
+                  <li>Back Cushions: Mixed Feather And 100% Cotton.</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="acc-item">
+              <div class="acc-head">
+                <span>Attached Documents</span>
+                <span class="acc-icon">+</span>
+              </div>
             </div>
           </div>
+          <div class="spec-img bg-lux-room-wide"></div>
         </section>
 
-        <section class="values detail-values">
-          <article>
-            <h3>Free shipping</h3>
-            <p>On all home furniture over $500 with secure delivery coordination.</p>
-          </article>
-          <article>
-            <h3>Best price</h3>
-            <p>Premium materials sourced with a clean, intentional catalog edit.</p>
-          </article>
-          <article>
-            <h3>Furniture store</h3>
-            <p>Luxury residential pieces designed to layer beautifully together.</p>
-          </article>
-        </section>
+        <hr class="d-divider">
 
-        <section class="spec-layout">
-          <div class="spec-card">
-            <h3>Specifications</h3>
-            <ul>
-              <li>Overall width: 76 cm</li>
-              <li>Seat height: 43 cm</li>
-              <li>Finish: Performance boucle upholstery</li>
-              <li>Frame: FSC-certified oak and webbed support</li>
-            </ul>
-          </div>
-          <div class="spec-visual olive-sofa"></div>
-        </section>
-
-        <section class="review-section">
-          <div class="review-summary">
-            <p class="eyebrow">Reviews</p>
-            <div class="score">4.00</div>
-            <div class="stars">*****</div>
-          </div>
-          <div class="review-list">
-            <article class="review-card">
-              <div class="review-card-header">
-                <strong>Great Product, Love It</strong>
-                <span>May 3rd, 2026</span>
+        <!-- 5. Reviews -->
+        <section class="d-reviews">
+          <div class="rev-header">
+            <div class="rev-head-left">
+              <h2>REVIEWS</h2>
+              <div class="score">4.00</div>
+              <div class="stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" class="empty-star" stroke="currentColor" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               </div>
-              <p>
-                Beautiful proportion, very comfortable seat depth, and the olive
-                tone feels rich without overpowering the room.
-              </p>
-            </article>
-            <article class="review-card">
-              <div class="review-card-header">
-                <strong>Refined and cozy</strong>
-                <span>May 8th, 2026</span>
-              </div>
-              <p>
-                The curved shape looks high-end in person and pairs perfectly
-                with neutral rugs and wooden accents.
-              </p>
-            </article>
+            </div>
+            <div class="rev-head-right">
+              <span>20 Reviews</span>
+              <button class="write-rev-btn">Write a Review</button>
+            </div>
           </div>
-        </section>
 
-        <section class="newsletter">
-          <p class="eyebrow">Stay connected</p>
-          <h2>Subscribe to our newsletter</h2>
-          <p>Enter your email and get 10% off your first order on our product line.</p>
-          <form class="newsletter-form">
-            <input type="email" placeholder="Type your email address" />
-            <button type="submit" class="icon-button">Go</button>
-          </form>
+          <div class="rev-list">
+            <div class="rev-item">
+              <div class="rev-author">
+                <div class="stars-small">
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" class="empty-star" stroke="currentColor" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <strong>By Roman Smith</strong>
+                <span class="rev-date">Mar 29, 2019</span>
+              </div>
+              <div class="rev-content">
+                <h4>Great Product, Love It</h4>
+                <p>"I was looking for a statement piece for my reading nook, and this chair is absolute perfection. The olive green color is deep and rich, looking even more stunning in person than in the photos. It's not just a chair; it's like a piece of sculpture. It adds such a soft, organic touch to my minimal living room. Highly recommend if you want to elevate your space!"</p>
+                <div class="rev-votes">
+                  <button><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg> 7</button>
+                  <button><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-2"></path></svg> 0</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="rev-item">
+              <div class="rev-author">
+                <div class="stars-small">
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" class="empty-star" stroke="currentColor" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <strong>By Roman Smith</strong>
+                <span class="rev-date">Mar 29, 2019</span>
+              </div>
+              <div class="rev-content">
+                <h4>Great Product, Love It</h4>
+                <p>"I was looking for a statement piece for my reading nook, and this chair is absolute perfection. The olive green color is deep and rich, looking even more stunning in person than in the photos. It's not just a chair; it's like a piece of sculpture. It adds such a soft, organic touch to my minimal living room. Highly recommend if you want to elevate your space!"</p>
+                <div class="rev-votes">
+                  <button><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg> 7</button>
+                  <button><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-2"></path></svg> 0</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rev-pagination">
+            <button>&lt;</button>
+            <button class="active">1</button>
+            <button>2</button>
+            <span>...</span>
+            <button>&gt;</button>
+          </div>
         </section>
       </main>
 
@@ -187,7 +231,7 @@
               </div>
               <div class="search-item-price">$200</div>
             </div>
-            <div class="search-item active">
+            <div class="search-item">
               <div class="search-item-img luxury-bg"></div>
               <div class="search-item-info">
                 <strong>Divani Chair</strong>

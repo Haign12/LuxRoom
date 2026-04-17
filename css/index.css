@@ -1,232 +1,585 @@
-.hero,
-.brands,
-.consulting {
-  display: grid;
-  gap: 32px;
-}
+/* Home Page Styles matching Home.png */
 
-.hero {
-  grid-template-columns: 1.05fr 0.95fr;
-  min-height: 78vh;
-  align-items: center;
-  padding: 28px 0 52px;
-}
-
-.hero-visual,
-.story-card,
-.hero-room,
-.consulting-visual,
-.category-card,
-.mosaic-card {
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-}
-
-.hero-visual {
-  position: relative;
-}
-
-.hero-room {
-  position: relative;
+/* --- Hero Boxed --- */
+.hero-boxed {
+  background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('../img/lux_hero.png') center/cover no-repeat;
   min-height: 580px;
-  background: url('../img/lux_hero.png') center/cover no-repeat;
-  box-shadow: var(--shadow);
-}
-
-.room-glow {
-  display: none;
-}
-
-.room-lamp {
-  display: none;
-}
-
-.room-sofa {
-  display: none;
-}
-
-.room-table {
-  display: none;
-}
-
-.hero-note {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  max-width: 260px;
-  padding: 24px;
-  border-radius: 0;
-  background: var(--bg);
-  box-shadow: none;
-  border-top: 1px solid var(--line);
-  border-left: 1px solid var(--line);
-}
-
-.hero-note span {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-
-.intro-grid {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr 0.95fr;
-  gap: 24px;
-  padding: 40px 0 24px;
-}
-
-.story-card {
-  min-height: 260px;
-  position: relative;
-}
-
-.story-large {
-  grid-row: span 2;
-  min-height: 544px;
-}
-
-.story-tall {
-  grid-row: span 2;
-}
-
-.warm-one {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.34)), url('../img/lux_story_1.png') center/cover no-repeat;
-}
-
-.warm-two {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.24)), url('../img/lux_story_2.png') center/cover no-repeat;
-}
-
-.warm-three {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.24)), url('../img/lux_story_3.png') center/cover no-repeat;
-}
-
-.warm-four {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.24)), url('../img/lux_story_4.png') center/cover no-repeat;
-}
-
-.story-overlay {
-  position: absolute;
-  inset: auto 22px 22px;
-  color: #fffdf8;
-}
-
-.story-overlay span {
-  display: inline-block;
-  margin-bottom: 10px;
-  font-size: 2rem;
-  font-weight: 300;
-}
-
-.categories {
-  padding: 64px 0 24px;
-}
-
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-
-.category-card {
-  min-height: 230px;
+  border-radius: 16px;
   display: flex;
-  align-items: end;
-  padding: 20px;
-  font-size: 1.4rem;
+  align-items: center;
+  color: #fff;
+  position: relative;
+  margin-top: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+}
+
+.hero-content {
+  padding: 60px;
+  max-width: 650px;
+}
+
+.hero-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.8rem, 5vw, 4rem);
   font-weight: 500;
+  line-height: 1.1;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin: 0 0 20px;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin: 0 0 40px;
+}
+
+.hero-btn {
+  background: #fff;
+  color: #111;
+  border-radius: 30px;
+  font-weight: 500;
+  padding: 16px 36px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  opacity: 1;
+}
+
+/* --- Who We Are --- */
+.who-we-are {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.wwa-header h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.8rem;
+  margin-bottom: 24px;
+}
+
+.wwa-header p {
+  max-width: 700px;
+  margin: 0 auto 60px;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.wwa-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 60px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.wwa-col {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.wwa-col-offset {
+  margin-top: 120px;
+}
+
+.wwa-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  text-align: left;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+}
+
+.wwa-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.card-tall { height: 500px; }
+.card-wide { height: 400px; }
+
+.bg-story-1 { background: url('../img/lux_story_1.png') center/cover; }
+.bg-story-2 { background: url('../img/lux_story_2.png') center/cover; }
+.bg-story-3 { background: url('../img/lux_bedroom.png') center/cover; }
+.bg-story-4 { background: url('../img/lux_gallery_main.png') center/cover; }
+
+.mt-0 { margin-top: 0; }
+.mt-120 { margin-top: 120px; }
+.mt-min-120 { margin-top: -120px; }
+
+.wwa-num {
+  position: absolute;
+  font-size: 5rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  line-height: 1;
+}
+
+.wwa-num:not(.right-num):not(.top-right-num) {
+  top: 24px; left: 24px;
+}
+.right-num {
+  bottom: 24px; right: 24px; top: auto; left: auto;
+}
+.top-right-num {
+  top: 24px; right: 24px; left: auto;
+}
+
+.wwa-info {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 50px 32px 32px;
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
   color: #fff;
 }
 
-.category-living { background: linear-gradient(135deg, rgba(39, 29, 22, 0.18), rgba(39, 29, 22, 0.48)), url('../img/lux_hero.png') center/cover no-repeat; }
-.category-bedroom { background: linear-gradient(135deg, rgba(39, 29, 22, 0.18), rgba(39, 29, 22, 0.48)), url('../img/lux_bedroom.png') center/cover no-repeat; }
-.category-kitchen { background: linear-gradient(135deg, rgba(39, 29, 22, 0.18), rgba(39, 29, 22, 0.48)), url('../img/lux_kitchen.png') center/cover no-repeat; }
-.category-bath { background: linear-gradient(135deg, rgba(39, 29, 22, 0.18), rgba(39, 29, 22, 0.48)), url('../img/lux_bathroom.png') center/cover no-repeat; }
+.wwa-info h3 {
+  font-size: 1.5rem;
+  margin: 0 0 8px;
+}
 
-.brands {
-  grid-template-columns: 0.9fr 1.1fr;
+.wwa-info p {
+  color: #ddd;
+  margin: 0 0 24px;
+  font-size: 0.95rem;
+}
+
+.discover-btn {
+  display: inline-flex;
   align-items: center;
-  padding: 28px 0 58px;
+  gap: 8px;
+  background: rgba(30, 30, 30, 0.95);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.25);
+  transition: background 0.3s, transform 0.3s;
+}
+.discover-btn svg { width: 16px; height: 16px; }
+.discover-btn:hover { background: rgba(0, 0, 0, 1); transform: translateY(-2px); }
+
+
+/* --- Shop By Category --- */
+.shop-category {
+  padding: 80px 0;
+  text-align: center;
 }
 
-.brand-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  padding: 0;
-  margin: 28px 0 0;
-  list-style: none;
+.shop-category h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.8rem;
+  margin-bottom: 32px;
 }
 
-.brand-mosaic {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 48px;
+  border-bottom: 1px solid var(--line);
 }
 
-.mosaic-card {
-  min-height: 220px;
-  box-shadow: var(--shadow);
+.category-tabs button {
+  padding: 12px 0;
+  font-size: 1.05rem;
+  color: var(--muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
 }
 
-.tone-stone { background: url('../img/lux_bathroom.png') center/cover no-repeat; }
-.tone-sand { background: url('../img/lux_story_4.png') center/cover no-repeat; }
-.tone-olive { background: url('../img/lux_gallery_closeup.png') center/cover no-repeat; }
-.tone-wood { background: url('../img/lux_story_3.png') center/cover no-repeat; }
-
-.consulting {
-  grid-template-columns: 0.9fr 1.1fr;
-  align-items: center;
-  padding: 18px 0 42px;
+.category-tabs button.active {
+  color: var(--ink);
+  font-weight: 600;
+  border-bottom-color: var(--ink);
 }
 
-.consulting-visual {
-  min-height: 420px;
+.cat-grid {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 32px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  padding-bottom: 20px;
+  margin-left: -20px;
+  padding-left: 20px;
+  margin-right: -20px;
+  padding-right: 20px;
+}
+
+.cat-grid::-webkit-scrollbar {
+  display: none; /* Chrome */
+}
+
+.cat-item {
   position: relative;
-  background: url('../img/lux_consulting.png') center/cover no-repeat;
+  text-align: center;
+  border-radius: 6px;
+  color: #fff;
+  flex: 0 0 calc(25% - 15px);
+  min-width: 260px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
 }
 
-.fabric-roll {
-  display: none;
+.cat-item:hover {
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 
-.fabric-shadow {
-  display: none;
+.cat-img {
+  height: 340px;
+  transition: transform 0.4s;
+}
+.cat-item:hover .cat-img {
+  transform: scale(1.05);
 }
 
-@media (max-width: 1080px) {
-  .hero,
-  .brands,
-  .consulting,
-  .intro-grid {
-    grid-template-columns: 1fr;
-  }
+.bg-cat-1 { background: url('../img/lux_hero.png') center/cover; filter: brightness(0.6); }
+.bg-cat-2 { background: url('../img/lux_story_4.png') center/cover; filter: brightness(0.6); }
+.bg-cat-3 { background: url('../img/lux_bedroom.png') center/cover; filter: brightness(0.6); }
+.bg-cat-4 { background: url('../img/lux_gallery_closeup.png') center/cover; filter: brightness(0.6); }
 
-  .story-large,
-  .story-tall {
-    grid-row: auto;
-    min-height: 320px;
-  }
-
-  .category-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.cat-item h3 {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin: 0;
+  pointer-events: none;
 }
 
-@media (max-width: 760px) {
-  .category-grid {
-    grid-template-columns: 1fr;
-  }
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .hero {
-    min-height: auto;
-    padding-top: 12px;
-  }
+.view-all-link {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
 
-  .hero-room,
-  .story-card,
-  .consulting-visual {
-    min-height: 280px;
-  }
+.carousel-nav {
+  display: flex;
+  gap: 12px;
+}
+
+.round-btn {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink);
+}
+.round-btn svg { width: 18px; height: 18px; }
+
+
+/* --- Values --- */
+.core-values {
+  padding: 60px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.core-values h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.core-values p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+
+/* --- Shop By Brands --- */
+.shop-brands {
+  padding: 80px 0;
+  text-align: center;
+}
+.brands-header h2 { font-family: "Playfair Display", serif; font-size: 2.8rem; margin-bottom: 12px; }
+.brands-header p { color: var(--muted); margin-bottom: 60px; }
+
+.brands-layout {
+  display: flex;
+  gap: 60px;
+  text-align: left;
+}
+
+.brands-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+}
+
+.brands-nav {
+  list-style: none; padding: 0; margin: 0 0 24px 0;
+}
+
+.brands-nav li {
+  padding: 16px 0;
+  color: var(--muted);
+  font-size: 1.4rem;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.brands-nav li.active {
+  color: var(--ink);
+  font-size: 1.6rem;
+  border-left: 3px solid var(--ink);
+  padding-left: 16px;
+  margin-left: -19px; /* offset border */
+}
+
+.brands-nav li.active p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 8px 0 0;
+  line-height: 1.5;
+}
+
+.brands-products {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.bp-item {
+  display: flex; flex-direction: column; gap: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.bp-item:hover .bp-img {
+  transform: scale(1.05);
+}
+
+.bp-img {
+  width: 100%; border-radius: 6px;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.bg-bp-1 { background: url('../img/lux_story_1.png') center/cover; height: 400px; }
+.bg-bp-2 { background: url('../img/lux_bathroom.png') center/cover; height: 188px; }
+.bg-bp-3 { background: url('../img/lux_consulting.png') center/cover; height: 188px; }
+
+.bp-tall { grid-row: span 2; }
+
+.bp-info {
+  display: flex; justify-content: space-between;
+  font-size: 0.95rem;
+}
+
+
+/* --- Consulting / Design Space --- */
+.design-space {
+  padding: 80px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.ds-text h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.ds-text p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.ds-img {
+  height: 500px;
+  border-radius: 8px;
+  background: url('../img/lux_gallery_main.png') center/cover;
+}
+
+
+/* --- Share Setup (Instagram) --- */
+.share-setup {
+  text-align: center;
+  padding: 80px 0;
+  overflow-x: hidden;
+}
+
+.share-setup h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+}
+.hashtag {
+  font-size: 1.4rem;
+  font-style: italic;
+  margin-bottom: 60px;
+  color: var(--muted);
+}
+
+.insta-gallery {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 110%;
+  margin-left: -5%;
+}
+
+.ig-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+}
+
+/* Offsets to create the masonry look based on the image */
+.ig-col-1 { margin-top: -60px; }
+.ig-col-2 { margin-top: 40px; }
+.ig-col-3 { margin-top: 100px; }
+.ig-col-4 { margin-top: 20px; }
+.ig-col-5 { margin-top: -30px; }
+
+/* Image classes */
+.ig-img {
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  width: 100%;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.ig-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  z-index: 2;
+  position: relative;
+}
+
+.ig-col-1 .img-shelf { height: 320px; background-image: url('../img/lux_gallery_leaf.png'); }
+.ig-col-1 .img-chair { height: 260px; background-image: url('../img/lux_gallery_closeup.png'); }
+
+.ig-col-2 .img-laptop { height: 240px; background-image: url('../img/lux_consulting.png'); }
+.ig-col-2 .img-stools { height: 260px; background-image: url('../img/lux_story_3.png'); }
+
+.ig-col-3 .img-dining { height: 380px; background-image: url('../img/lux_gallery_main.png'); }
+
+.ig-col-4 .img-bedroom { height: 280px; background-image: url('../img/lux_bedroom.png'); }
+.ig-col-4 .img-frame { height: 240px; background-image: url('../img/lux_story_4.png'); }
+
+.ig-col-5 .img-sunlight { height: 320px; background-image: url('../img/lux_story_1.png'); }
+.ig-col-5 .img-kitchen { height: 220px; background-image: url('../img/lux_kitchen.png'); }
+
+/* --- Newsletter --- */
+.newsletter-box {
+  padding: 60px 0 100px;
+}
+
+.nl-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  padding: 60px 40px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.nl-inner h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+.nl-inner p { color: var(--muted); margin-bottom: 40px; }
+
+.nl-form {
+  display: flex;
+  max-width: 500px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 8px;
+}
+.nl-form input {
+  flex: 1; border: none; outline: none; background: transparent; padding: 8px 0;
+}
+.nl-form button {
+  color: var(--ink);
+}
+.nl-form svg { width: 20px; height: 20px; }
+
+/* --- Footer --- */
+.footer-bottomx {
+  padding: 60px 0 40px;
+  border-top: 1px solid var(--line);
+}
+
+.fb-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.fcol h3 { font-size: 1.1rem; margin-bottom: 24px; }
+.fcol p, .fcol a {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+.fcol a:hover { color: var(--ink); }
+
+.social-links { display: flex; gap: 16px; margin-top: 24px; }
+.social-links a { color: var(--ink); }
+.social-links svg { width: 20px; height: 20px; }
+
+.fb-copy {
+  display: flex; justify-content: space-between;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.fb-links { display: flex; gap: 24px; }
+.fb-links a:hover { color: var(--ink); }
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .wwa-grid, .core-values, .brands-layout, .design-space, .fb-cols { grid-template-columns: 1fr; }
+  .brands-layout { flex-direction: column; }
+  .brands-sidebar { width: 100%; }
+  .mt-120, .mt-min-120 { margin-top: 0; }
+  .cat-grid, .insta-gallery { grid-template-columns: repeat(2, 1fr); }
+  .bp-tall { grid-row: auto; }
+  .brands-products { grid-template-columns: 1fr; }
+  .bg-bp-1 { height: 260px; }
+}
+@media (max-width: 600px) {
+  .cat-grid, .insta-gallery { grid-template-columns: 1fr; }
+  .fb-copy { flex-direction: column; gap: 16px; text-align: center; }
+  .fb-links { justify-content: center; }
 }
