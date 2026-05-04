@@ -45,7 +45,7 @@
   aspect-ratio: 4 / 3;
   background-size: cover;
   background-position: center;
-  border-radius: 8px; /* Match image slightly rounded edge */
+  border-radius: 50px; /* Match image slightly rounded edge */
   border: 1px solid var(--line);
 }
 
@@ -80,10 +80,12 @@
   font-size: 1.2rem;
   font-weight: 500;
   color: var(--muted);
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .cart-qty-btn:hover {
   color: var(--ink);
+  transform: scale(1.2);
 }
 
 .cart-qty-val {
@@ -169,7 +171,7 @@
 
 .payment-card-box {
   border: 1px solid var(--line);
-  border-radius: 8px; /* Match form rounding */
+  border-radius: 50px; /* Match form rounding */
   padding: 32px;
   display: flex;
   flex-direction: column;
@@ -220,15 +222,17 @@ input[type="radio"] {
 .form-group input {
   padding: 14px 16px;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 50px;
   font-size: 0.85rem;
   outline: none;
   background: transparent;
   color: var(--ink);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.form-group input::placeholder {
-  color: #cccccc;
+.form-group input:focus {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.1);
 }
 
 .form-row-2 {
@@ -256,15 +260,24 @@ input[type="checkbox"] {
   align-items: stretch;
 }
 
+.form-group input::placeholder {
+  color: #cccccc;
+}
+
 .promo-input-box {
   flex: 1;
   display: flex;
   align-items: center;
   gap: 12px;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 50px;
   padding: 0 16px;
   color: var(--muted);
+  transition: border-color 0.2s ease;
+}
+
+.promo-input-box:focus-within {
+  border-color: var(--ink);
 }
 
 .promo-input-box svg {
@@ -282,15 +295,27 @@ input[type="checkbox"] {
 
 .btn-apply {
   min-width: 140px;
-  border-radius: 6px;
-  padding: 0; 
+  border-radius: 50px;
+  padding: 0;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-apply:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(17, 17, 17, 0.1);
 }
 
 .btn-confirm {
   width: 100%;
-  border-radius: 6px;
+  border-radius: 50px;
   padding: 18px 0;
   font-size: 1rem;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-confirm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(17, 17, 17, 0.1);
 }
 
 /* Order Summary Box */
@@ -337,13 +362,25 @@ input[type="checkbox"] {
 
 .btn-checkout {
   width: 100%;
-  border-radius: 6px;
+  border-radius: 50px;
   margin-bottom: 16px;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-checkout:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(17, 17, 17, 0.1);
 }
 
 .btn-continue {
   width: 100%;
-  border-radius: 6px;
+  border-radius: 50px;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-continue:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(17, 17, 17, 0.1);
 }
 
 .empty-cart-msg {

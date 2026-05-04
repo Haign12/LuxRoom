@@ -50,8 +50,14 @@
 .about-img {
   width: 100%;
   aspect-ratio: 1 / 1;
-  border-radius: 8px; /* Based on user request to keep slightly rounded corners */
+  border-radius: 10px; /* Based on user request to keep slightly rounded corners */
   background-color: var(--line);
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.5s ease;
+}
+
+.about-feature:hover .about-img {
+  transform: scale(1.03);
+  box-shadow: 0 20px 40px rgba(17, 17, 17, 0.1);
 }
 
 .about-content {
@@ -78,10 +84,17 @@
   background: var(--ink);
   color: #fff;
   padding: 14px 28px;
-  border-radius: 4px; /* matching subtle rounded look */
+  border-radius: 50px;
   text-transform: none;
   font-size: 0.9rem;
   margin-top: 10px;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.black-btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(17, 17, 17, 0.1);
 }
 
 .about-divider {
@@ -93,7 +106,7 @@
 .standalone-newsletter {
   padding: 60px 40px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
   max-width: 700px;
   margin: 0 auto;
@@ -139,4 +152,10 @@
   cursor: pointer;
   background: transparent;
   border: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.newsletter-input-group button:hover {
+  transform: translateX(4px);
+  color: var(--muted);
 }

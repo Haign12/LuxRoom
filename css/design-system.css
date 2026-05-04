@@ -1,0 +1,380 @@
+/**
+ * LuxRoom Design System
+ * A comprehensive token library for the LuxRoom project
+ *
+ * TABLE OF CONTENTS
+ * 1. Colors
+ * 2. Typography
+ * 3. Spacing & Layout
+ * 4. Border Radius
+ * 5. Shadows & Effects
+ * 6. Buttons
+ * 7. Form Elements
+ * 8. Cards & Surfaces
+ * 9. Badges & Tags
+ * 10. Animations & Transitions
+ * 11. Responsive Breakpoints
+ */
+
+/* ============================================================================
+   1. COLORS
+   ============================================================================ */
+
+:root {
+  /* Core Palette */
+  --bg: #ffffff;           /* Page background */
+  --surface: #fafafa;      /* Card / elevated surfaces */
+  --ink: #000000;          /* Primary text / strong elements */
+  --muted: #777777;        /* Secondary text / placeholders */
+  --line: #eaeaea;         /* Borders / dividers */
+
+  /* Semantic Colors */
+  --color-success: #1e8e3e;
+  --color-success-bg: #e6f4ea;
+  --color-warning: #b08d00;
+  --color-warning-bg: #fef7e0;
+  --color-error: #d93025;
+  --color-error-bg: #fce8e6;
+
+  /* Overlay */
+  --overlay-light: rgba(255, 255, 255, 0.6);
+  --overlay-dark: rgba(0, 0, 0, 0.6);
+
+  /* Content width */
+  --content: 1180px;
+}
+
+
+/* ============================================================================
+   2. TYPOGRAPHY
+   ============================================================================ */
+
+/**
+ * Font Families:
+ * - Display / Headings: "Playfair Display", serif
+ * - Body / UI: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
+ *
+ * Usage:
+ * h1, h2, h3  → Playfair Display (loaded via Google Fonts)
+ * body, p, UI → Inter (system stack)
+ */
+
+:root {
+  --font-display: "Playfair Display", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Type Scale */
+  --text-xs:   0.65rem;   /* 10.4px - badges, captions */
+  --text-sm:   0.75rem;   /* 12px - labels, metadata */
+  --text-base: 0.85rem;   /* 13.6px - body small */
+  --text-md:   0.95rem;   /* 15.2px - body default */
+  --text-lg:   1.05rem;   /* 16.8px - large body */
+  --text-xl:   1.2rem;    /* 19.2px - subheadings */
+  --text-2xl:  1.4rem;    /* 22.4px - section titles */
+  --text-3xl:  1.8rem;    /* 28.8px - page titles */
+  --text-4xl:  2.2rem;    /* 35.2px - display large */
+  --text-5xl:  2.8rem;    /* 44.8px - hero sub */
+  --text-6xl:  clamp(2.8rem, 5vw, 4rem);  /* Hero heading (responsive) */
+  --text-hero: clamp(3rem, 6vw, 5.4rem);  /* Page h1 */
+
+  /* Line Heights */
+  --leading-tight:  0.95;
+  --leading-snug:   1.1;
+  --leading-normal: 1.4;
+  --leading-relaxed: 1.8;
+
+  /* Letter Spacing */
+  --tracking-tight:  -0.04em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.05em;
+  --tracking-widest: 0.18em;  /* uppercase labels */
+}
+
+
+/* ============================================================================
+   3. SPACING & LAYOUT
+   ============================================================================ */
+
+:root {
+  /* Base spacing unit: 4px */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-28: 112px;
+
+  /* Content width */
+  --content: 1180px;
+  --gutter: 20px;
+}
+
+/**
+ * Grid System
+ * Primary layout grid: CSS Grid with responsive columns
+ *
+ * Multi-column grids use:
+ *   display: grid;
+ *   grid-template-columns: repeat(n, 1fr);
+ *   gap: 24px;  (cards)
+ *   gap: 40px;  (sections)
+ *   gap: 60px;  (major sections)
+ */
+
+
+/* ============================================================================
+   4. BORDER RADIUS
+   ============================================================================ */
+
+:root {
+  /* Radius tokens */
+  --radius-sm:   4px;
+  --radius-md:   10px;   /* Images, cards, containers */
+  --radius-lg:   50px;   /* Buttons, pills, badges */
+  --radius-full: 9999px; /* Fully round */
+}
+
+
+/* ============================================================================
+   5. SHADOWS & EFFECTS
+   ============================================================================ */
+
+:root {
+  /* Hover shadow - standard across all hover states */
+  --shadow-hover: 0 10px 30px rgba(17, 17, 17, 0.1);
+  --shadow-hover-sm: 0 6px 16px rgba(17, 17, 17, 0.1);
+  --shadow-hover-lg: 0 20px 40px rgba(17, 17, 17, 0.1);
+
+  /* Elevated surfaces (modals, dropdowns, floating cards) */
+  --shadow-surface: 0 8px 30px rgba(17, 17, 17, 0.1);
+  --shadow-sm: 0 4px 20px rgba(17, 17, 17, 0.1);
+  --shadow-lg: 0 16px 40px rgba(17, 17, 17, 0.1);
+
+  /* Hero / feature shadows */
+  --shadow-hero: 0 16px 40px rgba(17, 17, 17, 0.1);
+
+  /* No shadow */
+  --shadow-none: none;
+}
+
+
+/* ============================================================================
+   6. BUTTONS
+   ============================================================================ */
+
+/**
+ * Button Anatomy:
+ * - Primary: filled background, white text
+ * - Secondary: transparent with border
+ * - Ghost/Text: no border, underline on hover
+ * - Icon: circular, icon-only
+ *
+ * All buttons: border-radius: 50px (--radius-lg)
+ *
+ * Hover: translateY(-2px) + shadow (except icon-button)
+ */
+
+:root {
+  --btn-height:     48px;  /* default height */
+  --btn-height-sm:   36px;  /* small/pill buttons */
+  --btn-height-icon: 36px;  /* icon buttons */
+  --btn-padding:     14px 24px;
+  --btn-padding-sm:  8px 20px;
+  --btn-radius:      var(--radius-lg);
+  --btn-font-size:   var(--text-base);
+  --btn-font-weight: 600;
+  --btn-transition:  all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/**
+ * Button Classes:
+ * .primary-button  — filled ink, white text, hover lifts + shadow
+ * .secondary-button — transparent, ink border, hover lifts + shadow
+ * .icon-button    — circular, icon-only, hover lifts
+ * .hero-btn       — white pill for dark backgrounds
+ * .discover-btn   — white with arrow icon
+ * .submit-btn     — ink filled, used in forms
+ * .place-order-btn — full-width primary
+ */
+
+
+/* ============================================================================
+   7. FORM ELEMENTS
+   ============================================================================ */
+
+/**
+ * Input Anatomy:
+ * - Underline style inputs (no visible border; bottom line only)
+ * - Border-radius: 50px on text inputs (full round)
+ * - Focus: border-bottom-color changes to ink
+ * - Labels: uppercase, 0.75rem, font-weight 700
+ */
+
+:root {
+  --input-height:     40px;
+  --input-padding:   14px 0;
+  --input-radius:    var(--radius-lg);
+  --input-border:     1px solid var(--line);
+  --input-border-focus: 1px solid var(--ink);
+  --input-font-size: var(--text-md);
+  --label-font-size: var(--text-sm);
+  --label-font-weight: 700;
+}
+
+
+/* ============================================================================
+   8. CARDS & SURFACES
+   ============================================================================ */
+
+/**
+ * Card Types:
+ * - Product Card: bordered, rounded-md (10px), shadow on hover
+ *   Inner wrapper: .product-card-inner wraps thumb + info
+ * - Order Card: bordered, rounded-50px (50px), hover lift
+ * - Contact Card: grid 320px + 1fr, rounded-50px
+ * - Form Section: bordered, rounded-50px
+ */
+
+:root {
+  --card-radius:     var(--radius-md);  /* 10px - images, small cards */
+  --card-radius-lg:  var(--radius-lg);  /* 50px - large cards, form sections */
+  --card-padding:    24px;
+  --card-border:     1px solid var(--line);
+  --card-hover-transform: translateY(-4px);
+}
+
+
+/* ============================================================================
+   9. BADGES & TAGS
+   ============================================================================ */
+
+:root {
+  --badge-radius:  var(--radius-lg);  /* 50px - pill badges */
+  --badge-radius-sm: var(--radius-md); /* 10px - small badges */
+  --badge-padding:  4px 12px;
+  --badge-font-size: var(--text-xs);
+  --tag-radius:     var(--radius-sm);
+  --tag-padding:    4px 10px;
+}
+
+/**
+ * Status Badge Classes:
+ * .status-delivered  — green bg (#e6f4ea), green text (#1e8e3e)
+ * .status-processing — yellow bg (#fef7e0), yellow text (#b08d00)
+ */
+
+
+/* ============================================================================
+   10. ANIMATIONS & TRANSITIONS
+   ============================================================================ */
+
+/**
+ * Standard timing functions:
+ * - Default:     cubic-bezier(0.2, 0.8, 0.2, 1)  — buttons, small elements
+ * - Bounce:     cubic-bezier(0.175, 0.885, 0.32, 1.275) — success icons, pop effects
+ * - Smooth:     ease — general use
+ * - Spring:     cubic-bezier(0.165, 0.84, 0.44, 1) — cards, images
+ *
+ * Standard durations:
+ * - Fast:   0.2s — color changes, hovers
+ * - Normal: 0.3s — transforms, shadows
+ * - Slow:   0.4s-0.6s — fades, reveals
+ *
+ * Keyframe animations:
+ * - fadeUp    — opacity 0→1, translateY(20px→0)   [0.5s ease]
+ * - fadeInUp  — opacity 0→1, translateY(20px→0)   [0.6s ease]
+ * - catFadeUp — opacity 0→1, translateY(20px→0)   [0.5s ease, stagger via nth-child]
+ * - successPop — scale(0→1.1→1), opacity [0.5s bounce]
+ */
+
+:root {
+  --ease-default:  cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-bounce:   cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-spring:   cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-smooth:   ease;
+  --duration-fast:   0.2s;
+  --duration-normal: 0.3s;
+  --duration-slow:   0.5s;
+  --duration-slower: 0.6s;
+}
+
+
+/* ============================================================================
+   11. RESPONSIVE BREAKPOINTS
+   ============================================================================ */
+
+/**
+ * Breakpoint Reference:
+ * - 1200px+:  Full desktop
+ * - 1080px:   Large tablet landscape
+ * - 960px:    Tablet landscape / small desktop
+ * - 860px:    Tablet portrait
+ * - 768px:    Mobile landscape
+ * - 600px:    Mobile portrait
+ * - 500px:    Small mobile
+ */
+
+/**
+ * Mobile-first example:
+ * @media (min-width: 768px) { ... }
+ *
+ * Desktop-first example:
+ * @media (max-width: 1080px) { ... }
+ */
+
+
+/* ============================================================================
+   UTILITY CLASSES
+   ============================================================================ */
+
+/* Border Radius */
+.radius-sm   { border-radius: var(--radius-sm); }
+.radius-md   { border-radius: var(--radius-md); }
+.radius-lg   { border-radius: var(--radius-lg); }
+.radius-full { border-radius: var(--radius-full); }
+
+/* Shadows */
+.shadow-hover { box-shadow: var(--shadow-hover); }
+.shadow-surface { box-shadow: var(--shadow-surface); }
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+
+/* Typography */
+.font-display { font-family: var(--font-display); }
+.font-body    { font-family: var(--font-body); }
+
+/* Text Colors */
+.text-ink   { color: var(--ink); }
+.text-muted { color: var(--muted); }
+
+/* Eyebrow label */
+.eyebrow {
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  font-size: var(--text-sm);
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* Container */
+.site-shell {
+  width: min(calc(100% - 32px), var(--content));
+  margin: 0 auto;
+}
+
+/* Section heading */
+.section-heading {
+  padding: 26px 8px 0 0;
+}
+.section-heading.center {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 24px;
+}

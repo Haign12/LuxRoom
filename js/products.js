@@ -34,16 +34,18 @@ function renderProducts() {
     .map(
       (product, index) => `
         <article class="product-card" style="animation-delay: ${index * 0.05}s">
-          <a href="./detail.html?product=${product.id}" class="product-thumb ${product.tone}" style="height: ${heights[(startIndex + index) % heights.length]}px;">
-          </a>
-          <div class="product-info-wrapper">
-            <div class="product-meta-row">
-              <h3>${product.name}</h3>
-              <span class="price">$${product.price}</span>
+          <div class="product-card-inner">
+            <a href="./detail.html?product=${product.id}" class="product-thumb ${product.tone}" style="height: ${heights[(startIndex + index) % heights.length]}px;">
+            </a>
+            <div class="product-info-wrapper">
+              <div class="product-meta-row">
+                <h3>${product.name}</h3>
+                <span class="price">$${product.price}</span>
+              </div>
+              <button class="add-to-cart-action" onclick="event.preventDefault(); window.LuxRoom.addToCart(${product.id}, 1); window.LuxRoom.showToast('Added 1x ${product.name} to cart!');">
+                + Add to Cart
+              </button>
             </div>
-            <button class="add-to-cart-action" onclick="event.preventDefault(); window.LuxRoom.addToCart(${product.id}, 1); window.LuxRoom.showToast('Added 1x ${product.name} to cart!');">
-              + Add to Cart
-            </button>
           </div>
         </article>
       `,

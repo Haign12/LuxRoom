@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Luxroom | Home</title>
+    <link rel="stylesheet" href="../css/design-system.css" />
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/index.css" />
   </head>
@@ -102,34 +103,88 @@
         <section class="shop-category">
           <h2>Shop By Category</h2>
           <div class="category-tabs">
-            <button class="active">Furniture</button>
-            <button>Accessories</button>
-            <button>Lightning</button>
-            <button>Outdoor</button>
+            <button class="cat-tab active" data-category="furniture">Furniture</button>
+            <button class="cat-tab" data-category="accessories">Accessories</button>
+            <button class="cat-tab" data-category="lightning">Lightning</button>
+            <button class="cat-tab" data-category="outdoor">Outdoor</button>
           </div>
-          <div class="cat-grid">
-            <a href="./products.html" class="cat-item">
-              <div class="cat-img bg-cat-1"></div>
-              <h3>Sofas</h3>
-            </a>
-            <a href="./products.html" class="cat-item">
-              <div class="cat-img bg-cat-2"></div>
-              <h3>Dresser</h3>
-            </a>
-            <a href="./products.html" class="cat-item">
-              <div class="cat-img bg-cat-3"></div>
-              <h3>Beds</h3>
-            </a>
-            <a href="./products.html" class="cat-item">
-              <div class="cat-img bg-cat-4"></div>
-              <h3>Armchairs</h3>
-            </a>
+          <div class="cat-grid-wrapper">
+            <div class="cat-grid" id="cat-grid">
+              <!-- Furniture -->
+              <a href="./products.html" class="cat-item" data-category="furniture">
+                <div class="cat-img bg-cat-1"></div>
+                <h3>Sofas</h3>
+              </a>
+              <a href="./products.html" class="cat-item" data-category="furniture">
+                <div class="cat-img bg-cat-2"></div>
+                <h3>Dresser</h3>
+              </a>
+              <a href="./products.html" class="cat-item" data-category="furniture">
+                <div class="cat-img bg-cat-3"></div>
+                <h3>Beds</h3>
+              </a>
+              <a href="./products.html" class="cat-item" data-category="furniture">
+                <div class="cat-img bg-cat-4"></div>
+                <h3>Armchairs</h3>
+              </a>
+              <!-- Accessories -->
+              <a href="./products.html" class="cat-item" data-category="accessories" style="display:none;">
+                <div class="cat-img bg-cat-4"></div>
+                <h3>Vases</h3>
+              </a>
+              <a href="./products.html" class="cat-item" data-category="accessories" style="display:none;">
+                <div class="cat-img bg-cat-1"></div>
+                <h3>Mirrors</h3>
+              </a>
+              <a href="./products.html" class="cat-item" data-category="accessories" style="display:none;">
+                <div class="cat-img bg-cat-2"></div>
+                <h3>Clocks</h3>
+              </a>
+              <a href="./products.html" class="cat-item" data-category="accessories" style="display:none;">
+                <div class="cat-img bg-cat-3"></div>
+                <h3>Sculptures</h3>
+              </a>
+              <!-- Lightning -->
+              <a href="./products.html" class="cat-item" data-category="lightning" style="display:none;">
+                <div class="cat-img bg-cat-2"></div>
+                <h3>Floor Lamps</h3>
+              </a>
+              <a href="./products.html" class="cat-item" data-category="lightning" style="display:none;">
+                <div class="cat-img bg-cat-3"></div>
+                <h3>Table Lamps</h3>
+              </a>
+              <a href="./products.html" class="cat-item" data-category="lightning" style="display:none;">
+                <div class="cat-img bg-cat-4"></div>
+                <h3>Pendants</h3>
+              </a>
+              <a href="./products.html" class="cat-item" data-category="lightning" style="display:none;">
+                <div class="cat-img bg-cat-1"></div>
+                <h3>Chandeliers</h3>
+              </a>
+              <!-- Outdoor -->
+              <a href="./products.html" class="cat-item" data-category="outdoor" style="display:none;">
+                <div class="cat-img bg-cat-3"></div>
+                <h3>Patio Sets</h3>
+              </a>
+              <a href="./products.html" class="cat-item" data-category="outdoor" style="display:none;">
+                <div class="cat-img bg-cat-4"></div>
+                <h3>Garden Chairs</h3>
+              </a>
+              <a href="./products.html" class="cat-item" data-category="outdoor" style="display:none;">
+                <div class="cat-img bg-cat-1"></div>
+                <h3>Umbrellas</h3>
+              </a>
+              <a href="./products.html" class="cat-item" data-category="outdoor" style="display:none;">
+                <div class="cat-img bg-cat-2"></div>
+                <h3>Planters</h3>
+              </a>
+            </div>
           </div>
           <div class="cat-actions flex-between">
             <a href="./products.html" class="view-all-link">View All</a>
             <div class="carousel-nav">
-              <button class="round-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-              <button class="round-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+              <button class="round-btn" id="cat-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+              <button class="round-btn" id="cat-next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
             </div>
           </div>
         </section>
@@ -159,38 +214,158 @@
           <div class="brands-layout">
             <div class="brands-sidebar">
               <ul class="brands-nav">
-                <li class="active">
+                <li class="brand-item active" data-brand="divani">
                   <strong>Divani</strong>
                   <p>Choosing The Right Product For You To Build Your Dream Home</p>
                 </li>
-                <li>Roda</li>
-                <li>Flos</li>
-                <li>Laminam</li>
-                <li>Gandia</li>
-                <li>Atelier</li>
+                <li class="brand-item" data-brand="roda">
+                  <strong>Roda</strong>
+                  <p>Italian design excellence for modern living spaces</p>
+                </li>
+                <li class="brand-item" data-brand="flos">
+                  <strong>Flos</strong>
+                  <p>Premium lighting solutions since 1962</p>
+                </li>
+                <li class="brand-item" data-brand="laminam">
+                  <strong>Laminam</strong>
+                  <p>Innovative ceramic surfaces for architecture</p>
+                </li>
+                <li class="brand-item" data-brand="gandia">
+                  <strong>Gandia</strong>
+                  <p>Contemporary furniture with Spanish flair</p>
+                </li>
+                <li class="brand-item" data-brand="atelier">
+                  <strong>Atelier</strong>
+                  <p>Handcrafted furniture for discerning tastes</p>
+                </li>
               </ul>
               <a href="#" class="view-all-link">View All</a>
             </div>
-            <div class="brands-products">
-               <div class="bp-item bp-tall">
+            <div class="brands-products" id="brands-products">
+               <div class="bp-item bp-tall" data-brand="divani">
                  <div class="bp-img bg-bp-1"></div>
                  <div class="bp-info">
                    <strong>Miliva Chair</strong>
                    <span>$200</span>
                  </div>
                </div>
-               <div class="bp-item bp-short-top">
+               <div class="bp-item bp-short-top" data-brand="divani">
                  <div class="bp-img bg-bp-2"></div>
                  <div class="bp-info">
                    <strong>Miliva Lavobo</strong>
                    <span>$200</span>
                  </div>
                </div>
-               <div class="bp-item bp-short-bottom">
+               <div class="bp-item bp-short-bottom" data-brand="divani">
                  <div class="bp-img bg-bp-3"></div>
                  <div class="bp-info">
                    <strong>Belmon Sofa</strong>
                    <span>$200</span>
+                 </div>
+               </div>
+               <div class="bp-item bp-tall" data-brand="roda" style="display:none;">
+                 <div class="bp-img bg-bp-2"></div>
+                 <div class="bp-info">
+                   <strong>Roda Seating</strong>
+                   <span>$350</span>
+                 </div>
+               </div>
+               <div class="bp-item bp-short-top" data-brand="roda" style="display:none;">
+                 <div class="bp-img bg-bp-3"></div>
+                 <div class="bp-info">
+                   <strong>Roda Table</strong>
+                   <span>$280</span>
+                 </div>
+               </div>
+               <div class="bp-item bp-short-bottom" data-brand="roda" style="display:none;">
+                 <div class="bp-img bg-bp-1"></div>
+                 <div class="bp-info">
+                   <strong>Roda Lounge</strong>
+                   <span>$420</span>
+                 </div>
+               </div>
+               <div class="bp-item bp-tall" data-brand="flos" style="display:none;">
+                 <div class="bp-img bg-bp-1"></div>
+                 <div class="bp-info">
+                   <strong>Flos Lamp</strong>
+                   <span>$180</span>
+                 </div>
+               </div>
+               <div class="bp-item bp-short-top" data-brand="flos" style="display:none;">
+                 <div class="bp-img bg-bp-2"></div>
+                 <div class="bp-info">
+                   <strong>Flos Pendant</strong>
+                   <span>$240</span>
+                 </div>
+               </div>
+               <div class="bp-item bp-short-bottom" data-brand="flos" style="display:none;">
+                 <div class="bp-img bg-bp-3"></div>
+                 <div class="bp-info">
+                   <strong>Flos Floor</strong>
+                   <span>$320</span>
+                 </div>
+               </div>
+               <div class="bp-item bp-tall" data-brand="laminam" style="display:none;">
+                 <div class="bp-img bg-bp-3"></div>
+                 <div class="bp-info">
+                   <strong>Laminam Surface</strong>
+                   <span>$500</span>
+                 </div>
+               </div>
+               <div class="bp-item bp-short-top" data-brand="laminam" style="display:none;">
+                 <div class="bp-img bg-bp-1"></div>
+                 <div class="bp-info">
+                   <strong>Laminam Tile</strong>
+                   <span>$150</span>
+                 </div>
+               </div>
+               <div class="bp-item bp-short-bottom" data-brand="laminam" style="display:none;">
+                 <div class="bp-img bg-bp-2"></div>
+                 <div class="bp-info">
+                   <strong>Laminam Slab</strong>
+                   <span>$680</span>
+                 </div>
+               </div>
+               <div class="bp-item bp-tall" data-brand="gandia" style="display:none;">
+                 <div class="bp-img bg-bp-2"></div>
+                 <div class="bp-info">
+                   <strong>Gandia Sofa</strong>
+                   <span>$390</span>
+                 </div>
+               </div>
+               <div class="bp-item bp-short-top" data-brand="gandia" style="display:none;">
+                 <div class="bp-img bg-bp-3"></div>
+                 <div class="bp-info">
+                   <strong>Gandia Chair</strong>
+                   <span>$175</span>
+                 </div>
+               </div>
+               <div class="bp-item bp-short-bottom" data-brand="gandia" style="display:none;">
+                 <div class="bp-img bg-bp-1"></div>
+                 <div class="bp-info">
+                   <strong>Gandia Table</strong>
+                   <span>$295</span>
+                 </div>
+               </div>
+               <div class="bp-item bp-tall" data-brand="atelier" style="display:none;">
+                 <div class="bp-img bg-bp-1"></div>
+                 <div class="bp-info">
+                   <strong>Atelier Craft</strong>
+                   <span>$450</span>
+                 </div>
+               </div>
+               <div class="bp-item bp-short-top" data-brand="atelier" style="display:none;">
+                 <div class="bp-img bg-bp-2"></div>
+                 <div class="bp-info">
+                   <strong>Atelier Seat</strong>
+                   <span>$310</span>
+                 </div>
+               </div>
+               <div class="bp-item bp-short-bottom" data-brand="atelier" style="display:none;">
+                 <div class="bp-img bg-bp-3"></div>
+                 <div class="bp-info">
+                   <strong>Atelier Stand</strong>
+                   <span>$275</span>
                  </div>
                </div>
             </div>

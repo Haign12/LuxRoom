@@ -47,7 +47,7 @@ function setupQuantityControls() {
     const params = new URLSearchParams(window.location.search);
     const productId = Number(params.get("product")) || 1;
     window.LuxRoom.addToCart(productId, quantity);
-    
+
     const selected = window.LuxRoom.products.find((product) => product.id === productId) || window.LuxRoom.products[0];
     window.LuxRoom.showToast(`Added ${quantity}x ${selected.name} to cart!`);
   });
@@ -55,5 +55,34 @@ function setupQuantityControls() {
   updateQuantity();
 }
 
+function setupAccordions() {
+  const accordions = document.querySelectorAll(".acc-item");
+
+  accordions.forEach((acc) => {
+    const head = acc.querySelector(".acc-head");
+    const icon = acc.querySelector(".acc-icon");
+
+    if (head) {
+      head.addEventListener("click", () => {
+        const isOpen = acc.classList.contains("acc-open");
+
+        // Close all accordions
+        accordions.forEach((a) => {
+          a.classList.remove("acc-open");
+          const i = a.querySelector(".acc-icon");
+          if (i) i.textContent = "+";
+        });
+
+        // Open clicked one if it was closed
+        if (!isOpen) {
+          acc.classList.add("acc-open");
+          if (icon) icon.textContent = "-";
+        }
+      });
+    }
+  });
+}
+
 renderProductDetail();
 setupQuantityControls();
+setupAccordions();
