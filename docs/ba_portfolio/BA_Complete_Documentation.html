@@ -1,0 +1,1972 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bộ Tài Liệu BA — LuxRoom E-Commerce (v3.0)</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    :root {
+      --primary: #0f3460;
+      --primary-light: #1a5276;
+      --accent: #e94560;
+      --bg: #ffffff;
+      --text: #1a1a2e;
+      --text-light: #555;
+      --border: #e0e0e0;
+      --bg-alt: #f8f9fc;
+      --code-bg: #1e1e2e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 20mm 18mm;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 10px;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      page-break-before: always;
+      letter-spacing: -0.5px;
+    }
+
+    h1:first-of-type { page-break-before: avoid; margin-top: 0; }
+
+    h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary-light);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+      margin-top: 30px;
+      margin-bottom: 12px;
+    }
+
+    h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    p { margin: 8px 0; }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 12px;
+      margin: 12px 0;
+      page-break-inside: avoid;
+    }
+
+    thead th {
+      background: var(--primary);
+      color: white;
+      padding: 9px 12px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      border: 1px solid var(--border);
+      padding: 7px 12px;
+      vertical-align: top;
+    }
+
+    tbody tr:nth-child(even) { background: var(--bg-alt); }
+
+    code {
+      background: #f0f0f5;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+      color: var(--accent);
+    }
+
+    pre {
+      background: var(--code-bg);
+      color: #cdd6f4;
+      padding: 16px 20px;
+      border-radius: 8px;
+      font-size: 11px;
+      overflow-x: auto;
+      margin: 12px 0;
+      page-break-inside: avoid;
+      border: 1px solid #313244;
+      line-height: 1.5;
+    }
+
+    pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+    }
+
+    blockquote {
+      border-left: 4px solid var(--primary);
+      margin: 14px 0;
+      padding: 10px 18px;
+      background: #f0f4ff;
+      border-radius: 0 8px 8px 0;
+    }
+
+    ul, ol { margin: 8px 0; padding-left: 24px; }
+    li { margin: 3px 0; }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 25px 0;
+    }
+
+    .mermaid {
+      text-align: center;
+      margin: 18px 0;
+      page-break-inside: avoid;
+      background: #fafbfe;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .mermaid svg {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+
+    a { color: var(--primary); text-decoration: none; }
+
+    @media print {
+      body { max-width: none; padding: 0; font-size: 12px; }
+      h1 { page-break-before: always; font-size: 20px; }
+      h1:first-of-type { page-break-before: avoid; }
+      pre { font-size: 10px; }
+      .mermaid { page-break-inside: avoid; }
+      @page {
+        size: A4;
+        margin: 18mm 15mm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1>SỔ TAY VẼ SƠ ĐỒ NGHIỆP VỤ — DÀNH CHO IT BA CHUYÊN NGHIỆP</h1>
+<p><strong>Tác giả:</strong> IT Business Analyst<br><strong>Phiên bản:</strong> 1.0<br><strong>Mục đích:</strong> Bộ công thức tổng quát — áp dụng được cho MỌI dự án, MỌI bài toán  </p>
+<hr>
+<blockquote>
+<p><strong>Cách dùng tài liệu này:</strong><br>Đây là <strong>bộ công thức chuẩn</strong>. Mỗi loại sơ đồ có: Định nghĩa → Khi nào vẽ → Công thức bước → Ví dụ thực tế → Lỗi thường gặp.<br>Bạn chỉ cần đọc phần tương ứng, làm theo từng bước là vẽ được.</p>
+</blockquote>
+<hr>
+<h1>MỤC LỤC</h1>
+<table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">Loại Sơ Đồ</th>
+<th align="left">Câu hỏi trả lời</th>
+<th align="left">Trang</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left"><strong>Use Case Diagram</strong></td>
+<td align="left">Hệ thống làm được gì? Ai dùng?</td>
+<td align="left">Phần 1</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left"><strong>Activity / Flowchart</strong></td>
+<td align="left">Quy trình diễn ra như thế nào?</td>
+<td align="left">Phần 2</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left"><strong>Swimlane Diagram</strong></td>
+<td align="left">Ai chịu trách nhiệm từng bước?</td>
+<td align="left">Phần 3</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left"><strong>Sequence Diagram</strong></td>
+<td align="left">Các thành phần giao tiếp thế nào?</td>
+<td align="left">Phần 4</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left"><strong>ERD</strong></td>
+<td align="left">Dữ liệu được lưu như thế nào?</td>
+<td align="left">Phần 5</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left"><strong>State Machine Diagram</strong></td>
+<td align="left">Trạng thái thay đổi ra sao?</td>
+<td align="left">Phần 6</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left"><strong>Architecture Diagram</strong></td>
+<td align="left">Hệ thống gồm những tầng nào?</td>
+<td align="left">Phần 7</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left"><strong>DFD</strong></td>
+<td align="left">Dữ liệu chạy qua đâu?</td>
+<td align="left">Phần 8</td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left"><strong>Sitemap &amp; User Flow</strong></td>
+<td align="left">Cấu trúc trang &amp; hành trình người dùng?</td>
+<td align="left">Phần 9</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left"><strong>Wireframe</strong></td>
+<td align="left">Giao diện trông như thế nào?</td>
+<td align="left">Phần 10</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left"><strong>Checklist &amp; Anti-patterns</strong></td>
+<td align="left">Kiểm tra trước khi nộp</td>
+<td align="left">Phần 11</td>
+</tr>
+</tbody></table>
+<hr>
+<h1>PHẦN 1: USE CASE DIAGRAM — &quot;HỆ THỐNG LÀM ĐƯỢC GÌ?&quot;</h1>
+<h2>1.1. Định Nghĩa &amp; Mục Đích</h2>
+<p>Use Case Diagram trả lời <strong>3 câu hỏi cốt lõi</strong>:</p>
+<ul>
+<li><strong>AI</strong> tương tác với hệ thống? (Actors)</li>
+<li>Họ có thể làm <strong>NHỮNG GÌ</strong>? (Use Cases)</li>
+<li>Hệ thống có <strong>PHẠM VI</strong> đến đâu? (System Boundary)</li>
+</ul>
+<p><strong>Khi nào vẽ:</strong> Giai đoạn đầu dự án — khi cần xác định scope với stakeholder.</p>
+<hr>
+<h2>1.2. Các Thành Phần Cần Biết</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Ký hiệu</th>
+<th align="left">Tên</th>
+<th align="left">Ý nghĩa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>(oval)</code></td>
+<td align="left">Use Case</td>
+<td align="left">Một chức năng hệ thống</td>
+</tr>
+<tr>
+<td align="left"><code>[hình người]</code></td>
+<td align="left">Actor</td>
+<td align="left">Người dùng hoặc hệ thống bên ngoài</td>
+</tr>
+<tr>
+<td align="left"><code>[hình chữ nhật lớn]</code></td>
+<td align="left">System Boundary</td>
+<td align="left">Ranh giới hệ thống</td>
+</tr>
+<tr>
+<td align="left"><code>───────&gt;</code></td>
+<td align="left">Association</td>
+<td align="left">Actor kết nối với Use Case</td>
+</tr>
+<tr>
+<td align="left"><code>- - -&gt;&lt;&lt;include&gt;&gt;</code></td>
+<td align="left">Include</td>
+<td align="left">UC này LUÔN gọi UC kia</td>
+</tr>
+<tr>
+<td align="left"><code>- - -&gt;&lt;&lt;extend&gt;&gt;</code></td>
+<td align="left">Extend</td>
+<td align="left">UC này CÓ THỂ gọi UC kia (điều kiện)</td>
+</tr>
+<tr>
+<td align="left"><code>──────&gt;</code></td>
+<td align="left">Generalization</td>
+<td align="left">Kế thừa (Actor/UC cha → con)</td>
+</tr>
+</tbody></table>
+<h3>Phân Biệt Include vs Extend</h3>
+<pre><code class="language-">&lt;&lt;include&gt;&gt;: BẮT BUỘC — luôn xảy ra
+  Ví dụ: "Đặt hàng" LUÔN include "Xác thực người dùng"
+  
+&lt;&lt;extend&gt;&gt;: TÙY CHỌN — chỉ xảy ra khi có điều kiện
+  Ví dụ: "Xem sản phẩm" CÓ THỂ extend "Áp dụng bộ lọc"</code></pre><hr>
+<h2>1.3. Công Thức Vẽ Use Case (7 Bước)</h2>
+<pre><code class="language-">BƯỚC 1: XÁC ĐỊNH ACTORS
+─────────────────────────
+Hỏi: "Ai tương tác với hệ thống?"
+- Người dùng trực tiếp (Primary): Khách hàng, Admin, Nhân viên...
+- Hệ thống ngoài (Secondary): API thanh toán, Email service, SMS...
+- Hệ thống quản lý (Offstage): Báo cáo, Monitoring...
+
+Tip: Mỗi loại vai trò khác nhau = 1 Actor riêng
+     (Khách chưa đăng nhập ≠ Khách đã đăng nhập)
+
+BƯỚC 2: LIỆT KÊ USE CASES
+──────────────────────────
+Hỏi: "Actor X có thể làm gì với hệ thống?"
+- Bắt đầu bằng động từ: Đăng nhập, Xem, Tạo, Cập nhật, Xóa...
+- Mỗi UC = 1 mục tiêu hoàn chỉnh của người dùng
+- Không quá chi tiết (tránh nhầm với workflow bên trong)
+
+BƯỚC 3: VẼ SYSTEM BOUNDARY
+────────────────────────────
+- Vẽ hình chữ nhật lớn = ranh giới hệ thống bạn đang làm
+- UC nào trong hộp = hệ thống xử lý
+- Actor nào ngoài hộp = người/hệ thống bên ngoài
+
+BƯỚC 4: KẾT NỐI ACTOR — USE CASE
+──────────────────────────────────
+- Kéo đường thẳng từ Actor đến UC họ thực hiện
+- Không thêm mũi tên chiều (chỉ đường thẳng)
+
+BƯỚC 5: THÊM QUAN HỆ INCLUDE/EXTEND (nếu cần)
+────────────────────────────────────────────────
+- Tìm UC nào LUÔN dùng chung 1 bước → dùng &lt;&lt;include&gt;&gt;
+- Tìm UC nào CHỈ đôi khi mở rộng → dùng &lt;&lt;extend&gt;&gt;
+
+BƯỚC 6: KIỂM TRA GENERALIZATION
+─────────────────────────────────
+- Actor cha/con? (Admin kế thừa từ User?)
+- UC cha/con? (Thanh toán thẻ / Thanh toán ví ← Thanh toán)
+
+BƯỚC 7: REVIEW VỚI STAKEHOLDER
+─────────────────────────────────
+- Hỏi: "Đây có phải tất cả những gì hệ thống cần làm không?"
+- Hỏi: "Có actor nào bị thiếu không?"</code></pre><hr>
+<h2>1.4. Template Use Case (Copy &amp; Chỉnh Sửa)</h2>
+<div class="mermaid">graph LR
+    subgraph System["[ TÊN HỆ THỐNG ]"]
+        UC1(("Chức năng 1"))
+        UC2(("Chức năng 2"))
+        UC3(("Chức năng 3"))
+        UC4(("Chức năng 4 (có phụ thuộc)"))
+        UC5(("Chức năng chung"))
+        UC4 -.->|include| UC5
+    end
+
+    A1["👤 Actor Chính"]
+    A2["👤 Actor Phụ"]
+    A3["⚙️ Hệ thống ngoài"]
+
+    A1 --> UC1
+    A1 --> UC2
+    A2 --> UC3
+    A2 --> UC4
+    UC2 -.->|extend| UC3
+    UC3 --> A3</div><h3>Ví Dụ Thực Tế — Hệ Thống Quản Lý Thư Viện</h3>
+<div class="mermaid">graph LR
+    subgraph System["Hệ Thống Thư Viện"]
+        UC1(("Tìm kiếm sách"))
+        UC2(("Mượn sách"))
+        UC3(("Trả sách"))
+        UC4(("Gia hạn mượn"))
+        UC5(("Xem lịch sử"))
+        UC6(("Quản lý sách"))
+        UC7(("Quản lý thành viên"))
+        UC8(("Xác thực danh tính"))
+        UC9(("Tính phí phạt"))
+
+        UC2 -.->|include| UC8
+        UC3 -.->|include| UC9
+        UC4 -.->|include| UC8
+    end
+
+    DocGia["👤 Độc giả"]
+    ThuThu["👤 Thủ thư"]
+
+    DocGia --> UC1
+    DocGia --> UC2
+    DocGia --> UC3
+    DocGia --> UC4
+    DocGia --> UC5
+    ThuThu --> UC6
+    ThuThu --> UC7
+    ThuThu --> UC3</div><hr>
+<h2>1.5. Lỗi Thường Gặp &amp; Cách Tránh</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Lỗi</th>
+<th align="left">Ví dụ sai</th>
+<th align="left">Cách sửa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">UC quá chi tiết</td>
+<td align="left">&quot;Nhấn nút Submit&quot;</td>
+<td align="left">Phải là: &quot;Gửi đơn đăng ký&quot;</td>
+</tr>
+<tr>
+<td align="left">UC là bước kỹ thuật</td>
+<td align="left">&quot;Hash password&quot;</td>
+<td align="left">Không vẽ — đây là logic nội bộ</td>
+</tr>
+<tr>
+<td align="left">Quên Actor ngoài</td>
+<td align="left">Không vẽ Email Service</td>
+<td align="left">Thêm Actor phụ cho hệ thống bên ngoài</td>
+</tr>
+<tr>
+<td align="left">Include/Extend nhầm</td>
+<td align="left">Dùng Include khi là Extend</td>
+<td align="left">Include = BẮT BUỘC, Extend = TÙY CHỌN</td>
+</tr>
+<tr>
+<td align="left">Quá nhiều UC</td>
+<td align="left">40+ use cases trong 1 diagram</td>
+<td align="left">Nhóm theo Epic, vẽ nhiều diagram</td>
+</tr>
+</tbody></table>
+<hr>
+<h1>PHẦN 2: ACTIVITY DIAGRAM / FLOWCHART — &quot;QUY TRÌNH DIỄN RA THẾ NÀO?&quot;</h1>
+<h2>2.1. Định Nghĩa &amp; Mục Đích</h2>
+<p>Activity Diagram / Flowchart mô tả <strong>luồng hoạt động</strong> từ đầu đến cuối của một quy trình. Trả lời: <strong>&quot;Bước nào xảy ra trước, bước nào xảy ra sau, điều kiện nào dẫn đến đâu?&quot;</strong></p>
+<p><strong>Khi nào vẽ:</strong></p>
+<ul>
+<li>Mô tả quy trình nghiệp vụ (business process)</li>
+<li>Mô tả logic xử lý của một tính năng</li>
+<li>Làm rõ các trường hợp ngoại lệ (exception flow)</li>
+</ul>
+<hr>
+<h2>2.2. Các Ký Hiệu Chuẩn</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Ký hiệu</th>
+<th align="left">Tên</th>
+<th align="left">Dùng khi</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>●</code> (tròn đặc)</td>
+<td align="left">Start Node</td>
+<td align="left">Điểm bắt đầu — mỗi flow CHỈ có 1</td>
+</tr>
+<tr>
+<td align="left"><code>◎</code> (tròn viền đôi)</td>
+<td align="left">End Node</td>
+<td align="left">Điểm kết thúc — có thể có nhiều</td>
+</tr>
+<tr>
+<td align="left"><code>[ ]</code> (hình chữ nhật)</td>
+<td align="left">Action / Activity</td>
+<td align="left">Một hành động xảy ra</td>
+</tr>
+<tr>
+<td align="left"><code>&lt; &gt;</code> (hình thoi)</td>
+<td align="left">Decision</td>
+<td align="left">Điểm rẽ nhánh — có điều kiện</td>
+</tr>
+<tr>
+<td align="left"><code>═══</code> (thanh ngang)</td>
+<td align="left">Fork / Join</td>
+<td align="left">Tách nhánh song song / Gộp lại</td>
+</tr>
+<tr>
+<td align="left"><code>───&gt;</code></td>
+<td align="left">Flow</td>
+<td align="left">Hướng đi của luồng</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>2.3. Công Thức Vẽ Activity Diagram (6 Bước)</h2>
+<pre><code class="language-">BƯỚC 1: XÁC ĐỊNH PHẠM VI
+──────────────────────────
+Hỏi: "Quy trình này bắt đầu từ đâu và kết thúc ở đâu?"
+- Điểm bắt đầu: Sự kiện kích hoạt (Trigger)
+- Điểm kết thúc: Kết quả cuối cùng (có thể nhiều kết thúc)
+
+BƯỚC 2: LIỆT KÊ CÁC BƯỚC CHÍNH (Happy Path)
+─────────────────────────────────────────────
+- Viết ra các bước khi mọi thứ diễn ra BÌNH THƯỜNG
+- Dùng câu ngắn, bắt đầu bằng ĐỘNG TỪ
+- Ví dụ: "Nhập thông tin" → "Kiểm tra hợp lệ" → "Lưu vào DB"
+
+BƯỚC 3: TÌM CÁC ĐIỂM QUYẾT ĐỊNH
+──────────────────────────────────
+- Bước nào có câu hỏi "Có/Không", "Thành công/Thất bại"?
+- Mỗi điểm đó = 1 hình thoi (Decision)
+- Gắn nhãn rõ cho từng nhánh: [Có] [Không] [Thành công] [Thất bại]
+
+BƯỚC 4: XỬ LÝ CÁC TRƯỜNG HỢP NGOẠI LỆ
+──────────────────────────────────────────
+- Khi điều kiện KHÔNG thỏa mãn → dẫn đến đâu?
+- Có vòng lặp (retry) không?
+- Có điểm kết thúc sớm (early exit) không?
+
+BƯỚC 5: KIỂM TRA HOẠT ĐỘNG SONG SONG
+────────────────────────────────────────
+- Có bước nào xảy ra ĐỒNG THỜI không?
+  Ví dụ: "Gửi email" và "Cập nhật DB" chạy song song
+- Dùng Fork (═══) để tách và Join (═══) để gộp
+
+BƯỚC 6: REVIEW LUỒNG
+──────────────────────
+- Mọi nhánh đều phải đến một điểm kết thúc
+- Không có vòng lặp vô tận (cần điều kiện thoát)
+- Mỗi Decision phải có ≥ 2 nhánh ra</code></pre><hr>
+<h2>2.4. Template Flowchart (Copy &amp; Chỉnh Sửa)</h2>
+<div class="mermaid">flowchart TD
+    Start([● Bắt đầu: TÊN SỰ KIỆN KÍCH HOẠT]) --> Step1
+
+    Step1[Bước 1: Mô tả hành động] --> Decision1
+
+    Decision1{Điều kiện?\nCâu hỏi?}
+    Decision1 -->|Có / Thành công| Step2
+    Decision1 -->|Không / Thất bại| ErrorStep
+
+    ErrorStep[Xử lý lỗi / Thông báo] --> Retry{Thử lại?}
+    Retry -->|Có| Step1
+    Retry -->|Không| EndFail([◎ Kết thúc: Thất bại])
+
+    Step2[Bước 2: Hành động tiếp theo] --> Decision2
+
+    Decision2{Điều kiện 2?}
+    Decision2 -->|Nhánh A| Step3A[Xử lý A]
+    Decision2 -->|Nhánh B| Step3B[Xử lý B]
+
+    Step3A --> FinalStep
+    Step3B --> FinalStep
+
+    FinalStep[Bước cuối: Hoàn thành] --> EndSuccess([◎ Kết thúc: Thành công])</div><hr>
+<h2>2.5. Ví Dụ — Quy Trình Duyệt Đơn Xin Việc</h2>
+<div class="mermaid">flowchart TD
+    Start([● Ứng viên nộp CV]) --> Receive
+
+    Receive[HR nhận và phân loại CV] --> Screen
+
+    Screen{CV đạt yêu cầu\ncơ bản?}
+    Screen -->|Không| Reject1[Gửi email từ chối lịch sự]
+    Reject1 --> End1([◎ Kết thúc: Loại vòng CV])
+
+    Screen -->|Có| Phone
+
+    Phone[Gọi điện phỏng vấn sơ bộ\n15 phút] --> PhoneResult
+
+    PhoneResult{Ứng viên\nphù hợp?}
+    PhoneResult -->|Không| Reject2[Gửi email cảm ơn]
+    Reject2 --> End2([◎ Kết thúc: Loại vòng phone])
+
+    PhoneResult -->|Có| Schedule
+
+    Schedule[Lên lịch phỏng vấn\ntechincal + culture fit] --> Interview
+
+    Interview[Phỏng vấn trực tiếp\n60 phút] --> InterviewResult
+
+    InterviewResult{Kết quả?}
+    InterviewResult -->|Không đạt| Reject3[Gửi phản hồi chi tiết]
+    Reject3 --> End3([◎ Kết thúc: Loại vòng phỏng vấn])
+
+    InterviewResult -->|Đạt| Offer
+
+    Offer[Gửi thư offer\nvà thương lượng lương] --> OfferResult
+
+    OfferResult{Ứng viên\nchấp nhận?}
+    OfferResult -->|Không| Negotiate[Thương lượng lại]
+    Negotiate --> OfferResult
+    OfferResult -->|Có| Onboard
+
+    Onboard[Chuẩn bị hợp đồng\nvà onboarding] --> End4([◎ Kết thúc: Tuyển dụng thành công])</div><hr>
+<h2>2.6. Lỗi Thường Gặp &amp; Cách Tránh</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Lỗi</th>
+<th align="left">Vấn đề</th>
+<th align="left">Cách sửa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Thiếu điểm kết thúc</td>
+<td align="left">Một nhánh không đến đâu</td>
+<td align="left">Mọi nhánh PHẢI có End Node</td>
+</tr>
+<tr>
+<td align="left">Decision &gt; 2 nhánh không gắn nhãn</td>
+<td align="left">Không biết điều kiện nào</td>
+<td align="left">Gắn nhãn RÕ RÀNG mỗi nhánh</td>
+</tr>
+<tr>
+<td align="left">Quá nhiều bước nhỏ</td>
+<td align="left">Diagram rối</td>
+<td align="left">Gộp 3-4 bước nhỏ thành 1 Activity</td>
+</tr>
+<tr>
+<td align="left">Vòng lặp vô tận</td>
+<td align="left">Không có điều kiện thoát</td>
+<td align="left">Luôn thêm nhánh &quot;Bỏ qua / Hủy&quot;</td>
+</tr>
+<tr>
+<td align="left">Happy path thiếu exception</td>
+<td align="left">Diagram quá đơn giản</td>
+<td align="left">Luôn hỏi &quot;Nếu lỗi thì sao?&quot;</td>
+</tr>
+</tbody></table>
+<hr>
+<h1>PHẦN 3: SWIMLANE DIAGRAM — &quot;AI CHỊU TRÁCH NHIỆM TỪNG BƯỚC?&quot;</h1>
+<h2>3.1. Định Nghĩa &amp; Mục Đích</h2>
+<p>Swimlane (Sơ đồ làn bơi) là Flowchart được chia theo <strong>vai trò chịu trách nhiệm</strong>. Mỗi &quot;làn&quot; = một người/bộ phận/hệ thống. Trả lời: <strong>&quot;Bước này do AI làm?&quot;</strong></p>
+<p><strong>Khi nào vẽ:</strong></p>
+<ul>
+<li>Quy trình có nhiều bộ phận tham gia</li>
+<li>Cần làm rõ trách nhiệm &amp; bàn giao (handoff)</li>
+<li>Phân tích bottleneck (nút thắt cổ chai)</li>
+</ul>
+<hr>
+<h2>3.2. Công Thức Vẽ Swimlane (5 Bước)</h2>
+<pre><code class="language-">BƯỚC 1: XÁC ĐỊNH CÁC "LÀN"
+─────────────────────────────
+Hỏi: "Có bao nhiêu vai trò khác nhau tham gia quy trình này?"
+- Mỗi vai trò = 1 làn (lane)
+- Thường có 3-6 làn là hợp lý
+- Ít nhất: Actor chính + Hệ thống + DB
+- Nhiều nhất: Chia theo phòng ban / microservice
+
+Ví dụ làn phổ biến:
+  • Người dùng / Khách hàng
+  • Giao diện (Frontend)
+  • Xử lý (Backend / API)
+  • Cơ sở dữ liệu
+  • Hệ thống bên ngoài (Stripe, Email...)
+  • Bộ phận nội bộ (Kho, Kế toán, QA...)
+
+BƯỚC 2: VẼ QUY TRÌNH TRƯỚC (KHÔNG CÓ LÀN)
+────────────────────────────────────────────
+- Trước tiên liệt kê tất cả các bước theo thứ tự
+- Không cần lo về ai làm — cứ liệt kê hết
+
+BƯỚC 3: GÁN TỪNG BƯỚC VÀO LÀN ĐÚNG
+────────────────────────────────────────
+- Đặt mỗi bước vào làn của vai trò thực hiện bước đó
+- Khi bước chuyển từ làn này sang làn kia = điểm HANDOFF (bàn giao)
+
+BƯỚC 4: VẼ MŨI TÊN KẾT NỐI
+──────────────────────────────
+- Kết nối các bước theo thứ tự
+- Mũi tên cắt qua ranh giới làn = thấy rõ điểm giao tiếp
+
+BƯỚC 5: PHÂN TÍCH HANDOFF
+───────────────────────────
+- Đếm số lần bàn giao giữa các làn
+- Nhiều handoff = nhiều rủi ro delay / lỗi
+- Có thể tối ưu bằng cách gộp bước hoặc tự động hóa</code></pre><hr>
+<h2>3.3. Template Swimlane (Copy &amp; Chỉnh Sửa)</h2>
+<div class="mermaid">flowchart TD
+    subgraph Lane1["👤 VAI TRÒ 1 (VD: Người dùng)"]
+        A1([Bắt đầu]) --> A2[Hành động 1]
+        A2 --> A3[Hành động 2]
+    end
+
+    subgraph Lane2["🖥️ VAI TRÒ 2 (VD: Hệ thống / Frontend)"]
+        B1[Nhận yêu cầu] --> B2{Kiểm tra điều kiện}
+        B2 -->|Hợp lệ| B3[Xử lý]
+        B2 -->|Không hợp lệ| B4[Trả lỗi]
+    end
+
+    subgraph Lane3["⚙️ VAI TRÒ 3 (VD: Backend / API)"]
+        C1[Nhận request] --> C2[Xử lý logic] --> C3[Trả kết quả]
+    end
+
+    subgraph Lane4["💾 VAI TRÒ 4 (VD: Database)"]
+        D1[(Lưu dữ liệu)] --> D2[(Xác nhận)]
+    end
+
+    A3 --> B1
+    B3 --> C1
+    B4 --> A2
+    C2 --> D1
+    D2 --> C3
+    C3 --> B3
+    B3 --> A3</div><hr>
+<h2>3.4. Bảng RACI — Công Cụ Bổ Sung Cho Swimlane</h2>
+<blockquote>
+<p><strong>RACI</strong> = Responsible (Thực hiện) / Accountable (Chịu trách nhiệm) / Consulted (Tham vấn) / Informed (Được thông báo)</p>
+</blockquote>
+<p><strong>Template RACI:</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">Hoạt động</th>
+<th align="left">Vai trò A</th>
+<th align="left">Vai trò B</th>
+<th align="left">Vai trò C</th>
+<th align="left">Vai trò D</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Bước 1</td>
+<td align="left"><strong>R</strong></td>
+<td align="left">A</td>
+<td align="left">C</td>
+<td align="left">I</td>
+</tr>
+<tr>
+<td align="left">Bước 2</td>
+<td align="left">I</td>
+<td align="left"><strong>R/A</strong></td>
+<td align="left">-</td>
+<td align="left">I</td>
+</tr>
+<tr>
+<td align="left">Bước 3</td>
+<td align="left">-</td>
+<td align="left">A</td>
+<td align="left"><strong>R</strong></td>
+<td align="left">I</td>
+</tr>
+</tbody></table>
+<p><strong>Quy tắc RACI:</strong></p>
+<ul>
+<li>Mỗi hàng CHỈ có đúng 1 <strong>A</strong> (người chịu trách nhiệm cuối cùng)</li>
+<li>Có thể có nhiều <strong>R</strong> (nhiều người cùng thực hiện)</li>
+<li><strong>C</strong> = hỏi ý kiến TRƯỚC khi làm</li>
+<li><strong>I</strong> = thông báo SAU khi làm xong</li>
+</ul>
+<hr>
+<h1>PHẦN 4: SEQUENCE DIAGRAM — &quot;CÁC THÀNH PHẦN GIAO TIẾP THẾ NÀO?&quot;</h1>
+<h2>4.1. Định Nghĩa &amp; Mục Đích</h2>
+<p>Sequence Diagram mô tả <strong>thứ tự các tin nhắn</strong> được gửi qua lại giữa các thành phần theo <strong>trục thời gian</strong> (từ trên xuống dưới). Trả lời: <strong>&quot;Khi thực hiện chức năng X, tin nhắn đi qua những đâu, theo thứ tự nào?&quot;</strong></p>
+<p><strong>Khi nào vẽ:</strong></p>
+<ul>
+<li>Mô tả API interaction chi tiết</li>
+<li>Làm rõ luồng xác thực (auth flow)</li>
+<li>Debug / phân tích một feature phức tạp</li>
+<li>Tài liệu cho Developer</li>
+</ul>
+<hr>
+<h2>4.2. Các Ký Hiệu Cần Biết</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Ký hiệu</th>
+<th align="left">Tên</th>
+<th align="left">Ý nghĩa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>[hộp trên]</code></td>
+<td align="left">Participant / Actor</td>
+<td align="left">Thành phần tham gia</td>
+</tr>
+<tr>
+<td align="left"><code>│</code></td>
+<td align="left">Lifeline</td>
+<td align="left">Đường thời gian của mỗi thành phần</td>
+</tr>
+<tr>
+<td align="left"><code>──────&gt;</code></td>
+<td align="left">Synchronous Message</td>
+<td align="left">Gửi tin nhắn &amp; CHỜ phản hồi</td>
+</tr>
+<tr>
+<td align="left"><code>- - - -&gt;</code></td>
+<td align="left">Return Message</td>
+<td align="left">Tin nhắn phản hồi (return)</td>
+</tr>
+<tr>
+<td align="left"><code>──────&gt;&gt;</code></td>
+<td align="left">Asynchronous</td>
+<td align="left">Gửi tin nhắn &amp; KHÔNG chờ</td>
+</tr>
+<tr>
+<td align="left"><code>alt / else</code></td>
+<td align="left">Alternative</td>
+<td align="left">Nhánh điều kiện (if/else)</td>
+</tr>
+<tr>
+<td align="left"><code>loop</code></td>
+<td align="left">Loop</td>
+<td align="left">Lặp lại</td>
+</tr>
+<tr>
+<td align="left"><code>opt</code></td>
+<td align="left">Optional</td>
+<td align="left">Tùy chọn — chỉ xảy ra khi có điều kiện</td>
+</tr>
+<tr>
+<td align="left"><code>par</code></td>
+<td align="left">Parallel</td>
+<td align="left">Xảy ra song song</td>
+</tr>
+<tr>
+<td align="left"><code>Note</code></td>
+<td align="left">Note</td>
+<td align="left">Ghi chú giải thích</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4.3. Công Thức Vẽ Sequence Diagram (6 Bước)</h2>
+<pre><code class="language-">BƯỚC 1: XÁC ĐỊNH PARTICIPANTS
+───────────────────────────────
+Hỏi: "Những thành phần nào tham gia vào chức năng này?"
+
+Danh sách participants thường gặp:
+  • User / Actor (người kích hoạt)
+  • Browser / Mobile App (giao diện)
+  • API Gateway / Backend
+  • Database (DB)
+  • Cache (Redis...)
+  • External Service (Stripe, SMS, Email...)
+  • Authentication Service
+
+Sắp xếp từ TRÁI sang PHẢI theo chiều luồng:
+User → UI → API → DB → External
+
+BƯỚC 2: XÁC ĐỊNH TRIGGER (ĐIỂM BẮT ĐẦU)
+──────────────────────────────────────────
+- Hành động đầu tiên là gì?
+- Ai thực hiện? (thường là User hoặc System)
+
+BƯỚC 3: VẼ HAPPY PATH (LUỒNG BÌNH THƯỜNG)
+────────────────────────────────────────────
+- Liệt kê từng bước theo thứ tự thời gian
+- Mỗi tin nhắn = 1 mũi tên nằm ngang
+- Gắn số thứ tự (1, 2, 3...) để dễ theo dõi
+- Tin nhắn đi = ──────&gt;, phản hồi = - - - -&gt;
+
+BƯỚC 4: THÊM CÁC TRƯỜNG HỢP ĐẶC BIỆT
+────────────────────────────────────────
+- Dùng alt/else cho các nhánh điều kiện
+- Dùng loop khi có vòng lặp
+- Dùng opt khi có bước tùy chọn
+
+BƯỚC 5: THÊM GHI CHÚ (NOTE)
+──────────────────────────────
+- Giải thích các bước phức tạp
+- Ghi rõ HTTP method + status code (POST /api/v1/... → 200 OK)
+- Ghi timeout, retry policy nếu có
+
+BƯỚC 6: KIỂM TRA
+──────────────────
+- Mỗi synchronous message phải có return message
+- Số bước không quá 20 (nếu hơn → tách thành nhiều diagram)
+- Sequence phải khớp với API spec thực tế</code></pre><hr>
+<h2>4.4. Template Sequence Diagram (Copy &amp; Chỉnh Sửa)</h2>
+<div class="mermaid">sequenceDiagram
+    autonumber
+    participant U as "👤 Người dùng"
+    participant UI as "🖥️ Giao diện"
+    participant API as "⚙️ Backend API"
+    participant DB as "💾 Database"
+    participant EXT as "🔌 Dịch vụ ngoài"
+
+    U->>UI: 1. Hành động kích hoạt (click, submit...)
+    UI->>API: 2. HTTP Request (METHOD /endpoint)
+
+    API->>DB: 3. Truy vấn / Kiểm tra dữ liệu
+    DB-->>API: 4. Kết quả truy vấn
+
+    alt Trường hợp thành công
+        API->>EXT: 5a. Gọi dịch vụ ngoài (nếu cần)
+        EXT-->>API: 6a. Phản hồi từ dịch vụ ngoài
+
+        API->>DB: 7a. Lưu kết quả
+        DB-->>API: 8a. Xác nhận lưu thành công
+
+        API-->>UI: 9a. 200 OK {data}
+        UI->>U: 10a. Hiển thị kết quả thành công
+
+    else Trường hợp thất bại
+        API-->>UI: 5b. 4xx/5xx Error {message}
+        UI->>U: 6b. Hiển thị thông báo lỗi
+    end</div><hr>
+<h2>4.5. Ví Dụ — Sequence: Đăng Nhập Hệ Thống</h2>
+<div class="mermaid">sequenceDiagram
+    autonumber
+    participant U as "👤 Người dùng"
+    participant UI as "🖥️ Giao diện"
+    participant API as "⚙️ API Server"
+    participant DB as "💾 Database"
+    participant Cache as "⚡ Cache"
+
+    U->>UI: Nhập email + mật khẩu
+    UI->>UI: Validate format (frontend)
+    UI->>API: POST /auth/login {email, password}
+
+    API->>Cache: Kiểm tra tài khoản có bị khóa?
+    Cache-->>API: Trạng thái khóa
+
+    alt Tài khoản đang bị khóa
+        API-->>UI: 423 Locked {retry_after: 15min}
+        UI->>U: Hiện thông báo tài khoản bị khóa
+    else Tài khoản bình thường
+        API->>DB: SELECT user WHERE email = ?
+        DB-->>API: User record (hoặc null)
+
+        alt Không tìm thấy user
+            API-->>UI: 401 Unauthorized
+            UI->>U: Hiện lỗi chung chung (không tiết lộ email sai hay pass sai)
+        else Tìm thấy user
+            API->>API: So sánh password hash (bcrypt)
+
+            alt Mật khẩu sai
+                API->>Cache: Tăng failed_attempts + 1
+                Cache-->>API: failed_attempts = N
+
+                alt N >= 5
+                    API->>Cache: Khóa tài khoản 15 phút
+                end
+
+                API-->>UI: 401 Unauthorized
+                UI->>U: Hiện lỗi đăng nhập
+            else Mật khẩu đúng
+                API->>Cache: Reset failed_attempts = 0
+                API->>API: Tạo JWT token (24h)
+                API-->>UI: 200 OK {access_token, user_info}
+                UI->>UI: Lưu token vào httpOnly cookie
+                UI->>U: Chuyển hướng đến Dashboard
+            end
+        end
+    end</div><hr>
+<h2>4.6. Lỗi Thường Gặp &amp; Cách Tránh</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Lỗi</th>
+<th align="left">Vấn đề</th>
+<th align="left">Cách sửa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Quá nhiều participants</td>
+<td align="left">Diagram chật, khó đọc</td>
+<td align="left">Tối đa 6-7 participants; tách diagram nếu nhiều hơn</td>
+</tr>
+<tr>
+<td align="left">Thiếu return message</td>
+<td align="left">Đường một chiều, không rõ kết quả</td>
+<td align="left">Mỗi request đồng bộ PHẢI có response</td>
+</tr>
+<tr>
+<td align="left">Không đánh số</td>
+<td align="left">Khó theo dõi thứ tự</td>
+<td align="left">Luôn dùng autonumber</td>
+</tr>
+<tr>
+<td align="left">Không xử lý lỗi</td>
+<td align="left">Chỉ có happy path</td>
+<td align="left">Luôn thêm alt/else cho error case</td>
+</tr>
+<tr>
+<td align="left">Quá chi tiết</td>
+<td align="left">Mô tả từng dòng code</td>
+<td align="left">Diagram là thiết kế, không phải code</td>
+</tr>
+</tbody></table>
+<hr>
+<h1>PHẦN 5: ERD — &quot;DỮ LIỆU ĐƯỢC LƯU NHƯ THẾ NÀO?&quot;</h1>
+<h2>5.1. Định Nghĩa &amp; Mục Đích</h2>
+<p>ERD (Entity-Relationship Diagram) mô tả <strong>cấu trúc dữ liệu</strong> của hệ thống: có những &quot;bảng&quot; nào, mỗi bảng có những &quot;cột&quot; gì, và các bảng liên quan với nhau thế nào.</p>
+<p><strong>Khi nào vẽ:</strong></p>
+<ul>
+<li>Thiết kế database trước khi code</li>
+<li>Làm tài liệu hóa database hiện có</li>
+<li>Phân tích yêu cầu dữ liệu từ business</li>
+</ul>
+<hr>
+<h2>5.2. Các Ký Hiệu Quan Trọng</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Ký hiệu</th>
+<th align="left">Ý nghĩa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>PK</strong></td>
+<td align="left">Primary Key — định danh duy nhất của một bản ghi</td>
+</tr>
+<tr>
+<td align="left"><strong>FK</strong></td>
+<td align="left">Foreign Key — khóa ngoại, liên kết sang bảng khác</td>
+</tr>
+<tr>
+<td align="left"><strong>NK</strong></td>
+<td align="left">Natural Key — khóa tự nhiên (mã code, email...)</td>
+</tr>
+<tr>
+<td align="left"><code>||</code></td>
+<td align="left">Đúng một (exactly one) — bắt buộc</td>
+</tr>
+<tr>
+<td align="left"><code>|o</code></td>
+<td align="left">Không hoặc một (zero or one) — tùy chọn</td>
+</tr>
+<tr>
+<td align="left"><code>|{</code></td>
+<td align="left">Một hoặc nhiều (one or many) — bắt buộc có ít nhất 1</td>
+</tr>
+<tr>
+<td align="left"><code>o{</code></td>
+<td align="left">Không hoặc nhiều (zero or many) — tùy chọn</td>
+</tr>
+</tbody></table>
+<h3>Đọc Quan Hệ:</h3>
+<pre><code class="language-">USER ||--o{ ORDER : "đặt"
+Đọc: Một USER đặt không hoặc nhiều ORDER
+     Mỗi ORDER thuộc đúng một USER
+
+PRODUCT ||--|{ ORDER_ITEM : "có trong"
+Đọc: Một PRODUCT có trong một hoặc nhiều ORDER_ITEM (bắt buộc)
+     Mỗi ORDER_ITEM chứa đúng một PRODUCT</code></pre><hr>
+<h2>5.3. Công Thức Vẽ ERD (7 Bước)</h2>
+<pre><code class="language-">BƯỚC 1: XÁC ĐỊNH CÁC THỰC THỂ (ENTITIES)
+──────────────────────────────────────────
+Hỏi: "Hệ thống cần lưu trữ thông tin về những ĐỐI TƯỢNG nào?"
+- Danh từ quan trọng trong yêu cầu = có thể là Entity
+- Ví dụ: Người dùng, Sản phẩm, Đơn hàng, Phòng, Nhân viên...
+- Mỗi entity sẽ thành một bảng trong DB
+
+BƯỚC 2: XÁC ĐỊNH THUỘC TÍNH (ATTRIBUTES)
+──────────────────────────────────────────
+Hỏi: "Cần lưu thông tin GÌ về đối tượng này?"
+- Mỗi thuộc tính = một cột trong bảng
+- Xác định kiểu dữ liệu: string, int, decimal, datetime, boolean...
+- Phân biệt: Bắt buộc (NOT NULL) vs Tùy chọn (NULL)
+
+BƯỚC 3: XÁC ĐỊNH KHÓA CHÍNH (PRIMARY KEY)
+────────────────────────────────────────────
+- Mỗi entity cần 1 PK duy nhất
+- Nên dùng: UUID hoặc SERIAL/AUTO_INCREMENT
+- Không dùng thông tin có thể thay đổi làm PK (email, phone)
+
+BƯỚC 4: XÁC ĐỊNH QUAN HỆ GIỮA CÁC ENTITY
+────────────────────────────────────────────
+Hỏi cho mỗi cặp entity:
+  "1 [A] liên quan đến bao nhiêu [B]?"
+  "1 [B] liên quan đến bao nhiêu [A]?"
+
+3 loại quan hệ:
+  • 1-1: Một người có đúng 1 hộ chiếu
+  • 1-N: Một người có nhiều đơn hàng
+  • M-N: Nhiều sinh viên học nhiều môn học (cần bảng trung gian!)
+
+BƯỚC 5: XỬ LÝ QUAN HỆ M-N
+────────────────────────────
+- Không vẽ M-N trực tiếp → cần tạo bảng TRUNG GIAN (junction table)
+- Bảng trung gian có 2 FK + có thể có thuộc tính riêng
+
+Ví dụ:
+  STUDENT (M) ──── ENROLLMENT ──── (N) COURSE
+  ENROLLMENT có: student_id (FK), course_id (FK), enrolled_date, grade
+
+BƯỚC 6: THÊM KHÓA NGOẠI (FOREIGN KEY)
+────────────────────────────────────────
+- Phía "nhiều" (N) giữ FK trỏ về phía "một" (1)
+- Ví dụ: ORDER có user_id FK → USER.id
+
+BƯỚC 7: REVIEW VỚI DBA / DEVELOPER
+────────────────────────────────────
+- Có thiếu entity nào không?
+- Có thuộc tính nào chưa chuẩn hóa (normalization)?
+- Index cần thiết ở đâu? (cột hay tìm kiếm)</code></pre><hr>
+<h2>5.4. Template ERD (Copy &amp; Chỉnh Sửa)</h2>
+<div class="mermaid">erDiagram
+    ENTITY_A ||--o{ ENTITY_B : "quan he 1-N"
+    ENTITY_A ||--|| ENTITY_C : "quan he 1-1"
+    ENTITY_B }o--o{ ENTITY_D : "quan he M-N (qua junction)"
+    ENTITY_B ||--|{ ENTITY_E : "quan he 1-N bat buoc"
+
+    ENTITY_A {
+        uuid id PK
+        string ten_truong_1
+        string ten_truong_2
+        int    ten_truong_so
+        boolean la_hoat_dong
+        datetime tao_luc
+        datetime cap_nhat_luc
+    }
+
+    ENTITY_B {
+        uuid id PK
+        uuid entity_a_id FK
+        string mo_ta
+        decimal gia_tri
+        string trang_thai "PENDING, ACTIVE, CLOSED"
+    }
+
+    ENTITY_C {
+        uuid id PK
+        uuid entity_a_id FK
+        string thong_tin
+    }
+
+    ENTITY_D {
+        uuid id PK
+        string ten
+    }
+
+    ENTITY_E {
+        uuid id PK
+        uuid entity_b_id FK
+        int so_luong
+        decimal don_gia
+        string snapshot_json "Lưu snapshot tại thời điểm tạo"
+    }</div><hr>
+<h2>5.5. Checklist Thuộc Tính Cần Có Cho Mỗi Entity</h2>
+<pre><code class="language-">Thuộc tính BẮT BUỘC (gần như luôn cần):
+  ✅ id          — UUID hoặc SERIAL, Primary Key
+  ✅ created_at  — Thời điểm tạo bản ghi
+  ✅ updated_at  — Thời điểm cập nhật cuối
+
+Thuộc tính NÊN CÓ:
+  ✅ is_active / is_deleted — Soft delete (không xóa cứng)
+  ✅ created_by / updated_by — Ai tạo/sửa (audit trail)
+  ✅ version — Optimistic locking (tránh conflict)
+
+Thuộc tính TRÁNH:
+  ❌ password (lưu thẳng) → Luôn lưu password_hash
+  ❌ Dữ liệu thẻ ngân hàng → Vi phạm PCI DSS
+  ❌ Dữ liệu quan hệ lưu trong 1 cột dạng string → Vi phạm normalization</code></pre><hr>
+<h2>5.6. Lỗi Thường Gặp &amp; Cách Tránh</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Lỗi</th>
+<th align="left">Vấn đề</th>
+<th align="left">Cách sửa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Dùng email làm PK</td>
+<td align="left">Email có thể thay đổi</td>
+<td align="left">Dùng UUID/SERIAL làm PK</td>
+</tr>
+<tr>
+<td align="left">Không tách M-N</td>
+<td align="left">DB không hỗ trợ trực tiếp</td>
+<td align="left">Tạo junction table</td>
+</tr>
+<tr>
+<td align="left">Thuộc tính computed</td>
+<td align="left">Lưu &quot;tuổi&quot; thay vì &quot;ngày sinh&quot;</td>
+<td align="left">Lưu raw data, tính khi cần</td>
+</tr>
+<tr>
+<td align="left">Thiếu audit fields</td>
+<td align="left">Không biết ai làm gì khi nào</td>
+<td align="left">Luôn thêm created_at, updated_at</td>
+</tr>
+<tr>
+<td align="left">Over-normalize</td>
+<td align="left">Quá nhiều JOIN, chậm</td>
+<td align="left">Đôi khi denormalize có chủ đích</td>
+</tr>
+</tbody></table>
+<hr>
+<h1>PHẦN 6: STATE MACHINE DIAGRAM — &quot;TRẠNG THÁI THAY ĐỔI THẾ NÀO?&quot;</h1>
+<h2>6.1. Định Nghĩa &amp; Mục Đích</h2>
+<p>State Machine (Sơ đồ trạng thái) mô tả <strong>một đối tượng trải qua những trạng thái nào</strong> và <strong>điều kiện gì khiến nó chuyển trạng thái</strong>. Trả lời: <strong>&quot;Đối tượng X có thể ở những trạng thái nào? Chuyển sang trạng thái khác khi nào?&quot;</strong></p>
+<p><strong>Khi nào vẽ:</strong></p>
+<ul>
+<li>Entity có nhiều trạng thái vòng đời (lifecycle)</li>
+<li>Cần làm rõ quy tắc chuyển trạng thái</li>
+<li>Phổ biến: Order, Ticket, User account, Payment, Document...</li>
+</ul>
+<hr>
+<h2>6.2. Công Thức Vẽ State Machine (5 Bước)</h2>
+<pre><code class="language-">BƯỚC 1: XÁC ĐỊNH ĐỐI TƯỢNG
+────────────────────────────
+- Chọn 1 entity có trạng thái thay đổi theo thời gian
+- Ví dụ: Đơn hàng, Vé hỗ trợ, Tài khoản, Hồ sơ xin việc...
+
+BƯỚC 2: LIỆT KÊ TẤT CẢ TRẠNG THÁI
+─────────────────────────────────────
+Hỏi: "Đối tượng này có thể đang ở trạng thái nào?"
+- Đặt tên trạng thái bằng DANH TỪ hoặc TÍNH TỪ (không phải động từ)
+- Dùng chữ HOA: PENDING, ACTIVE, CANCELLED...
+- Xác định: Trạng thái ban đầu (Initial) và trạng thái kết thúc (Final)
+
+BƯỚC 3: XÁC ĐỊNH CHUYỂN TRẠNG THÁI (TRANSITIONS)
+────────────────────────────────────────────────────
+Cho mỗi trạng thái, hỏi:
+  "Sự kiện nào khiến đối tượng RỜI KHỎI trạng thái này?"
+  "Đi đến trạng thái nào?"
+  "Điều kiện nào phải thỏa mãn?"
+
+Format: [Trạng thái A] --[Sự kiện / Điều kiện]--&gt; [Trạng thái B]
+
+BƯỚC 4: XỬ LÝ TRƯỜNG HỢP ĐẶC BIỆT
+────────────────────────────────────
+- Trạng thái nào có thể bị HỦY? (CANCELLED)
+- Có trạng thái CUỐI không thể chuyển tiếp? (terminal state)
+- Có thể quay lại trạng thái trước? (rollback)
+
+BƯỚC 5: GẮN ACTIONS VÀO TRANSITIONS (nếu cần)
+────────────────────────────────────────────────
+- Mỗi khi chuyển trạng thái, hệ thống làm gì?
+- Ví dụ: PENDING → PAID: "Gửi email xác nhận + Cập nhật tồn kho"</code></pre><hr>
+<h2>6.3. Template State Machine (Copy &amp; Chỉnh Sửa)</h2>
+<div class="mermaid">stateDiagram-v2
+    [*] --> TRANG_THAI_DAU: Sự kiện tạo mới
+
+    TRANG_THAI_DAU --> TRANG_THAI_2: Điều kiện / Sự kiện A
+    TRANG_THAI_DAU --> BI_HUY: Hủy bỏ
+
+    TRANG_THAI_2 --> TRANG_THAI_3: Điều kiện B
+    TRANG_THAI_2 --> TRANG_THAI_DAU: Rollback
+
+    state TRANG_THAI_2 {
+        [*] --> BUOC_CON_1
+        BUOC_CON_1 --> BUOC_CON_2: Xử lý xong
+    }
+
+    TRANG_THAI_3 --> HOAN_THANH: Hoàn tất
+    TRANG_THAI_3 --> BI_HUY: Hủy bởi admin
+
+    HOAN_THANH --> [*]
+    BI_HUY --> [*]
+
+    note right of TRANG_THAI_2
+        Ghi chú: Action xảy ra
+        khi vào trạng thái này
+    end note</div><hr>
+<h2>6.4. Ví Dụ — Vòng Đời Ticket Hỗ Trợ Khách Hàng</h2>
+<div class="mermaid">stateDiagram-v2
+    [*] --> MOI: Khách gửi yêu cầu
+
+    MOI --> DA_TIEP_NHAN: Agent nhận ticket
+    MOI --> DONG: Tự động đóng sau 7 ngày không phản hồi
+
+    DA_TIEP_NHAN --> DANG_XU_LY: Agent bắt đầu xử lý
+    DA_TIEP_NHAN --> CHO_KHACH: Cần thêm thông tin từ khách
+
+    CHO_KHACH --> DANG_XU_LY: Khách cung cấp thêm thông tin
+    CHO_KHACH --> DONG: Khách không phản hồi sau 3 ngày
+
+    DANG_XU_LY --> CHO_PHAT_TRIEN: Cần team kỹ thuật xử lý
+    DANG_XU_LY --> GIAI_QUYET: Agent giải quyết xong
+
+    CHO_PHAT_TRIEN --> DANG_XU_LY: Dev fix xong
+    CHO_PHAT_TRIEN --> GIAI_QUYET: Lỗi được sửa trong release
+
+    GIAI_QUYET --> MO_LAI: Khách báo vẫn còn lỗi
+    GIAI_QUYET --> DONG: Khách xác nhận OK (hoặc sau 3 ngày)
+
+    MO_LAI --> DANG_XU_LY: Reopen
+
+    DONG --> [*]
+
+    note right of CHO_PHAT_TRIEN
+        SLA: Max 5 ngày làm việc
+        Gửi email cập nhật mỗi ngày
+    end note</div><hr>
+<h2>6.5. Checklist Trạng Thái Phổ Biến Theo Domain</h2>
+<pre><code class="language-">ĐƠN HÀNG (Order):
+  DRAFT → PENDING → CONFIRMED → PROCESSING
+  → SHIPPED → DELIVERED → COMPLETED
+  Nhánh: CANCELLED, RETURNED, REFUNDED
+
+VÉ HỖ TRỢ (Support Ticket):
+  NEW → IN_PROGRESS → PENDING_CUSTOMER
+  → RESOLVED → CLOSED
+  Nhánh: REOPENED, ESCALATED
+
+TÀI KHOẢN NGƯỜI DÙNG (User Account):
+  PENDING_VERIFICATION → ACTIVE
+  → SUSPENDED → DEACTIVATED
+  Nhánh: LOCKED (đăng nhập sai nhiều lần)
+
+HỒ SƠ XIN VIỆC (Job Application):
+  SUBMITTED → SCREENING → INTERVIEW
+  → OFFER → HIRED
+  Nhánh: REJECTED (ở mỗi giai đoạn), WITHDRAWN
+
+TÀI LIỆU (Document):
+  DRAFT → IN_REVIEW → APPROVED → PUBLISHED
+  Nhánh: REJECTED, ARCHIVED
+
+THANH TOÁN (Payment):
+  INITIATED → PROCESSING → SUCCESS
+  Nhánh: FAILED, REFUNDED, DISPUTED</code></pre><hr>
+<h1>PHẦN 7: ARCHITECTURE DIAGRAM — &quot;HỆ THỐNG GỒM NHỮNG TẦNG NÀO?&quot;</h1>
+<h2>7.1. Định Nghĩa &amp; Mục Đích</h2>
+<p>Architecture Diagram mô tả <strong>cấu trúc tổng thể</strong> của hệ thống: các tầng (layers), thành phần (components), và cách chúng kết nối. Trả lời: <strong>&quot;Hệ thống được xây dựng từ những khối nào?&quot;</strong></p>
+<p><strong>Khi nào vẽ:</strong> Trình bày cho stakeholder kỹ thuật, lựa chọn tech stack, onboard developer mới.</p>
+<hr>
+<h2>7.2. Công Thức Vẽ Architecture Diagram (5 Bước)</h2>
+<pre><code class="language-">BƯỚC 1: CHỌN KIỂU KIẾN TRÚC
+──────────────────────────────
+Các kiểu phổ biến:
+  • 3-Layer (Client – Server – Database): Web app thông thường
+  • Microservices: Hệ thống lớn, nhiều team
+  • Event-Driven: Hệ thống bất đồng bộ, queue
+  • Serverless: Cloud functions
+
+BƯỚC 2: XÁC ĐỊNH CÁC TẦNG (LAYERS)
+──────────────────────────────────────
+Tầng chuẩn cho web app:
+  Layer 1: Client (Browser, Mobile App, Desktop)
+  Layer 2: CDN / Edge (Cloudflare, CloudFront)
+  Layer 3: API Gateway / Load Balancer
+  Layer 4: Application Services (Backend)
+  Layer 5: Data Layer (DB, Cache, Storage)
+  Layer 6: External Services (3rd party APIs)
+
+BƯỚC 3: LIỆT KÊ COMPONENTS TRONG TỪNG TẦNG
+─────────────────────────────────────────────
+Mỗi tầng có những thành phần cụ thể gì?
+  Ví dụ Layer 4 (Application):
+    - Auth Service
+    - Product Service
+    - Order Service
+    - Notification Service
+
+BƯỚC 4: VẼ KẾT NỐI GIỮA COMPONENTS
+────────────────────────────────────
+  - Kết nối xuôi chiều (request/response)
+  - Giao thức: HTTPS, gRPC, AMQP, WebSocket...
+  - Chú thích loại kết nối nếu cần
+
+BƯỚC 5: THÊM DEPLOYMENT INFO
+──────────────────────────────
+  Mỗi component chạy ở đâu?
+  - Vercel, Netlify (Frontend)
+  - Railway, Heroku, AWS EC2 (Backend)
+  - Supabase, PlanetScale, RDS (Database)
+  - Redis Cloud, Upstash (Cache)</code></pre><hr>
+<h2>7.3. Template Architecture Diagram</h2>
+<div class="mermaid">graph TB
+    subgraph CLIENT["🖥️ TẦNG GIAO DIỆN"]
+        C1["Web App\n(React/Next.js)"]
+        C2["Mobile App\n(React Native)"]
+        C3["Admin Portal"]
+    end
+
+    subgraph EDGE["📡 TẦNG BIÊN"]
+        E1["CDN\n(Cloudflare)"]
+        E2["Load Balancer"]
+    end
+
+    subgraph GATEWAY["🚪 API GATEWAY"]
+        G1["Rate Limiting"]
+        G2["Auth Middleware\n(JWT)"]
+        G3["Router"]
+    end
+
+    subgraph SERVICES["⚙️ TẦNG DỊCH VỤ"]
+        S1["Service A\n(Auth)"]
+        S2["Service B\n(Core Business)"]
+        S3["Service C\n(Notification)"]
+    end
+
+    subgraph DATA["💾 TẦNG DỮ LIỆU"]
+        D1[("Database chính\nPostgres/MySQL")]
+        D2[("Cache\nRedis")]
+        D3["File Storage\nS3/Cloudinary"]
+    end
+
+    subgraph EXTERNAL["🌐 DỊCH VỤ BÊN NGOÀI"]
+        X1["Payment\n(Stripe/VNPay)"]
+        X2["Email\n(SendGrid/SES)"]
+        X3["SMS\n(Twilio)"]
+    end
+
+    C1 & C2 & C3 --> E1
+    E1 --> E2 --> G1 --> G2 --> G3
+    G3 --> S1 & S2 & S3
+    S1 & S2 --> D1
+    S2 --> D2
+    S2 --> D3
+    S1 --> X1
+    S3 --> X2 & X3</div><hr>
+<h1>PHẦN 8: DATA FLOW DIAGRAM (DFD) — &quot;DỮ LIỆU CHẠY QUA ĐÂU?&quot;</h1>
+<h2>8.1. Định Nghĩa &amp; Mục Đích</h2>
+<p>DFD mô tả <strong>luồng dữ liệu</strong>: dữ liệu đến từ đâu, đi qua những xử lý nào, được lưu ở đâu. Có 2 cấp: <strong>Context Diagram (Level 0)</strong> và <strong>Level 1 DFD</strong>.</p>
+<hr>
+<h2>8.2. Các Ký Hiệu DFD</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Ký hiệu</th>
+<th align="left">Tên</th>
+<th align="left">Ý nghĩa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Hình tròn / oval</td>
+<td align="left">Process</td>
+<td align="left">Một bước xử lý dữ liệu</td>
+</tr>
+<tr>
+<td align="left">Hình chữ nhật</td>
+<td align="left">External Entity</td>
+<td align="left">Nguồn/đích dữ liệu bên ngoài</td>
+</tr>
+<tr>
+<td align="left">Hai đường ngang</td>
+<td align="left">Data Store</td>
+<td align="left">Nơi lưu trữ dữ liệu</td>
+</tr>
+<tr>
+<td align="left">Mũi tên có nhãn</td>
+<td align="left">Data Flow</td>
+<td align="left">Luồng dữ liệu + tên dữ liệu</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>8.3. Công Thức Vẽ DFD (4 Bước)</h2>
+<pre><code class="language-">BƯỚC 1: VẼ CONTEXT DIAGRAM (LEVEL 0)
+──────────────────────────────────────
+- 1 hình tròn ở giữa = toàn bộ hệ thống
+- Các external entities xung quanh
+- Mũi tên = dữ liệu vào/ra hệ thống
+- Mục đích: Xác định PHẠM VI và GIAO DIỆN hệ thống
+
+BƯỚC 2: PHÂN RÃ THÀNH LEVEL 1
+────────────────────────────────
+- Chia hệ thống thành 3-7 processes chính
+- Thêm data stores (nơi lưu dữ liệu)
+- Kết nối bằng data flows có nhãn
+
+BƯỚC 3: GẮN NHÃN CHO MỌI MŨI TÊN
+────────────────────────────────────
+- Mỗi mũi tên PHẢI có tên dữ liệu
+- Ví dụ: "Thông tin đơn hàng", "JWT Token", "Kết quả thanh toán"
+
+BƯỚC 4: KIỂM TRA CÂN BẰNG
+────────────────────────────
+- Data vào process = Data ra process (cân bằng)
+- Không có "black hole" (process chỉ nhận, không trả)
+- Không có "miracle" (process chỉ trả, không nhận)</code></pre><hr>
+<h2>8.4. Template DFD Level 0 (Context Diagram)</h2>
+<div class="mermaid">flowchart LR
+    subgraph EXT["Bên ngoài hệ thống"]
+        E1["👤 Người dùng"]
+        E2["🏦 Cổng thanh toán"]
+        E3["📧 Dịch vụ Email"]
+    end
+
+    subgraph SYS["⚙️ HỆ THỐNG"]
+        P0(("Toàn bộ\nhệ thống"))
+    end
+
+    E1 -->|"Thông tin đăng nhập\nYêu cầu đặt hàng"| P0
+    P0 -->|"Kết quả xử lý\nThông báo"| E1
+    P0 -->|"Yêu cầu thanh toán"| E2
+    E2 -->|"Kết quả thanh toán"| P0
+    P0 -->|"Nội dung email"| E3
+    E3 -->|"Trạng thái gửi"| P0</div><hr>
+<h1>PHẦN 9: SITEMAP &amp; USER FLOW — &quot;CẤU TRÚC TRANG &amp; HÀNH TRÌNH NGƯỜI DÙNG?&quot;</h1>
+<h2>9.1. Sitemap</h2>
+<p><strong>Mục đích:</strong> Cho thấy <strong>tất cả các trang/màn hình</strong> của hệ thống và mối quan hệ phân cấp.</p>
+<pre><code class="language-">CÔNG THỨC VẼ SITEMAP:
+
+BƯỚC 1: Liệt kê tất cả màn hình/trang
+  Hỏi: "Người dùng có thể đến trang/màn hình nào?"
+
+BƯỚC 2: Phân cấp theo navigation
+  - Trang chủ / Dashboard là gốc
+  - Các section chính là cấp 2
+  - Các trang con là cấp 3
+
+BƯỚC 3: Đánh dấu quyền truy cập
+  - Công khai (không cần đăng nhập)
+  - Riêng tư (cần đăng nhập)
+  - Chỉ Admin</code></pre><p><strong>Template Sitemap:</strong></p>
+<div class="mermaid">graph TD
+    HOME["🏠 Trang Chủ"] --> SEC1["📦 Chức năng 1"]
+    HOME --> SEC2["👤 Tài khoản"]
+    HOME --> SEC3["ℹ️ Thông tin"]
+
+    SEC1 --> P1["Trang con 1.1"]
+    SEC1 --> P2["Trang con 1.2"]
+    P1 --> P3["Trang con 1.1.1"]
+
+    SEC2 --> P4["Đăng nhập 🔓"]
+    SEC2 --> P5["Hồ sơ 🔒"]
+    SEC2 --> P6["Cài đặt 🔒"]
+
+    SEC3 --> P7["Giới thiệu"]
+    SEC3 --> P8["Liên hệ"]</div><hr>
+<h2>9.2. User Flow</h2>
+<p><strong>Mục đích:</strong> Mô tả <strong>hành trình của người dùng</strong> qua các màn hình để hoàn thành một mục tiêu.</p>
+<pre><code class="language-">CÔNG THỨC VẼ USER FLOW:
+
+BƯỚC 1: Xác định mục tiêu
+  "Người dùng muốn đạt được gì?"
+  Ví dụ: Mua hàng, Đặt lịch, Gửi yêu cầu...
+
+BƯỚC 2: Xác định điểm vào (Entry Point)
+  Họ bắt đầu từ đâu? Email? Google Search? App?
+
+BƯỚC 3: Vẽ từng màn hình theo thứ tự
+  Mỗi ô = 1 màn hình
+  Mũi tên = hành động chuyển màn hình
+
+BƯỚC 4: Xử lý điểm rẽ nhánh
+  Khi có điều kiện (đã đăng nhập chưa? Có hàng không?)
+  → Vẽ hình thoi Decision
+
+BƯỚC 5: Xác định điểm kết thúc
+  Có thể nhiều kết thúc: Thành công / Thất bại / Thoát giữa chừng</code></pre><hr>
+<h1>PHẦN 10: WIREFRAME — &quot;GIAO DIỆN TRÔNG NHƯ THẾ NÀO?&quot;</h1>
+<h2>10.1. Định Nghĩa &amp; Mục Đích</h2>
+<p>Wireframe là <strong>bản phác thảo bố cục giao diện</strong> — cho thấy thứ gì nằm ở đâu trên màn hình, KHÔNG có màu sắc hay thiết kế cuối cùng.</p>
+<p><strong>Khi nào vẽ:</strong> Trước khi design, sau khi có User Flow, để align với PO và Designer.</p>
+<hr>
+<h2>10.2. Công Thức Vẽ Wireframe Text (ASCII) (5 Bước)</h2>
+<pre><code class="language-">BƯỚC 1: XÁC ĐỊNH VÙNG BỐ CỤC CHÍNH
+──────────────────────────────────────
+Mọi trang đều có:
+  - Header (Navigation bar)
+  - Main Content (nội dung chính)
+  - Footer (chân trang)
+
+BƯỚC 2: PHÁC THẢO GRID / LAYOUT
+──────────────────────────────────
+Chọn kiểu layout:
+  - Full-width: 1 cột
+  - 2 cột: Sidebar + Content
+  - 3 cột: Sidebar + Content + Panel phụ
+  - Grid: 2x2, 3x3, 4x4...
+
+BƯỚC 3: ĐẶT CÁC THÀNH PHẦN VÀO LAYOUT
+────────────────────────────────────────
+Các thành phần phổ biến:
+  [TEXT] = Văn bản, tiêu đề
+  [IMG]  = Ảnh, media
+  [BTN]  = Nút bấm
+  [FORM] = Form nhập liệu
+  [LIST] = Danh sách
+  [CARD] = Thẻ thông tin
+  [NAV]  = Navigation menu
+  [TAB]  = Tab chuyển mục
+
+BƯỚC 4: GHI CHÚ HÀNH VI
+─────────────────────────
+  Thêm chú thích bên cạnh:
+  "→ Click vào đây chuyển đến trang X"
+  "→ Hiện khi hết hàng"
+  "→ Disabled khi form chưa đủ"
+
+BƯỚC 5: ANNOTATE (THÊM SỐ CHÚ THÍCH)
+───────────────────────────────────────
+  Đánh số ①②③ vào các thành phần
+  Bên dưới giải thích từng số</code></pre><hr>
+<h2>10.3. Template Wireframe ASCII</h2>
+<pre><code class="language-">Trang: [TÊN TRANG]
+Mô tả: [Mục đích của trang này]
+
+┌─────────────────────────────────────────────────────────┐
+│  LOGO          [NAV: Mục 1] [Mục 2] [Mục 3]    [🔍][👤]│  ← Header
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│  ┌─────────────────────────────────────────────────┐   │  ← Hero / Banner
+│  │                                                 │   │
+│  │   [TIÊU ĐỀ CHÍNH - H1]                         │   │
+│  │   [Mô tả ngắn]                                  │   │
+│  │   [BTN: Call to Action]                         │   │
+│  │                                                 │   │
+│  └─────────────────────────────────────────────────┘   │
+│                                                         │
+│  ── Khu vực nội dung ────────────────────────────────  │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐             │  ← Grid 3 cột
+│  │  [IMG]   │  │  [IMG]   │  │  [IMG]   │             │
+│  │ [Tiêu đề]│  │ [Tiêu đề]│  │ [Tiêu đề]│             │
+│  │ [Mô tả]  │  │ [Mô tả]  │  │ [Mô tả]  │             │
+│  │ [BTN]    │  │ [BTN]    │  │ [BTN]    │             │
+│  └──────────┘  └──────────┘  └──────────┘             │
+│                                                         │
+│  ─ Sidebar ────┬─ Nội dung chính ───────────────────  │
+│  [FILTER]      │  [LIST ITEM 1]                        │  ← Layout 2 cột
+│  □ Option 1    │  [LIST ITEM 2]                        │
+│  □ Option 2    │  [LIST ITEM 3]                        │
+│  [BTN: Lọc]    │  [PAGINATION: ◀ 1 2 3 ▶]            │
+│                │                                        │
+├────────────────────────────────────────────────────────┤
+│  © 2026 [Công ty]    [Link 1] [Link 2] [Link 3]        │  ← Footer
+└─────────────────────────────────────────────────────────┘
+
+CHÚ THÍCH:
+① Header: Sticky (dính khi scroll), có cart badge
+② Hero: Hình nền, text overlay, CTA button nổi bật
+③ Grid: Responsive — 3 cột desktop, 2 cột tablet, 1 cột mobile
+④ Sidebar: Collapse được trên mobile
+⑤ Pagination: Hiện khi có &gt; 12 items</code></pre><hr>
+<h1>PHẦN 11: CHECKLIST &amp; ANTI-PATTERNS — &quot;KIỂM TRA TRƯỚC KHI NỘP&quot;</h1>
+<h2>11.1. Checklist Tổng Quát Cho Mọi Sơ Đồ</h2>
+<pre><code class="language-">✅ TRƯỚC KHI VẼ
+  □ Đã xác định rõ MỤC ĐÍCH của sơ đồ này?
+  □ Đã biết ĐỐI TƯỢNG đọc là ai? (Dev, PO, Stakeholder, QA?)
+  □ Đã có đủ thông tin để vẽ? (không đoán mò)
+
+✅ TRONG KHI VẼ
+  □ Tiêu đề rõ ràng (tên loại sơ đồ + tên chức năng)
+  □ Chú giải đầy đủ (legend) nếu dùng màu/ký hiệu đặc biệt
+  □ Gắn nhãn cho MỌI mũi tên quan trọng
+  □ Font đủ lớn để đọc khi in
+  □ Không quá 1 trang A4 (nếu không — tách diagram)
+
+✅ SAU KHI VẼ
+  □ Tự đọc lại từ góc nhìn người mới — có hiểu không?
+  □ Nhờ 1 người khác review
+  □ Đã align với code/API thực tế chưa?
+  □ Đã cập nhật khi yêu cầu thay đổi chưa?</code></pre><hr>
+<h2>11.2. Bảng Chọn Sơ Đồ Theo Tình Huống</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Câu hỏi stakeholder hỏi</th>
+<th align="left">Sơ đồ nên dùng</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">&quot;Hệ thống làm được gì?&quot;</td>
+<td align="left">Use Case Diagram</td>
+</tr>
+<tr>
+<td align="left">&quot;Quy trình này chạy thế nào?&quot;</td>
+<td align="left">Activity / Flowchart</td>
+</tr>
+<tr>
+<td align="left">&quot;Ai làm bước nào?&quot;</td>
+<td align="left">Swimlane</td>
+</tr>
+<tr>
+<td align="left">&quot;Khi tôi click X, chuyện gì xảy ra phía sau?&quot;</td>
+<td align="left">Sequence Diagram</td>
+</tr>
+<tr>
+<td align="left">&quot;Dữ liệu được lưu thế nào?&quot;</td>
+<td align="left">ERD</td>
+</tr>
+<tr>
+<td align="left">&quot;Đơn hàng đang ở bước nào? Có thể hủy không?&quot;</td>
+<td align="left">State Machine</td>
+</tr>
+<tr>
+<td align="left">&quot;Hệ thống dùng công nghệ gì?&quot;</td>
+<td align="left">Architecture Diagram</td>
+</tr>
+<tr>
+<td align="left">&quot;Dữ liệu đi từ đâu đến đâu?&quot;</td>
+<td align="left">DFD</td>
+</tr>
+<tr>
+<td align="left">&quot;Website có bao nhiêu trang?&quot;</td>
+<td align="left">Sitemap</td>
+</tr>
+<tr>
+<td align="left">&quot;Người dùng đi qua những màn hình nào?&quot;</td>
+<td align="left">User Flow</td>
+</tr>
+<tr>
+<td align="left">&quot;Màn hình này trông như thế nào?&quot;</td>
+<td align="left">Wireframe</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>11.3. Anti-Patterns — Những Gì KHÔNG Nên Làm</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Anti-Pattern</th>
+<th align="left">Hậu quả</th>
+<th align="left">Cách tránh</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">&quot;Diagram as Code&quot; — vẽ quá chi tiết</td>
+<td align="left">Dev không cần BA nữa</td>
+<td align="left">Diagram là THIẾT KẾ, không phải implementation</td>
+</tr>
+<tr>
+<td align="left">&quot;One diagram to rule them all&quot;</td>
+<td align="left">1 diagram quá lớn, không ai đọc</td>
+<td align="left">Tách theo scope, 1 diagram = 1 mục đích</td>
+</tr>
+<tr>
+<td align="left">Không cập nhật sau khi thay đổi</td>
+<td align="left">Diagram và code mâu thuẫn</td>
+<td align="left">Treat diagram như code — version control</td>
+</tr>
+<tr>
+<td align="left">Dùng ký hiệu tùy tiện</td>
+<td align="left">Người khác không hiểu</td>
+<td align="left">Theo chuẩn (UML, BPMN) hoặc có legend</td>
+</tr>
+<tr>
+<td align="left">Không có title/context</td>
+<td align="left">Không biết diagram này về cái gì</td>
+<td align="left">Luôn thêm tiêu đề + ngày + tác giả</td>
+</tr>
+<tr>
+<td align="left">Skip review với stakeholder</td>
+<td align="left">Vẽ sai yêu cầu</td>
+<td align="left">Review ít nhất 1 lần với người dùng cuối</td>
+</tr>
+<tr>
+<td align="left">Copy diagram từ dự án cũ</td>
+<td align="left">Thông tin sai</td>
+<td align="left">Luôn customize cho dự án hiện tại</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>11.4. Thứ Tự Vẽ Sơ Đồ Theo Giai Đoạn Dự Án</h2>
+<pre><code class="language-">GIAI ĐOẠN 1: KHỞI ĐẦU DỰ ÁN (Inception)
+──────────────────────────────────────────
+  Vẽ trước:
+  1. Use Case Diagram → Xác định scope
+  2. Context DFD → Xác định giao diện hệ thống
+  3. Sitemap → Cấu trúc sản phẩm
+  Mục đích: Đồng thuận với stakeholder
+
+GIAI ĐOẠN 2: PHÂN TÍCH YÊU CẦU (Analysis)
+────────────────────────────────────────────
+  Vẽ tiếp:
+  4. Activity / Flowchart → Chi tiết quy trình
+  5. Swimlane → Phân công trách nhiệm
+  6. State Machine → Vòng đời các entity
+  Mục đích: Làm rõ nghiệp vụ cho team
+
+GIAI ĐOẠN 3: THIẾT KẾ (Design)
+────────────────────────────────
+  Vẽ tiếp:
+  7. ERD → Cấu trúc dữ liệu
+  8. Architecture Diagram → Công nghệ &amp; tầng
+  9. Sequence Diagram → API interaction
+  10. User Flow + Wireframe → Giao diện
+  Mục đích: Tài liệu cho Developer bắt đầu code
+
+GIAI ĐOẠN 4: PHÁT TRIỂN &amp; KIỂM THỬ (Dev &amp; QA)
+──────────────────────────────────────────────────
+  Cập nhật:
+  - Giữ tất cả diagram đồng bộ với code
+  - Thêm diagram mới nếu scope thay đổi
+  - Dùng Sequence Diagram làm cơ sở viết test case</code></pre><hr>
+<h2>11.5. Mẫu Đặt Tên File Chuẩn</h2>
+<pre><code class="language-">Format: [Loại_sơ_đồ]_[Tên_chức_năng]_v[Số phiên bản]
+
+Ví dụ:
+  usecase_tong_quan_he_thong_v1.md
+  activity_quy_trinh_dat_hang_v2.md
+  swimlane_xu_ly_don_hang_v1.md
+  sequence_dang_nhap_v1.md
+  erd_database_schema_v3.md
+  state_vong_doi_don_hang_v1.md
+  architecture_tong_quan_he_thong_v2.md
+  wireframe_trang_checkout_v1.md</code></pre><hr>
+<h2>11.6. Bộ Câu Hỏi Khai Thác Yêu Cầu (Dùng Cho Mọi Dự Án)</h2>
+<pre><code class="language-">NHÓM CÂU HỎI VỀ NGƯỜI DÙNG:
+  □ Ai là người dùng chính? Họ có đặc điểm gì?
+  □ Người dùng muốn đạt được mục tiêu gì?
+  □ Hiện tại họ giải quyết vấn đề này bằng cách nào?
+  □ Điều gì khiến họ thất vọng với cách hiện tại?
+
+NHÓM CÂU HỎI VỀ CHỨC NĂNG:
+  □ Hệ thống PHẢI làm gì? (Must have)
+  □ Hệ thống NÊN làm gì? (Should have)
+  □ Hệ thống KHÔNG làm gì? (Out of scope)
+  □ Trường hợp ngoại lệ nào cần xử lý?
+  □ Khi lỗi xảy ra, hệ thống phản ứng thế nào?
+
+NHÓM CÂU HỎI VỀ DỮ LIỆU:
+  □ Hệ thống cần lưu trữ thông tin gì?
+  □ Dữ liệu đến từ đâu? Đi đến đâu?
+  □ Ai được xem dữ liệu nào? (phân quyền)
+  □ Dữ liệu cũ xử lý thế nào? (archive, delete?)
+  □ Có dữ liệu nhạy cảm cần bảo vệ đặc biệt?
+
+NHÓM CÂU HỎI VỀ QUY TRÌNH:
+  □ Quy trình bắt đầu khi nào? Kết thúc khi nào?
+  □ Ai phê duyệt? Điều kiện phê duyệt là gì?
+  □ Có SLA / deadline không? (trong bao lâu phải xong)
+  □ Quy trình có thể bị hủy/dừng không? Ai có quyền?
+
+NHÓM CÂU HỎI VỀ KỸ THUẬT:
+  □ Hệ thống phải đáp ứng bao nhiêu người dùng đồng thời?
+  □ Yêu cầu về bảo mật? (2FA, encryption, audit log...)
+  □ Tích hợp với hệ thống nào khác?
+  □ Nền tảng: Web, Mobile, Desktop, hay tất cả?</code></pre><hr>
+<h1>PHỤ LỤC: TỪ ĐIỂN THUẬT NGỮ BA</h1>
+<table>
+<thead>
+<tr>
+<th align="left">Thuật ngữ</th>
+<th align="left">Tiếng Việt</th>
+<th align="left">Định nghĩa ngắn</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Actor</td>
+<td align="left">Tác nhân</td>
+<td align="left">Người/hệ thống tương tác với hệ thống đang phân tích</td>
+</tr>
+<tr>
+<td align="left">Use Case</td>
+<td align="left">Ca sử dụng</td>
+<td align="left">Một mục tiêu hoàn chỉnh mà actor muốn đạt được</td>
+</tr>
+<tr>
+<td align="left">Activity</td>
+<td align="left">Hoạt động</td>
+<td align="left">Một bước trong quy trình</td>
+</tr>
+<tr>
+<td align="left">Swimlane</td>
+<td align="left">Làn bơi</td>
+<td align="left">Phân vùng quy trình theo trách nhiệm</td>
+</tr>
+<tr>
+<td align="left">Sequence</td>
+<td align="left">Tuần tự</td>
+<td align="left">Thứ tự các tin nhắn theo thời gian</td>
+</tr>
+<tr>
+<td align="left">Entity</td>
+<td align="left">Thực thể</td>
+<td align="left">Đối tượng cần lưu trữ dữ liệu</td>
+</tr>
+<tr>
+<td align="left">Attribute</td>
+<td align="left">Thuộc tính</td>
+<td align="left">Thông tin của một thực thể</td>
+</tr>
+<tr>
+<td align="left">Relation</td>
+<td align="left">Quan hệ</td>
+<td align="left">Liên kết giữa các thực thể</td>
+</tr>
+<tr>
+<td align="left">State</td>
+<td align="left">Trạng thái</td>
+<td align="left">Điều kiện tồn tại của một đối tượng tại thời điểm cụ thể</td>
+</tr>
+<tr>
+<td align="left">Transition</td>
+<td align="left">Chuyển trạng thái</td>
+<td align="left">Sự thay đổi từ trạng thái này sang trạng thái khác</td>
+</tr>
+<tr>
+<td align="left">Layer</td>
+<td align="left">Tầng</td>
+<td align="left">Nhóm các thành phần có cùng vai trò trong kiến trúc</td>
+</tr>
+<tr>
+<td align="left">Stakeholder</td>
+<td align="left">Bên liên quan</td>
+<td align="left">Người có quyền lợi liên quan đến dự án</td>
+</tr>
+<tr>
+<td align="left">Happy Path</td>
+<td align="left">Luồng thành công</td>
+<td align="left">Kịch bản lý tưởng khi mọi thứ hoạt động đúng</td>
+</tr>
+<tr>
+<td align="left">Edge Case</td>
+<td align="left">Trường hợp biên</td>
+<td align="left">Tình huống bất thường, giới hạn cần xử lý</td>
+</tr>
+<tr>
+<td align="left">Handoff</td>
+<td align="left">Bàn giao</td>
+<td align="left">Điểm chuyển giao trách nhiệm giữa các vai trò</td>
+</tr>
+<tr>
+<td align="left">Trigger</td>
+<td align="left">Kích hoạt</td>
+<td align="left">Sự kiện khởi đầu một quy trình</td>
+</tr>
+<tr>
+<td align="left">Scope</td>
+<td align="left">Phạm vi</td>
+<td align="left">Ranh giới những gì hệ thống sẽ làm</td>
+</tr>
+<tr>
+<td align="left">CRUD</td>
+<td align="left">Tạo/Đọc/Sửa/Xóa</td>
+<td align="left">4 thao tác cơ bản trên dữ liệu</td>
+</tr>
+<tr>
+<td align="left">API</td>
+<td align="left">Giao diện lập trình</td>
+<td align="left">Cách các hệ thống giao tiếp với nhau</td>
+</tr>
+<tr>
+<td align="left">SLA</td>
+<td align="left">Thỏa thuận mức dịch vụ</td>
+<td align="left">Cam kết về thời gian/chất lượng dịch vụ</td>
+</tr>
+<tr>
+<td align="left">MVP</td>
+<td align="left">Sản phẩm khả thi tối thiểu</td>
+<td align="left">Phiên bản đầu tiên với tính năng cốt lõi</td>
+</tr>
+<tr>
+<td align="left">RACI</td>
+<td align="left">Ma trận phân công</td>
+<td align="left">Responsible/Accountable/Consulted/Informed</td>
+</tr>
+<tr>
+<td align="left">PK</td>
+<td align="left">Khóa chính</td>
+<td align="left">Định danh duy nhất của một bản ghi</td>
+</tr>
+<tr>
+<td align="left">FK</td>
+<td align="left">Khóa ngoại</td>
+<td align="left">Tham chiếu đến PK của bảng khác</td>
+</tr>
+<tr>
+<td align="left">ERD</td>
+<td align="left">Sơ đồ thực thể quan hệ</td>
+<td align="left">Entity-Relationship Diagram</td>
+</tr>
+<tr>
+<td align="left">DFD</td>
+<td align="left">Sơ đồ luồng dữ liệu</td>
+<td align="left">Data Flow Diagram</td>
+</tr>
+</tbody></table>
+<hr>
+<p><em>Bộ tài liệu này được thiết kế để dùng được với MỌI dự án.</em><br><em>Cập nhật thường xuyên khi có phương pháp mới.</em></p>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#e8f0fe',
+      primaryBorderColor: '#0f3460',
+      primaryTextColor: '#1a1a2e',
+      lineColor: '#0f3460',
+      secondaryColor: '#fff3e0',
+      tertiaryColor: '#f3e5f5',
+      fontFamily: 'Inter, sans-serif',
+      fontSize: '12px'
+    },
+    flowchart: { curve: 'basis', padding: 15 },
+    sequence: { actorMargin: 50, messageMargin: 40 }
+  });
+</script>
+</body>
+</html>
