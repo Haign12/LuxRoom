@@ -9,6 +9,8 @@
 > **Cách dùng tài liệu này:**  
 > Đây là **bộ công thức chuẩn**. Mỗi loại sơ đồ có: Định nghĩa → Khi nào vẽ → Công thức bước → Ví dụ thực tế → Lỗi thường gặp.  
 > Bạn chỉ cần đọc phần tương ứng, làm theo từng bước là vẽ được.
+>
+> **Quy ước viết tắt:** Mọi thuật ngữ viết tắt sẽ được giải thích đầy đủ khi xuất hiện lần đầu, theo dạng: `Tên tiếng Việt (Viết tắt — Tên đầy đủ tiếng Anh)`. Bảng từ điển thuật ngữ đầy đủ nằm ở **Phụ lục** cuối tài liệu.
 
 ---
 
@@ -34,12 +36,12 @@
 
 ## 1.1. Định Nghĩa & Mục Đích
 
-Use Case Diagram trả lời **3 câu hỏi cốt lõi**:
-- **AI** tương tác với hệ thống? (Actors)
-- Họ có thể làm **NHỮNG GÌ**? (Use Cases)
-- Hệ thống có **PHẠM VI** đến đâu? (System Boundary)
+Use Case Diagram (Sơ đồ ca sử dụng) trả lời **3 câu hỏi cốt lõi**:
+- **AI** tương tác với hệ thống? (Tác nhân — Actors)
+- Họ có thể làm **NHỮNG GÌ**? (Ca sử dụng — Use Cases)
+- Hệ thống có **PHẠM VI** đến đâu? (Ranh giới hệ thống — System Boundary)
 
-**Khi nào vẽ:** Giai đoạn đầu dự án — khi cần xác định scope với stakeholder.
+**Khi nào vẽ:** Giai đoạn đầu dự án — khi cần xác định phạm vi với các bên liên quan (Stakeholder).
 
 ---
 
@@ -47,22 +49,24 @@ Use Case Diagram trả lời **3 câu hỏi cốt lõi**:
 
 | Ký hiệu | Tên | Ý nghĩa |
 |:--------|:----|:--------|
-| `(oval)` | Use Case | Một chức năng hệ thống |
-| `[hình người]` | Actor | Người dùng hoặc hệ thống bên ngoài |
-| `[hình chữ nhật lớn]` | System Boundary | Ranh giới hệ thống |
-| `───────>` | Association | Actor kết nối với Use Case |
-| `- - -><<include>>` | Include | UC này LUÔN gọi UC kia |
-| `- - -><<extend>>` | Extend | UC này CÓ THỂ gọi UC kia (điều kiện) |
-| `──────>` | Generalization | Kế thừa (Actor/UC cha → con) |
+| `(oval)` | Ca sử dụng (Use Case) | Một chức năng hệ thống |
+| `[hình người]` | Tác nhân (Actor) | Người dùng hoặc hệ thống bên ngoài |
+| `[hình chữ nhật lớn]` | Ranh giới hệ thống (System Boundary) | Phạm vi hệ thống đang phân tích |
+| `───────>` | Liên kết (Association) | Tác nhân kết nối với Ca sử dụng |
+| `- - -><<include>>` | Bao gồm (Include) | Ca sử dụng này LUÔN gọi ca sử dụng kia |
+| `- - -><<extend>>` | Mở rộng (Extend) | Ca sử dụng này CÓ THỂ gọi ca sử dụng kia (có điều kiện) |
+| `──────>` | Khái quát hóa (Generalization) | Kế thừa (Tác nhân/Ca sử dụng cha → con) |
 
-### Phân Biệt Include vs Extend
+### Phân Biệt Bao gồm (Include) vs Mở rộng (Extend)
 
 ```
-<<include>>: BẮT BUỘC — luôn xảy ra
-  Ví dụ: "Đặt hàng" LUÔN include "Xác thực người dùng"
+<<include>> (Bao gồm): BẮT BUỘC — luôn xảy ra
+  Ví dụ: "Đặt hàng" LUÔN bao gồm "Xác thực người dùng"
+  Hướng mũi tên: Ca sử dụng gốc ───> Ca sử dụng con
   
-<<extend>>: TÙY CHỌN — chỉ xảy ra khi có điều kiện
-  Ví dụ: "Xem sản phẩm" CÓ THỂ extend "Áp dụng bộ lọc"
+<<extend>> (Mở rộng): TÙY CHỌN — chỉ xảy ra khi có điều kiện
+  Ví dụ: "Xem sản phẩm" CÓ THỂ mở rộng thêm "Áp dụng bộ lọc"
+  Hướng mũi tên: Ca sử dụng mở rộng ───> Ca sử dụng gốc
 ```
 
 ---
@@ -73,19 +77,19 @@ Use Case Diagram trả lời **3 câu hỏi cốt lõi**:
 BƯỚC 1: XÁC ĐỊNH ACTORS
 ─────────────────────────
 Hỏi: "Ai tương tác với hệ thống?"
-- Người dùng trực tiếp (Primary): Khách hàng, Admin, Nhân viên...
-- Hệ thống ngoài (Secondary): API thanh toán, Email service, SMS...
-- Hệ thống quản lý (Offstage): Báo cáo, Monitoring...
+- Người dùng trực tiếp (Primary — Chính): Khách hàng, Quản trị viên, Nhân viên...
+- Hệ thống ngoài (Secondary — Phụ): Cổng thanh toán, Dịch vụ gửi email, SMS...
+- Hệ thống ở hậu trường (Offstage — Không trực tiếp): Báo cáo, Giám sát hệ thống...
 
-Tip: Mỗi loại vai trò khác nhau = 1 Actor riêng
+Mẹo: Mỗi loại vai trò khác nhau = 1 Tác nhân riêng
      (Khách chưa đăng nhập ≠ Khách đã đăng nhập)
 
 BƯỚC 2: LIỆT KÊ USE CASES
 ──────────────────────────
-Hỏi: "Actor X có thể làm gì với hệ thống?"
+Hỏi: "Tác nhân X có thể làm gì với hệ thống?"
 - Bắt đầu bằng động từ: Đăng nhập, Xem, Tạo, Cập nhật, Xóa...
-- Mỗi UC = 1 mục tiêu hoàn chỉnh của người dùng
-- Không quá chi tiết (tránh nhầm với workflow bên trong)
+- Mỗi Ca sử dụng = 1 mục tiêu hoàn chỉnh của người dùng
+- Không quá chi tiết (tránh nhầm với luồng xử lý nội bộ của hệ thống)
 
 BƯỚC 3: VẼ SYSTEM BOUNDARY
 ────────────────────────────
@@ -95,18 +99,18 @@ BƯỚC 3: VẼ SYSTEM BOUNDARY
 
 BƯỚC 4: KẾT NỐI ACTOR — USE CASE
 ──────────────────────────────────
-- Kéo đường thẳng từ Actor đến UC họ thực hiện
-- Không thêm mũi tên chiều (chỉ đường thẳng)
+- Kéo đường thẳng từ Tác nhân đến Ca sử dụng họ thực hiện
+- Theo chuẩn UML (Ngôn ngữ mô hình hóa thống nhất), đường liên kết không có chiều mũi tên
 
 BƯỚC 5: THÊM QUAN HỆ INCLUDE/EXTEND (nếu cần)
 ────────────────────────────────────────────────
-- Tìm UC nào LUÔN dùng chung 1 bước → dùng <<include>>
-- Tìm UC nào CHỈ đôi khi mở rộng → dùng <<extend>>
+- Tìm Ca sử dụng nào LUÔN dùng chung 1 bước → dùng <<include>> (Bao gồm)
+- Tìm Ca sử dụng nào CHỈ đôi khi mở rộng → dùng <<extend>> (Mở rộng)
 
 BƯỚC 6: KIỂM TRA GENERALIZATION
 ─────────────────────────────────
-- Actor cha/con? (Admin kế thừa từ User?)
-- UC cha/con? (Thanh toán thẻ / Thanh toán ví ← Thanh toán)
+- Tác nhân cha/con? (Quản trị viên kế thừa từ Người dùng?)
+- Ca sử dụng cha/con? (Thanh toán thẻ / Thanh toán ví ← Thanh toán)
 
 BƯỚC 7: REVIEW VỚI STAKEHOLDER
 ─────────────────────────────────
@@ -180,11 +184,11 @@ graph LR
 
 | Lỗi | Ví dụ sai | Cách sửa |
 |:----|:----------|:---------|
-| UC quá chi tiết | "Nhấn nút Submit" | Phải là: "Gửi đơn đăng ký" |
-| UC là bước kỹ thuật | "Hash password" | Không vẽ — đây là logic nội bộ |
-| Quên Actor ngoài | Không vẽ Email Service | Thêm Actor phụ cho hệ thống bên ngoài |
-| Include/Extend nhầm | Dùng Include khi là Extend | Include = BẮT BUỘC, Extend = TÙY CHỌN |
-| Quá nhiều UC | 40+ use cases trong 1 diagram | Nhóm theo Epic, vẽ nhiều diagram |
+| Ca sử dụng quá chi tiết | "Nhấn nút Gửi" | Phải là: "Gửi đơn đăng ký" |
+| Ca sử dụng là bước kỹ thuật | "Mã hóa mật khẩu" | Không vẽ — đây là logic nội bộ |
+| Quên Tác nhân ngoài | Không vẽ Dịch vụ gửi email | Thêm Tác nhân phụ cho hệ thống bên ngoài |
+| Bao gồm/Mở rộng nhầm | Dùng Include khi là Extend | Include = BẮT BUỘC, Extend = TÙY CHỌN |
+| Quá nhiều Ca sử dụng | 40+ ca sử dụng trong 1 sơ đồ | Nhóm theo nhóm tính năng lớn, vẽ nhiều sơ đồ |
 
 ---
 
@@ -195,9 +199,9 @@ graph LR
 Activity Diagram / Flowchart mô tả **luồng hoạt động** từ đầu đến cuối của một quy trình. Trả lời: **"Bước nào xảy ra trước, bước nào xảy ra sau, điều kiện nào dẫn đến đâu?"**
 
 **Khi nào vẽ:**
-- Mô tả quy trình nghiệp vụ (business process)
+- Mô tả quy trình nghiệp vụ
 - Mô tả logic xử lý của một tính năng
-- Làm rõ các trường hợp ngoại lệ (exception flow)
+- Làm rõ các luồng xử lý ngoại lệ (khi xảy ra lỗi hoặc tình huống bất thường)
 
 ---
 
@@ -220,14 +224,14 @@ Activity Diagram / Flowchart mô tả **luồng hoạt động** từ đầu đ�
 BƯỚC 1: XÁC ĐỊNH PHẠM VI
 ──────────────────────────
 Hỏi: "Quy trình này bắt đầu từ đâu và kết thúc ở đâu?"
-- Điểm bắt đầu: Sự kiện kích hoạt (Trigger)
+- Điểm bắt đầu: Sự kiện kích hoạt quy trình
 - Điểm kết thúc: Kết quả cuối cùng (có thể nhiều kết thúc)
 
-BƯỚC 2: LIỆT KÊ CÁC BƯỚC CHÍNH (Happy Path)
-─────────────────────────────────────────────
+BƯỚC 2: LIỆT KÊ CÁC BƯỚC CHÍNH (Luồng thành công — Happy Path)
+────────────────────────────────────────────────────────────────
 - Viết ra các bước khi mọi thứ diễn ra BÌNH THƯỜNG
 - Dùng câu ngắn, bắt đầu bằng ĐỘNG TỪ
-- Ví dụ: "Nhập thông tin" → "Kiểm tra hợp lệ" → "Lưu vào DB"
+- Ví dụ: "Nhập thông tin" → "Kiểm tra hợp lệ" → "Lưu vào cơ sở dữ liệu"
 
 BƯỚC 3: TÌM CÁC ĐIỂM QUYẾT ĐỊNH
 ──────────────────────────────────
@@ -308,7 +312,7 @@ flowchart TD
 
     PhoneResult -->|Có| Schedule
 
-    Schedule[Lên lịch phỏng vấn\ntechincal + culture fit] --> Interview
+    Schedule[Lên lịch phỏng vấn\ntechnical + culture fit] --> Interview
 
     Interview[Phỏng vấn trực tiếp\n60 phút] --> InterviewResult
 
@@ -459,10 +463,10 @@ flowchart TD
 Sequence Diagram mô tả **thứ tự các tin nhắn** được gửi qua lại giữa các thành phần theo **trục thời gian** (từ trên xuống dưới). Trả lời: **"Khi thực hiện chức năng X, tin nhắn đi qua những đâu, theo thứ tự nào?"**
 
 **Khi nào vẽ:**
-- Mô tả API interaction chi tiết
-- Làm rõ luồng xác thực (auth flow)
-- Debug / phân tích một feature phức tạp
-- Tài liệu cho Developer
+- Mô tả chi tiết cách các thành phần giao tiếp với nhau qua giao diện lập trình (API — Application Programming Interface)
+- Làm rõ luồng xác thực người dùng
+- Gỡ lỗi / phân tích một tính năng phức tạp
+- Tài liệu cho lập trình viên
 
 ---
 
@@ -470,16 +474,16 @@ Sequence Diagram mô tả **thứ tự các tin nhắn** được gửi qua lạ
 
 | Ký hiệu | Tên | Ý nghĩa |
 |:--------|:----|:--------|
-| `[hộp trên]` | Participant / Actor | Thành phần tham gia |
-| `│` | Lifeline | Đường thời gian của mỗi thành phần |
-| `──────>` | Synchronous Message | Gửi tin nhắn & CHỜ phản hồi |
-| `- - - ->` | Return Message | Tin nhắn phản hồi (return) |
-| `──────>>` | Asynchronous | Gửi tin nhắn & KHÔNG chờ |
-| `alt / else` | Alternative | Nhánh điều kiện (if/else) |
-| `loop` | Loop | Lặp lại |
-| `opt` | Optional | Tùy chọn — chỉ xảy ra khi có điều kiện |
-| `par` | Parallel | Xảy ra song song |
-| `Note` | Note | Ghi chú giải thích |
+| `[hộp trên]` | Thành phần tham gia (Participant) | Một đối tượng trong luồng giao tiếp |
+| `│` | Đường thời gian (Lifeline) | Trục thời gian của mỗi thành phần |
+| `──────>` | Tin nhắn đồng bộ (Synchronous) | Gửi tin nhắn và CHỜ phản hồi |
+| `- - - ->` | Tin nhắn phản hồi (Return) | Kết quả trả về |
+| `──────>>` | Tin nhắn bất đồng bộ (Asynchronous) | Gửi tin nhắn và KHÔNG chờ |
+| `alt / else` | Nhánh điều kiện (Alternative) | Rẽ nhánh nếu/ngược lại |
+| `loop` | Vòng lặp (Loop) | Lặp lại một nhóm bước |
+| `opt` | Tùy chọn (Optional) | Chỉ xảy ra khi có điều kiện |
+| `par` | Song song (Parallel) | Xảy ra đồng thời |
+| `Note` | Ghi chú (Note) | Giải thích thêm |
 
 ---
 
@@ -490,28 +494,28 @@ BƯỚC 1: XÁC ĐỊNH PARTICIPANTS
 ───────────────────────────────
 Hỏi: "Những thành phần nào tham gia vào chức năng này?"
 
-Danh sách participants thường gặp:
-  • User / Actor (người kích hoạt)
-  • Browser / Mobile App (giao diện)
-  • API Gateway / Backend
-  • Database (DB)
-  • Cache (Redis...)
-  • External Service (Stripe, SMS, Email...)
-  • Authentication Service
+Danh sách thành phần thường gặp:
+  • Người dùng (người kích hoạt)
+  • Trình duyệt / Ứng dụng di động (giao diện)
+  • Cổng API / Máy chủ xử lý (Backend)
+  • Cơ sở dữ liệu (Database)
+  • Bộ nhớ đệm (Cache — lưu tạm để truy xuất nhanh)
+  • Dịch vụ bên ngoài (Thanh toán, SMS, Email...)
+  • Dịch vụ xác thực
 
 Sắp xếp từ TRÁI sang PHẢI theo chiều luồng:
 User → UI → API → DB → External
 
-BƯỚC 2: XÁC ĐỊNH TRIGGER (ĐIỂM BẮT ĐẦU)
-──────────────────────────────────────────
+BƯỚC 2: XÁC ĐỊNH SỰ KIỆN KÍCH HOẠT (ĐIỂM BẮT ĐẦU)
+──────────────────────────────────────────────────────
 - Hành động đầu tiên là gì?
-- Ai thực hiện? (thường là User hoặc System)
+- Ai thực hiện? (thường là Người dùng hoặc Hệ thống)
 
-BƯỚC 3: VẼ HAPPY PATH (LUỒNG BÌNH THƯỜNG)
-────────────────────────────────────────────
+BƯỚC 3: VẼ LUỒNG THÀNH CÔNG (LUỒNG BÌNH THƯỜNG)
+──────────────────────────────────────────────────
 - Liệt kê từng bước theo thứ tự thời gian
 - Mỗi tin nhắn = 1 mũi tên nằm ngang
-- Gắn số thứ tự (1, 2, 3...) để dễ theo dõi
+- Dùng autonumber (đánh số tự động) HOẶC gắn số thủ công — không dùng cả hai
 - Tin nhắn đi = ──────>, phản hồi = - - - ->
 
 BƯỚC 4: THÊM CÁC TRƯỜNG HỢP ĐẶC BIỆT
@@ -523,14 +527,14 @@ BƯỚC 4: THÊM CÁC TRƯỜNG HỢP ĐẶC BIỆT
 BƯỚC 5: THÊM GHI CHÚ (NOTE)
 ──────────────────────────────
 - Giải thích các bước phức tạp
-- Ghi rõ HTTP method + status code (POST /api/v1/... → 200 OK)
-- Ghi timeout, retry policy nếu có
+- Ghi rõ phương thức gọi + mã trạng thái phản hồi (VD: POST /api/v1/... → 200 OK)
+- Ghi thời gian chờ tối đa, quy tắc thử lại nếu có
 
 BƯỚC 6: KIỂM TRA
 ──────────────────
-- Mỗi synchronous message phải có return message
-- Số bước không quá 20 (nếu hơn → tách thành nhiều diagram)
-- Sequence phải khớp với API spec thực tế
+- Mỗi tin nhắn đồng bộ phải có tin nhắn phản hồi
+- Số bước không quá 20 (nếu hơn → tách thành nhiều sơ đồ)
+- Sơ đồ phải khớp với đặc tả API thực tế
 ```
 
 ---
@@ -543,13 +547,13 @@ sequenceDiagram
     participant U as "👤 Người dùng"
     participant UI as "🖥️ Giao diện"
     participant API as "⚙️ Backend API"
-    participant DB as "💾 Database"
+    participant DB as "💾 Cơ sở dữ liệu"
     participant EXT as "🔌 Dịch vụ ngoài"
 
-    U->>UI: 1. Hành động kích hoạt (click, submit...)
-    UI->>API: 2. HTTP Request (METHOD /endpoint)
+    U->>UI: Hành động kích hoạt (click, gửi...)
+    UI->>API: Gửi yêu cầu (METHOD /endpoint)
 
-    API->>DB: 3. Truy vấn / Kiểm tra dữ liệu
+    API->>DB: Truy vấn / Kiểm tra dữ liệu
     DB-->>API: 4. Kết quả truy vấn
 
     alt Trường hợp thành công
@@ -582,7 +586,7 @@ sequenceDiagram
     participant Cache as "⚡ Cache"
 
     U->>UI: Nhập email + mật khẩu
-    UI->>UI: Validate format (frontend)
+    UI->>UI: Kiểm tra định dạng (phía giao diện)
     UI->>API: POST /auth/login {email, password}
 
     API->>Cache: Kiểm tra tài khoản có bị khóa?
@@ -599,7 +603,7 @@ sequenceDiagram
             API-->>UI: 401 Unauthorized
             UI->>U: Hiện lỗi chung chung (không tiết lộ email sai hay pass sai)
         else Tìm thấy user
-            API->>API: So sánh password hash (bcrypt)
+            API->>API: So sánh mật khẩu đã mã hóa
 
             alt Mật khẩu sai
                 API->>Cache: Tăng failed_attempts + 1
@@ -613,7 +617,7 @@ sequenceDiagram
                 UI->>U: Hiện lỗi đăng nhập
             else Mật khẩu đúng
                 API->>Cache: Reset failed_attempts = 0
-                API->>API: Tạo JWT token (24h)
+                API->>API: Tạo mã xác thực JWT (JSON Web Token, hiệu lực 24h)
                 API-->>UI: 200 OK {access_token, user_info}
                 UI->>UI: Lưu token vào httpOnly cookie
                 UI->>U: Chuyển hướng đến Dashboard
@@ -628,11 +632,11 @@ sequenceDiagram
 
 | Lỗi | Vấn đề | Cách sửa |
 |:----|:-------|:---------|
-| Quá nhiều participants | Diagram chật, khó đọc | Tối đa 6-7 participants; tách diagram nếu nhiều hơn |
-| Thiếu return message | Đường một chiều, không rõ kết quả | Mỗi request đồng bộ PHẢI có response |
-| Không đánh số | Khó theo dõi thứ tự | Luôn dùng autonumber |
-| Không xử lý lỗi | Chỉ có happy path | Luôn thêm alt/else cho error case |
-| Quá chi tiết | Mô tả từng dòng code | Diagram là thiết kế, không phải code |
+| Quá nhiều thành phần | Sơ đồ chật, khó đọc | Tối đa 6-7 thành phần; tách sơ đồ nếu nhiều hơn |
+| Thiếu tin nhắn phản hồi | Đường một chiều, không rõ kết quả | Mỗi yêu cầu đồng bộ PHẢI có phản hồi |
+| Không đánh số | Khó theo dõi thứ tự | Luôn dùng đánh số tự động (autonumber) |
+| Không xử lý lỗi | Chỉ có luồng thành công | Luôn thêm nhánh điều kiện cho trường hợp lỗi |
+| Quá chi tiết | Mô tả từng dòng mã nguồn | Sơ đồ là thiết kế, không phải mã nguồn |
 
 ---
 
@@ -640,12 +644,12 @@ sequenceDiagram
 
 ## 5.1. Định Nghĩa & Mục Đích
 
-ERD (Entity-Relationship Diagram) mô tả **cấu trúc dữ liệu** của hệ thống: có những "bảng" nào, mỗi bảng có những "cột" gì, và các bảng liên quan với nhau thế nào.
+Sơ đồ thực thể quan hệ (ERD — Entity-Relationship Diagram) mô tả **cấu trúc dữ liệu** của hệ thống: có những "bảng" nào, mỗi bảng có những "cột" gì, và các bảng liên quan với nhau thế nào.
 
 **Khi nào vẽ:**
-- Thiết kế database trước khi code
-- Làm tài liệu hóa database hiện có
-- Phân tích yêu cầu dữ liệu từ business
+- Thiết kế cơ sở dữ liệu trước khi viết mã
+- Làm tài liệu hóa cơ sở dữ liệu hiện có
+- Phân tích yêu cầu dữ liệu từ nghiệp vụ
 
 ---
 
@@ -653,9 +657,9 @@ ERD (Entity-Relationship Diagram) mô tả **cấu trúc dữ liệu** của h�
 
 | Ký hiệu | Ý nghĩa |
 |:--------|:--------|
-| **PK** | Primary Key — định danh duy nhất của một bản ghi |
-| **FK** | Foreign Key — khóa ngoại, liên kết sang bảng khác |
-| **NK** | Natural Key — khóa tự nhiên (mã code, email...) |
+| **PK** | Khóa chính (Primary Key) — định danh duy nhất của một bản ghi |
+| **FK** | Khóa ngoại (Foreign Key) — liên kết sang bảng khác |
+| **NK** | Khóa tự nhiên (Natural Key) — dùng giá trị có sẵn như mã, email... |
 | `\|\|` | Đúng một (exactly one) — bắt buộc |
 | `\|o` | Không hoặc một (zero or one) — tùy chọn |
 | `\|{` | Một hoặc nhiều (one or many) — bắt buộc có ít nhất 1 |
@@ -681,22 +685,22 @@ PRODUCT ||--|{ ORDER_ITEM : "có trong"
 BƯỚC 1: XÁC ĐỊNH CÁC THỰC THỂ (ENTITIES)
 ──────────────────────────────────────────
 Hỏi: "Hệ thống cần lưu trữ thông tin về những ĐỐI TƯỢNG nào?"
-- Danh từ quan trọng trong yêu cầu = có thể là Entity
+- Danh từ quan trọng trong yêu cầu = có thể là thực thể
 - Ví dụ: Người dùng, Sản phẩm, Đơn hàng, Phòng, Nhân viên...
-- Mỗi entity sẽ thành một bảng trong DB
+- Mỗi thực thể sẽ thành một bảng trong cơ sở dữ liệu
 
 BƯỚC 2: XÁC ĐỊNH THUỘC TÍNH (ATTRIBUTES)
 ──────────────────────────────────────────
 Hỏi: "Cần lưu thông tin GÌ về đối tượng này?"
 - Mỗi thuộc tính = một cột trong bảng
-- Xác định kiểu dữ liệu: string, int, decimal, datetime, boolean...
-- Phân biệt: Bắt buộc (NOT NULL) vs Tùy chọn (NULL)
+- Xác định kiểu dữ liệu: chuỗi ký tự, số nguyên, số thập phân, ngày giờ, đúng/sai...
+- Phân biệt: Bắt buộc (không được để trống) vs Tùy chọn (có thể để trống)
 
 BƯỚC 3: XÁC ĐỊNH KHÓA CHÍNH (PRIMARY KEY)
 ────────────────────────────────────────────
-- Mỗi entity cần 1 PK duy nhất
-- Nên dùng: UUID hoặc SERIAL/AUTO_INCREMENT
-- Không dùng thông tin có thể thay đổi làm PK (email, phone)
+- Mỗi thực thể cần 1 khóa chính (PK) duy nhất
+- Nên dùng: mã định danh tự tạo (UUID hoặc số tự tăng)
+- Không dùng thông tin có thể thay đổi làm khóa chính (email, số điện thoại)
 
 BƯỚC 4: XÁC ĐỊNH QUAN HỆ GIỮA CÁC ENTITY
 ────────────────────────────────────────────
@@ -711,7 +715,7 @@ Hỏi cho mỗi cặp entity:
 
 BƯỚC 5: XỬ LÝ QUAN HỆ M-N
 ────────────────────────────
-- Không vẽ M-N trực tiếp → cần tạo bảng TRUNG GIAN (junction table)
+- Không vẽ M-N trực tiếp → cần tạo bảng TRUNG GIAN (bảng nối giữa hai bảng chính)
 - Bảng trung gian có 2 FK + có thể có thuộc tính riêng
 
 Ví dụ:
@@ -723,11 +727,11 @@ BƯỚC 6: THÊM KHÓA NGOẠI (FOREIGN KEY)
 - Phía "nhiều" (N) giữ FK trỏ về phía "một" (1)
 - Ví dụ: ORDER có user_id FK → USER.id
 
-BƯỚC 7: REVIEW VỚI DBA / DEVELOPER
-────────────────────────────────────
-- Có thiếu entity nào không?
-- Có thuộc tính nào chưa chuẩn hóa (normalization)?
-- Index cần thiết ở đâu? (cột hay tìm kiếm)
+BƯỚC 7: RÀ SOÁT VỚI QUẢN TRỊ CƠ SỞ DỮ LIỆU / LẬP TRÌNH VIÊN
+─────────────────────────────────────────────────────────────────
+- Có thiếu thực thể nào không?
+- Có thuộc tính nào chưa chuẩn hóa (tách riêng dữ liệu lặp lại)?
+- Chỉ mục tìm kiếm (Index) cần thiết ở đâu? (cột nào hay tìm kiếm)
 ```
 
 ---
@@ -785,19 +789,19 @@ erDiagram
 
 ```
 Thuộc tính BẮT BUỘC (gần như luôn cần):
-  ✅ id          — UUID hoặc SERIAL, Primary Key
+  ✅ id          — Mã định danh duy nhất (khóa chính)
   ✅ created_at  — Thời điểm tạo bản ghi
   ✅ updated_at  — Thời điểm cập nhật cuối
 
 Thuộc tính NÊN CÓ:
-  ✅ is_active / is_deleted — Soft delete (không xóa cứng)
-  ✅ created_by / updated_by — Ai tạo/sửa (audit trail)
-  ✅ version — Optimistic locking (tránh conflict)
+  ✅ is_active / is_deleted — Xóa mềm (đánh dấu xóa thay vì xóa thật khỏi cơ sở dữ liệu)
+  ✅ created_by / updated_by — Ai tạo/sửa (nhật ký theo dõi thay đổi)
+  ✅ version — Khóa lạc quan (tránh xung đột khi nhiều người cùng sửa một bản ghi)
 
 Thuộc tính TRÁNH:
-  ❌ password (lưu thẳng) → Luôn lưu password_hash
-  ❌ Dữ liệu thẻ ngân hàng → Vi phạm PCI DSS
-  ❌ Dữ liệu quan hệ lưu trong 1 cột dạng string → Vi phạm normalization
+  ❌ Mật khẩu lưu thẳng → Luôn lưu mật khẩu đã mã hóa
+  ❌ Dữ liệu thẻ ngân hàng → Vi phạm tiêu chuẩn bảo mật thẻ thanh toán (PCI DSS)
+  ❌ Dữ liệu quan hệ lưu trong 1 cột dạng chuỗi → Vi phạm nguyên tắc chuẩn hóa dữ liệu
 ```
 
 ---
@@ -806,11 +810,11 @@ Thuộc tính TRÁNH:
 
 | Lỗi | Vấn đề | Cách sửa |
 |:----|:-------|:---------|
-| Dùng email làm PK | Email có thể thay đổi | Dùng UUID/SERIAL làm PK |
-| Không tách M-N | DB không hỗ trợ trực tiếp | Tạo junction table |
-| Thuộc tính computed | Lưu "tuổi" thay vì "ngày sinh" | Lưu raw data, tính khi cần |
-| Thiếu audit fields | Không biết ai làm gì khi nào | Luôn thêm created_at, updated_at |
-| Over-normalize | Quá nhiều JOIN, chậm | Đôi khi denormalize có chủ đích |
+| Dùng email làm khóa chính | Email có thể thay đổi | Dùng mã định danh tự tạo làm khóa chính |
+| Không tách quan hệ M-N | Cơ sở dữ liệu không hỗ trợ trực tiếp | Tạo bảng trung gian |
+| Thuộc tính tính toán được | Lưu "tuổi" thay vì "ngày sinh" | Lưu dữ liệu gốc, tính toán khi cần |
+| Thiếu trường theo dõi | Không biết ai làm gì khi nào | Luôn thêm created_at, updated_at |
+| Chuẩn hóa quá mức | Quá nhiều phép nối bảng, hệ thống chậm | Đôi khi gộp dữ liệu có chủ đích để tăng tốc |
 
 ---
 
@@ -821,9 +825,9 @@ Thuộc tính TRÁNH:
 State Machine (Sơ đồ trạng thái) mô tả **một đối tượng trải qua những trạng thái nào** và **điều kiện gì khiến nó chuyển trạng thái**. Trả lời: **"Đối tượng X có thể ở những trạng thái nào? Chuyển sang trạng thái khác khi nào?"**
 
 **Khi nào vẽ:**
-- Entity có nhiều trạng thái vòng đời (lifecycle)
+- Thực thể có nhiều trạng thái trong vòng đời
 - Cần làm rõ quy tắc chuyển trạng thái
-- Phổ biến: Order, Ticket, User account, Payment, Document...
+- Phổ biến: Đơn hàng, Vé hỗ trợ, Tài khoản, Thanh toán, Tài liệu...
 
 ---
 
@@ -832,7 +836,7 @@ State Machine (Sơ đồ trạng thái) mô tả **một đối tượng trải 
 ```
 BƯỚC 1: XÁC ĐỊNH ĐỐI TƯỢNG
 ────────────────────────────
-- Chọn 1 entity có trạng thái thay đổi theo thời gian
+- Chọn 1 thực thể có trạng thái thay đổi theo thời gian
 - Ví dụ: Đơn hàng, Vé hỗ trợ, Tài khoản, Hồ sơ xin việc...
 
 BƯỚC 2: LIỆT KÊ TẤT CẢ TRẠNG THÁI
@@ -849,13 +853,13 @@ Cho mỗi trạng thái, hỏi:
   "Đi đến trạng thái nào?"
   "Điều kiện nào phải thỏa mãn?"
 
-Format: [Trạng thái A] --[Sự kiện / Điều kiện]--> [Trạng thái B]
+Cách viết: [Trạng thái A] --[Sự kiện / Điều kiện]--> [Trạng thái B]
 
 BƯỚC 4: XỬ LÝ TRƯỜNG HỢP ĐẶC BIỆT
 ────────────────────────────────────
 - Trạng thái nào có thể bị HỦY? (CANCELLED)
-- Có trạng thái CUỐI không thể chuyển tiếp? (terminal state)
-- Có thể quay lại trạng thái trước? (rollback)
+- Có trạng thái CUỐI không thể chuyển tiếp? (trạng thái kết thúc)
+- Có thể quay lại trạng thái trước? (quay lui)
 
 BƯỚC 5: GẮN ACTIONS VÀO TRANSITIONS (nếu cần)
 ────────────────────────────────────────────────
@@ -875,7 +879,7 @@ stateDiagram-v2
     TRANG_THAI_DAU --> BI_HUY: Hủy bỏ
 
     TRANG_THAI_2 --> TRANG_THAI_3: Điều kiện B
-    TRANG_THAI_2 --> TRANG_THAI_DAU: Rollback
+    TRANG_THAI_2 --> TRANG_THAI_DAU: Quay lui
 
     state TRANG_THAI_2 {
         [*] --> BUOC_CON_1
@@ -883,7 +887,7 @@ stateDiagram-v2
     }
 
     TRANG_THAI_3 --> HOAN_THANH: Hoàn tất
-    TRANG_THAI_3 --> BI_HUY: Hủy bởi admin
+    TRANG_THAI_3 --> BI_HUY: Hủy bởi quản trị viên
 
     HOAN_THANH --> [*]
     BI_HUY --> [*]
@@ -914,18 +918,18 @@ stateDiagram-v2
     DANG_XU_LY --> CHO_PHAT_TRIEN: Cần team kỹ thuật xử lý
     DANG_XU_LY --> GIAI_QUYET: Agent giải quyết xong
 
-    CHO_PHAT_TRIEN --> DANG_XU_LY: Dev fix xong
-    CHO_PHAT_TRIEN --> GIAI_QUYET: Lỗi được sửa trong release
+    CHO_PHAT_TRIEN --> DANG_XU_LY: Lập trình viên sửa xong
+    CHO_PHAT_TRIEN --> GIAI_QUYET: Lỗi được sửa trong phiên bản mới
 
     GIAI_QUYET --> MO_LAI: Khách báo vẫn còn lỗi
     GIAI_QUYET --> DONG: Khách xác nhận OK (hoặc sau 3 ngày)
 
-    MO_LAI --> DANG_XU_LY: Reopen
+    MO_LAI --> DANG_XU_LY: Mở lại
 
     DONG --> [*]
 
     note right of CHO_PHAT_TRIEN
-        SLA: Max 5 ngày làm việc
+        Cam kết thời gian xử lý (SLA): Tối đa 5 ngày làm việc
         Gửi email cập nhật mỗi ngày
     end note
 ```
@@ -972,7 +976,7 @@ THANH TOÁN (Payment):
 
 Architecture Diagram mô tả **cấu trúc tổng thể** của hệ thống: các tầng (layers), thành phần (components), và cách chúng kết nối. Trả lời: **"Hệ thống được xây dựng từ những khối nào?"**
 
-**Khi nào vẽ:** Trình bày cho stakeholder kỹ thuật, lựa chọn tech stack, onboard developer mới.
+**Khi nào vẽ:** Trình bày cho các bên liên quan về kỹ thuật, lựa chọn bộ công nghệ, giới thiệu hệ thống cho lập trình viên mới.
 
 ---
 
@@ -982,43 +986,43 @@ Architecture Diagram mô tả **cấu trúc tổng thể** của hệ thống: c
 BƯỚC 1: CHỌN KIỂU KIẾN TRÚC
 ──────────────────────────────
 Các kiểu phổ biến:
-  • 3-Layer (Client – Server – Database): Web app thông thường
-  • Microservices: Hệ thống lớn, nhiều team
-  • Event-Driven: Hệ thống bất đồng bộ, queue
-  • Serverless: Cloud functions
+  • 3 tầng (Giao diện – Máy chủ – Cơ sở dữ liệu): Ứng dụng web thông thường
+  • Vi dịch vụ (Microservices): Hệ thống lớn, nhiều nhóm phát triển
+  • Hướng sự kiện (Event-Driven): Hệ thống bất đồng bộ, dùng hàng đợi
+  • Không máy chủ (Serverless): Hàm chạy trên nền tảng đám mây
 
 BƯỚC 2: XÁC ĐỊNH CÁC TẦNG (LAYERS)
 ──────────────────────────────────────
 Tầng chuẩn cho web app:
-  Layer 1: Client (Browser, Mobile App, Desktop)
-  Layer 2: CDN / Edge (Cloudflare, CloudFront)
-  Layer 3: API Gateway / Load Balancer
-  Layer 4: Application Services (Backend)
-  Layer 5: Data Layer (DB, Cache, Storage)
-  Layer 6: External Services (3rd party APIs)
+  Tầng 1: Giao diện (Trình duyệt, Ứng dụng di động, Máy tính)
+  Tầng 2: Mạng phân phối nội dung (CDN) / Biên
+  Tầng 3: Cổng API / Bộ cân bằng tải
+  Tầng 4: Dịch vụ ứng dụng (máy chủ xử lý)
+  Tầng 5: Tầng dữ liệu (Cơ sở dữ liệu, Bộ nhớ đệm, Lưu trữ tệp)
+  Tầng 6: Dịch vụ bên ngoài (API của bên thứ ba)
 
-BƯỚC 3: LIỆT KÊ COMPONENTS TRONG TỪNG TẦNG
+BƯỚC 3: LIỆT KÊ THÀNH PHẦN TRONG TỪNG TẦNG
 ─────────────────────────────────────────────
 Mỗi tầng có những thành phần cụ thể gì?
-  Ví dụ Layer 4 (Application):
-    - Auth Service
-    - Product Service
-    - Order Service
-    - Notification Service
+  Ví dụ Tầng 4 (Dịch vụ ứng dụng):
+    - Dịch vụ xác thực
+    - Dịch vụ sản phẩm
+    - Dịch vụ đơn hàng
+    - Dịch vụ thông báo
 
-BƯỚC 4: VẼ KẾT NỐI GIỮA COMPONENTS
-────────────────────────────────────
-  - Kết nối xuôi chiều (request/response)
-  - Giao thức: HTTPS, gRPC, AMQP, WebSocket...
+BƯỚC 4: VẼ KẾT NỐI GIỮA CÁC THÀNH PHẦN
+─────────────────────────────────────────
+  - Kết nối xuôi chiều (yêu cầu/phản hồi)
+  - Giao thức truyền dữ liệu: HTTPS, WebSocket...
   - Chú thích loại kết nối nếu cần
 
-BƯỚC 5: THÊM DEPLOYMENT INFO
-──────────────────────────────
-  Mỗi component chạy ở đâu?
-  - Vercel, Netlify (Frontend)
-  - Railway, Heroku, AWS EC2 (Backend)
-  - Supabase, PlanetScale, RDS (Database)
-  - Redis Cloud, Upstash (Cache)
+BƯỚC 5: THÊM THÔNG TIN TRIỂN KHAI
+───────────────────────────────────
+  Mỗi thành phần chạy ở đâu?
+  - Vercel, Netlify (Giao diện)
+  - Railway, Heroku, AWS EC2 (Máy chủ xử lý)
+  - Supabase, PlanetScale, RDS (Cơ sở dữ liệu)
+  - Redis Cloud, Upstash (Bộ nhớ đệm)
 ```
 
 ---
@@ -1035,13 +1039,13 @@ graph TB
 
     subgraph EDGE["📡 TẦNG BIÊN"]
         E1["CDN\n(Cloudflare)"]
-        E2["Load Balancer"]
+        E2["Bộ cân bằng tải"]
     end
 
     subgraph GATEWAY["🚪 API GATEWAY"]
-        G1["Rate Limiting"]
-        G2["Auth Middleware\n(JWT)"]
-        G3["Router"]
+        G1["Giới hạn tần suất"]
+        G2["Xác thực trung gian\n(JWT)"]
+        G3["Bộ định tuyến"]
     end
 
     subgraph SERVICES["⚙️ TẦNG DỊCH VỤ"]
@@ -1053,7 +1057,7 @@ graph TB
     subgraph DATA["💾 TẦNG DỮ LIỆU"]
         D1[("Database chính\nPostgres/MySQL")]
         D2[("Cache\nRedis")]
-        D3["File Storage\nS3/Cloudinary"]
+        D3["Lưu trữ tệp\nS3/Cloudinary"]
     end
 
     subgraph EXTERNAL["🌐 DỊCH VỤ BÊN NGOÀI"]
@@ -1068,17 +1072,17 @@ graph TB
     S1 & S2 --> D1
     S2 --> D2
     S2 --> D3
-    S1 --> X1
+    S2 --> X1
     S3 --> X2 & X3
 ```
 
 ---
 
-# PHẦN 8: DATA FLOW DIAGRAM (DFD) — "DỮ LIỆU CHẠY QUA ĐÂU?"
+# PHẦN 8: SƠ ĐỒ LUỒNG DỮ LIỆU (DFD — Data Flow Diagram) — "DỮ LIỆU CHẠY QUA ĐÂU?"
 
 ## 8.1. Định Nghĩa & Mục Đích
 
-DFD mô tả **luồng dữ liệu**: dữ liệu đến từ đâu, đi qua những xử lý nào, được lưu ở đâu. Có 2 cấp: **Context Diagram (Level 0)** và **Level 1 DFD**.
+Sơ đồ luồng dữ liệu (DFD) mô tả **luồng dữ liệu**: dữ liệu đến từ đâu, đi qua những xử lý nào, được lưu ở đâu. Có 2 cấp: **Sơ đồ ngữ cảnh (Level 0)** và **Sơ đồ chi tiết (Level 1)**.
 
 ---
 
@@ -1086,44 +1090,44 @@ DFD mô tả **luồng dữ liệu**: dữ liệu đến từ đâu, đi qua nh�
 
 | Ký hiệu | Tên | Ý nghĩa |
 |:--------|:----|:--------|
-| Hình tròn / oval | Process | Một bước xử lý dữ liệu |
-| Hình chữ nhật | External Entity | Nguồn/đích dữ liệu bên ngoài |
-| Hai đường ngang | Data Store | Nơi lưu trữ dữ liệu |
-| Mũi tên có nhãn | Data Flow | Luồng dữ liệu + tên dữ liệu |
+| Hình tròn / oval | Bước xử lý (Process) | Một bước xử lý dữ liệu |
+| Hình chữ nhật | Thực thể bên ngoài (External Entity) | Nguồn/đích dữ liệu bên ngoài |
+| Hai đường ngang | Kho dữ liệu (Data Store) | Nơi lưu trữ dữ liệu |
+| Mũi tên có nhãn | Luồng dữ liệu (Data Flow) | Hướng di chuyển + tên dữ liệu |
 
 ---
 
 ## 8.3. Công Thức Vẽ DFD (4 Bước)
 
 ```
-BƯỚC 1: VẼ CONTEXT DIAGRAM (LEVEL 0)
+BƯỚC 1: VẼ SƠ ĐỒ NGỮ CẢNH (LEVEL 0)
 ──────────────────────────────────────
 - 1 hình tròn ở giữa = toàn bộ hệ thống
-- Các external entities xung quanh
+- Các thực thể bên ngoài xung quanh
 - Mũi tên = dữ liệu vào/ra hệ thống
-- Mục đích: Xác định PHẠM VI và GIAO DIỆN hệ thống
+- Mục đích: Xác định PHẠM VI và các điểm giao tiếp của hệ thống
 
 BƯỚC 2: PHÂN RÃ THÀNH LEVEL 1
 ────────────────────────────────
-- Chia hệ thống thành 3-7 processes chính
-- Thêm data stores (nơi lưu dữ liệu)
-- Kết nối bằng data flows có nhãn
+- Chia hệ thống thành 3-7 bước xử lý chính
+- Thêm kho dữ liệu (nơi lưu dữ liệu)
+- Kết nối bằng luồng dữ liệu có nhãn
 
 BƯỚC 3: GẮN NHÃN CHO MỌI MŨI TÊN
 ────────────────────────────────────
 - Mỗi mũi tên PHẢI có tên dữ liệu
-- Ví dụ: "Thông tin đơn hàng", "JWT Token", "Kết quả thanh toán"
+- Ví dụ: "Thông tin đơn hàng", "Mã xác thực", "Kết quả thanh toán"
 
 BƯỚC 4: KIỂM TRA CÂN BẰNG
 ────────────────────────────
-- Data vào process = Data ra process (cân bằng)
-- Không có "black hole" (process chỉ nhận, không trả)
-- Không có "miracle" (process chỉ trả, không nhận)
+- Dữ liệu vào bước xử lý = Dữ liệu ra (cân bằng)
+- Không có "hố đen" — bước xử lý chỉ nhận dữ liệu mà không trả ra gì
+- Không có "phép màu" — bước xử lý trả ra dữ liệu mà không nhận vào gì
 ```
 
 ---
 
-## 8.4. Template DFD Level 0 (Context Diagram)
+## 8.4. Template Sơ Đồ Ngữ Cảnh (Level 0)
 
 ```mermaid
 flowchart LR
@@ -1159,15 +1163,15 @@ CÔNG THỨC VẼ SITEMAP:
 BƯỚC 1: Liệt kê tất cả màn hình/trang
   Hỏi: "Người dùng có thể đến trang/màn hình nào?"
 
-BƯỚC 2: Phân cấp theo navigation
-  - Trang chủ / Dashboard là gốc
-  - Các section chính là cấp 2
+BƯỚC 2: Phân cấp theo điều hướng
+  - Trang chủ / Bảng điều khiển là gốc
+  - Các nhóm chức năng chính là cấp 2
   - Các trang con là cấp 3
 
 BƯỚC 3: Đánh dấu quyền truy cập
   - Công khai (không cần đăng nhập)
   - Riêng tư (cần đăng nhập)
-  - Chỉ Admin
+  - Chỉ Quản trị viên
 ```
 
 **Template Sitemap:**
@@ -1203,8 +1207,8 @@ BƯỚC 1: Xác định mục tiêu
   "Người dùng muốn đạt được gì?"
   Ví dụ: Mua hàng, Đặt lịch, Gửi yêu cầu...
 
-BƯỚC 2: Xác định điểm vào (Entry Point)
-  Họ bắt đầu từ đâu? Email? Google Search? App?
+BƯỚC 2: Xác định điểm vào
+  Họ bắt đầu từ đâu? Email? Tìm kiếm? Ứng dụng?
 
 BƯỚC 3: Vẽ từng màn hình theo thứ tự
   Mỗi ô = 1 màn hình
@@ -1212,7 +1216,7 @@ BƯỚC 3: Vẽ từng màn hình theo thứ tự
 
 BƯỚC 4: Xử lý điểm rẽ nhánh
   Khi có điều kiện (đã đăng nhập chưa? Có hàng không?)
-  → Vẽ hình thoi Decision
+  → Vẽ hình thoi (điểm quyết định)
 
 BƯỚC 5: Xác định điểm kết thúc
   Có thể nhiều kết thúc: Thành công / Thất bại / Thoát giữa chừng
@@ -1226,7 +1230,7 @@ BƯỚC 5: Xác định điểm kết thúc
 
 Wireframe là **bản phác thảo bố cục giao diện** — cho thấy thứ gì nằm ở đâu trên màn hình, KHÔNG có màu sắc hay thiết kế cuối cùng.
 
-**Khi nào vẽ:** Trước khi design, sau khi có User Flow, để align với PO và Designer.
+**Khi nào vẽ:** Trước khi thiết kế giao diện, sau khi có Luồng người dùng, để thống nhất với Chủ sản phẩm (PO) và Nhà thiết kế.
 
 ---
 
@@ -1236,17 +1240,17 @@ Wireframe là **bản phác thảo bố cục giao diện** — cho thấy thứ
 BƯỚC 1: XÁC ĐỊNH VÙNG BỐ CỤC CHÍNH
 ──────────────────────────────────────
 Mọi trang đều có:
-  - Header (Navigation bar)
-  - Main Content (nội dung chính)
-  - Footer (chân trang)
+  - Đầu trang (Header — thanh điều hướng)
+  - Nội dung chính (Main Content)
+  - Chân trang (Footer)
 
-BƯỚC 2: PHÁC THẢO GRID / LAYOUT
+BƯỚC 2: PHÁC THẢO LƯỚI BỐ CỤC
 ──────────────────────────────────
-Chọn kiểu layout:
-  - Full-width: 1 cột
-  - 2 cột: Sidebar + Content
-  - 3 cột: Sidebar + Content + Panel phụ
-  - Grid: 2x2, 3x3, 4x4...
+Chọn kiểu bố cục:
+  - Toàn chiều rộng: 1 cột
+  - 2 cột: Thanh bên + Nội dung
+  - 3 cột: Thanh bên + Nội dung + Bảng phụ
+  - Lưới: 2x2, 3x3, 4x4...
 
 BƯỚC 3: ĐẶT CÁC THÀNH PHẦN VÀO LAYOUT
 ────────────────────────────────────────
@@ -1254,20 +1258,20 @@ Các thành phần phổ biến:
   [TEXT] = Văn bản, tiêu đề
   [IMG]  = Ảnh, media
   [BTN]  = Nút bấm
-  [FORM] = Form nhập liệu
+  [FORM] = Biểu mẫu nhập liệu
   [LIST] = Danh sách
   [CARD] = Thẻ thông tin
-  [NAV]  = Navigation menu
-  [TAB]  = Tab chuyển mục
+  [NAV]  = Thanh điều hướng
+  [TAB]  = Thẻ chuyển mục
 
 BƯỚC 4: GHI CHÚ HÀNH VI
 ─────────────────────────
   Thêm chú thích bên cạnh:
   "→ Click vào đây chuyển đến trang X"
   "→ Hiện khi hết hàng"
-  "→ Disabled khi form chưa đủ"
+  "→ Vô hiệu hóa khi biểu mẫu chưa đủ thông tin"
 
-BƯỚC 5: ANNOTATE (THÊM SỐ CHÚ THÍCH)
+BƯỚC 5: THÊM SỐ CHÚ THÍCH
 ───────────────────────────────────────
   Đánh số ①②③ vào các thành phần
   Bên dưới giải thích từng số
@@ -1289,7 +1293,7 @@ Mô tả: [Mục đích của trang này]
 │  │                                                 │   │
 │  │   [TIÊU ĐỀ CHÍNH - H1]                         │   │
 │  │   [Mô tả ngắn]                                  │   │
-│  │   [BTN: Call to Action]                         │   │
+│  │   [BTN: Nút hành động chính]                    │   │
 │  │                                                 │   │
 │  └─────────────────────────────────────────────────┘   │
 │                                                         │
@@ -1312,11 +1316,11 @@ Mô tả: [Mục đích của trang này]
 └─────────────────────────────────────────────────────────┘
 
 CHÚ THÍCH:
-① Header: Sticky (dính khi scroll), có cart badge
-② Hero: Hình nền, text overlay, CTA button nổi bật
-③ Grid: Responsive — 3 cột desktop, 2 cột tablet, 1 cột mobile
-④ Sidebar: Collapse được trên mobile
-⑤ Pagination: Hiện khi có > 12 items
+① Đầu trang: Dính khi cuộn trang, có biểu tượng giỏ hàng
+② Khu vực nổi bật: Hình nền, chữ đè lên ảnh, nút hành động chính
+③ Lưới: Tự thích ứng — 3 cột máy tính, 2 cột máy tính bảng, 1 cột điện thoại
+④ Thanh bên: Thu gọn được trên điện thoại
+⑤ Phân trang: Hiện khi có > 12 mục
 ```
 
 ---
@@ -1328,20 +1332,20 @@ CHÚ THÍCH:
 ```
 ✅ TRƯỚC KHI VẼ
   □ Đã xác định rõ MỤC ĐÍCH của sơ đồ này?
-  □ Đã biết ĐỐI TƯỢNG đọc là ai? (Dev, PO, Stakeholder, QA?)
+  □ Đã biết ĐỐI TƯỢNG đọc là ai? (Lập trình viên, Chủ sản phẩm, Bên liên quan, Kiểm thử viên?)
   □ Đã có đủ thông tin để vẽ? (không đoán mò)
 
 ✅ TRONG KHI VẼ
   □ Tiêu đề rõ ràng (tên loại sơ đồ + tên chức năng)
-  □ Chú giải đầy đủ (legend) nếu dùng màu/ký hiệu đặc biệt
+  □ Chú giải đầy đủ (bảng ghi chú ký hiệu) nếu dùng màu/ký hiệu đặc biệt
   □ Gắn nhãn cho MỌI mũi tên quan trọng
   □ Font đủ lớn để đọc khi in
-  □ Không quá 1 trang A4 (nếu không — tách diagram)
+  □ Không quá 1 trang A4 (nếu không — tách sơ đồ)
 
 ✅ SAU KHI VẼ
   □ Tự đọc lại từ góc nhìn người mới — có hiểu không?
-  □ Nhờ 1 người khác review
-  □ Đã align với code/API thực tế chưa?
+  □ Nhờ 1 người khác rà soát
+  □ Đã khớp với mã nguồn/API thực tế chưa?
   □ Đã cập nhật khi yêu cầu thay đổi chưa?
 ```
 
@@ -1349,7 +1353,7 @@ CHÚ THÍCH:
 
 ## 11.2. Bảng Chọn Sơ Đồ Theo Tình Huống
 
-| Câu hỏi stakeholder hỏi | Sơ đồ nên dùng |
+| Câu hỏi các bên liên quan thường hỏi | Sơ đồ nên dùng |
 |:------------------------|:---------------|
 | "Hệ thống làm được gì?" | Use Case Diagram |
 | "Quy trình này chạy thế nào?" | Activity / Flowchart |
@@ -1365,17 +1369,17 @@ CHÚ THÍCH:
 
 ---
 
-## 11.3. Anti-Patterns — Những Gì KHÔNG Nên Làm
+## 11.3. Những Gì KHÔNG Nên Làm (Lỗi phổ biến)
 
-| Anti-Pattern | Hậu quả | Cách tránh |
+| Lỗi phổ biến | Hậu quả | Cách tránh |
 |:-------------|:--------|:-----------|
-| "Diagram as Code" — vẽ quá chi tiết | Dev không cần BA nữa | Diagram là THIẾT KẾ, không phải implementation |
-| "One diagram to rule them all" | 1 diagram quá lớn, không ai đọc | Tách theo scope, 1 diagram = 1 mục đích |
-| Không cập nhật sau khi thay đổi | Diagram và code mâu thuẫn | Treat diagram như code — version control |
-| Dùng ký hiệu tùy tiện | Người khác không hiểu | Theo chuẩn (UML, BPMN) hoặc có legend |
-| Không có title/context | Không biết diagram này về cái gì | Luôn thêm tiêu đề + ngày + tác giả |
-| Skip review với stakeholder | Vẽ sai yêu cầu | Review ít nhất 1 lần với người dùng cuối |
-| Copy diagram từ dự án cũ | Thông tin sai | Luôn customize cho dự án hiện tại |
+| Vẽ quá chi tiết như mã nguồn | Lập trình viên không cần BA nữa | Sơ đồ là THIẾT KẾ, không phải triển khai |
+| Nhồi tất cả vào 1 sơ đồ | Sơ đồ quá lớn, không ai đọc | Tách theo phạm vi, 1 sơ đồ = 1 mục đích |
+| Không cập nhật sau khi thay đổi | Sơ đồ và mã nguồn mâu thuẫn | Quản lý sơ đồ như mã nguồn — theo dõi phiên bản |
+| Dùng ký hiệu tùy tiện | Người khác không hiểu | Theo chuẩn UML (Ngôn ngữ mô hình hóa thống nhất) hoặc BPMN (Ký hiệu quản lý quy trình nghiệp vụ), hoặc có bảng ghi chú |
+| Không có tiêu đề/ngữ cảnh | Không biết sơ đồ này về cái gì | Luôn thêm tiêu đề + ngày + tác giả |
+| Bỏ qua rà soát với bên liên quan | Vẽ sai yêu cầu | Rà soát ít nhất 1 lần với người dùng cuối |
+| Sao chép sơ đồ từ dự án cũ | Thông tin sai | Luôn điều chỉnh cho dự án hiện tại |
 
 ---
 
@@ -1385,34 +1389,34 @@ CHÚ THÍCH:
 GIAI ĐOẠN 1: KHỞI ĐẦU DỰ ÁN (Inception)
 ──────────────────────────────────────────
   Vẽ trước:
-  1. Use Case Diagram → Xác định scope
-  2. Context DFD → Xác định giao diện hệ thống
+  1. Use Case Diagram → Xác định phạm vi
+  2. Sơ đồ ngữ cảnh (DFD) → Xác định các điểm giao tiếp
   3. Sitemap → Cấu trúc sản phẩm
-  Mục đích: Đồng thuận với stakeholder
+  Mục đích: Đồng thuận với các bên liên quan
 
 GIAI ĐOẠN 2: PHÂN TÍCH YÊU CẦU (Analysis)
 ────────────────────────────────────────────
   Vẽ tiếp:
   4. Activity / Flowchart → Chi tiết quy trình
   5. Swimlane → Phân công trách nhiệm
-  6. State Machine → Vòng đời các entity
-  Mục đích: Làm rõ nghiệp vụ cho team
+  6. State Machine → Vòng đời các thực thể
+  Mục đích: Làm rõ nghiệp vụ cho nhóm phát triển
 
 GIAI ĐOẠN 3: THIẾT KẾ (Design)
 ────────────────────────────────
   Vẽ tiếp:
   7. ERD → Cấu trúc dữ liệu
   8. Architecture Diagram → Công nghệ & tầng
-  9. Sequence Diagram → API interaction
+  9. Sequence Diagram → Giao tiếp giữa các thành phần
   10. User Flow + Wireframe → Giao diện
-  Mục đích: Tài liệu cho Developer bắt đầu code
+  Mục đích: Tài liệu cho lập trình viên bắt đầu viết mã
 
-GIAI ĐOẠN 4: PHÁT TRIỂN & KIỂM THỬ (Dev & QA)
-──────────────────────────────────────────────────
+GIAI ĐOẠN 4: PHÁT TRIỂN & KIỂM THỬ
+────────────────────────────────────────
   Cập nhật:
-  - Giữ tất cả diagram đồng bộ với code
-  - Thêm diagram mới nếu scope thay đổi
-  - Dùng Sequence Diagram làm cơ sở viết test case
+  - Giữ tất cả sơ đồ đồng bộ với mã nguồn
+  - Thêm sơ đồ mới nếu phạm vi thay đổi
+  - Dùng Sequence Diagram làm cơ sở viết kịch bản kiểm thử
 ```
 
 ---
@@ -1420,7 +1424,7 @@ GIAI ĐOẠN 4: PHÁT TRIỂN & KIỂM THỬ (Dev & QA)
 ## 11.5. Mẫu Đặt Tên File Chuẩn
 
 ```
-Format: [Loại_sơ_đồ]_[Tên_chức_năng]_v[Số phiên bản]
+Cách đặt tên: [Loại_sơ_đồ]_[Tên_chức_năng]_v[Số phiên bản]
 
 Ví dụ:
   usecase_tong_quan_he_thong_v1.md
@@ -1445,9 +1449,9 @@ NHÓM CÂU HỎI VỀ NGƯỜI DÙNG:
   □ Điều gì khiến họ thất vọng với cách hiện tại?
 
 NHÓM CÂU HỎI VỀ CHỨC NĂNG:
-  □ Hệ thống PHẢI làm gì? (Must have)
-  □ Hệ thống NÊN làm gì? (Should have)
-  □ Hệ thống KHÔNG làm gì? (Out of scope)
+  □ Hệ thống PHẢI làm gì? (Bắt buộc có)
+  □ Hệ thống NÊN làm gì? (Nên có)
+  □ Hệ thống KHÔNG làm gì? (Ngoài phạm vi)
   □ Trường hợp ngoại lệ nào cần xử lý?
   □ Khi lỗi xảy ra, hệ thống phản ứng thế nào?
 
@@ -1455,18 +1459,18 @@ NHÓM CÂU HỎI VỀ DỮ LIỆU:
   □ Hệ thống cần lưu trữ thông tin gì?
   □ Dữ liệu đến từ đâu? Đi đến đâu?
   □ Ai được xem dữ liệu nào? (phân quyền)
-  □ Dữ liệu cũ xử lý thế nào? (archive, delete?)
+  □ Dữ liệu cũ xử lý thế nào? (lưu trữ lâu dài, xóa?)
   □ Có dữ liệu nhạy cảm cần bảo vệ đặc biệt?
 
 NHÓM CÂU HỎI VỀ QUY TRÌNH:
   □ Quy trình bắt đầu khi nào? Kết thúc khi nào?
   □ Ai phê duyệt? Điều kiện phê duyệt là gì?
-  □ Có SLA / deadline không? (trong bao lâu phải xong)
+  □ Có cam kết thời gian xử lý (SLA) / hạn chót không? (trong bao lâu phải xong)
   □ Quy trình có thể bị hủy/dừng không? Ai có quyền?
 
 NHÓM CÂU HỎI VỀ KỸ THUẬT:
   □ Hệ thống phải đáp ứng bao nhiêu người dùng đồng thời?
-  □ Yêu cầu về bảo mật? (2FA, encryption, audit log...)
+  □ Yêu cầu về bảo mật? (xác thực 2 bước, mã hóa dữ liệu, nhật ký theo dõi...)
   □ Tích hợp với hệ thống nào khác?
   □ Nền tảng: Web, Mobile, Desktop, hay tất cả?
 ```
