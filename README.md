@@ -1,31 +1,188 @@
 # LuxRoom
 
-Luxury-minimal furniture frontend concept based on the provided Figma-style mockups.
+Nền tảng thương mại điện tử nội thất cao cấp với định hướng luxury-minimal.
 
-## Run
+## Mô tả
 
-Open `src/index.html` directly in the browser to preview the current static prototype.
+LuxRoom là website thương mại điện tử nội thất cao cấp, được thiết kế theo triết lý **luxury-minimal** — tối giản nhưng không kém phần sang trọng. Dự án tập trung giải quyết các vấn đề phổ biến trong mua sắm nội thất online:
 
-## Current structure
+- **Khó hình dung sản phẩm** — Trang chi tiết sản phẩm với hình ảnh chất lượng cao, thông tin kỹ thuật đầy đủ
+- **Thiếu sự tin tưởng** — Giao diện chuyên nghiệp, nhất quán thể hiện uy tín thương hiệu
+- **Lo ngại về giao hàng** — Trang thành công rõ ràng với thông tin đơn hàng chi tiết
+- **Thông tin sản phẩm chưa đầy đủ** — Mỗi sản phẩm có mô tả, thông số kỹ thuật và hướng dẫn sử dụng
+- **Sự do dự khi thanh toán** — Luồng thanh toán tinh gọn, giảm thiểu các bước không cần thiết
 
-- `src/index.html`: Home page
-- `src/products.html`: Product listing page
-- `src/detail.html`: Product detail page
-- `css/common.css`: Shared base styling, navigation, newsletter, and footer
-- `css/index.css`: Home page styling
-- `css/products.css`: Product listing page styling
-- `css/detail.css`: Product detail page styling
-- `js/common.js`: Shared product data, cart count, and newsletter handling
-- `js/index.js`: Home page script entry
-- `js/products.js`: Product listing rendering
-- `js/detail.js`: Detail page rendering, quantity picker, and add-to-cart behavior
-- `public/assets`: Original UI reference images copied from the provided mockups
+### Các luồng chính
 
-## Business Analyst (BA) Portfolio
+| Luồng | Mô tả |
+|-------|-------|
+| Khám phá sản phẩm | Trang chủ với bộ sưu tập nổi bật, trang danh sách sản phẩm với bộ lọc |
+| Chi tiết sản phẩm | Hình ảnh, mô tả, thông số kỹ thuật, thêm vào giỏ hàng |
+| Giỏ hàng & Thanh toán | Quản lý giỏ hàng, thông tin giao hàng, xác nhận đơn hàng |
+| Hồ sơ cá nhân | Đăng nhập/đăng ký, quản lý tài khoản |
+| Liên hệ & Newsletter | Form liên hệ, đăng ký nhận tin khuyến mãi |
 
-This repository has been structured as a professional Business Analyst portfolio project. The frontend prototype has been reverse-engineered to create comprehensive analytical documentation found in the `docs/ba_portfolio` directory:
+### Đối tượng sử dụng
 
-1. [Product Requirements Document (PRD)](./docs/ba_portfolio/1_PRD_LuxRoom.md)
-2. [User Stories & Acceptance Criteria (Gherkin)](./docs/ba_portfolio/2_User_Stories.md)
-3. [Business Process Models (BPMN / Mermaid)](./docs/ba_portfolio/3_Process_Models.md)
-4. [Conceptual Data Architecture (ERD)](./docs/ba_portfolio/4_Data_Architecture.md)
+Dự án phù hợp để:
+
+- Sử dụng làm **UI/UX case study** cho portfolio Business Analyst
+- Luyện tập **front-end development** với HTML, CSS, JavaScript thuần
+- Tham khảo **design system** và định hướng luxury-minimal
+
+## Công nghệ
+
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **Design Tool**: Figma
+- **Không sử dụng framework** — pure vanilla implementation
+
+## Cài đặt
+
+### Yêu cầu
+
+- Trình duyệt hiện đại (Chrome, Firefox, Safari, Edge)
+- VS Code (khuyến nghị để sử dụng Live Server)
+
+### Các bước cài đặt
+
+**1. Clone repository**
+
+```bash
+git clone https://github.com/username/LuxRoom.git
+```
+
+**2. Mở thư mục project**
+
+```bash
+cd LuxRoom
+```
+
+**3. Chạy project**
+
+_Cách 1 — Mở trực tiếp bằng trình duyệt:_
+
+```bash
+# Mở file src/index.html trong trình duyệt
+# Windows: double-click file hoặc click chuột phải > Open with
+# macOS: open src/index.html
+# Linux: xdg-open src/index.html
+```
+
+_Cách 2 — Sử dụng Live Server (khuyến nghị):_
+
+1. Cài đặt extension **Live Server** trong VS Code
+2. Click chuột phải vào `src/index.html`
+3. Chọn **"Open with Live Server"**
+
+## Cấu trúc project
+
+```
+LuxRoom/
+├── src/                    # Các trang HTML
+│   ├── index.html          # Trang chủ
+│   ├── products.html       # Danh sách sản phẩm
+│   ├── detail.html         # Chi tiết sản phẩm
+│   ├── cart.html           # Giỏ hàng
+│   ├── checkout.html       # Thanh toán
+│   ├── about.html          # Giới thiệu
+│   ├── contact.html        # Liên hệ
+│   ├── auth.html           # Đăng nhập / Đăng ký
+│   ├── profile.html        # Hồ sơ cá nhân
+│   └── success.html        # Trang xác nhận đặt hàng thành công
+├── css/                    # Stylesheets
+│   ├── common.css          # Header, footer, navigation, newsletter
+│   ├── design-system.css   # Design tokens, biến CSS
+│   ├── index.css           # Trang chủ
+│   ├── products.css        # Danh sách sản phẩm
+│   ├── detail.css          # Chi tiết sản phẩm
+│   ├── cart.css            # Giỏ hàng
+│   ├── checkout.css        # Thanh toán
+│   ├── about.css           # Giới thiệu
+│   ├── contact.css         # Liên hệ
+│   ├── auth.css            # Đăng nhập / Đăng ký
+│   ├── profile.css         # Hồ sơ cá nhân
+│   └── success.css         # Trang thành công
+├── js/                     # JavaScript files
+│   ├── common.js           # Dữ liệu sản phẩm, xử lý cart, newsletter
+│   ├── index.js            # Logic trang chủ
+│   ├── products.js         # Logic danh sách sản phẩm
+│   ├── detail.js           # Logic chi tiết sản phẩm
+│   ├── cart.js             # Logic giỏ hàng
+│   ├── checkout.js         # Logic thanh toán
+│   ├── contact.js          # Logic liên hệ
+│   └── auth.js             # Logic xác thực
+├── public/assets/          # Hình ảnh mockup tham khảo từ Figma
+├── screenshots/           # Ảnh chụp màn hình các trang
+├── img/                    # Hình ảnh nội dung
+└── docs/ba_portfolio/      # Tài liệu BA (PRD, User Stories, BPMN, ERD)
+```
+
+## Cách sử dụng
+
+### Khám phá sản phẩm
+
+1. Mở `src/index.html` — trang chủ với bộ sưu tập nổi bật
+2. Click vào banner hoặc nút "Khám phá" để xem danh sách sản phẩm
+3. Trang `src/products.html` hiển thị các sản phẩm với bộ lọc theo danh mục
+
+### Xem chi tiết sản phẩm
+
+1. Click vào sản phẩm bất kỳ để mở `src/detail.html`
+2. Xem hình ảnh, mô tả, thông số kỹ thuật
+3. Chọn số lượng và nhấn "Thêm vào giỏ hàng"
+
+### Luồng giỏ hàng và thanh toán
+
+1. Icon giỏ hàng ở header hiển thị số lượng sản phẩm đã thêm
+2. Truy cập `src/cart.html` để xem và chỉnh sửa giỏ hàng
+3. Nhấn "Thanh toán" để chuyển sang `src/checkout.html`
+4. Điền thông tin giao hàng và xác nhận đơn hàng
+5. Trang `src/success.html` xác nhận đặt hàng thành công
+
+### Các trang khác
+
+| Trang | Mục đích |
+|-------|----------|
+| `src/about.html` | Câu chuyện thương hiệu, giá trị cốt lõi |
+| `src/contact.html` | Form liên hệ, thông tin cửa hàng |
+| `src/auth.html` | Đăng nhập / Đăng ký tài khoản |
+| `src/profile.html` | Quản lý thông tin cá nhân |
+
+### Về thiết kế Luxury-Minimal
+
+Dự án tuân thủ nguyên tắc thiết kế luxury-minimal:
+
+- **Màu sắc**: Tông màu trung tính (trắng, đen, be, xám) làm chủ đạo
+- **Typography**: Font chữ sans-serif rõ ràng, hierarchy rõ ràng
+- **Whitespace**: Sử dụng khoảng trắng dồi dào để tạo cảm giác sang trọng
+- **Hình ảnh**: Sản phẩm được chụp/placehound với nền sạch, tối giản
+- **Interaction**: Animation mềm mại, hover effects tinh tế
+
+## Tài liệu BA Portfolio
+
+Dự án được thiết kế như một **BA portfolio** hoàn chỉnh với các tài liệu phân tích trong `docs/ba_portfolio/`:
+
+1. **PRD** — Product Requirements Document: Tổng quan sản phẩm, mục tiêu, User Stories
+2. **User Stories (Gherkin)** — Các kịch bản người dùng với acceptance criteria
+3. **BPMN** — Business Process Models: Sơ đồ quy trình nghiệp vụ
+4. **ERD** — Conceptual Data Architecture: Mô hình dữ liệu
+
+## Screenshots
+
+Xem thêm hình ảnh minh họa trong thư mục `screenshots/`:
+
+| Trang | File |
+|-------|------|
+| Trang chủ | `screenshots/Home.png` |
+| Danh sách sản phẩm | `screenshots/Funiture - Product.png`, `Search.png` |
+| Chi tiết sản phẩm | `screenshots/detail product.png` |
+| Giỏ hàng | `screenshots/cart.png` |
+| Giới thiệu | `screenshots/About us.png` |
+| Liên hệ | `screenshots/Contact.png` |
+| Tài khoản | `screenshots/Account Dropdown.png` |
+
+---
+
+**Vai trò**: Business Analyst & UI/UX Designer
+
+Được xây dựng với mục tiêu thể hiện kỹ năng phân tích nghiệp vụ và thiết kế trải nghiệm người dùng.
