@@ -327,3 +327,8 @@
 .gallery-four {
   filter: sepia(.15) saturate(.9) contrast(.98) brightness(.98);
 }
+
+/* White editorial identity: keep every Home section light and type-led. */
+.material-band { background: #ffffff; color: var(--home-ink); border-top: 1px solid var(--home-line); border-bottom: 1px solid var(--home-line); }
+.material-band > p { color: var(--home-ink); }
+.value-list span { border-top-color: var(--home-line); }

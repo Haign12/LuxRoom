@@ -59,3 +59,19 @@ Contact preview giữ nội dung liên hệ và số `+84 798 876 074`, logo/hea
 ## Account/Success QA checkpoint
 
 Account preview giữ headline lớn đen, form sign-in và logo dùng chung. Order Confirmed preview giữ title `Thank you for making room.`, các bước tiếp theo và CTA; toàn bộ vẫn trên nền trắng, không mất wishlist/cart integration.
+
+## Centered-title QA checkpoint
+
+Home preview: nền trắng, wordmark LuxRoom đen, hero headline đen và căn giữa trong editorial copy column; hero image giữ sofa đúng sản phẩm với amber grade. Contact preview: hero đã chuyển từ split grid sang block full-width, title `Tell us about the room.` căn giữa toàn trang, phần form/details bên dưới vẫn nguyên vẹn.
+
+## Account/Product Detail QA checkpoint
+
+Account preview: title `A quieter way to keep a room together.` đã căn giữa, ảnh warm và form account vẫn render. Product Detail preview: gallery đang dùng sofa/ghế/linen phù hợp với `Miro Green Sofa`, title stack được căn giữa theo hệ mới, nền và wordmark đều đen–trắng.
+
+## Checkout/Wishlist QA checkpoint
+
+Checkout preview: `Bring the room home.` đã căn giữa, progress `01 / 02`, form và order ledger vẫn render. Wishlist preview: `Kept, for later.` căn giữa trên nền trắng, counter `0 objects waiting`, suggested object và material notes vẫn hiển thị.
+
+## Cart/Success QA checkpoint
+
+Cart preview: title `The room, in progress.` căn giữa, empty state và link Continue the collection vẫn render. Success preview: `Thank you for making room.` căn giữa, order confirmation code, message và hai CTA vẫn hoạt động.

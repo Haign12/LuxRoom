@@ -261,3 +261,9 @@
     animation: none !important;
   }
 }
+
+/* White editorial identity: centered Wishlist hero. */
+.wishlist-hero { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.wishlist-hero h1 { margin: 0 auto; }
+.wishlist-hero > p { max-width: 620px; margin: 16px auto 0; }
+.wishlist-counter { width: min(100%, 320px); }
