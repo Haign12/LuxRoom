@@ -75,3 +75,18 @@ Checkout preview: `Bring the room home.` đã căn giữa, progress `01 / 02`, f
 ## Cart/Success QA checkpoint
 
 Cart preview: title `The room, in progress.` căn giữa, empty state và link Continue the collection vẫn render. Success preview: `Thank you for making room.` căn giữa, order confirmation code, message và hai CTA vẫn hoạt động.
+
+
+## Shop by room QA
+
+Home preview tại https://4174-ipczr91aey0hjc1bjgxca-8eeebc49.sg1.manus.computer/index.html?rooms=1 đã render section `03 / SHOP BY ROOM` với 5 thẻ: Living room (06 objects), Home office (03), Dining room (03), Bedroom (03) và Bathroom (01). Nội dung xác nhận tiêu đề, số lượng và mũi tên điều hướng; bố cục dùng 2 khung lớn ở hàng đầu và 3 khung nhỏ ở hàng dưới theo yêu cầu. Các visual local được gắn theo đúng không gian: lux_hero, lux_consulting, lux_kitchen, lux_bedroom và lux_bathroom; filter amber/sepia nhẹ giữ mood nâu–vàng.
+
+
+## Shop by room filter QA — issue found
+
+Collection preview với URL `products.html?room=Bedroom` vẫn hiển thị `16 objects` và các card đầu tiên của toàn catalog, dù hàm `applyRoomQuery()` trong `js/products.js` đã đọc query. Bộ lọc Room thủ công vẫn render đầy đủ các lựa chọn Living, Dining, Bedroom, Bathroom và Office. Cần kiểm tra vì sao query URL chưa được phản ánh trong render trước khi deploy.
+
+
+## Home Shop by room visual QA
+
+Preview Home đã hiển thị đúng section editorial 2 khung lớn + 3 khung nhỏ, với các visual warm tương ứng mood/room-scene. Nội dung đầy đủ 5 thẻ: Living room, Home office, Dining room, Bedroom và Bathroom. Cần click trực tiếp thẻ Bedroom để xác nhận URL query được proxy chuyển tiếp đúng.

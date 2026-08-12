@@ -308,6 +308,25 @@ window.LuxRoom.refreshWishlistState = function refreshWishlistState() {
   });
 };
 
+function applyRoomQuery() {
+  const roomOptions = ["Living", "Dining", "Bedroom", "Bathroom", "Office"];
+  const searchRoom = new URLSearchParams(window.location.search).get("room");
+  const hashRoom = new URLSearchParams(window.location.hash.replace(/^#/, "")).get("room");
+  const requestedRoom = searchRoom || hashRoom;
+  const room = roomOptions.find((option) => option.toLowerCase() === requestedRoom?.trim().toLowerCase());
+  if (!room) return false;
+
+  activeFilters.room = room;
+  document.querySelectorAll(".filter-col").forEach((group) => {
+    const title = group.querySelector(".eyebrow")?.textContent.trim().toLowerCase();
+    if (title !== "room") return;
+    group.querySelectorAll("li").forEach((item) => item.classList.toggle("active", item.textContent.trim() === room));
+  });
+  return true;
+}
+
+const roomApplied = applyRoomQuery();
+currentPage = roomApplied ? 1 : currentPage;
 renderProducts();
 window.addEventListener("wishlist-updated", window.LuxRoom.refreshWishlistState);
 window.LuxRoom.refreshWishlistState();
