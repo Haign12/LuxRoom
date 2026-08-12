@@ -13,3 +13,11 @@
 /* Story hero spacing refinement. */
 .story-hero h1 { line-height: .94; margin-bottom: 56px; }
 .story-deck { line-height: 1.82; }
+
+/* A local rhythm: restore the editorial image intended for the left-hand panel. */
+.essay-image {
+  background-image: url('../img/about/local-rhythm.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

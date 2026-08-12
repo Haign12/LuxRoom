@@ -145,3 +145,39 @@ h1 em, h2 em, h3 em,
 .eyebrow,
 .section-marker { margin-bottom: 20px; }
 h1, h2, h3 { line-height: .95; }
+
+
+/* Contextual back navigation across secondary pages. */
+.page-back-shell {
+  width: min(100% - 10vw, var(--content));
+  margin: 0 auto;
+  padding-top: 108px;
+}
+
+.page-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid currentColor;
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .13em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.page-back-link:hover { color: var(--clay); }
+
+.cart-page .page-back-shell,
+.checkout-page .page-back-shell,
+.wishlist-page .page-back-shell { padding-top: 106px; }
+
+@media (max-width: 700px) {
+  .page-back-shell {
+    width: min(100% - 40px, var(--content));
+    padding-top: 90px;
+  }
+}

@@ -82,6 +82,11 @@ function renderProducts() {
 
   const filtered = getFilteredProducts();
   const totalItems = filtered.length;
+  const roomBackTarget = activeFilters.room
+    ? `?room=${activeFilters.room}#room=${activeFilters.room}`
+    : "";
+  const roomBackContext = roomBackTarget ? `&from=${encodeURIComponent(roomBackTarget)}` : "";
+  const roomBackFragment = roomBackTarget ? `&from=${encodeURIComponent(roomBackTarget)}` : "";
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   if (currentPage > totalPages) currentPage = totalPages || 1;
@@ -96,7 +101,7 @@ function renderProducts() {
     productGrid.innerHTML = currentProducts.map((product, index) => `
       <article class="product-card" style="animation-delay: ${index * 0.05}s">
         <div class="product-card-inner">
-          <a href="./detail.html?product=${product.id}" class="product-thumb ${product.tone}" aria-label="View ${product.name}">
+          <a href="./detail.html?product=${product.id}${roomBackContext}#product=${product.id}${roomBackFragment}" class="product-thumb ${product.tone}" style="background-image: url('./${product.image}');" aria-label="View ${product.name}">
             <span class="product-card-label">${product.category.toUpperCase()}</span>
             <span class="product-media-arrow product-media-arrow-prev" aria-hidden="true">←</span>
             <span class="product-media-arrow product-media-arrow-next" aria-hidden="true">→</span>

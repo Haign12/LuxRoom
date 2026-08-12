@@ -1,20 +1,20 @@
 const products = [
-  { id: 1, name: "Miro Green Sofa", price: 320, tone: "thumb-a", category: "Seating", room: "Living", materialGroup: "Textile", colors: ["Olive green"], materials: ["Textile"] },
-  { id: 2, name: "Creamy Bed", price: 680, tone: "thumb-b", category: "Seating", room: "Bedroom", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
-  { id: 3, name: "Oak Kitchen Console", price: 900, tone: "thumb-c", category: "Tables", room: "Dining", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
-  { id: 4, name: "Stone Bathtub", price: 230, tone: "thumb-d", category: "Light & form", room: "Bathroom", materialGroup: "Stone", colors: ["Cream"], materials: ["Stone"] },
-  { id: 5, name: "Studio Desk", price: 210, tone: "thumb-e", category: "Tables", room: "Office", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
-  { id: 6, name: "Lounge Chair", price: 430, tone: "thumb-f", category: "Seating", room: "Living", materialGroup: "Textile", colors: ["Charcoal"], materials: ["Textile"] },
-  { id: 7, name: "Boucle Rug", price: 700, tone: "thumb-g", category: "Textiles", room: "Living", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
-  { id: 8, name: "Cloud Sofa", price: 180, tone: "thumb-h", category: "Seating", room: "Living", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
-  { id: 9, name: "Oak Side Table", price: 460, tone: "thumb-i", category: "Tables", room: "Living", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
-  { id: 10, name: "Platey Table", price: 240, tone: "thumb-j", category: "Tables", room: "Dining", materialGroup: "Stoneware", colors: ["Natural oak"], materials: ["Stoneware"] },
-  { id: 11, name: "Mino Chair", price: 210, tone: "thumb-k", category: "Seating", room: "Dining", materialGroup: "Textile", colors: ["Terracotta"], materials: ["Textile"] },
-  { id: 12, name: "Milo Chair", price: 280, tone: "thumb-l", category: "Seating", room: "Living", materialGroup: "Textile", colors: ["Olive green"], materials: ["Textile"] },
-  { id: 13, name: "Olive Desk Lamp", price: 160, tone: "thumb-m", category: "Light & form", room: "Office", materialGroup: "Stoneware", colors: ["Olive green"], materials: ["Stoneware"] },
-  { id: 14, name: "Amber Wall Sconce", price: 120, tone: "thumb-n", category: "Light & form", room: "Bedroom", materialGroup: "Stoneware", colors: ["Terracotta"], materials: ["Stoneware"] },
-  { id: 15, name: "Linen Throw", price: 95, tone: "thumb-o", category: "Textiles", room: "Bedroom", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
-  { id: 16, name: "Oak Keepsake Box", price: 145, tone: "thumb-p", category: "Light & form", room: "Office", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
+  { id: 1, name: "Miro Lounge Chair", price: 320, tone: "thumb-a", image: "img/products/miro-lounge-chair.jpg", category: "Seating", room: "Living", materialGroup: "Textile", colors: ["Olive green"], materials: ["Textile"] },
+  { id: 2, name: "Rilo Oak Bed", price: 680, tone: "thumb-b", image: "img/products/rilo-oak-bed.jpg", category: "Seating", room: "Bedroom", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
+  { id: 3, name: "Arca Dining Table", price: 900, tone: "thumb-c", image: "img/products/arca-dining-table.jpg", category: "Tables", room: "Dining", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
+  { id: 4, name: "Noma Stone Bath", price: 230, tone: "thumb-d", image: "img/products/noma-stone-bath.jpg", category: "Light & form", room: "Bathroom", materialGroup: "Stone", colors: ["Cream"], materials: ["Stone"] },
+  { id: 5, name: "Silo Writing Desk", price: 210, tone: "thumb-e", image: "img/products/silo-writing-desk.jpg", category: "Tables", room: "Office", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
+  { id: 6, name: "Raku Lounge Chair", price: 430, tone: "thumb-f", image: "img/products/raku-lounge-chair.jpg", category: "Seating", room: "Living", materialGroup: "Textile", colors: ["Terracotta"], materials: ["Textile"] },
+  { id: 7, name: "Haven Wool Rug", price: 700, tone: "thumb-g", image: "img/products/haven-wool-rug.jpg", category: "Textiles", room: "Living", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
+  { id: 8, name: "Ona Modular Sofa", price: 180, tone: "thumb-h", image: "img/products/ona-modular-sofa.jpg", category: "Seating", room: "Living", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
+  { id: 9, name: "Koto Side Table", price: 460, tone: "thumb-i", image: "img/products/koto-side-table.jpg", category: "Tables", room: "Living", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
+  { id: 10, name: "Ora Pedestal Table", price: 240, tone: "thumb-j", image: "img/products/ora-pedestal-table.jpg", category: "Tables", room: "Dining", materialGroup: "Stoneware", colors: ["Cream"], materials: ["Stoneware"] },
+  { id: 11, name: "Audo Dining Chair", price: 210, tone: "thumb-k", image: "img/lux_story_2.png", category: "Seating", room: "Dining", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
+  { id: 12, name: "Dune Loveseat", price: 280, tone: "thumb-l", image: "img/lux_gallery_main.png", category: "Seating", room: "Living", materialGroup: "Textile", colors: ["Olive green"], materials: ["Textile"] },
+  { id: 13, name: "Moss Table Lamp", price: 160, tone: "thumb-m", image: "img/products-new/olive-desk-lamp.jpg", category: "Light & form", room: "Office", materialGroup: "Stoneware", colors: ["Olive green"], materials: ["Stoneware"] },
+  { id: 14, name: "Halo Wall Light", price: 120, tone: "thumb-n", image: "img/products-new/amber-wall-sconce.jpg", category: "Light & form", room: "Bedroom", materialGroup: "Stoneware", colors: ["Terracotta"], materials: ["Stoneware"] },
+  { id: 15, name: "Softline Linen Throw", price: 95, tone: "thumb-o", image: "img/products-new/linen-throw.jpg", category: "Textiles", room: "Bedroom", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
+  { id: 16, name: "Mori Keepsake Box", price: 145, tone: "thumb-p", image: "img/products-new/oak-keepsake-box.jpg", category: "Light & form", room: "Office", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
 ];
 
 const cartCountNodes = document.querySelectorAll("[data-cart-count]");
@@ -119,6 +119,31 @@ newsletterForms.forEach((form) => {
 });
 
 syncCartCount();
+
+function injectContextualBackLink() {
+  const page = window.location.pathname.split("/").pop().replace(/\.html$/, "") || "index";
+  const destinations = {
+    cart: { href: "./products.html", label: "Back to collection" },
+    checkout: { href: "./cart.html", label: "Back to cart" },
+    wishlist: { href: "./products.html", label: "Back to collection" },
+    about: { href: "./index.html", label: "Back to home" },
+    contact: { href: "./index.html", label: "Back to home" },
+    auth: { href: "./index.html", label: "Back to home" },
+    profile: { href: "./index.html", label: "Back to home" },
+    success: { href: "./products.html", label: "Back to collection" },
+  };
+  const destination = destinations[page];
+  if (!destination || document.querySelector(".page-back-link")) return;
+
+  const main = document.querySelector("main");
+  if (!main) return;
+  const container = document.createElement("div");
+  container.className = "page-back-shell";
+  container.innerHTML = `<a class="page-back-link" href="${destination.href}">← ${destination.label}</a>`;
+  main.prepend(container);
+}
+
+injectContextualBackLink();
 
 function showToast(message) {
   let container = document.querySelector(".toast-container");

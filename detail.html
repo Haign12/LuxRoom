@@ -33,7 +33,7 @@
     </header>
 
     <main class="product-detail-shell">
-      <div class="detail-crumb"><a href="./products.html">Collection</a><span>/</span><span id="detail-crumb-name">Lux Chair</span></div>
+      <nav class="detail-crumb" aria-label="Product navigation"><a href="./products.html" data-back-to-collection>← Back to collection</a><span>/</span><span id="detail-crumb-name">Lux Chair</span></nav>
 
       <section class="d-gallery" aria-label="Product gallery">
         <button class="dg-img bg-lux-room is-selected" type="button" data-gallery-image="0" aria-label="View product scene one"><span>01</span></button>
@@ -51,7 +51,7 @@
         <p class="di-brand" id="detail-name">Lux Chair</p>
 
         <div class="detail-copy-grid">
-          <p class="di-desc">A generous lounge chair with a soft, sculptural profile. Its low silhouette and tactile upholstery create an easy pause in a room — refined enough to hold its own, relaxed enough to live with every day.</p>
+          <p class="di-desc" id="detail-description">A generous lounge chair with a soft, sculptural profile. Its low silhouette and tactile upholstery create an easy pause in a room — refined enough to hold its own, relaxed enough to live with every day.</p>
           <ul class="di-bullets">
             <li><strong>Upholstery</strong><span>Olive bouclé / warm linen</span></li>
             <li><strong>Leg finish</strong><span>Natural oak / walnut</span></li>
@@ -103,7 +103,7 @@
             <div class="acc-body"><p>Share your access conditions before delivery so our team can guide you through a smooth arrival and room placement.</p></div>
           </div>
         </div>
-        <div class="spec-img bg-lux-room-wide" role="img" aria-label="Lux Chair in a warm room"></div>
+        <div class="spec-img bg-lux-room-wide" id="detail-spec-image" role="img" aria-label="Lux Chair in a warm room"></div>
       </section>
 
       <section class="related-edit" aria-labelledby="related-title">
@@ -132,7 +132,7 @@
       </div>
     </div>
 
-    <script src="js/common.js"></script>
-    <script src="js/detail.js"></script>
+    <script src="js/common.js?v=context-nav-20260813"></script>
+    <script src="js/detail.js?v=detail-nav-20260813"></script>
   </body>
 </html>

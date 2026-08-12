@@ -150,7 +150,7 @@
 /* White editorial identity: centered product title and black wordmark. */
 .di-kicker { justify-content: center; }
 .di-header { flex-direction: column; align-items: center; text-align: center; gap: 14px; }
-.di-line { flex: 0 0 80px; width: 80px; min-width: 0; margin: 0; }
+.di-line { flex: 0 0 auto; width: min(96px, 18vw); min-width: 52px; height: 1px; margin: 0; background: var(--detail-line); }
 .di-price { margin: 0; }
 .di-brand { text-align: center; }
 

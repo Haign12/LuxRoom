@@ -1,9 +1,24 @@
 const productCatalog = window.LuxRoom?.products || [];
-const params = new URLSearchParams(window.location.search);
-const productId = Number(params.get("product")) || 1;
+const queryParams = new URLSearchParams(window.location.search);
+const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ""));
+const productId = Number(queryParams.get("product") || hashParams.get("product")) || 1;
 const selectedProduct = productCatalog.find((product) => product.id === productId) || productCatalog[0];
 
 let quantity = 1;
+
+const detailDescriptions = {
+  Seating: "A measured, inviting form designed to soften the pace of a room. Tactile materials and quiet proportions make it easy to live with every day.",
+  Tables: "A practical surface reduced to its clearest expression. Considered proportions and material warmth let the object settle naturally into daily rituals.",
+  Textiles: "A soft layer with enough texture to make a room feel more settled. Woven for slow mornings, easy evenings and years of use.",
+  "Light & form": "A sculptural object chosen for atmosphere as much as function. Its quiet material presence adds warmth without asking for attention.",
+};
+
+function getCollectionBackHref() {
+  const from = queryParams.get("from") || hashParams.get("from");
+  if (from && /^(?:[?#][^<>"']*)$/.test(from)) return `./products.html${from}`;
+  if (selectedProduct?.room) return `./products.html?room=${encodeURIComponent(selectedProduct.room)}#room=${encodeURIComponent(selectedProduct.room)}`;
+  return "./products.html";
+}
 
 function renderProductDetail() {
   if (!selectedProduct) return;
@@ -11,12 +26,28 @@ function renderProductDetail() {
   const title = document.querySelector("#detail-title");
   const productName = document.querySelector("#detail-name");
   const crumbName = document.querySelector("#detail-crumb-name");
-  const price = document.querySelector("#detail-price");
+    const price = document.querySelector("#detail-price");
+  const description = document.querySelector("#detail-description");
+  const backLink = document.querySelector("[data-back-to-collection]");
+  const specImage = document.querySelector("#detail-spec-image");
+  const galleryItems = document.querySelectorAll("[data-gallery-image]");
 
   if (title) title.textContent = selectedProduct.name;
   if (productName) productName.textContent = selectedProduct.name;
   if (crumbName) crumbName.textContent = selectedProduct.name;
   if (price) price.textContent = `$${selectedProduct.price}`;
+  if (description) description.textContent = detailDescriptions[selectedProduct.category] || detailDescriptions.Seating;
+  if (backLink) backLink.href = getCollectionBackHref();
+
+  const productImage = selectedProduct.image ? `./${selectedProduct.image}` : "./img/lux_gallery_main.png";
+  if (specImage) {
+    specImage.style.backgroundImage = `url('${productImage}')`;
+    specImage.setAttribute("aria-label", `${selectedProduct.name} in a warm room`);
+  }
+  galleryItems.forEach((item, index) => {
+    if (index === 0) item.style.backgroundImage = `url('${productImage}')`;
+  });
+
   document.title = `LuxRoom | ${selectedProduct.name}`;
 }
 
