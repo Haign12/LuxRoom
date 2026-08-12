@@ -3,474 +3,152 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Luxroom | Home</title>
+    <meta name="description" content="LuxRoom curates contemporary furniture and objects for considered living." />
+    <title>LuxRoom | Considered living</title>
     <link rel="stylesheet" href="css/design-system.css" />
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/index.css" />
   </head>
-  <body>
-    <div class="site-shell">
-      <header class="topbar">
-        <a class="brand active" href="./index.html">Luxroom</a>
-        <nav class="main-nav">
-          <a class="active" href="./index.html">Home</a>
-          <a href="./products.html">Product</a>
-          <a href="./about.html">About Us</a>
-          <a href="./contact.html">Contact</a>
-        </nav>
-        <div class="topbar-actions">
-          <button class="icon-button" aria-label="Search">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
-          </button>
-          <a href="./cart.html" class="icon-button" aria-label="Cart">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>
-            <div class="cart-badge" data-cart-count style="display: none;">0</div>
-          </a>
-          <a href="./auth.html" class="icon-button" aria-label="User">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-          </a>
-        </div>
-      </header>
-    </div>
+  <body class="home-page">
+    <header class="topbar" aria-label="Primary navigation">
+      <a class="brand active" href="./index.html" aria-label="LuxRoom home">Lux<span>Room</span></a>
+      <nav class="main-nav" aria-label="Main menu">
+        <a class="active" href="./index.html">Home</a>
+        <a href="./products.html">Collection</a>
+        <a href="./about.html">Our story</a>
+        <a href="./contact.html">Journal</a>
+      </nav>
+      <div class="topbar-actions">
+        <button class="icon-button" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        </button>
+        <a href="./cart.html" class="icon-button" aria-label="Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>
+          <span class="cart-badge" data-cart-count style="display: none;">0</span>
+        </a>
+        <a href="./auth.html" class="icon-button" aria-label="Account">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+      </div>
+    </header>
 
-    <!-- Hero Boxed -->
-    <div class="site-shell">
-      <section class="hero-boxed">
-        <div class="hero-content">
-          <h1>Make Your Indoor<br>Style Unique</h1>
-          <p>Discover our distinct curation of luxury minimal furniture, blending quiet aesthetics with timeless comfort.</p>
-          <a href="./products.html" class="primary-button hero-btn">Explore Collection</a>
+    <main>
+      <section class="home-hero">
+        <div class="hero-copy">
+          <p class="eyebrow light">Curated interiors · Vietnam</p>
+          <h1>Made for the<br><em>way you live.</em></h1>
+          <p class="hero-text">Furniture and objects chosen for quiet daily rituals, honest materials and rooms that feel entirely your own.</p>
+          <a href="./products.html" class="hero-link">Explore the collection <span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="hero-index">01 — 04</p>
+      </section>
+
+      <section class="manifesto home-section reveal">
+        <div class="section-marker">01 / Our point of view</div>
+        <div class="manifesto-copy">
+          <h2>Less noise.<br>More <em>feeling.</em></h2>
+          <p>LuxRoom brings together contemporary pieces with a warm, lived-in point of view. We value texture over trend, proportion over excess and objects that become more personal over time.</p>
+        </div>
+        <div class="manifesto-note">Each room begins with one thing worth keeping.</div>
+      </section>
+
+      <section class="collections home-section reveal" aria-labelledby="collections-title">
+        <div class="section-intro">
+          <div class="section-marker">02 / Explore by mood</div>
+          <h2 id="collections-title">A calmer way<br>to compose a room.</h2>
+          <a href="./products.html" class="text-link">View all pieces <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="collection-grid">
+          <a class="collection-card collection-card-large" href="./products.html">
+            <div class="collection-image image-seating" role="img" aria-label="Living room seating"></div>
+            <div class="collection-meta"><span>01</span><h3>Living, slowly</h3><p>Seating and tables for gathering well.</p></div>
+          </a>
+          <a class="collection-card" href="./products.html">
+            <div class="collection-image image-lighting" role="img" aria-label="Ambient lighting"></div>
+            <div class="collection-meta"><span>02</span><h3>After light</h3><p>Soft illumination for the hours at home.</p></div>
+          </a>
+          <a class="collection-card" href="./products.html">
+            <div class="collection-image image-objects" role="img" aria-label="Decorative home objects"></div>
+            <div class="collection-meta"><span>03</span><h3>Small rituals</h3><p>Objects with a tactile presence.</p></div>
+          </a>
         </div>
       </section>
-    </div>
 
-    <div class="site-shell">
-      <main>
-        <!-- Who We Are -->
-        <section class="who-we-are">
-          <div class="wwa-header">
-            <h2>Who We Are ?</h2>
-            <p>We are people who consider the art of furnishing as a lifestyle. This is why we select only the best of all time by offering you furniture , accessoriess and complements for your home at unique conditions</p>
-          </div>
-          <div class="wwa-grid">
-            <!-- Left Column -->
-            <div class="wwa-col">
-              <!-- Card 01 -->
-              <article class="wwa-card card-tall bg-story-1">
-                <span class="wwa-num">01</span>
-                <div class="wwa-info">
-                  <h3>Sofa & Modular Seating</h3>
-                  <p>"Comfort crafted for modern living."</p>
-                  <a href="./products.html" class="discover-btn">Discover now !! <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                </div>
-              </article>
-              <!-- Card 03 -->
-              <article class="wwa-card card-wide bg-story-3">
-                <span class="wwa-num right-num">03</span>
-                <div class="wwa-info">
-                  <h3>Bedroom</h3>
-                  <p>"Comfort crafted for modern living."</p>
-                  <a href="./products.html" class="discover-btn">Discover now !! <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                </div>
-              </article>
-            </div>
-
-            <!-- Right Column -->
-            <div class="wwa-col wwa-col-offset">
-              <!-- Card 02 -->
-              <article class="wwa-card card-wide bg-story-2">
-                <span class="wwa-num right-num">02</span>
-                <div class="wwa-info">
-                  <h3>Lighting</h3>
-                  <p>"Comfort crafted for modern living."</p>
-                  <a href="./products.html" class="discover-btn">Discover now !! <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                </div>
-              </article>
-              <!-- Card 04 -->
-              <article class="wwa-card card-tall bg-story-4">
-                <span class="wwa-num top-right-num">04</span>
-                <div class="wwa-info">
-                  <h3>Vaset</h3>
-                  <p>"Comfort crafted for modern living."</p>
-                  <a href="./products.html" class="discover-btn">Discover now !! <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- Shop By Category -->
-        <section class="shop-category">
-          <h2>Shop By Category</h2>
-          <div class="category-tabs">
-            <button class="cat-tab active" data-category="furniture">Furniture</button>
-            <button class="cat-tab" data-category="accessories">Accessories</button>
-            <button class="cat-tab" data-category="lightning">Lightning</button>
-            <button class="cat-tab" data-category="outdoor">Outdoor</button>
-          </div>
-          <div class="cat-grid-wrapper">
-            <div class="cat-grid" id="cat-grid">
-              <!-- Furniture -->
-              <a href="./products.html" class="cat-item" data-category="furniture">
-                <div class="cat-img bg-cat-1"></div>
-                <h3>Sofas</h3>
-              </a>
-              <a href="./products.html" class="cat-item" data-category="furniture">
-                <div class="cat-img bg-cat-2"></div>
-                <h3>Dresser</h3>
-              </a>
-              <a href="./products.html" class="cat-item" data-category="furniture">
-                <div class="cat-img bg-cat-3"></div>
-                <h3>Beds</h3>
-              </a>
-              <a href="./products.html" class="cat-item" data-category="furniture">
-                <div class="cat-img bg-cat-4"></div>
-                <h3>Armchairs</h3>
-              </a>
-              <!-- Accessories -->
-              <a href="./products.html" class="cat-item" data-category="accessories" style="display:none;">
-                <div class="cat-img bg-cat-4"></div>
-                <h3>Vases</h3>
-              </a>
-              <a href="./products.html" class="cat-item" data-category="accessories" style="display:none;">
-                <div class="cat-img bg-cat-1"></div>
-                <h3>Mirrors</h3>
-              </a>
-              <a href="./products.html" class="cat-item" data-category="accessories" style="display:none;">
-                <div class="cat-img bg-cat-2"></div>
-                <h3>Clocks</h3>
-              </a>
-              <a href="./products.html" class="cat-item" data-category="accessories" style="display:none;">
-                <div class="cat-img bg-cat-3"></div>
-                <h3>Sculptures</h3>
-              </a>
-              <!-- Lightning -->
-              <a href="./products.html" class="cat-item" data-category="lightning" style="display:none;">
-                <div class="cat-img bg-cat-2"></div>
-                <h3>Floor Lamps</h3>
-              </a>
-              <a href="./products.html" class="cat-item" data-category="lightning" style="display:none;">
-                <div class="cat-img bg-cat-3"></div>
-                <h3>Table Lamps</h3>
-              </a>
-              <a href="./products.html" class="cat-item" data-category="lightning" style="display:none;">
-                <div class="cat-img bg-cat-4"></div>
-                <h3>Pendants</h3>
-              </a>
-              <a href="./products.html" class="cat-item" data-category="lightning" style="display:none;">
-                <div class="cat-img bg-cat-1"></div>
-                <h3>Chandeliers</h3>
-              </a>
-              <!-- Outdoor -->
-              <a href="./products.html" class="cat-item" data-category="outdoor" style="display:none;">
-                <div class="cat-img bg-cat-3"></div>
-                <h3>Patio Sets</h3>
-              </a>
-              <a href="./products.html" class="cat-item" data-category="outdoor" style="display:none;">
-                <div class="cat-img bg-cat-4"></div>
-                <h3>Garden Chairs</h3>
-              </a>
-              <a href="./products.html" class="cat-item" data-category="outdoor" style="display:none;">
-                <div class="cat-img bg-cat-1"></div>
-                <h3>Umbrellas</h3>
-              </a>
-              <a href="./products.html" class="cat-item" data-category="outdoor" style="display:none;">
-                <div class="cat-img bg-cat-2"></div>
-                <h3>Planters</h3>
-              </a>
-            </div>
-          </div>
-          <div class="cat-actions flex-between">
-            <a href="./products.html" class="view-all-link">View All</a>
-            <div class="carousel-nav">
-              <button class="round-btn" id="cat-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-              <button class="round-btn" id="cat-next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
-            </div>
-          </div>
-        </section>
-
-        <!-- Values -->
-        <section class="core-values">
-          <article>
-            <h3>Free Shipping<br>In Viet Nam</h3>
-            <p>It Is Essential For Us To Offer You The Best Possible Shipping Service, And To Offer You The Guarantee That Our Products Travel Insured.</p>
-          </article>
-          <article>
-            <h3>Best Price<br>Online</h3>
-            <p>For Us, Trust Is Important, Which Is Why We Want Our Customers To Buy In Certainty That They Have Chosen Design At The Best Price Online.</p>
-          </article>
-          <article>
-            <h3>Furniture Bonus<br>2020</h3>
-            <p>The Mobile Bonus Is The Tax Concession, Which Allows Those Who Have Undergone A Renovation In 2019 To Benefit From The 50% Deduction.</p>
-          </article>
-        </section>
-
-        <!-- Shop By Brands -->
-        <section class="shop-brands">
-          <div class="brands-header">
-            <h2>Shop By Brands</h2>
-            <p>Choose The Most Famous Furniture Brands Today To Suit Your Style</p>
-          </div>
-          <div class="brands-layout">
-            <div class="brands-sidebar">
-              <ul class="brands-nav">
-                <li class="brand-item active" data-brand="divani">
-                  <strong>Divani</strong>
-                  <p>Choosing The Right Product For You To Build Your Dream Home</p>
-                </li>
-                <li class="brand-item" data-brand="roda">
-                  <strong>Roda</strong>
-                  <p>Italian design excellence for modern living spaces</p>
-                </li>
-                <li class="brand-item" data-brand="flos">
-                  <strong>Flos</strong>
-                  <p>Premium lighting solutions since 1962</p>
-                </li>
-                <li class="brand-item" data-brand="laminam">
-                  <strong>Laminam</strong>
-                  <p>Innovative ceramic surfaces for architecture</p>
-                </li>
-                <li class="brand-item" data-brand="gandia">
-                  <strong>Gandia</strong>
-                  <p>Contemporary furniture with Spanish flair</p>
-                </li>
-                <li class="brand-item" data-brand="atelier">
-                  <strong>Atelier</strong>
-                  <p>Handcrafted furniture for discerning tastes</p>
-                </li>
-              </ul>
-              <a href="#" class="view-all-link">View All</a>
-            </div>
-            <div class="brands-products" id="brands-products">
-               <div class="bp-item bp-tall" data-brand="divani">
-                 <div class="bp-img bg-bp-1"></div>
-                 <div class="bp-info">
-                   <strong>Miliva Chair</strong>
-                   <span>$200</span>
-                 </div>
-               </div>
-               <div class="bp-item bp-short-top" data-brand="divani">
-                 <div class="bp-img bg-bp-2"></div>
-                 <div class="bp-info">
-                   <strong>Miliva Lavobo</strong>
-                   <span>$200</span>
-                 </div>
-               </div>
-               <div class="bp-item bp-short-bottom" data-brand="divani">
-                 <div class="bp-img bg-bp-3"></div>
-                 <div class="bp-info">
-                   <strong>Belmon Sofa</strong>
-                   <span>$200</span>
-                 </div>
-               </div>
-               <div class="bp-item bp-tall" data-brand="roda" style="display:none;">
-                 <div class="bp-img bg-bp-2"></div>
-                 <div class="bp-info">
-                   <strong>Roda Seating</strong>
-                   <span>$350</span>
-                 </div>
-               </div>
-               <div class="bp-item bp-short-top" data-brand="roda" style="display:none;">
-                 <div class="bp-img bg-bp-3"></div>
-                 <div class="bp-info">
-                   <strong>Roda Table</strong>
-                   <span>$280</span>
-                 </div>
-               </div>
-               <div class="bp-item bp-short-bottom" data-brand="roda" style="display:none;">
-                 <div class="bp-img bg-bp-1"></div>
-                 <div class="bp-info">
-                   <strong>Roda Lounge</strong>
-                   <span>$420</span>
-                 </div>
-               </div>
-               <div class="bp-item bp-tall" data-brand="flos" style="display:none;">
-                 <div class="bp-img bg-bp-1"></div>
-                 <div class="bp-info">
-                   <strong>Flos Lamp</strong>
-                   <span>$180</span>
-                 </div>
-               </div>
-               <div class="bp-item bp-short-top" data-brand="flos" style="display:none;">
-                 <div class="bp-img bg-bp-2"></div>
-                 <div class="bp-info">
-                   <strong>Flos Pendant</strong>
-                   <span>$240</span>
-                 </div>
-               </div>
-               <div class="bp-item bp-short-bottom" data-brand="flos" style="display:none;">
-                 <div class="bp-img bg-bp-3"></div>
-                 <div class="bp-info">
-                   <strong>Flos Floor</strong>
-                   <span>$320</span>
-                 </div>
-               </div>
-               <div class="bp-item bp-tall" data-brand="laminam" style="display:none;">
-                 <div class="bp-img bg-bp-3"></div>
-                 <div class="bp-info">
-                   <strong>Laminam Surface</strong>
-                   <span>$500</span>
-                 </div>
-               </div>
-               <div class="bp-item bp-short-top" data-brand="laminam" style="display:none;">
-                 <div class="bp-img bg-bp-1"></div>
-                 <div class="bp-info">
-                   <strong>Laminam Tile</strong>
-                   <span>$150</span>
-                 </div>
-               </div>
-               <div class="bp-item bp-short-bottom" data-brand="laminam" style="display:none;">
-                 <div class="bp-img bg-bp-2"></div>
-                 <div class="bp-info">
-                   <strong>Laminam Slab</strong>
-                   <span>$680</span>
-                 </div>
-               </div>
-               <div class="bp-item bp-tall" data-brand="gandia" style="display:none;">
-                 <div class="bp-img bg-bp-2"></div>
-                 <div class="bp-info">
-                   <strong>Gandia Sofa</strong>
-                   <span>$390</span>
-                 </div>
-               </div>
-               <div class="bp-item bp-short-top" data-brand="gandia" style="display:none;">
-                 <div class="bp-img bg-bp-3"></div>
-                 <div class="bp-info">
-                   <strong>Gandia Chair</strong>
-                   <span>$175</span>
-                 </div>
-               </div>
-               <div class="bp-item bp-short-bottom" data-brand="gandia" style="display:none;">
-                 <div class="bp-img bg-bp-1"></div>
-                 <div class="bp-info">
-                   <strong>Gandia Table</strong>
-                   <span>$295</span>
-                 </div>
-               </div>
-               <div class="bp-item bp-tall" data-brand="atelier" style="display:none;">
-                 <div class="bp-img bg-bp-1"></div>
-                 <div class="bp-info">
-                   <strong>Atelier Craft</strong>
-                   <span>$450</span>
-                 </div>
-               </div>
-               <div class="bp-item bp-short-top" data-brand="atelier" style="display:none;">
-                 <div class="bp-img bg-bp-2"></div>
-                 <div class="bp-info">
-                   <strong>Atelier Seat</strong>
-                   <span>$310</span>
-                 </div>
-               </div>
-               <div class="bp-item bp-short-bottom" data-brand="atelier" style="display:none;">
-                 <div class="bp-img bg-bp-3"></div>
-                 <div class="bp-info">
-                   <strong>Atelier Stand</strong>
-                   <span>$275</span>
-                 </div>
-               </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Consulting / We Design -->
-        <section class="design-space">
-          <div class="ds-text">
-            <h2>We design your space,<br>send us your ideas and<br>we will contact.</h2>
-            <p>Change The Color To Match Your Brand Or Vision, Add Your Logo, Choose The Perfect Thumbnail, Remove The Playbar, Add Speed Controls, And More. Increase Engagement With CTAs And Custom End Screens, Or Keep Your Video Private And Password-Protected.</p>
-          </div>
-          <div class="ds-img bg-ds-1"></div>
-        </section>
-
-        <!-- Instagram Gallery -->
-        <section class="share-setup">
-          <h2>Share your setup with</h2>
-          <p class="hashtag">#LuxHomeFurniture</p>
-          <div class="insta-gallery">
-            <div class="ig-col ig-col-1">
-              <div class="ig-img img-shelf"></div>
-              <div class="ig-img img-chair"></div>
-            </div>
-            <div class="ig-col ig-col-2">
-              <div class="ig-img img-laptop"></div>
-              <div class="ig-img img-stools"></div>
-            </div>
-            <div class="ig-col ig-col-3">
-              <div class="ig-img img-dining"></div>
-            </div>
-            <div class="ig-col ig-col-4">
-              <div class="ig-img img-bedroom"></div>
-              <div class="ig-img img-frame"></div>
-            </div>
-            <div class="ig-col ig-col-5">
-              <div class="ig-img img-sunlight"></div>
-              <div class="ig-img img-kitchen"></div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Newsletter -->
-        <section class="newsletter-box">
-          <div class="nl-inner">
-            <h2>Subscribe to our newsletter</h2>
-            <p>Enter your email and sign up today and get 7% discount on any product you buy!</p>
-            <form class="nl-form">
-              <input type="email" placeholder="Type your email address" />
-              <button type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-            </form>
-          </div>
-        </section>
-      </main>
-
-      <footer class="footer-bottomx">
-        <div class="fb-cols">
-          <div class="fcol">
-            <h3>Contact</h3>
-            <p>VAT 04186740262</p>
-            <p>Email: hello@luxroom.it</p>
-            <p>Tel: +39 035 53.17.98</p>
-            <div class="social-links">
-              <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/></svg></a>
-              <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-              <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.501 5.814a3.016 3.016 0 0 0 2.122 2.136c1.872.55 9.377.55 9.377.55s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-            </div>
-          </div>
-          <div class="fcol">
-            <h3>Information</h3>
-            <a href="#">Who we are</a>
-            <a href="#">FAQ</a>
-            <a href="#">How to Purchase</a>
-            <a href="#">Furniture Bonus</a>
-            <a href="#">Customer Area</a>
-          </div>
-          <div class="fcol">
-            <h3>Customer Service</h3>
-            <a href="#">Customer Care</a>
-            <a href="#">Returns & Refunds</a>
-            <a href="#">Payment Methods</a>
-            <a href="#">Shipping & Delivery</a>
-          </div>
+      <section class="edited-pieces home-section reveal" aria-labelledby="edited-title">
+        <div class="edited-heading">
+          <div><p class="section-marker">03 / The edit</p><h2 id="edited-title">Objects with<br><em>room to breathe.</em></h2></div>
+          <p>Designed to sit easily beside the things you already love. Considered forms, natural materials and useful details.</p>
         </div>
-        <div class="fb-copy">
-          <span>Copyright 2019 Luxroom.com</span>
-          <div class="fb-links">
-            <a href="#">Terms and Conditions</a>
-            <a href="#">Privacy Policy</a>
-          </div>
+        <div class="product-edit">
+          <a href="./detail.html" class="feature-product feature-product-main">
+            <div class="product-image product-sofa" role="img" aria-label="Contemporary seating collection"></div>
+            <div class="product-copy"><span>Seating / 01</span><h3>Low Form Lounge</h3><p>Generous proportions, softened edges.</p><b>View piece <i aria-hidden="true">↗</i></b></div>
+          </a>
+          <a href="./detail.html" class="feature-product">
+            <div class="product-image product-bath" role="img" aria-label="Stone side table"></div>
+            <div class="product-copy"><span>Objects / 02</span><h3>Mineral Side Table</h3><p>A sculptural anchor for everyday objects.</p><b>View piece <i aria-hidden="true">↗</i></b></div>
+          </a>
+          <a href="./detail.html" class="feature-product">
+            <div class="product-image product-atelier" role="img" aria-label="Warm interior objects"></div>
+            <div class="product-copy"><span>Lighting / 03</span><h3>Atmosphere, held</h3><p>Light that changes the pace of a room.</p><b>View piece <i aria-hidden="true">↗</i></b></div>
+          </a>
         </div>
-      </footer>
-    </div>
+      </section>
 
-    <!-- Global Search Overlay -->
-    <div class="search-overlay" id="global-search-overlay">
-      <div class="search-modal">
+      <section class="material-band reveal" aria-label="LuxRoom values">
+        <p>We choose fewer, better things — made to be touched, used and lived with.</p>
+        <div class="value-list">
+          <span>Natural texture</span><span>Quiet utility</span><span>Lasting forms</span>
+        </div>
+      </section>
+
+      <section class="studio home-section reveal" aria-labelledby="studio-title">
+        <div class="studio-image" role="img" aria-label="LuxRoom interior consultation"></div>
+        <div class="studio-copy">
+          <p class="section-marker">04 / Room notes</p>
+          <h2 id="studio-title">Start with<br>how a room <em>feels.</em></h2>
+          <p>Share the space you are shaping. We will help you find a material language, a more balanced layout and pieces that work together without looking staged.</p>
+          <a href="./contact.html" class="outline-link">Begin a conversation <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="journal home-section reveal" aria-labelledby="journal-title">
+        <div class="journal-title"><p class="section-marker">From the community</p><h2 id="journal-title">A home, in<br>its own <em>rhythm.</em></h2><p>Tag your space with <strong>#LuxRoomLiving</strong></p></div>
+        <div class="journal-gallery" aria-label="Interiors gallery">
+          <div class="journal-image gallery-one" role="img" aria-label="Warm interior shelf"></div>
+          <div class="journal-image gallery-two" role="img" aria-label="Dining area"></div>
+          <div class="journal-image gallery-three" role="img" aria-label="Bedroom detail"></div>
+          <div class="journal-image gallery-four" role="img" aria-label="Object closeup"></div>
+        </div>
+      </section>
+
+      <section class="signup home-section reveal">
+        <div><p class="section-marker">Notes from LuxRoom</p><h2>New pieces,<br>thoughtful spaces.</h2></div>
+        <form class="newsletter-form" aria-label="Newsletter signup">
+          <label class="sr-only" for="email">Email address</label>
+          <input id="email" type="email" placeholder="Your email address" autocomplete="email" required />
+          <button type="submit" aria-label="Subscribe">Join <span aria-hidden="true">↗</span></button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="home-footer">
+      <a class="brand" href="./index.html">Lux<span>Room</span></a>
+      <p>Contemporary furniture for considered living.</p>
+      <div class="footer-links"><a href="./about.html">About</a><a href="./contact.html">Contact</a><a href="./products.html">Collection</a></div>
+      <span>© 2026 LuxRoom</span>
+    </footer>
+
+    <div class="search-overlay" id="global-search-overlay" aria-hidden="true">
+      <div class="search-modal" role="dialog" aria-modal="true" aria-label="Search LuxRoom">
         <div class="search-input-wrapper">
-          <svg class="search-modal-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
-          <input type="text" id="global-search-input" placeholder="Search..." autocomplete="off"/>
-          <svg class="search-modal-close" id="close-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg>
+          <svg class="search-modal-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <input type="text" id="global-search-input" placeholder="Search the collection" autocomplete="off" />
+          <button id="close-search" class="icon-button" aria-label="Close search"><svg class="search-modal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg></button>
         </div>
       </div>
     </div>
-    
+
     <script src="js/common.js"></script>
     <script src="js/index.js"></script>
   </body>
