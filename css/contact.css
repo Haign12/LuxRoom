@@ -4,3 +4,8 @@
 .contact-intro { display: block; text-align: center; }
 .contact-intro h1 { max-width: 900px; margin: 16px auto 28px; }
 .contact-intro > p:last-child { max-width: 520px; margin: 0 auto; }
+
+/* Keep the site canvas white; use rules and type—not a dark band—for Contact's closing note. */
+.contact-quiet { background: #ffffff; color: var(--ink); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.contact-quiet h2 { color: var(--ink); }
+.contact-quiet p:not(.eyebrow) { color: var(--muted); }
