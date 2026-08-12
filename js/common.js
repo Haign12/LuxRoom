@@ -97,12 +97,14 @@ function updateCartItem(productId, quantity) {
     if (item) item.quantity = quantity;
   }
   localStorage.setItem("luxroom-cart-items", JSON.stringify(cartItems));
+  window.LuxRoom.cartItems = cartItems;
   syncCartCount();
 }
 
 function clearCart() {
   cartItems = [];
   localStorage.removeItem("luxroom-cart-items");
+  window.LuxRoom.cartItems = cartItems;
   syncCartCount();
 }
 

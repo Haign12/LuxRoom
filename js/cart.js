@@ -30,22 +30,22 @@ function renderCart() {
       // We will map product tone to a local utility or fallback to luxury-bg if tone missing.
       const bgClass = item.tone ? item.tone : 'luxury-bg';
       
-      itemEl.innerHTML = \`
-        <div class="cart-item-img \${bgClass}"></div>
+      itemEl.innerHTML = `
+        <div class="cart-item-img ${bgClass}"></div>
         <div class="cart-item-desc">
-          <h4>\${item.name}</h4>
-          <p>The \${item.name} boasts a harmonious blend of style and comfort.</p>
+          <h4>${item.name}</h4>
+          <p>The ${item.name} boasts a harmonious blend of style and comfort.</p>
         </div>
         <div class="cart-quantity-controls">
-          <button class="cart-qty-btn decrease" data-id="\${item.id}">-</button>
-          <span class="cart-qty-val">\${item.quantity}</span>
-          <button class="cart-qty-btn increase" data-id="\${item.id}">+</button>
+          <button class="cart-qty-btn decrease" data-id="${item.id}">-</button>
+          <span class="cart-qty-val">${item.quantity}</span>
+          <button class="cart-qty-btn increase" data-id="${item.id}">+</button>
         </div>
-        <div class="cart-item-price">$\${item.price}</div>
-        <button class="cart-item-remove" data-id="\${item.id}">
+        <div class="cart-item-price">$${item.price}</div>
+        <button class="cart-item-remove" data-id="${item.id}">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="var(--ink)"/><path d="m15 9-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="m9 9 6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
-      \`;
+      `;
       cartContainer.appendChild(itemEl);
     });
 
@@ -62,7 +62,7 @@ function renderCart() {
 function attachCartEvents() {
   document.querySelectorAll(".cart-qty-btn.decrease").forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      const id = Number(e.target.dataset.id);
+      const id = Number(e.currentTarget.dataset.id);
       const item = window.LuxRoom.cartItems.find((i) => i.id === id);
       if (item && item.quantity > 1) {
         window.LuxRoom.updateCartItem(id, item.quantity - 1);
@@ -73,7 +73,7 @@ function attachCartEvents() {
 
   document.querySelectorAll(".cart-qty-btn.increase").forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      const id = Number(e.target.dataset.id);
+      const id = Number(e.currentTarget.dataset.id);
       const item = window.LuxRoom.cartItems.find((i) => i.id === id);
       if (item) {
         window.LuxRoom.updateCartItem(id, item.quantity + 1);
@@ -84,7 +84,7 @@ function attachCartEvents() {
 
   document.querySelectorAll(".cart-item-remove").forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      const id = Number(e.target.dataset.id);
+      const id = Number(e.currentTarget.dataset.id);
       window.LuxRoom.updateCartItem(id, 0); // 0 removes the item
       renderCart();
     });

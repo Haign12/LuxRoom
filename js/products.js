@@ -59,7 +59,6 @@ function renderProducts() {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentProducts = filtered.slice(startIndex, startIndex + itemsPerPage);
 
-  const heights = [400, 320, 240, 280, 480, 260, 360, 440, 220, 300, 380, 340];
 
   if (totalItems === 0) {
     productGrid.innerHTML =
@@ -70,8 +69,12 @@ function renderProducts() {
         (product, index) => `
         <article class="product-card" style="animation-delay: ${index * 0.05}s">
           <div class="product-card-inner">
-            <a href="./detail.html?product=${product.id}" class="product-thumb ${product.tone}" style="height: ${heights[(startIndex + index) % heights.length]}px;">
-              <span class="wishlist-heart ${window.LuxRoom.isWishlisted(product.id) ? 'is-wishlisted' : ''}" data-wishlist="${product.id}" aria-label="Save to wishlist" role="button" tabindex="0"></span>
+            <a href="./detail.html?product=${product.id}" class="product-thumb ${product.tone}" aria-label="View ${product.name}">
+              <span class="product-card-label">${product.room.toUpperCase()}</span>
+              <span class="product-media-arrow product-media-arrow-prev" aria-hidden="true">←</span>
+              <span class="product-media-arrow product-media-arrow-next" aria-hidden="true">→</span>
+              <span class="product-media-dots" aria-hidden="true"><i class="is-active"></i><i></i></span>
+              <span class="wishlist-heart ${window.LuxRoom.isWishlisted(product.id) ? 'is-wishlisted' : ''}" data-wishlist="${product.id}" aria-label="Save ${product.name} to wishlist" role="button" tabindex="0"></span>
             </a>
             <div class="product-info-wrapper">
               <div class="product-meta-row">
@@ -80,10 +83,7 @@ function renderProducts() {
               </div>
               <div class="product-actions-row">
                 <button class="add-to-cart-action" onclick="event.preventDefault(); window.LuxRoom.addToCart(${product.id}, 1); window.LuxRoom.showToast('Added 1x ${product.name} to cart!');">
-                  + Add to Cart
-                </button>
-                <button class="wishlist-action ${window.LuxRoom.isWishlisted(product.id) ? 'is-wishlisted' : ''}" data-wishlist="${product.id}" aria-label="Wishlist">
-                  <span aria-hidden="true">♡</span>
+                  <span aria-hidden="true">+</span> Add to Cart
                 </button>
               </div>
             </div>
