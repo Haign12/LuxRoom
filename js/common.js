@@ -1,22 +1,57 @@
 const products = [
-  { id: 1, name: "Miro Green Sofa", price: 320, tone: "thumb-a" },
-  { id: 2, name: "Creamy Bed", price: 680, tone: "thumb-b" },
-  { id: 3, name: "Oak Kitchen Console", price: 900, tone: "thumb-c" },
-  { id: 4, name: "Stone Bathtub", price: 230, tone: "thumb-d" },
-  { id: 5, name: "Studio Desk", price: 210, tone: "thumb-e" },
-  { id: 6, name: "Lounge Chair", price: 430, tone: "thumb-f" },
-  { id: 7, name: "Boucle Rug", price: 700, tone: "thumb-g" },
-  { id: 8, name: "Cloud Sofa", price: 180, tone: "thumb-h" },
-  { id: 9, name: "Wooden Panel", price: 460, tone: "thumb-i" },
-  { id: 10, name: "Platey Table", price: 240, tone: "thumb-j" },
-  { id: 11, name: "Mino Chair", price: 210, tone: "thumb-k" },
-  { id: 12, name: "Milo Chair", price: 280, tone: "thumb-l" },
+  { id: 1, name: "Miro Green Sofa", price: 320, tone: "thumb-a", room: "Living", materialGroup: "Textile", colors: ["Olive green"], materials: ["Textile"] },
+  { id: 2, name: "Creamy Bed", price: 680, tone: "thumb-b", room: "Rest", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
+  { id: 3, name: "Oak Kitchen Console", price: 900, tone: "thumb-c", room: "Dining", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
+  { id: 4, name: "Stone Bathtub", price: 230, tone: "thumb-d", room: "Rest", materialGroup: "Stone", colors: ["Cream"], materials: ["Stone"] },
+  { id: 5, name: "Studio Desk", price: 210, tone: "thumb-e", room: "Living", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
+  { id: 6, name: "Lounge Chair", price: 430, tone: "thumb-f", room: "Living", materialGroup: "Textile", colors: ["Charcoal"], materials: ["Textile"] },
+  { id: 7, name: "Boucle Rug", price: 700, tone: "thumb-g", room: "Living", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
+  { id: 8, name: "Cloud Sofa", price: 180, tone: "thumb-h", room: "Living", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
+  { id: 9, name: "Wooden Panel", price: 460, tone: "thumb-i", room: "Living", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
+  { id: 10, name: "Platey Table", price: 240, tone: "thumb-j", room: "Dining", materialGroup: "Stoneware", colors: ["Natural oak"], materials: ["Stoneware"] },
+  { id: 11, name: "Mino Chair", price: 210, tone: "thumb-k", room: "Dining", materialGroup: "Textile", colors: ["Terracotta"], materials: ["Textile"] },
+  { id: 12, name: "Milo Chair", price: 280, tone: "thumb-l", room: "Living", materialGroup: "Textile", colors: ["Olive green"], materials: ["Textile"] },
 ];
 
 const cartCountNodes = document.querySelectorAll("[data-cart-count]");
 const newsletterForms = document.querySelectorAll(".newsletter-form");
 
 let cartItems = JSON.parse(localStorage.getItem("luxroom-cart-items") || "[]");
+
+// Wishlist runtime (localStorage persistence)
+let wishlistItems = JSON.parse(localStorage.getItem("luxroom-wishlist") || "[]");
+
+function saveWishlist() {
+  localStorage.setItem("luxroom-wishlist", JSON.stringify(wishlistItems));
+  try {
+    document.dispatchEvent(new CustomEvent("wishlist-updated"));
+  } catch (error) { /* render-only pages dispatch nothing harmful */ }
+}
+
+function toggleWishlist(productId) {
+  const position = wishlistItems.indexOf(productId);
+  const product = products.find((p) => p.id === productId);
+  if (position >= 0) {
+    wishlistItems.splice(position, 1);
+    if (product) showToast(`${product.name} removed from wishlist.`);
+  } else {
+    wishlistItems.push(productId);
+    if (product) showToast(`${product.name} saved to your wishlist.`);
+  }
+  saveWishlist();
+  syncWishlistBadge();
+}
+
+function isWishlisted(productId) {
+  return wishlistItems.includes(productId);
+}
+
+function syncWishlistBadge() {
+  document.querySelectorAll("[data-wishlist-count]").forEach((node) => {
+    node.textContent = String(wishlistItems.length);
+    node.style.display = wishlistItems.length > 0 ? "flex" : "none";
+  });
+}
 
 function getCartItemCount() {
   return cartItems.reduce((total, item) => total + item.quantity, 0);
@@ -111,11 +146,16 @@ function showToast(message) {
 window.LuxRoom = {
   products,
   cartItems,
+  wishlistItems,
   addToCart,
   updateCartItem,
   clearCart,
   showToast,
+  isWishlisted,
+  wishlistItems,
 };
+window.toggleWishlist = toggleWishlist;
+syncWishlistBadge();
 
 // Global Search Overlay Logic
 const searchButtons = document.querySelectorAll('button[aria-label="Search"], .icon-button[aria-label="Search"]');
