@@ -19,3 +19,9 @@ Desktop preview confirms that the three-image gallery, specification image, rela
 ## Static verification
 
 The static check passed with nine required markup hooks, five interaction hooks, and eighteen resolving local dependencies. It also confirmed that all layout surfaces in `detail.css` use square corners; the only circular element retained is the compact color swatch, which communicates material finish rather than forming a rounded UI surface.
+
+## Public verification
+
+The public GitHub Pages endpoint returned the new `detail.html` markers for the product title hook, finish selector, and material notes. The public page is available at `https://ngh1aa.github.io/LuxRoom/detail.html?product=1`.
+
+The browser extension timed out during the final public visual pass, so the public marker check was completed with curl instead. The local preview visual pass and static checks remain successful.
