@@ -1,53 +1,84 @@
 const productGrid = document.querySelector("#product-grid");
-
-const itemsPerPage = 8;
-let currentPage = 1;
 const paginationContainer = document.querySelector("#pagination-container");
+const filterToolbar = document.querySelector(".filter-toolbar");
+const collectionCountLabel = document.querySelector("#collection-count-label");
+const itemsPerPage = 8;
 
-// Active filter state (room, material group, color, material surface, price range)
+let currentPage = 1;
+
 const activeFilters = {
+  category: "All",
   room: null,
   materialGroup: null,
   colors: new Set(),
   materials: new Set(),
-  priceMin: 200,
-  priceMax: 1200,
+  priceMin: 0,
+  priceMax: 1000,
+  sort: "curated",
 };
-
-const colorSwatches = {
-  "Olive green": "#6a7458",
-  "Cream": "#e8e0d4",
-  "Charcoal": "#45474a",
-  "Terracotta": "#b3644a",
-  "Natural oak": "#b99a76",
-};
-
-const materialSurfaces = ["Textile", "Oak & ash", "Stoneware", "Stone"];
-
-window.setPage = function(page) {
-  currentPage = page;
-  renderProducts();
-  const gridOffset = document.querySelector(".filter-toolbar").offsetTop - 100;
-  window.scrollTo({ top: gridOffset, behavior: 'smooth' });
-}
 
 function productMatchesFilters(product) {
+  if (activeFilters.category !== "All" && product.category !== activeFilters.category) return false;
   if (activeFilters.room && product.room !== activeFilters.room) return false;
   if (activeFilters.materialGroup && product.materialGroup !== activeFilters.materialGroup) return false;
-  if (activeFilters.colors.size > 0 && !Array.from(activeFilters.colors).some((c) => product.colors.includes(c))) return false;
-  if (activeFilters.materials.size > 0 && !Array.from(activeFilters.materials).some((m) => product.materials.includes(m))) return false;
+  if (activeFilters.colors.size > 0 && !Array.from(activeFilters.colors).some((color) => product.colors.includes(color))) return false;
+  if (activeFilters.materials.size > 0 && !Array.from(activeFilters.materials).some((material) => product.materials.includes(material))) return false;
   if (product.price < activeFilters.priceMin || product.price > activeFilters.priceMax) return false;
   return true;
 }
 
 function getFilteredProducts() {
-  return window.LuxRoom.products.filter(productMatchesFilters);
+  const filtered = window.LuxRoom.products.filter(productMatchesFilters);
+
+  if (activeFilters.sort === "price-asc") return filtered.sort((a, b) => a.price - b.price);
+  if (activeFilters.sort === "price-desc") return filtered.sort((a, b) => b.price - a.price);
+  if (activeFilters.sort === "name") return filtered.sort((a, b) => a.name.localeCompare(b.name));
+  return filtered;
+}
+
+function updateCategoryControls() {
+  document.querySelectorAll(".collection-category").forEach((button) => {
+    const isActive = button.dataset.category === activeFilters.category;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+
+  document.querySelectorAll("[data-category-count]").forEach((node) => {
+    const category = node.dataset.categoryCount;
+    const count = category === "All"
+      ? window.LuxRoom.products.length
+      : window.LuxRoom.products.filter((product) => product.category === category).length;
+    node.textContent = String(count).padStart(2, "0");
+  });
+}
+
+function syncActiveFilterChips(totalItems) {
+  const toolbar = document.querySelector(".active-filters");
+  if (!toolbar) return;
+
+  const parts = [];
+  if (activeFilters.category !== "All") parts.push(activeFilters.category);
+  if (activeFilters.room) parts.push(activeFilters.room);
+  if (activeFilters.materialGroup) parts.push(activeFilters.materialGroup);
+  activeFilters.colors.forEach((color) => parts.push(color));
+  activeFilters.materials.forEach((material) => parts.push(material));
+  if (activeFilters.priceMin > 0 || activeFilters.priceMax < 1000) {
+    parts.push(`$${activeFilters.priceMin} — $${activeFilters.priceMax}`);
+  }
+
+  toolbar.innerHTML = parts.length === 0
+    ? `<span class="active-chip empty-chip">${totalItems} objects available</span>`
+    : `${parts.map((part) => `<span class="active-chip">${part}</span>`).join("")}<button class="clear-filters-chip" onclick="window.clearFilters()" type="button" aria-label="Clear all filters">Clear all ↗</button>`;
+}
+
+function updateCollectionCount(totalItems) {
+  if (!collectionCountLabel) return;
+  const label = totalItems === 1 ? "object" : "objects";
+  collectionCountLabel.textContent = `The current edit / ${totalItems} ${label}`;
 }
 
 function renderProducts() {
-  if (!productGrid) {
-    return;
-  }
+  if (!productGrid) return;
 
   const filtered = getFilteredProducts();
   const totalItems = filtered.length;
@@ -59,249 +90,224 @@ function renderProducts() {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentProducts = filtered.slice(startIndex, startIndex + itemsPerPage);
 
-
   if (totalItems === 0) {
-    productGrid.innerHTML =
-      '<div class="empty-results"><p class="eyebrow">The current selection</p><h2>A quieter edit for now.</h2><p>No objects match this combination. Loosen a filter and the room will open up again.</p><button class="clear-filters-btn" onclick="window.clearFilters()" type="button">Reset the edit <span aria-hidden="true">↗</span></button></div>';
+    productGrid.innerHTML = '<div class="empty-results"><p class="eyebrow">The current selection</p><h2>A quieter edit for now.</h2><p>No objects match this combination. Clear one filter and the room will open up again.</p><button class="clear-filters-btn" onclick="window.clearFilters()" type="button">Reset the edit <span aria-hidden="true">↗</span></button></div>';
   } else {
-    productGrid.innerHTML = currentProducts
-      .map(
-        (product, index) => `
-        <article class="product-card" style="animation-delay: ${index * 0.05}s">
-          <div class="product-card-inner">
-            <a href="./detail.html?product=${product.id}" class="product-thumb ${product.tone}" aria-label="View ${product.name}">
-              <span class="product-card-label">${product.room.toUpperCase()}</span>
-              <span class="product-media-arrow product-media-arrow-prev" aria-hidden="true">←</span>
-              <span class="product-media-arrow product-media-arrow-next" aria-hidden="true">→</span>
-              <span class="product-media-dots" aria-hidden="true"><i class="is-active"></i><i></i></span>
-              <span class="wishlist-heart ${window.LuxRoom.isWishlisted(product.id) ? 'is-wishlisted' : ''}" data-wishlist="${product.id}" aria-label="Save ${product.name} to wishlist" role="button" tabindex="0"></span>
-            </a>
-            <div class="product-info-wrapper">
-              <div class="product-meta-row">
-                <h3>${product.name}</h3>
-                <span class="price">$${product.price}</span>
-              </div>
-              <div class="product-actions-row">
-                <button class="add-to-cart-action" onclick="event.preventDefault(); window.LuxRoom.addToCart(${product.id}, 1); window.LuxRoom.showToast('Added 1x ${product.name} to cart!');">
-                  <span aria-hidden="true">+</span> Add to Cart
-                </button>
-              </div>
+    productGrid.innerHTML = currentProducts.map((product, index) => `
+      <article class="product-card" style="animation-delay: ${index * 0.05}s">
+        <div class="product-card-inner">
+          <a href="./detail.html?product=${product.id}" class="product-thumb ${product.tone}" aria-label="View ${product.name}">
+            <span class="product-card-label">${product.category.toUpperCase()}</span>
+            <span class="product-media-arrow product-media-arrow-prev" aria-hidden="true">←</span>
+            <span class="product-media-arrow product-media-arrow-next" aria-hidden="true">→</span>
+            <span class="product-media-dots" aria-hidden="true"><i class="is-active"></i><i></i></span>
+            <span class="wishlist-heart ${window.LuxRoom.isWishlisted(product.id) ? "is-wishlisted" : ""}" data-wishlist="${product.id}" aria-label="Save ${product.name} to wishlist" role="button" tabindex="0"></span>
+          </a>
+          <div class="product-info-wrapper">
+            <div class="product-meta-row">
+              <h3>${product.name}</h3>
+              <span class="price">$${product.price}</span>
+            </div>
+            <div class="product-actions-row">
+              <button class="add-to-cart-action" type="button" onclick="event.preventDefault(); window.LuxRoom.addToCart(${product.id}, 1); window.LuxRoom.showToast('Added 1x ${product.name} to cart!');">
+                <span aria-hidden="true">+</span> Add to Cart
+              </button>
             </div>
           </div>
-        </article>
-      `,
-      )
-      .join("");
+        </div>
+      </article>
+    `).join("");
   }
 
   renderPagination(totalPages);
-  syncActiveFilterChips();
+  updateCategoryControls();
+  updateCollectionCount(totalItems);
+  syncActiveFilterChips(totalItems);
 }
 
 function renderPagination(totalPages) {
   if (!paginationContainer) return;
-
   if (totalPages <= 1) {
-    paginationContainer.innerHTML = '';
+    paginationContainer.innerHTML = "";
     return;
   }
 
-  let html = '';
-
-  html += `<button class="page-btn ${currentPage === 1 ? 'disabled' : ''}" onclick="window.setPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
-  </button>`;
-
-  for (let i = 1; i <= totalPages; i++) {
-    html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="window.setPage(${i})">${i}</button>`;
+  let html = `<button class="page-btn ${currentPage === 1 ? "disabled" : ""}" onclick="window.setPage(${currentPage - 1})" ${currentPage === 1 ? "disabled" : ""} aria-label="Previous page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>`;
+  for (let page = 1; page <= totalPages; page += 1) {
+    html += `<button class="page-btn ${page === currentPage ? "active" : ""}" onclick="window.setPage(${page})" aria-label="Page ${page}">${page}</button>`;
   }
-
-  html += `<button class="page-btn ${currentPage === totalPages ? 'disabled' : ''}" onclick="window.setPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
-  </button>`;
-
+  html += `<button class="page-btn ${currentPage === totalPages ? "disabled" : ""}" onclick="window.setPage(${currentPage + 1})" ${currentPage === totalPages ? "disabled" : ""} aria-label="Next page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>`;
   paginationContainer.innerHTML = html;
 }
 
-function syncActiveFilterChips() {
-  const toolbar = document.querySelector(".active-filters");
-  if (!toolbar) return;
-  const parts = [];
-  if (activeFilters.room) parts.push(activeFilters.room);
-  activeFilters.colors.forEach((c) => parts.push(c));
-  activeFilters.materials.forEach((m) => parts.push(m));
-  if (activeFilters.priceMin > 0 || activeFilters.priceMax < 2000) {
-    parts.push(`$${activeFilters.priceMin} — $${activeFilters.priceMax}`);
-  }
-  toolbar.innerHTML =
-    parts.length === 0
-      ? '<span class="active-chip empty-chip">All objects</span>'
-      : parts.map((p) => `<span class="active-chip">${p}</span>`).join('') +
-        (parts.length > 0 ? '<button class="clear-filters-chip" onclick="window.clearFilters()" aria-label="Clear filters">Clear ↗</button>' : '');
-}
+window.setPage = function setPage(page) {
+  currentPage = page;
+  renderProducts();
+  const toolbarOffset = filterToolbar ? filterToolbar.offsetTop - 90 : 0;
+  window.scrollTo({ top: toolbarOffset, behavior: "smooth" });
+};
 
-window.clearFilters = function() {
+window.clearFilters = function clearFilters() {
+  activeFilters.category = "All";
   activeFilters.room = null;
   activeFilters.materialGroup = null;
   activeFilters.colors.clear();
   activeFilters.materials.clear();
-  activeFilters.priceMin = 200;
-  activeFilters.priceMax = 1200;
+  activeFilters.priceMin = 0;
+  activeFilters.priceMax = 1000;
+  activeFilters.sort = "curated";
+
   const rangeMin = document.querySelector(".range-min");
   const rangeMax = document.querySelector(".range-max");
-  if (rangeMin) rangeMin.value = 200;
-  if (rangeMax) rangeMax.value = 1200;
-  const priceMinVal = document.querySelector("#price-min-val");
-  const priceMaxVal = document.querySelector("#price-max-val");
-  if (priceMinVal) priceMinVal.textContent = "$200";
-  if (priceMaxVal) priceMaxVal.textContent = "$1200";
-  document.querySelectorAll(".filter-list li").forEach((li) => li.classList.remove("active"));
-  document.querySelectorAll(".filter-list li:first-child").forEach((li) => li.classList.add("active"));
+  const sortSelect = document.querySelector("#collection-sort");
+  if (rangeMin) rangeMin.value = "0";
+  if (rangeMax) rangeMax.value = "1000";
+  if (sortSelect) sortSelect.value = "curated";
+
+  document.querySelectorAll(".filter-list li").forEach((item) => item.classList.remove("active"));
+  document.querySelectorAll(".filter-list li:first-child").forEach((item) => item.classList.add("active"));
   document.querySelectorAll(".chip.is-selected").forEach((chip) => chip.classList.remove("is-selected"));
+  updatePriceSlider();
+  currentPage = 1;
   renderProducts();
 };
 
 const filterToggle = document.querySelector(".filter-toggle");
 const expandedFilters = document.querySelector(".expanded-filters");
-
 if (filterToggle && expandedFilters) {
-  expandedFilters.classList.add("show");
   filterToggle.addEventListener("click", () => {
-    expandedFilters.classList.toggle("show");
+    const isOpen = expandedFilters.classList.toggle("show");
+    filterToggle.setAttribute("aria-expanded", String(isOpen));
+    const icon = filterToggle.querySelector(".filter-toggle-icon");
+    if (icon) icon.textContent = isOpen ? "−" : "+";
   });
 }
 
-// List-based filters (Room / Material group)
-document.querySelectorAll(".filter-list li").forEach((li) => {
-  li.addEventListener("click", () => {
-    const group = li.closest(".filter-col");
-    const eyebrow = group.querySelector(".eyebrow");
-    group.querySelectorAll("li").forEach((sibling) => sibling.classList.remove("active"));
-    li.classList.add("active");
-    const label = li.textContent.trim();
-    if (eyebrow && eyebrow.textContent.trim().toLowerCase() === "room") {
-      activeFilters.room = label === "Every room" ? null : label;
-    }
-    if (eyebrow && eyebrow.textContent.trim().toLowerCase() === "material") {
-      activeFilters.materialGroup = label === "All materials" ? null : label;
-    }
+document.querySelectorAll(".collection-category").forEach((button) => {
+  button.addEventListener("click", () => {
+    activeFilters.category = button.dataset.category || "All";
+    currentPage = 1;
+    renderProducts();
+    productGrid?.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+});
+
+document.querySelectorAll(".filter-list li").forEach((item) => {
+  item.addEventListener("click", () => {
+    const group = item.closest(".filter-col");
+    const label = item.textContent.trim();
+    const groupTitle = group?.querySelector(".eyebrow")?.textContent.trim().toLowerCase();
+    group?.querySelectorAll("li").forEach((sibling) => sibling.classList.remove("active"));
+    item.classList.add("active");
+
+    if (groupTitle === "room") activeFilters.room = label === "Every room" ? null : label;
+    if (groupTitle === "material") activeFilters.materialGroup = label === "All materials" ? null : label;
     currentPage = 1;
     renderProducts();
   });
 });
 
-// Color chips
 document.querySelectorAll(".color-chip").forEach((chip) => {
   chip.addEventListener("click", () => {
     const color = chip.dataset.color;
     chip.classList.toggle("is-selected");
-    if (chip.classList.contains("is-selected")) {
-      activeFilters.colors.add(color);
-    } else {
-      activeFilters.colors.delete(color);
-    }
+    if (chip.classList.contains("is-selected")) activeFilters.colors.add(color);
+    else activeFilters.colors.delete(color);
     currentPage = 1;
     renderProducts();
   });
 });
 
-// Material surface chips
 document.querySelectorAll(".material-chip").forEach((chip) => {
   chip.addEventListener("click", () => {
     const material = chip.dataset.material;
     chip.classList.toggle("is-selected");
-    if (chip.classList.contains("is-selected")) {
-      activeFilters.materials.add(material);
-    } else {
-      activeFilters.materials.delete(material);
-    }
+    if (chip.classList.contains("is-selected")) activeFilters.materials.add(material);
+    else activeFilters.materials.delete(material);
     currentPage = 1;
     renderProducts();
   });
 });
 
-// Dual Range Slider Logic
 const rangeMin = document.querySelector(".range-min");
 const rangeMax = document.querySelector(".range-max");
 const priceFill = document.querySelector("#price-fill");
 const priceMinVal = document.querySelector("#price-min-val");
 const priceMaxVal = document.querySelector("#price-max-val");
 
-if (rangeMin && rangeMax) {
-  const minGap = 50;
+function updatePriceSlider(event) {
+  if (!rangeMin || !rangeMax) return;
+  const minGap = 25;
+  let minVal = Number(rangeMin.value);
+  let maxVal = Number(rangeMax.value);
 
-  const updateSlider = (e) => {
-    let minVal = parseInt(rangeMin.value);
-    let maxVal = parseInt(rangeMax.value);
-
-    if (maxVal - minVal < minGap) {
-      if (e && e.target.classList.contains("range-min")) {
-        rangeMin.value = maxVal - minGap;
-        minVal = parseInt(rangeMin.value);
-      } else {
-        rangeMax.value = minVal + minGap;
-        maxVal = parseInt(rangeMax.value);
-      }
+  if (maxVal - minVal < minGap) {
+    if (event?.target.classList.contains("range-min")) {
+      minVal = maxVal - minGap;
+      rangeMin.value = String(minVal);
+    } else {
+      maxVal = minVal + minGap;
+      rangeMax.value = String(maxVal);
     }
+  }
 
-    activeFilters.priceMin = minVal;
-    activeFilters.priceMax = maxVal;
+  activeFilters.priceMin = minVal;
+  activeFilters.priceMax = maxVal;
+  if (priceMinVal) priceMinVal.textContent = `$${minVal}`;
+  if (priceMaxVal) priceMaxVal.textContent = `$${maxVal}`;
 
-    priceMinVal.textContent = `$${minVal}`;
-    priceMaxVal.textContent = `$${maxVal}`;
+  if (priceFill) {
+    const percentMin = (minVal / Number(rangeMin.max)) * 100;
+    const percentMax = 100 - (maxVal / Number(rangeMax.max)) * 100;
+    priceFill.style.left = `${percentMin}%`;
+    priceFill.style.right = `${percentMax}%`;
+  }
+}
 
-    const percentMin = (minVal / rangeMin.max) * 100;
-    const percentMax = 100 - (maxVal / rangeMax.max) * 100;
-
-    priceFill.style.left = percentMin + "%";
-    priceFill.style.right = percentMax + "%";
-
+if (rangeMin && rangeMax) {
+  const handleRangeUpdate = (event) => {
+    updatePriceSlider(event);
     currentPage = 1;
     renderProducts();
   };
-
-  rangeMin.addEventListener("input", updateSlider);
-  rangeMax.addEventListener("input", updateSlider);
-
-  updateSlider();
+  rangeMin.addEventListener("input", handleRangeUpdate);
+  rangeMax.addEventListener("input", handleRangeUpdate);
+  updatePriceSlider();
 }
 
-// Wishlist heart on the product thumb
-productGrid.addEventListener("click", (event) => {
-  const heart = event.target.closest(".wishlist-heart[data-wishlist]");
-  if (!heart) return;
-  event.preventDefault();
-  event.stopPropagation();
-  window.toggleWishlist(Number(heart.dataset.wishlist));
-});
+const sortSelect = document.querySelector("#collection-sort");
+if (sortSelect) {
+  sortSelect.addEventListener("change", () => {
+    activeFilters.sort = sortSelect.value;
+    currentPage = 1;
+    renderProducts();
+  });
+}
 
-// Wishlist action button in the card actions row
-productGrid.addEventListener("click", (event) => {
-  const action = event.target.closest(".wishlist-action");
-  if (!action) return;
-  event.preventDefault();
-  event.stopPropagation();
-  window.toggleWishlist(Number(action.dataset.wishlist));
-});
+if (productGrid) {
+  productGrid.addEventListener("click", (event) => {
+    const heart = event.target.closest(".wishlist-heart[data-wishlist]");
+    if (!heart) return;
+    event.preventDefault();
+    event.stopPropagation();
+    window.toggleWishlist(Number(heart.dataset.wishlist));
+  });
+}
 
-// Wishlist integration: persist state and sync hearts after render
-window.LuxRoom.refreshWishlistState = function() {
+window.LuxRoom.refreshWishlistState = function refreshWishlistState() {
   document.querySelectorAll("[data-wishlist]").forEach((control) => {
     const id = Number(control.dataset.wishlist);
     const wishlisted = window.LuxRoom.isWishlisted(id);
     control.classList.toggle("is-wishlisted", wishlisted);
     control.setAttribute("aria-pressed", String(wishlisted));
   });
-  const wishlistCountNodes = document.querySelectorAll("[data-wishlist-count]");
-  if (wishlistCountNodes.length > 0) {
+  document.querySelectorAll("[data-wishlist-count]").forEach((node) => {
     const count = window.LuxRoom.wishlistItems.length;
-    wishlistCountNodes.forEach((node) => {
-      node.textContent = String(count);
-      node.style.display = count > 0 ? "flex" : "none";
-    });
-  }
+    node.textContent = String(count);
+    node.style.display = count > 0 ? "flex" : "none";
+  });
 };
 
 renderProducts();
 window.addEventListener("wishlist-updated", window.LuxRoom.refreshWishlistState);
-if (window.LuxRoom.refreshWishlistState) window.LuxRoom.refreshWishlistState();
+window.LuxRoom.refreshWishlistState();
