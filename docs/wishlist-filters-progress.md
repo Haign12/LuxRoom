@@ -126,3 +126,22 @@ Còn lại: (1) thử bộ lọc chip TONE/SURFACE hoạt động lọc grid —
 PASS — Lọc TONE: click chip OLIVE GREEN → chip chuyển trạng thái active (nền đen, chữ trắng), hàng filter hiển thị pill "Olive green" cạnh $200 — $1200, grid thu về đúng 2 sản phẩm: Miro Green Sofa $320 và Milo Chair $280. CLEAR ↗ hiện để xoá lọc.
 
 PASS — Lọc kết hợp: click thêm chip SURFACE TEXTILE → hàng filter hiển thị cả hai pill "Olive green" + "Textile" cạnh "$200 — $1200", chip TEXTILE chuyển active (nền đen). Grid vẫn thu về Miro Green Sofa + Milo Chair (2 sản phẩm, đúng kỳ vọng kết hợp). Bộ lọc màu/chất liệu hoạt động đầy đủ.
+
+## Xác minh public (commit fe07cf5)
+
+Commit `fe07cf5` đã push thành công: `feat: add wishlist page, wishlist API and advanced tone/surface filters` — 16 files, 849 insertions.
+Workflow "pages build and deployment" của fe07cf5: **completed** (đã xác minh qua gh run list).
+Curl xác minh ban đầu trả 0 match cho "Kept, for later", "TONE", "SURFACE", "wishlist-heart" trên https://ngh1aa.github.io/LuxRoom/{wishlist,products}.html — nhưng file tải về vẫn là đúng DOCTYPE của wishlist.html/products.html mới (có title mới, link wishlist.css). Nguyên nhân: GitHub Pages CDN có thể trả cached HTML cũ trong session curl, hoặc grep chạy trên file tải không đầy đủ do network. File wl.html tải về có `<body class="wishlist-page">` và `css/wishlist.css` — đúng phiên bản mới.
+Cách xác minh chắc chắn hơn: kiểm tra ETag/Last-Modified của wishlist.html công khai — nếu wishlist.html tồn tại trên public thì commit mới đã được deploy (trước commit này không có wishlist.html công khai).
+
+## Kết quả xác minh public — HOÀN TẤT (12/08/2026 16:57 GMT+7)
+
+Sau khi phát hiện success.html public thiếu nút wishlist (do chưa commit lúc push fe07cf5), đã push commit bổ sung `f77b088 chore: add wishlist icon to order-confirmed topbar` và chờ workflow Pages success.
+
+Xác minh binary-identical (`diff -q` giữa file tải từ CDN và bản local) — TẤT CẢ 11 TRANG ĐỒNG BỘ:
+index.html OK, products.html OK, detail.html OK, cart.html OK, checkout.html OK, success.html OK (sau f77b088), wishlist.html OK, about.html OK, contact.html OK, auth.html OK, profile.html OK.
+
+Asset JS/CSS trên CDN khớp local: js/products.js (11652 bytes), js/common.js (6739 bytes), js/wishlist.js, css/wishlist.css — xác nhận qua wc/diff identical. products.html công khai có đầy đủ filter 5 cột (Room, Material, Tone với 5 color-chip swatch, Surface với 4 material-chip, Investment) + active-filters pill + CLEAR.
+Last-Modified CDN của wishlist.html/css/wishlist.css: Wed, 12 Aug 2026 12:52:12 GMT.
+
+Nhiệm vụ hoàn tất: Cart/Checkout public chuẩn editorial, Wishlist page mới + topbar badge đồng bộ toàn site, bộ lọc Tone/Surface (AND-logic với Room/Material/Price) hoạt động đúng trên bản public.
