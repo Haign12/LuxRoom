@@ -267,3 +267,7 @@
 .wishlist-hero h1 { margin: 0 auto; }
 .wishlist-hero > p { max-width: 620px; margin: 16px auto 0; }
 .wishlist-counter { width: min(100%, 320px); }
+
+/* Wishlist hero spacing refinement. */
+.wishlist-hero h1 { line-height: .94; margin-bottom: 22px; }
+.wishlist-hero > p { line-height: 1.82; }

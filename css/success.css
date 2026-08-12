@@ -7,3 +7,7 @@
 .success-message > p:not(.eyebrow) { margin-inline: auto; }
 .success-actions { justify-content: center; }
 .success-note { max-width: 720px; margin: 70px auto 0; text-align: left; }
+
+/* Confirmation hero spacing refinement. */
+.success-message h1 { line-height: .94; margin-bottom: 22px; }
+.success-message > p:not(.eyebrow) { line-height: 1.82; margin-top: 30px; }

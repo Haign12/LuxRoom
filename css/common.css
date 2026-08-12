@@ -140,3 +140,8 @@ h1 em, h2 em, h3 em,
 .footer p:hover, .footer a:hover,
 .primary-button:hover,
 .newsletter-form button:hover { color: var(--clay); }
+
+/* Type spacing refinement: give editorial headlines more air without changing hierarchy. */
+.eyebrow,
+.section-marker { margin-bottom: 20px; }
+h1, h2, h3 { line-height: .95; }

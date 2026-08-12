@@ -676,3 +676,7 @@
 .thumb-i { background-position: center 52%; }
 .thumb-j { background-position: center 58%; }
 .thumb-k { background-position: center 52%; }
+
+/* Collection hero spacing refinement. */
+.collection-hero h1 { line-height: .94; margin-bottom: 26px; }
+.collection-hero > p { line-height: 1.8; }

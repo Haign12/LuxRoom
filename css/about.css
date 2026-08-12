@@ -9,3 +9,7 @@
 .newsletter-band .newsletter-form { border-bottom-color: var(--ink); }
 .newsletter-band .newsletter-form input,
 .newsletter-band .newsletter-form button { color: var(--ink); }
+
+/* Story hero spacing refinement. */
+.story-hero h1 { line-height: .94; margin-bottom: 56px; }
+.story-deck { line-height: 1.82; }

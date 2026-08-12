@@ -7,3 +7,7 @@
 .auth-image { margin-inline: auto; }
 .auth-essay > p:last-child { margin-inline: auto; }
 .auth-card { margin-inline: auto; }
+
+/* Account hero spacing refinement. */
+.auth-essay h1 { line-height: .94; margin-bottom: 48px; }
+.auth-essay > p:last-child { line-height: 1.82; }

@@ -332,3 +332,7 @@
 .material-band { background: #ffffff; color: var(--home-ink); border-top: 1px solid var(--home-line); border-bottom: 1px solid var(--home-line); }
 .material-band > p { color: var(--home-ink); }
 .value-list span { border-top-color: var(--home-line); }
+
+/* Home hero spacing refinement. */
+.hero-copy h1 { line-height: .92; margin-bottom: 34px; }
+.hero-text { margin-bottom: 40px; line-height: 1.78; }

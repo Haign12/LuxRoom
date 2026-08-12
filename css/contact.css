@@ -9,3 +9,7 @@
 .contact-quiet { background: #ffffff; color: var(--ink); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .contact-quiet h2 { color: var(--ink); }
 .contact-quiet p:not(.eyebrow) { color: var(--muted); }
+
+/* Contact hero spacing refinement. */
+.contact-intro h1 { line-height: .92; margin-bottom: 32px; }
+.contact-intro > p:last-child { line-height: 1.82; }

@@ -12,3 +12,7 @@
 .cart-intro > p {
   max-width: 520px;
 }
+
+/* Cart hero spacing refinement. */
+.cart-intro h1 { line-height: .94; margin-bottom: 24px; }
+.cart-intro > p { line-height: 1.82; }

@@ -4,3 +4,7 @@
 /* White editorial identity: checkout page title centered. */
 .checkout-intro { text-align: center; }
 .checkout-intro > * { margin-inline: auto; }
+
+/* Checkout hero spacing refinement. */
+.checkout-intro h1 { line-height: .94; margin-bottom: 24px; }
+.checkout-intro > p { line-height: 1.82; }
