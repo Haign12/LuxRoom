@@ -3,274 +3,135 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LuxRoom | Detail</title>
+    <meta name="description" content="Explore considered furniture and material details from LuxRoom." />
+    <title>LuxRoom | Product detail</title>
     <link rel="stylesheet" href="css/design-system.css" />
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/detail.css" />
   </head>
-  <body>
-    <div class="site-shell">
-      <header class="topbar">
-        <a class="brand" href="./index.html">LuxRoom</a>
-        <nav class="main-nav">
-          <a href="./index.html">Home</a>
-          <a class="active" href="./products.html">Product</a>
-          <a href="./about.html">About Us</a>
-          <a href="./contact.html">Contact</a>
-        </nav>
-                <div class="topbar-actions">
-          <button class="icon-button" aria-label="Search">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
-          </button>
-          <a href="./cart.html" class="icon-button" aria-label="Cart">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>
-            <div class="cart-badge" data-cart-count style="display: none;">0</div>
-          </a>
-          <a href="./auth.html" class="icon-button" aria-label="User">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-          </a>
+  <body class="detail-page">
+    <header class="topbar" aria-label="Primary navigation">
+      <a class="brand" href="./index.html" aria-label="LuxRoom home">Lux<span>Room</span></a>
+      <nav class="main-nav" aria-label="Main menu">
+        <a href="./index.html">Home</a>
+        <a class="active" href="./products.html">Collection</a>
+        <a href="./about.html">Our story</a>
+        <a href="./contact.html">Journal</a>
+      </nav>
+      <div class="topbar-actions">
+        <button class="icon-button" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        </button>
+        <a href="./cart.html" class="icon-button" aria-label="Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>
+          <span class="cart-badge" data-cart-count style="display: none;">0</span>
+        </a>
+        <a href="./auth.html" class="icon-button" aria-label="Account">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+      </div>
+    </header>
+
+    <main class="product-detail-shell">
+      <div class="detail-crumb"><a href="./products.html">Collection</a><span>/</span><span id="detail-crumb-name">Lux Chair</span></div>
+
+      <section class="d-gallery" aria-label="Product gallery">
+        <button class="dg-img bg-lux-room is-selected" type="button" data-gallery-image="0" aria-label="View product scene one"><span>01</span></button>
+        <button class="dg-img bg-lux-leaf" type="button" data-gallery-image="1" aria-label="View product scene two"><span>02</span></button>
+        <button class="dg-img bg-lux-closeup" type="button" data-gallery-image="2" aria-label="View product detail scene"><span>03</span></button>
+      </section>
+
+      <section class="d-info" aria-labelledby="detail-title">
+        <div class="di-kicker"><span>Object / 01</span><span>Made for living slowly</span></div>
+        <div class="di-header">
+          <h1 class="di-title" id="detail-title">Lux Chair</h1>
+          <div class="di-line" aria-hidden="true"></div>
+          <span class="di-price" id="detail-price">$100</span>
         </div>
-      </header>
+        <p class="di-brand" id="detail-name">Lux Chair</p>
 
-      <main class="page-detail">
-        <!-- 1. Top Image Gallery -->
-        <section class="d-gallery">
-          <div class="dg-img bg-lux-room"></div>
-          <div class="dg-img bg-lux-leaf"></div>
-          <div class="dg-img bg-lux-closeup"></div>
-        </section>
-
-        <!-- 2. Product Info -->
-        <section class="d-info">
-          <div class="di-header">
-            <h1 class="di-title">Lux Chair</h1>
-            <div class="di-line"></div>
-            <span class="di-price">$ 100</span>
-          </div>
-          <p class="di-brand">Divani</p>
-
-          <p class="di-desc">
-            "Elevate your living space with this sculptural masterpiece. Defined by its fluid, organic curves and an enveloping high-back silhouette, this armchair seamlessly blends contemporary art with everyday comfort. Upholstered in a rich, textured olive green fabric, it sits atop sleek, tapered wooden legs that add a touch of natural warmth and mid-century flair. Perfect for a sophisticated lounge or a serene reading nook, this piece is a testament to refined modern living."
-          </p>
-
+        <div class="detail-copy-grid">
+          <p class="di-desc">A generous lounge chair with a soft, sculptural profile. Its low silhouette and tactile upholstery create an easy pause in a room — refined enough to hold its own, relaxed enough to live with every day.</p>
           <ul class="di-bullets">
-            <li><strong>Color:</strong> Olive Green / Beige / Charcoal</li>
-            <li><strong>Leg Finish:</strong> Natural Oak / Walnut</li>
-            <li><strong>Size:</strong> Standard</li>
+            <li><strong>Upholstery</strong><span>Olive bouclé / warm linen</span></li>
+            <li><strong>Leg finish</strong><span>Natural oak / walnut</span></li>
+            <li><strong>Dimensions</strong><span>Available on request</span></li>
           </ul>
-
-          <div class="di-actions">
-            <div class="quantity-picker">
-              <button type="button" class="btn-qty">-</button>
-              <span class="qty-num">1</span>
-              <button type="button" class="btn-qty">+</button>
-            </div>
-            <button class="add-cart-btn" type="button">Add to Cart</button>
-          </div>
-        </section>
-
-        <!-- 3. Values -->
-        <section class="core-values d-values">
-          <article>
-            <h3>Free Shipping<br>In Viet Nam</h3>
-            <p>It Is Essential For Us To Offer You The Best Possible Shipping Service, And To Offer You The Guarantee That Our Products Travel Insured.</p>
-          </article>
-          <article>
-            <h3>Best Price<br>Online</h3>
-            <p>For Us, Trust Is Important, Which Is Why We Want Our Customers To Buy In Certainty That They Have Chosen Design At The Best Price Online.</p>
-          </article>
-          <article>
-            <h3>Furniture Bonus<br>2020</h3>
-            <p>The Mobile Bonus Is The Tax Concession, Which Allows Those Who Have Undergone A Renovation In 2019 To Benefit From The 50% Deduction.</p>
-          </article>
-        </section>
-
-        <!-- 4. Specifications -->
-        <section class="d-spec">
-          <div class="spec-accordions">
-            <div class="acc-item acc-open">
-              <div class="acc-head">
-                <span>Specifications</span>
-                <span class="acc-icon">-</span>
-              </div>
-              <div class="acc-body">
-                <ul>
-                  <li>Structure: Wooden Frame With MDF Pan, Padding In Differentiated Density Polyurethane Foam, Covered In Coupled Diferential Resin.</li>
-                  <li>Seat Cushions: Dual-Differentiated Polyurethane, White Feather And 100% Cotton Fabric-Leather Covers.</li>
-                  <li>Back Cushions: Mixed Feather And 100% Cotton.</li>
-                </ul>
-              </div>
-            </div>
-            
-            <div class="acc-item">
-              <div class="acc-head">
-                <span>Attached Documents</span>
-                <span class="acc-icon">+</span>
-              </div>
-            </div>
-          </div>
-          <div class="spec-img bg-lux-room-wide"></div>
-        </section>
-
-        <hr class="d-divider">
-
-        <!-- 5. Reviews -->
-        <section class="d-reviews">
-          <div class="rev-header">
-            <div class="rev-head-left">
-              <h2>REVIEWS</h2>
-              <div class="score">4.00</div>
-              <div class="stars">
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg viewBox="0 0 24 24" class="empty-star" stroke="currentColor" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              </div>
-            </div>
-            <div class="rev-head-right">
-              <span>20 Reviews</span>
-              <button class="write-rev-btn">Write a Review</button>
-            </div>
-          </div>
-
-          <div class="rev-list">
-            <div class="rev-item">
-              <div class="rev-author">
-                <div class="stars-small">
-                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                  <svg viewBox="0 0 24 24" class="empty-star" stroke="currentColor" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                </div>
-                <strong>By Roman Smith</strong>
-                <span class="rev-date">Mar 29, 2019</span>
-              </div>
-              <div class="rev-content">
-                <h4>Great Product, Love It</h4>
-                <p>"I was looking for a statement piece for my reading nook, and this chair is absolute perfection. The olive green color is deep and rich, looking even more stunning in person than in the photos. It's not just a chair; it's like a piece of sculpture. It adds such a soft, organic touch to my minimal living room. Highly recommend if you want to elevate your space!"</p>
-                <div class="rev-votes">
-                  <button><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg> 7</button>
-                  <button><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-2"></path></svg> 0</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="rev-item">
-              <div class="rev-author">
-                <div class="stars-small">
-                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                  <svg viewBox="0 0 24 24" class="empty-star" stroke="currentColor" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                </div>
-                <strong>By Roman Smith</strong>
-                <span class="rev-date">Mar 29, 2019</span>
-              </div>
-              <div class="rev-content">
-                <h4>Great Product, Love It</h4>
-                <p>"I was looking for a statement piece for my reading nook, and this chair is absolute perfection. The olive green color is deep and rich, looking even more stunning in person than in the photos. It's not just a chair; it's like a piece of sculpture. It adds such a soft, organic touch to my minimal living room. Highly recommend if you want to elevate your space!"</p>
-                <div class="rev-votes">
-                  <button><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg> 7</button>
-                  <button><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-2"></path></svg> 0</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="rev-pagination">
-            <button>&lt;</button>
-            <button class="active">1</button>
-            <button>2</button>
-            <span>...</span>
-            <button>&gt;</button>
-          </div>
-        </section>
-      </main>
-
-      <footer class="footer" id="contact">
-        <div>
-          <h3>Contact</h3>
-          <p>hello@luxroom.com</p>
-          <p>+84 987 654 321</p>
-          <p>District 1, Ho Chi Minh City</p>
         </div>
-        <div>
-          <h3>Information</h3>
-          <p>About us</p>
-          <p>Privacy policy</p>
-          <p>Terms & conditions</p>
-        </div>
-        <div>
-          <h3>Customer Service</h3>
-          <p>Contact support</p>
-          <p>Shipping information</p>
-          <p>Returns & exchanges</p>
-        </div>
-      </footer>
-    </div>
 
+        <div class="product-options" aria-label="Product options">
+          <fieldset class="option-group">
+            <legend>Choose a finish</legend>
+            <div class="finish-options">
+              <button type="button" class="finish-option active" data-finish="Olive bouclé" aria-pressed="true"><span class="swatch swatch-olive"></span>Olive bouclé</button>
+              <button type="button" class="finish-option" data-finish="Warm linen" aria-pressed="false"><span class="swatch swatch-linen"></span>Warm linen</button>
+              <button type="button" class="finish-option" data-finish="Charcoal weave" aria-pressed="false"><span class="swatch swatch-charcoal"></span>Charcoal weave</button>
+            </div>
+          </fieldset>
+        </div>
 
-    <!-- Global Search Overlay -->
-    <div class="search-overlay" id="global-search-overlay">
-      <div class="search-modal">
+        <div class="di-actions">
+          <div class="quantity-picker" aria-label="Quantity selector">
+            <button type="button" class="btn-qty" id="qty-minus" aria-label="Decrease quantity">−</button>
+            <span class="qty-num" id="qty-value" aria-live="polite">1</span>
+            <button type="button" class="btn-qty" id="qty-plus" aria-label="Increase quantity">+</button>
+          </div>
+          <button class="add-cart-btn" id="add-to-cart" type="button">Add to cart <span aria-hidden="true">↗</span></button>
+          <p class="availability">Selected with care for your space.</p>
+        </div>
+      </section>
+
+      <section class="d-values" aria-label="LuxRoom service principles">
+        <article><span>01</span><h2>Room delivery</h2><p>We help you consider access, placement and the small practical details before your piece arrives.</p></article>
+        <article><span>02</span><h2>Material guidance</h2><p>Ask about texture, finish and care to choose a piece that makes sense for daily life.</p></article>
+        <article><span>03</span><h2>After the room</h2><p>Keep in touch for care advice, complementary objects and guidance as your space evolves.</p></article>
+      </section>
+
+      <section class="d-spec" aria-label="Product details">
+        <div class="spec-accordions">
+          <p class="section-label">Material notes</p>
+          <div class="acc-item acc-open">
+            <button class="acc-head" type="button" aria-expanded="true"><span>Specifications</span><span class="acc-icon" aria-hidden="true">−</span></button>
+            <div class="acc-body"><p>Solid wood frame, high-resilience foam and a removable textile cover. The loose back cushion gives the silhouette its easy, enveloping shape.</p></div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-head" type="button" aria-expanded="false"><span>Care &amp; longevity</span><span class="acc-icon" aria-hidden="true">+</span></button>
+            <div class="acc-body"><p>Vacuum gently with a soft brush and keep the piece away from sustained direct sunlight. Spot-clean textile promptly with a damp cloth.</p></div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-head" type="button" aria-expanded="false"><span>Delivery &amp; placement</span><span class="acc-icon" aria-hidden="true">+</span></button>
+            <div class="acc-body"><p>Share your access conditions before delivery so our team can guide you through a smooth arrival and room placement.</p></div>
+          </div>
+        </div>
+        <div class="spec-img bg-lux-room-wide" role="img" aria-label="Lux Chair in a warm room"></div>
+      </section>
+
+      <section class="related-edit" aria-labelledby="related-title">
+        <div class="related-intro"><p class="section-label">Continue the room</p><h2 id="related-title">Pieces that speak<br>the same <em>language.</em></h2><a href="./products.html" class="text-link">See the full collection <span aria-hidden="true">↗</span></a></div>
+        <div class="related-grid">
+          <a href="./detail.html?product=2" class="related-item"><div class="related-image related-one" role="img" aria-label="Soft interior object"></div><div><span>Objects / 02</span><h3>Mineral Table</h3></div></a>
+          <a href="./detail.html?product=3" class="related-item"><div class="related-image related-two" role="img" aria-label="Warm room lamp"></div><div><span>Lighting / 03</span><h3>Evening Light</h3></div></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="detail-footer">
+      <a class="brand" href="./index.html">Lux<span>Room</span></a>
+      <p>Contemporary furniture for considered living.</p>
+      <div class="footer-links"><a href="./about.html">About</a><a href="./contact.html">Contact</a><a href="./products.html">Collection</a></div>
+      <span>© 2026 LuxRoom</span>
+    </footer>
+
+    <div class="search-overlay" id="global-search-overlay" aria-hidden="true">
+      <div class="search-modal" role="dialog" aria-modal="true" aria-label="Search LuxRoom">
         <div class="search-input-wrapper">
-          <svg class="search-modal-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
-          <input type="text" id="global-search-input" placeholder="Search..." autocomplete="off"/>
-          <svg class="search-modal-close" id="close-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg>
-        </div>
-        <div class="search-dropdown">
-          <div class="search-section">
-            <h4>Search Suggestions</h4>
-            <div class="search-item">
-              <div class="search-item-img luxury-bg"></div>
-              <div class="search-item-info">
-                <strong>Divani Chair</strong>
-                <span>Chair · Fabric · Oak</span>
-              </div>
-              <div class="search-item-price">$200</div>
-            </div>
-            <div class="search-item">
-              <div class="search-item-img luxury-bg"></div>
-              <div class="search-item-info">
-                <strong>Divani Chair</strong>
-                <span>Chair · Fabric · Oak</span>
-              </div>
-              <div class="search-item-price">$200</div>
-            </div>
-            <div class="search-item">
-              <div class="search-item-img luxury-bg"></div>
-              <div class="search-item-info">
-                <strong>Divani Chair</strong>
-                <span>Chair · Fabric · Oak</span>
-              </div>
-              <div class="search-item-price">$200</div>
-            </div>
-          </div>
-          <div class="search-section">
-            <h4>All Products (24)</h4>
-            <div class="search-item">
-              <div class="search-item-img luxury-bg"></div>
-              <div class="search-item-info">
-                <strong>Divani Chair</strong>
-                <span>Chair · Fabric · Oak</span>
-              </div>
-              <div class="search-item-price">$200</div>
-            </div>
-            <div class="search-item">
-              <div class="search-item-img luxury-bg"></div>
-              <div class="search-item-info">
-                <strong>Divani Chair</strong>
-                <span>Chair · Fabric · Oak</span>
-              </div>
-              <div class="search-item-price">$200</div>
-            </div>
-          </div>
+          <svg class="search-modal-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <input type="text" id="global-search-input" placeholder="Search the collection" autocomplete="off" />
+          <button id="close-search" class="icon-button" aria-label="Close search"><svg class="search-modal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg></button>
         </div>
       </div>
     </div>
+
     <script src="js/common.js"></script>
     <script src="js/detail.js"></script>
   </body>

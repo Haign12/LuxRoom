@@ -1,55 +1,74 @@
-const detailTitle = document.querySelector("#detail-title");
-const detailName = document.querySelector("#detail-name");
-const detailPrice = document.querySelector("#detail-price");
-const qtyValue = document.querySelector("#qty-value");
-const qtyMinus = document.querySelector("#qty-minus");
-const qtyPlus = document.querySelector("#qty-plus");
-const addToCartButton = document.querySelector("#add-to-cart");
+const productCatalog = window.LuxRoom?.products || [];
+const params = new URLSearchParams(window.location.search);
+const productId = Number(params.get("product")) || 1;
+const selectedProduct = productCatalog.find((product) => product.id === productId) || productCatalog[0];
 
 let quantity = 1;
 
 function renderProductDetail() {
-  if (!detailTitle || !detailName || !detailPrice) {
-    return;
-  }
+  if (!selectedProduct) return;
 
-  const params = new URLSearchParams(window.location.search);
-  const productId = Number(params.get("product")) || 1;
-  const selected =
-    window.LuxRoom.products.find((product) => product.id === productId) ||
-    window.LuxRoom.products[0];
+  const title = document.querySelector("#detail-title");
+  const productName = document.querySelector("#detail-name");
+  const crumbName = document.querySelector("#detail-crumb-name");
+  const price = document.querySelector("#detail-price");
 
-  detailTitle.textContent = selected.name;
-  detailName.textContent = selected.name;
-  detailPrice.textContent = `$${selected.price}`;
+  if (title) title.textContent = selectedProduct.name;
+  if (productName) productName.textContent = selectedProduct.name;
+  if (crumbName) crumbName.textContent = selectedProduct.name;
+  if (price) price.textContent = `$${selectedProduct.price}`;
+  document.title = `LuxRoom | ${selectedProduct.name}`;
+}
+
+function setupGallery() {
+  const galleryItems = document.querySelectorAll("[data-gallery-image]");
+  galleryItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      galleryItems.forEach((galleryItem) => galleryItem.classList.remove("is-selected"));
+      item.classList.add("is-selected");
+    });
+  });
+}
+
+function setupFinishes() {
+  const finishes = document.querySelectorAll(".finish-option");
+  finishes.forEach((finish) => {
+    finish.addEventListener("click", () => {
+      finishes.forEach((option) => {
+        option.classList.remove("active");
+        option.setAttribute("aria-pressed", "false");
+      });
+      finish.classList.add("active");
+      finish.setAttribute("aria-pressed", "true");
+    });
+  });
 }
 
 function setupQuantityControls() {
-  if (!qtyValue || !qtyMinus || !qtyPlus || !addToCartButton) {
-    return;
-  }
+  const quantityValue = document.querySelector("#qty-value");
+  const quantityMinus = document.querySelector("#qty-minus");
+  const quantityPlus = document.querySelector("#qty-plus");
+  const addToCartButton = document.querySelector("#add-to-cart");
+
+  if (!quantityValue || !quantityMinus || !quantityPlus || !addToCartButton || !selectedProduct) return;
 
   const updateQuantity = () => {
-    qtyValue.textContent = String(quantity);
+    quantityValue.textContent = String(quantity);
   };
 
-  qtyMinus.addEventListener("click", () => {
+  quantityMinus.addEventListener("click", () => {
     quantity = Math.max(1, quantity - 1);
     updateQuantity();
   });
 
-  qtyPlus.addEventListener("click", () => {
+  quantityPlus.addEventListener("click", () => {
     quantity += 1;
     updateQuantity();
   });
 
   addToCartButton.addEventListener("click", () => {
-    const params = new URLSearchParams(window.location.search);
-    const productId = Number(params.get("product")) || 1;
-    window.LuxRoom.addToCart(productId, quantity);
-
-    const selected = window.LuxRoom.products.find((product) => product.id === productId) || window.LuxRoom.products[0];
-    window.LuxRoom.showToast(`Added ${quantity}x ${selected.name} to cart!`);
+    window.LuxRoom.addToCart(selectedProduct.id, quantity);
+    window.LuxRoom.showToast(`Added ${quantity} × ${selectedProduct.name} to your cart.`);
   });
 
   updateQuantity();
@@ -57,32 +76,32 @@ function setupQuantityControls() {
 
 function setupAccordions() {
   const accordions = document.querySelectorAll(".acc-item");
+  accordions.forEach((accordion) => {
+    const trigger = accordion.querySelector(".acc-head");
+    const icon = accordion.querySelector(".acc-icon");
+    if (!trigger || !icon) return;
 
-  accordions.forEach((acc) => {
-    const head = acc.querySelector(".acc-head");
-    const icon = acc.querySelector(".acc-icon");
-
-    if (head) {
-      head.addEventListener("click", () => {
-        const isOpen = acc.classList.contains("acc-open");
-
-        // Close all accordions
-        accordions.forEach((a) => {
-          a.classList.remove("acc-open");
-          const i = a.querySelector(".acc-icon");
-          if (i) i.textContent = "+";
-        });
-
-        // Open clicked one if it was closed
-        if (!isOpen) {
-          acc.classList.add("acc-open");
-          if (icon) icon.textContent = "-";
-        }
+    trigger.addEventListener("click", () => {
+      const wasOpen = accordion.classList.contains("acc-open");
+      accordions.forEach((item) => {
+        item.classList.remove("acc-open");
+        const itemTrigger = item.querySelector(".acc-head");
+        const itemIcon = item.querySelector(".acc-icon");
+        if (itemTrigger) itemTrigger.setAttribute("aria-expanded", "false");
+        if (itemIcon) itemIcon.textContent = "+";
       });
-    }
+
+      if (!wasOpen) {
+        accordion.classList.add("acc-open");
+        trigger.setAttribute("aria-expanded", "true");
+        icon.textContent = "−";
+      }
+    });
   });
 }
 
 renderProductDetail();
+setupGallery();
+setupFinishes();
 setupQuantityControls();
 setupAccordions();
