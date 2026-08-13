@@ -2,7 +2,7 @@ const productGrid = document.querySelector("#product-grid");
 const paginationContainer = document.querySelector("#pagination-container");
 const filterToolbar = document.querySelector(".filter-toolbar");
 const collectionCountLabel = document.querySelector("#collection-count-label");
-const itemsPerPage = 8;
+const itemsPerPage = 9;
 
 let currentPage = 1;
 
