@@ -20,8 +20,8 @@ const products = [
 
 function injectExperienceStylesheets() {
   const assets = [
-    { href: "css/title-spacing.css?v=ux-20260813-4", attribute: "data-luxroom-title-spacing" },
-    { href: "css/experience-upgrade.css?v=ux-20260813-4", attribute: "data-luxroom-experience-upgrade" },
+    { href: "css/title-spacing.css?v=ux-20260813-5", attribute: "data-luxroom-title-spacing" },
+    { href: "css/experience-upgrade.css?v=ux-20260813-5", attribute: "data-luxroom-experience-upgrade" },
   ];
   assets.forEach(({ href, attribute }) => {
     if (document.querySelector(`link[${attribute}]`)) return;
@@ -161,7 +161,7 @@ function upgradeFooter() {
       <div class="footer-rich__column footer-rich__contact"><h3>Visit & contact</h3><p>Ho Chi Minh City<br>By appointment</p><a href="mailto:hello@luxroom.com">hello@luxroom.com</a><a href="tel:+84798876074">+84 798 876 074</a></div>
       <div class="footer-rich__newsletter"><h3>Notes from LuxRoom</h3><p>New objects, quiet rooms and considered material stories.</p><form class="footer-newsletter" novalidate><label class="sr-only" for="footer-email">Email address</label><input id="footer-email" type="email" placeholder="Your email address" autocomplete="email" required><button type="submit" aria-label="Subscribe to LuxRoom notes">↗</button></form><small>Occasional notes. No noise.</small></div>
     </div>
-    <div class="footer-rich__bottom"><span>© <span data-footer-year></span> LuxRoom</span><span>Vietnam / worldwide delivery</span><span><a href="contact.html">Privacy</a><a href="contact.html">Terms</a><a href="#top">Back to top ↑</a></span></div>`;
+    <div class="footer-rich__bottom"><div class="footer-rich__meta"><span>© <span data-footer-year></span> LuxRoom</span><span>Vietnam / worldwide delivery</span></div><nav class="footer-rich__legal" aria-label="Footer legal links"><a href="contact.html">Privacy</a><a href="contact.html">Terms</a><a href="#top">Back to top ↑</a></nav></div>`;
   footer.querySelectorAll("[data-footer-year]").forEach((node) => { node.textContent = new Date().getFullYear(); });
   footer.querySelector(".footer-newsletter")?.addEventListener("submit", (event) => {
     event.preventDefault();
