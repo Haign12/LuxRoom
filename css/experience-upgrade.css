@@ -301,3 +301,159 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+
+/* LuxRoom motion language v=ux-20260813-8.
+   Motion is quiet, editorial and transform/opacity-only so it does not reflow content. */
+:root {
+  --motion-ease: cubic-bezier(.23, 1, .32, 1);
+  --motion-duration: .72s;
+}
+
+.lux-motion-ready .motion-reveal {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.lux-motion-ready .motion-reveal:not(.is-visible) {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+}
+
+.lux-motion-ready .motion-reveal[data-motion-depth="deep"]:not(.is-visible) {
+  transform: translate3d(0, 34px, 0);
+}
+
+.lux-motion-ready .motion-reveal.is-visible {
+  transition: opacity var(--motion-duration) var(--motion-ease) var(--motion-delay, 0ms),
+    transform var(--motion-duration) var(--motion-ease) var(--motion-delay, 0ms);
+}
+
+/* Product cards already had a render animation; the shared observer now owns their entrance. */
+.lux-motion-ready .product-card.motion-reveal {
+  animation: none;
+}
+
+.lux-motion-ready .topbar {
+  animation: luxroom-header-in .68s var(--motion-ease) both;
+}
+
+@keyframes luxroom-header-in {
+  from { opacity: 0; transform: translate3d(0, -8px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+/* Images gain a restrained sense of depth without zooming aggressively. */
+.d-gallery .dg-img,
+.product-thumb,
+.home-page [class*="image"],
+.story-hero-image,
+.essay-image,
+.studio-image,
+.material-image {
+  transition: transform .8s var(--motion-ease), filter .8s var(--motion-ease);
+}
+
+.d-gallery .dg-img:hover,
+.product-thumb:hover,
+.story-hero-image:hover,
+.essay-image:hover,
+.studio-image:hover,
+.material-image:hover {
+  filter: saturate(1);
+  transform: scale(1.012);
+}
+
+/* Actions respond with a small directional movement, keeping the premium tone quiet. */
+.hero-link,
+.outline-link,
+.primary-button,
+.secondary-button,
+.add-to-cart-action,
+.footer-rich__consultation {
+  transition: color .2s var(--motion-ease), background-color .2s var(--motion-ease),
+    border-color .2s var(--motion-ease), transform .2s var(--motion-ease);
+}
+
+.hero-link:hover,
+.outline-link:hover,
+.secondary-button:hover,
+.footer-rich__consultation:hover {
+  transform: translate3d(3px, 0, 0);
+}
+
+.primary-button:hover,
+.add-to-cart-action:hover {
+  transform: translate3d(0, -2px, 0);
+}
+
+.hero-link:active,
+.outline-link:active,
+.primary-button:active,
+.secondary-button:active,
+.add-to-cart-action:active,
+.footer-rich__consultation:active {
+  transform: scale(.97);
+}
+
+.footer-rich__column a,
+.footer-rich__contact a,
+.footer-rich__legal a,
+.main-nav a,
+.icon-button {
+  transition: color .2s var(--motion-ease), border-color .2s var(--motion-ease), transform .2s var(--motion-ease);
+}
+
+.footer-rich__column a:hover,
+.footer-rich__contact a:hover,
+.footer-rich__legal a:hover {
+  transform: translate3d(3px, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lux-motion-ready .motion-reveal,
+  .lux-motion-ready .motion-reveal:not(.is-visible),
+  .lux-motion-ready .motion-reveal[data-motion-depth="deep"]:not(.is-visible) {
+    opacity: 1;
+    transform: none;
+    transition: none !important;
+  }
+  .lux-motion-ready .topbar {
+    animation: none;
+  }
+  .d-gallery .dg-img,
+  .product-thumb,
+  .home-page [class*="image"],
+  .story-hero-image,
+  .essay-image,
+  .studio-image,
+  .material-image,
+  .hero-link,
+  .outline-link,
+  .primary-button,
+  .secondary-button,
+  .add-to-cart-action,
+  .footer-rich__consultation,
+  .footer-rich__column a,
+  .footer-rich__contact a,
+  .footer-rich__legal a,
+  .main-nav a,
+  .icon-button {
+    transition: none !important;
+  }
+}
+
+
+/* Responsive guard: the Home hero image has a large intrinsic width; the grid item must be allowed to shrink on narrow screens. */
+.home-page .home-hero,
+.home-page .hero-visual {
+  min-width: 0;
+}
+
+.home-page .hero-visual {
+  width: 100%;
+}
+
+.home-page .hero-visual img {
+  max-width: 100%;
+}
