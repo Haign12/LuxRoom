@@ -21,7 +21,7 @@ const products = [
 function injectExperienceStylesheets() {
   const assets = [
     { href: "css/title-spacing.css?v=ux-20260813-6", attribute: "data-luxroom-title-spacing" },
-    { href: "css/experience-upgrade.css?v=ux-20260813-6", attribute: "data-luxroom-experience-upgrade" },
+    { href: "css/experience-upgrade.css?v=ux-20260813-7", attribute: "data-luxroom-experience-upgrade" },
   ];
   assets.forEach(({ href, attribute }) => {
     if (document.querySelector(`link[${attribute}]`)) return;
@@ -34,6 +34,29 @@ function injectExperienceStylesheets() {
 }
 
 injectExperienceStylesheets();
+
+function standardizeHeaderIcons() {
+  document.querySelectorAll(".topbar-actions").forEach((actions) => {
+    actions.setAttribute("aria-label", "Quick actions");
+    actions.innerHTML = `
+      <button class="icon-button" aria-label="Search" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+      </button>
+      <a class="icon-button" href="cart.html" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2 3h2l3 12h10l2-8H6"></path></svg>
+        <span class="cart-badge" data-cart-count style="display:none">0</span>
+      </a>
+      <a class="icon-button" href="wishlist.html" aria-label="Wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8Z"></path></svg>
+        <span class="cart-badge" data-wishlist-count style="display:none">0</span>
+      </a>
+      <a class="icon-button" href="auth.html" aria-label="Account">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      </a>`;
+  });
+}
+
+standardizeHeaderIcons();
 
 const cartCountNodes = document.querySelectorAll("[data-cart-count]");
 const newsletterForms = document.querySelectorAll(".newsletter-form");
