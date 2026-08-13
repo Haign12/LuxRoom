@@ -257,13 +257,20 @@
   background: #ffffff;
   overflow: visible;
 }
-.home-hero::before {
-  content: "";
-  display: block;
+.home-hero::before { display: none; }
+.hero-visual {
   grid-column: 2;
   grid-row: 1;
   min-height: min(590px, 67svh);
-  background: linear-gradient(145deg, rgba(91,55,23,.08), rgba(211,165,98,.10)), url("../img/luxroom_visual_reference.png") center/cover no-repeat;
+  overflow: hidden;
+  background: #efeae1;
+}
+.hero-visual img {
+  display: block;
+  width: 100%;
+  height: min(590px, 67svh);
+  object-fit: cover;
+  object-position: center;
   filter: sepia(.14) saturate(.92) contrast(.98) brightness(.98);
 }
 .home-hero::after { display: none; }
@@ -306,7 +313,8 @@
     gap: 38px;
     padding: 112px 20px 62px;
   }
-  .home-hero::before { grid-column: 1; grid-row: 2; min-height: 430px; }
+  .hero-visual { grid-column: 1; grid-row: 2; min-height: 430px; }
+  .hero-visual img { height: 430px; }
   .hero-copy { grid-column: 1; grid-row: 1; }
   .hero-index { display: none; }
   .hero-text { color: var(--home-muted); }
