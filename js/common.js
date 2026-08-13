@@ -21,7 +21,7 @@ const products = [
 function injectExperienceStylesheets() {
   const assets = [
     { href: "css/title-spacing.css?v=ux-20260813-6", attribute: "data-luxroom-title-spacing" },
-    { href: "css/experience-upgrade.css?v=ux-20260813-7", attribute: "data-luxroom-experience-upgrade" },
+    { href: "css/experience-upgrade.css?v=ux-20260813-8", attribute: "data-luxroom-experience-upgrade" },
   ];
   assets.forEach(({ href, attribute }) => {
     if (document.querySelector(`link[${attribute}]`)) return;
@@ -212,6 +212,72 @@ function normalizeCartContinueAction() {
 newsletterForms.forEach((form) => form.addEventListener("submit", (event) => event.preventDefault()));
 upgradeFooter();
 normalizeCartContinueAction();
+
+function initMotionSystem() {
+  const selectors = [
+    ".home-hero", ".home-section", ".collections", ".studio", ".newsletter",
+    ".collection-hero", ".collection-index", ".filter-toolbar", ".expanded-filters", ".product-grid-masonry",
+    ".d-gallery", ".di-header", ".d-spec", ".related-products",
+    ".contact-intro", ".contact-grid", ".contact-quiet",
+    ".story-hero", ".story-statement", ".material-triptych article", ".story-image-essay", ".newsletter-band",
+    ".cart-intro", ".cart-layout > *", ".cart-assurance",
+    ".checkout-intro", ".checkout-layout > *",
+    ".auth-essay", ".auth-card", ".profile-hero", ".profile-layout > *",
+    ".success-message", ".success-steps", ".wishlist-hero", ".wishlist-empty",
+    ".footer-rich__top > *", ".footer-rich__bottom"
+  ];
+  const deepMotion = new Set(["home-hero", "collection-hero", "story-hero", "auth-essay", "checkout-intro"]);
+  let sequence = 0;
+  let observer;
+
+  const prepareNode = (node) => {
+    if (!(node instanceof Element) || node.dataset.luxroomMotionReady === "true") return;
+    node.dataset.luxroomMotionReady = "true";
+    node.classList.add("motion-reveal");
+    const delayFromMarkup = node.style.animationDelay;
+    if (delayFromMarkup) {
+      node.style.setProperty("--motion-delay", delayFromMarkup);
+      node.style.removeProperty("animation-delay");
+    } else {
+      node.style.setProperty("--motion-delay", `${Math.min(sequence, 8) * 45}ms`);
+    }
+    if (deepMotion.has(node.classList[0]) || node.classList.contains("home-hero") || node.classList.contains("collection-hero") || node.classList.contains("story-hero") || node.classList.contains("auth-essay") || node.classList.contains("checkout-intro")) {
+      node.dataset.motionDepth = "deep";
+    }
+    sequence += 1;
+    if (observer) observer.observe(node);
+    else node.classList.add("is-visible");
+  };
+
+  const decorate = (scope = document) => {
+    selectors.forEach((selector) => {
+      scope.querySelectorAll(selector).forEach(prepareNode);
+    });
+    if (scope instanceof Element && scope.matches(".motion-reveal, .product-card")) prepareNode(scope);
+  };
+
+  if ("IntersectionObserver" in window) {
+    observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+  }
+
+  document.body.classList.add("lux-motion-ready");
+  decorate();
+
+  const mutationObserver = new MutationObserver((mutations) => {
+    if (mutations.some((mutation) => mutation.addedNodes.length > 0)) {
+      window.requestAnimationFrame(() => decorate());
+    }
+  });
+  mutationObserver.observe(document.body, { childList: true, subtree: true });
+}
+
+initMotionSystem();
 
 window.LuxRoom = {
   products,
