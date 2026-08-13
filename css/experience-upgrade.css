@@ -808,3 +808,93 @@
 }
 
 /* Cache marker: advanced filter/cart interactions v=ux-20260813-9. */
+
+
+/* Ivory Veil page transition v=ux-20260813-10. */
+.lux-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 2200;
+  display: grid;
+  place-items: center;
+  background: rgba(244, 239, 231, .98);
+  color: #1c1b18;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .28s var(--motion-ease), visibility 0s linear .28s;
+}
+.lux-veil.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+.lux-veil__inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  transform: translateY(7px);
+  opacity: 0;
+  transition: opacity .22s var(--motion-ease), transform .28s var(--motion-ease);
+}
+.lux-veil.is-visible .lux-veil__inner {
+  transform: translateY(0);
+  opacity: 1;
+}
+.lux-veil__wordmark {
+  font-family: var(--font-sans, Arial, sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .24em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.lux-veil__line {
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: currentColor;
+  opacity: .42;
+  transform: scaleX(.65);
+  transform-origin: center;
+  transition: transform .32s var(--motion-ease);
+}
+.lux-veil.is-visible .lux-veil__line { transform: scaleX(1); }
+body.lux-page-entering > header,
+body.lux-page-entering > main,
+body.lux-page-entering > footer {
+  animation: lux-page-arrive .48s var(--motion-ease) both;
+}
+body.lux-page-leaving > header,
+body.lux-page-leaving > main,
+body.lux-page-leaving > footer {
+  animation: lux-page-depart .24s var(--motion-ease) both;
+}
+@keyframes lux-page-arrive {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes lux-page-depart {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: .82; transform: translateY(-4px); }
+}
+@media (max-width: 700px) {
+  .lux-veil__inner { gap: 12px; }
+  .lux-veil__line { width: 32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lux-veil,
+  .lux-veil.is-visible {
+    display: none !important;
+    transition: none !important;
+  }
+  body.lux-page-entering > header,
+  body.lux-page-entering > main,
+  body.lux-page-entering > footer,
+  body.lux-page-leaving > header,
+  body.lux-page-leaving > main,
+  body.lux-page-leaving > footer {
+    animation: none !important;
+  }
+}
