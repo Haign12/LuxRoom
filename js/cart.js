@@ -1,126 +1,74 @@
 const cartContainer = document.querySelector("#cart-items-container");
-const cartSubtotal = document.querySelector("#cart-subtotal");
-const cartShipping = document.querySelector("#cart-shipping");
-const cartTotal = document.querySelector("#cart-total");
+const subtotalNode = document.querySelector("#cart-subtotal");
+const shippingNode = document.querySelector("#cart-shipping");
+const totalNode = document.querySelector("#cart-total");
+const cartCountLabels = document.querySelectorAll(".cart-intro [data-cart-count]");
+const continueShopping = document.querySelector(".back-to-edit");
+
+function money(value) {
+  return `$${Number(value).toFixed(0)}`;
+}
 
 function renderCart() {
-  if (!cartContainer) return;
-
   const items = window.LuxRoom.cartItems || [];
-
-  if (items.length === 0) {
-    cartContainer.innerHTML = `<div class="empty-cart-msg">
-      <h2>Your cart is empty.</h2>
-      <a href="products.html" class="primary-button" style="margin-top:20px;display:inline-block;">Continue Shopping</a>
-    </div>`;
-    cartSubtotal.textContent = "$0";
-    cartShipping.textContent = "$0";
-    cartTotal.textContent = "$0";
-    return;
-  }
-
-  cartContainer.innerHTML = "";
-  let subtotal = 0;
-
-    items.forEach((item) => {
-      subtotal += item.price * item.quantity;
-      const itemEl = document.createElement("div");
-      itemEl.className = "cart-item-row";
-      
-      // We will map product tone to a local utility or fallback to luxury-bg if tone missing.
-      const bgClass = item.tone ? item.tone : 'luxury-bg';
-      
-      itemEl.innerHTML = `
-        <div class="cart-item-img ${bgClass}"></div>
-        <div class="cart-item-desc">
-          <h4>${item.name}</h4>
-          <p>The ${item.name} boasts a harmonious blend of style and comfort.</p>
-        </div>
-        <div class="cart-quantity-controls">
-          <button class="cart-qty-btn decrease" data-id="${item.id}">-</button>
-          <span class="cart-qty-val">${item.quantity}</span>
-          <button class="cart-qty-btn increase" data-id="${item.id}">+</button>
-        </div>
-        <div class="cart-item-price">$${item.price}</div>
-        <button class="cart-item-remove" data-id="${item.id}">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="var(--ink)"/><path d="m15 9-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="m9 9 6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
-      `;
-      cartContainer.appendChild(itemEl);
-    });
-
-  const shipping = subtotal > 500 ? 0 : 30; // Free shipping over $500
+  const products = window.LuxRoom.products || [];
+  const productById = new Map(products.map((product) => [product.id, product]));
+  const subtotal = items.reduce((sum, item) => sum + (Number(item.price) * Number(item.quantity)), 0);
+  const shipping = subtotal > 0 && subtotal < 500 ? 35 : 0;
   const total = subtotal + shipping;
 
-  cartSubtotal.textContent = `$${subtotal}`;
-  cartShipping.textContent = shipping === 0 ? "Free" : `$${shipping}`;
-  cartTotal.textContent = `$${total}`;
-
-  attachCartEvents();
-}
-
-function attachCartEvents() {
-  document.querySelectorAll(".cart-qty-btn.decrease").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const id = Number(e.currentTarget.dataset.id);
-      const item = window.LuxRoom.cartItems.find((i) => i.id === id);
-      if (item && item.quantity > 1) {
-        window.LuxRoom.updateCartItem(id, item.quantity - 1);
-        renderCart();
-      }
-    });
+  cartCountLabels.forEach((node) => {
+    node.textContent = String(items.reduce((count, item) => count + Number(item.quantity), 0));
+    node.style.display = "inline";
   });
+  if (subtotalNode) subtotalNode.textContent = money(subtotal);
+  if (shippingNode) shippingNode.textContent = shipping ? money(shipping) : "$0";
+  if (totalNode) totalNode.textContent = money(total);
 
-  document.querySelectorAll(".cart-qty-btn.increase").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const id = Number(e.currentTarget.dataset.id);
-      const item = window.LuxRoom.cartItems.find((i) => i.id === id);
-      if (item) {
-        window.LuxRoom.updateCartItem(id, item.quantity + 1);
-        renderCart();
-      }
-    });
-  });
-
-  document.querySelectorAll(".cart-item-remove").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const id = Number(e.currentTarget.dataset.id);
-      window.LuxRoom.updateCartItem(id, 0); // 0 removes the item
-      renderCart();
-    });
-  });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  renderCart();
-
-  const btnConfirm = document.querySelector(".btn-confirm");
-  if (btnConfirm) {
-    btnConfirm.addEventListener("click", () => {
-      const items = window.LuxRoom.cartItems || [];
-      if (items.length === 0) {
-        window.LuxRoom.showToast("Oops! Your cart is empty.");
-        return;
-      }
-      
-      const paymentInputs = document.querySelectorAll('.payment-card-box input[type="text"]');
-      const isFilled = Array.from(paymentInputs).every(input => input.value.trim() !== "");
-      if (!isFilled) {
-        window.LuxRoom.showToast("Please fill out your payment details.");
-        return;
-      }
-
-      window.LuxRoom.showToast("Payment successful! Thank you.");
-      
-      // Simulate loading state
-      btnConfirm.textContent = "Processing...";
-      btnConfirm.style.opacity = "0.7";
-      btnConfirm.style.pointerEvents = "none";
-
-      setTimeout(() => {
-        window.LuxRoom.clearCart();
-        window.location.href = "index.html";
-      }, 2000);
-    });
+  if (!cartContainer) return;
+  if (!items.length) {
+    cartContainer.innerHTML = '<p class="cart-empty">Your selection is empty for now. Take your time finding an object that belongs in the room.</p>';
+  } else {
+    cartContainer.innerHTML = items.map((item) => {
+      const product = productById.get(item.id);
+      const image = product?.image || "img/luxroom_visual_reference.png";
+      return `<article class="cart-row" data-cart-row="${item.id}">
+        <div class="cart-product">
+          <div class="cart-product-image" style="background-image:url('${image}')" role="img" aria-label="${item.name}"></div>
+          <div class="cart-product-info"><strong>${item.name}</strong><span>${product?.category || "Object"}</span></div>
+        </div>
+        <div class="cart-qty" aria-label="Quantity for ${item.name}">
+          <button type="button" data-cart-decrease="${item.id}" aria-label="Decrease ${item.name}">−</button>
+          <span class="cart-qty-value">${item.quantity}</span>
+          <button type="button" data-cart-increase="${item.id}" aria-label="Increase ${item.name}">+</button>
+        </div>
+        <span>${money(Number(item.price) * Number(item.quantity))}</span>
+        <button class="cart-remove" type="button" data-cart-remove="${item.id}" aria-label="Remove ${item.name}">×</button>
+      </article>`;
+    }).join("");
   }
+
+  if (continueShopping) {
+    continueShopping.href = "products.html";
+    continueShopping.hidden = false;
+    continueShopping.innerHTML = "Continue shopping <span aria-hidden=\"true\">↗</span>";
+  }
+}
+
+cartContainer?.addEventListener("click", (event) => {
+  const target = event.target.closest("button[data-cart-decrease], button[data-cart-increase], button[data-cart-remove]");
+  if (!target) return;
+  const id = Number(target.dataset.cartDecrease || target.dataset.cartIncrease || target.dataset.cartRemove);
+  const item = (window.LuxRoom.cartItems || []).find((entry) => entry.id === id);
+  if (!item) return;
+  if (target.dataset.cartRemove) {
+    window.LuxRoom.updateCartItem(id, 0);
+  } else {
+    const nextQuantity = target.dataset.cartIncrease ? item.quantity + 1 : item.quantity - 1;
+    window.LuxRoom.updateCartItem(id, nextQuantity);
+  }
+  renderCart();
 });
+
+document.addEventListener("luxroom-cart-updated", renderCart);
+renderCart();

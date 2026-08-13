@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/design-system.css" />
   <link rel="stylesheet" href="css/common.css" />
   <link rel="stylesheet" href="css/contact.css" />
-  <link rel="stylesheet" href="css/contact-hotfix.css?v=20260813-2" />
+  <link rel="stylesheet" href="css/contact-hotfix.css?v=ux-20260813-4" />
 </head>
 <body class="contact-page">
   <header class="topbar" aria-label="Primary navigation">
@@ -19,10 +19,11 @@
       <a href="about.html">Our story</a>
       <a class="active" href="contact.html">Contact</a>
     </nav>
-    <div class="topbar-actions">
-      <button class="icon-button" aria-label="Search" type="button">⌕</button>
-      <a class="icon-button" href="cart.html" aria-label="Cart">Bag <span class="cart-badge" data-cart-count style="display:none">0</span></a>
-      <a class="icon-button" href="auth.html" aria-label="Account">Account</a>
+    <div class="topbar-actions" aria-label="Quick actions">
+      <button class="icon-button nav-icon" aria-label="Search" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.2"></circle><path d="m16 16 4.2 4.2"></path></svg></button>
+      <a class="icon-button nav-icon" href="cart.html" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 5h2l1.6 9.2h9.5l1.6-6.7H7.1"></path><circle cx="9.1" cy="18.3" r="1"></circle><circle cx="16.4" cy="18.3" r="1"></circle></svg><span class="cart-badge" data-cart-count style="display:none">0</span></a>
+      <a class="icon-button nav-icon" href="wishlist.html" aria-label="Wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 8.6c0 5-8.8 10.2-8.8 10.2S3.2 13.6 3.2 8.6A4.6 4.6 0 0 1 12 6.7a4.6 4.6 0 0 1 8.8 1.9Z"></path></svg><span class="cart-badge" data-wishlist-count style="display:none">0</span></a>
+      <a class="icon-button nav-icon" href="auth.html" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.2"></circle><path d="M5.4 20c.8-3.3 3.1-5 6.6-5s5.8 1.7 6.6 5"></path></svg></a>
     </div>
   </header>
 
@@ -63,7 +64,7 @@
   <section class="contact-quiet"><div class="site-shell"><p class="eyebrow">No rush</p><h2>A considered answer<br />takes a little time.</h2><p>We respond within two working days, and can arrange an appointment when a conversation needs more room.</p></div></section>
   <footer class="site-shell footer"><div><a class="footer-brand" href="index.html">LuxRoom</a><p>Contemporary furniture for considered living.</p></div><div><h3>Explore</h3><p><a href="products.html">Collection</a></p><p><a href="about.html">Our story</a></p></div><div><h3>Visit</h3><p>Ho Chi Minh City</p><p>By appointment</p></div><div><h3>Contact</h3><p><a href="contact.html">Start a conversation</a></p><p>hello@luxroom.com</p></div></footer>
   <div class="search-overlay" id="global-search-overlay" aria-hidden="true"><div class="search-modal" role="dialog" aria-modal="true" aria-label="Search LuxRoom"><div class="search-input-wrapper"><input id="global-search-input" type="search" placeholder="Search the collection" /><button id="close-search" class="icon-button" type="button" aria-label="Close search">×</button></div></div></div>
-  <script src="js/common.js"></script>
+  <script src="js/common.js?v=ux-20260813-7"></script>
   <script>
     document.querySelectorAll('.page-back-shell, .contact-image, .contact-visual, .contact-hero-image, .contact-media, .contact-photo, .contact-side-image').forEach((element) => element.remove());
   </script>
