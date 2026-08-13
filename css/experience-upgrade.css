@@ -1,4 +1,4 @@
-/* LuxRoom footer refinement v=ux-20260813-5. */
+/* LuxRoom footer refinement v=ux-20260813-6. */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -181,7 +181,7 @@
 /* A dedicated two-sided row prevents legal links from being squeezed off-screen. */
 .footer-rich__bottom {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto auto;
   align-items: center;
   gap: 20px 36px;
   padding-top: 22px;
@@ -200,10 +200,17 @@
   gap: 10px 30px;
   min-width: 0;
 }
+.footer-rich__delivery {
+  justify-self: end;
+  width: max-content;
+  color: rgba(247, 243, 237, .72) !important;
+  white-space: nowrap;
+}
 .footer-rich__legal {
   justify-content: flex-end;
   flex-wrap: nowrap;
   gap: 10px 24px;
+  justify-self: end;
 }
 .footer-rich__meta span,
 .footer-rich__legal a {
@@ -248,6 +255,10 @@
     align-items: start;
     gap: 16px;
   }
+  .footer-rich__delivery,
+  .footer-rich__legal {
+    justify-self: start;
+  }
   .footer-rich__legal {
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -271,4 +282,22 @@
     flex-direction: column;
     gap: 9px;
   }
+  .footer-rich__delivery {
+    white-space: normal;
+  }
+}
+
+
+/* Unified Collection header icons: search, cart, wishlist, account. */
+.topbar-actions .icon-button {
+  border-radius: 0;
+}
+.topbar-actions .icon-button svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
