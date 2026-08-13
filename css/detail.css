@@ -45,10 +45,10 @@
 .dg-img span { position: absolute; z-index: 1; right: 22px; bottom: 20px; color: #fff; font-size: .67rem; font-weight: 600; letter-spacing: .12em; opacity: 0; transition: opacity .3s ease; }
 .dg-img:hover, .dg-img.is-selected { filter: saturate(1); transform: translateY(-5px); }
 .dg-img:hover::after, .dg-img:hover span, .dg-img.is-selected::after, .dg-img.is-selected span { opacity: 1; }
-.bg-lux-room { background-image: url('../img/lux_story_1.png'); }
-.bg-lux-leaf { background-image: url('../img/lux_story_2.png'); }
-.bg-lux-closeup { background-image: url('../img/lux_story_3.png'); }
-.bg-lux-room-wide { background-image: url('../img/lux_gallery_main.png'); }
+.bg-lux-room { background-image: url('../img/lux_detail_lounge_wide.jpg'); }
+.bg-lux-leaf { background-image: url('../img/lux_detail_lounge_closeup.jpg'); }
+.bg-lux-closeup { background-image: url('../img/lux_mineral_side_table.jpg'); }
+.bg-lux-room-wide { background-image: url('../img/lux_detail_lounge_wide.jpg'); }
 
 /* Product information */
 .d-info { width: min(100%, 960px); margin: 0 auto clamp(96px, 12vw, 158px); }
@@ -115,7 +115,7 @@
 .related-item { color: var(--detail-ink); }
 .related-image { min-height: 370px; background-position: center; background-size: cover; filter: saturate(.76); transition: filter .3s ease, transform .35s cubic-bezier(.23,1,.32,1); }
 .related-item:hover .related-image { filter: saturate(1); transform: translateY(-4px); }
-.related-one { background-image: url('../img/lux_gallery_closeup.png'); }.related-two { background-image: url('../img/lux_kitchen.png'); }
+.related-one { background-image: url('../img/lux_mineral_side_table.jpg'); }.related-two { background-image: url('../img/lux_amber_wall_sconce.jpg'); }
 .related-item > div:last-child { padding-top: 16px; }
 .related-item span { color: var(--detail-clay); font-size: .63rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
 .related-item h3 { margin: 7px 0 0; font-size: 1.7rem; font-weight: 500; letter-spacing: -.04em; }

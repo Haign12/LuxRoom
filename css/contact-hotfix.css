@@ -1,0 +1,26 @@
+/* Deployment hotfix: always wins over the previous contact.css rules. */
+.contact-page .page-back-shell,
+.contact-page .page-back-link { display: none !important; }
+
+/* The page title begins 64px beneath the 77px fixed navigation, matching Collection and Our Story. */
+.contact-page .contact-main {
+  padding-top: 64px !important;
+  padding-bottom: 120px;
+}
+.contact-page .contact-intro {
+  padding-top: 0 !important;
+  padding-bottom: 64px !important;
+}
+
+/* Remove every deprecated editorial image wrapper from Contact. */
+.contact-page .contact-image,
+.contact-page .contact-visual,
+.contact-page .contact-hero-image,
+.contact-page .contact-media,
+.contact-page .contact-photo,
+.contact-page .contact-side-image { display: none !important; }
+
+@media (max-width: 760px) {
+  .contact-page .contact-main { padding-top: 38px !important; padding-bottom: 82px; }
+  .contact-page .contact-intro { padding-bottom: 48px !important; }
+}
