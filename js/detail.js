@@ -1,6 +1,7 @@
 const productQuery = new URLSearchParams(window.location.search).get("product");
 const selectedProduct = window.LuxRoom.products.find((product) => product.id === Number(productQuery)) || window.LuxRoom.products[0];
-const selectedGallery = selectedProduct.gallery || [selectedProduct.image, selectedProduct.image, selectedProduct.image];
+const fallbackGallery = [selectedProduct.image, "img/lux_detail_lounge_wide.jpg", "img/lux_detail_lounge_closeup.jpg"];
+const selectedGallery = Array.from(new Set(selectedProduct.gallery || fallbackGallery)).slice(0, 3);
 let selectedQuantity = 1;
 
 const titleNode = document.querySelector("#detail-title");

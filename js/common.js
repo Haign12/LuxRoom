@@ -7,7 +7,7 @@ const products = [
   { id: 6, name: "Raku Lounge Chair", price: 430, tone: "thumb-f", image: "img/products/raku-lounge-chair.jpg", category: "Seating", room: "Living", materialGroup: "Textile", colors: ["Terracotta"], materials: ["Textile"] },
   { id: 7, name: "Haven Wool Rug", price: 700, tone: "thumb-g", image: "img/products/haven-wool-rug.jpg", category: "Textiles", room: "Living", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
   { id: 8, name: "Ona Modular Sofa", price: 180, tone: "thumb-h", image: "img/products/ona-modular-sofa.jpg", category: "Seating", room: "Living", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
-  { id: 9, name: "Koto Side Table", price: 460, tone: "thumb-i", image: "img/products/koto-side-table.jpg", gallery: ["img/products/koto-side-table.jpg", "img/lux_mineral_side_table.jpg", "img/lux_mineral_side_table.jpg"], category: "Tables", room: "Living", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
+  { id: 9, name: "Koto Side Table", price: 460, tone: "thumb-i", image: "img/products/koto-side-table.jpg", category: "Tables", room: "Living", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
   { id: 10, name: "Ora Pedestal Table", price: 240, tone: "thumb-j", image: "img/products/ora-pedestal-table.jpg", category: "Tables", room: "Dining", materialGroup: "Stoneware", colors: ["Cream"], materials: ["Stoneware"] },
   { id: 11, name: "Audo Dining Chair", price: 210, tone: "thumb-k", image: "img/lux_story_2.png", category: "Seating", room: "Dining", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
   { id: 12, name: "Dune Loveseat", price: 280, tone: "thumb-l", image: "img/lux_gallery_main.png", category: "Seating", room: "Living", materialGroup: "Textile", colors: ["Olive green"], materials: ["Textile"] },
@@ -15,19 +15,25 @@ const products = [
   { id: 14, name: "Halo Wall Light", price: 120, tone: "thumb-n", image: "img/products-new/amber-wall-sconce.jpg", category: "Light & form", room: "Bedroom", materialGroup: "Stoneware", colors: ["Terracotta"], materials: ["Stoneware"] },
   { id: 15, name: "Softline Linen Throw", price: 95, tone: "thumb-o", image: "img/products-new/linen-throw.jpg", category: "Textiles", room: "Bedroom", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
   { id: 16, name: "Mori Keepsake Box", price: 145, tone: "thumb-p", image: "img/products-new/oak-keepsake-box.jpg", category: "Light & form", room: "Office", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
-  { id: 17, name: "Luma Amber Sconce", price: 190, tone: "thumb-q", image: "img/lux_amber_wall_sconce.jpg", gallery: ["img/lux_amber_wall_sconce.jpg", "img/lux_amber_wall_sconce.jpg", "img/lux_amber_wall_sconce.jpg"], category: "Light & form", room: "Living", materialGroup: "Stoneware", colors: ["Terracotta"], materials: ["Stoneware"] },
+  { id: 17, name: "Luma Amber Sconce", price: 190, tone: "thumb-q", image: "img/lux_luma_sconce_front.jpg", gallery: ["img/lux_luma_sconce_front.jpg", "img/lux_luma_sconce_side.jpg", "img/lux_luma_sconce_detail.jpg"], category: "Light & form", room: "Living", materialGroup: "Stoneware", colors: ["Terracotta"], materials: ["Stoneware"] },
 ];
 
-function injectTitleSpacingStylesheet() {
-  if (document.querySelector('link[data-luxroom-title-spacing]')) return;
-  const stylesheet = document.createElement("link");
-  stylesheet.rel = "stylesheet";
-  stylesheet.href = "css/title-spacing.css";
-  stylesheet.dataset.luxroomTitleSpacing = "true";
-  document.head.appendChild(stylesheet);
+function injectExperienceStylesheets() {
+  const assets = [
+    { href: "css/title-spacing.css?v=ux-20260813-4", attribute: "data-luxroom-title-spacing" },
+    { href: "css/experience-upgrade.css?v=ux-20260813-4", attribute: "data-luxroom-experience-upgrade" },
+  ];
+  assets.forEach(({ href, attribute }) => {
+    if (document.querySelector(`link[${attribute}]`)) return;
+    const stylesheet = document.createElement("link");
+    stylesheet.rel = "stylesheet";
+    stylesheet.href = href;
+    stylesheet.setAttribute(attribute, "true");
+    document.head.appendChild(stylesheet);
+  });
 }
 
-injectTitleSpacingStylesheet();
+injectExperienceStylesheets();
 
 const cartCountNodes = document.querySelectorAll("[data-cart-count]");
 const newsletterForms = document.querySelectorAll(".newsletter-form");
@@ -82,6 +88,7 @@ function addToCart(productId, quantity = 1) {
   localStorage.setItem("luxroom-cart-items", JSON.stringify(cartItems));
   window.LuxRoom.cartItems = cartItems;
   syncCartCount();
+  document.dispatchEvent(new Event("luxroom-cart-updated"));
 }
 
 function updateCartItem(productId, quantity) {
@@ -91,6 +98,7 @@ function updateCartItem(productId, quantity) {
   localStorage.setItem("luxroom-cart-items", JSON.stringify(cartItems));
   window.LuxRoom.cartItems = cartItems;
   syncCartCount();
+  document.dispatchEvent(new Event("luxroom-cart-updated"));
 }
 
 function clearCart() {
@@ -98,6 +106,7 @@ function clearCart() {
   localStorage.removeItem("luxroom-cart-items");
   window.LuxRoom.cartItems = cartItems;
   syncCartCount();
+  document.dispatchEvent(new Event("luxroom-cart-updated"));
 }
 
 function isWishlisted(productId) {
@@ -122,7 +131,6 @@ function toggleWishlist(productId) {
 function injectContextualBackLink() {
   const page = window.location.pathname.split("/").pop().replace(/\.html$/, "") || "index";
   const destinations = {
-    cart: { href: "./products.html", label: "Back to collection" },
     checkout: { href: "./cart.html", label: "Back to cart" },
     wishlist: { href: "./products.html", label: "Back to collection" },
     success: { href: "./products.html", label: "Back to collection" },
@@ -136,7 +144,51 @@ function injectContextualBackLink() {
   main.prepend(container);
 }
 
+function upgradeFooter() {
+  const footer = document.querySelector("footer.footer, footer.home-footer, footer.detail-footer");
+  if (!footer || footer.dataset.luxroomEnhanced === "true") return;
+  footer.dataset.luxroomEnhanced = "true";
+  footer.classList.add("footer-rich");
+  footer.innerHTML = `
+    <div class="footer-rich__top">
+      <div class="footer-rich__brand">
+        <a class="footer-brand" href="index.html">LuxRoom</a>
+        <p>Objects and rooms for an unhurried life.</p>
+        <a class="footer-rich__consultation" href="contact.html">Plan a room with us <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="footer-rich__column"><h3>Explore</h3><a href="products.html">Collection</a><a href="about.html">Our story</a><a href="wishlist.html">Saved objects</a></div>
+      <div class="footer-rich__column"><h3>Service</h3><a href="contact.html">Room consultation</a><a href="contact.html">Delivery & care</a><a href="contact.html">Trade enquiries</a></div>
+      <div class="footer-rich__column footer-rich__contact"><h3>Visit & contact</h3><p>Ho Chi Minh City<br>By appointment</p><a href="mailto:hello@luxroom.com">hello@luxroom.com</a><a href="tel:+84798876074">+84 798 876 074</a></div>
+      <div class="footer-rich__newsletter"><h3>Notes from LuxRoom</h3><p>New objects, quiet rooms and considered material stories.</p><form class="footer-newsletter" novalidate><label class="sr-only" for="footer-email">Email address</label><input id="footer-email" type="email" placeholder="Your email address" autocomplete="email" required><button type="submit" aria-label="Subscribe to LuxRoom notes">↗</button></form><small>Occasional notes. No noise.</small></div>
+    </div>
+    <div class="footer-rich__bottom"><span>© <span data-footer-year></span> LuxRoom</span><span>Vietnam / worldwide delivery</span><span><a href="contact.html">Privacy</a><a href="contact.html">Terms</a><a href="#top">Back to top ↑</a></span></div>`;
+  footer.querySelectorAll("[data-footer-year]").forEach((node) => { node.textContent = new Date().getFullYear(); });
+  footer.querySelector(".footer-newsletter")?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const input = footer.querySelector("#footer-email");
+    if (!input?.checkValidity()) { input?.reportValidity(); return; }
+    showToast("Thank you — LuxRoom notes will arrive quietly.");
+    event.currentTarget.reset();
+  });
+}
+
+function normalizeCartContinueAction() {
+  const page = window.location.pathname.split("/").pop().replace(/\.html$/, "") || "index";
+  if (page !== "cart") return;
+  document.querySelectorAll(".page-back-shell").forEach((node) => node.remove());
+  const collectionLinks = Array.from(document.querySelectorAll(".back-to-edit"));
+  if (!collectionLinks.length) return;
+  const collectionLink = collectionLinks[0];
+  collectionLinks.slice(1).forEach((node) => node.remove());
+  collectionLink.href = "products.html";
+  collectionLink.textContent = "Continue shopping";
+  collectionLink.setAttribute("aria-label", "Continue shopping in the collection");
+  collectionLink.hidden = false;
+}
+
 newsletterForms.forEach((form) => form.addEventListener("submit", (event) => event.preventDefault()));
+upgradeFooter();
+normalizeCartContinueAction();
 
 window.LuxRoom = {
   products,
