@@ -21,7 +21,7 @@ const products = [
 function injectExperienceStylesheets() {
   const assets = [
     { href: "css/title-spacing.css?v=ux-20260813-6", attribute: "data-luxroom-title-spacing" },
-    { href: "css/experience-upgrade.css?v=ux-20260813-8", attribute: "data-luxroom-experience-upgrade" },
+    { href: "css/experience-upgrade.css?v=ux-20260813-9", attribute: "data-luxroom-experience-upgrade" },
   ];
   assets.forEach(({ href, attribute }) => {
     if (document.querySelector(`link[${attribute}]`)) return;
@@ -67,12 +67,33 @@ function getCartItemCount() {
   return cartItems.reduce((total, item) => total + item.quantity, 0);
 }
 
+let lastCartCount = getCartItemCount();
+
+function pulseCartFeedback() {
+  cartCountNodes.forEach((node) => {
+    node.classList.remove("is-pulsing");
+    void node.offsetWidth;
+    node.classList.add("is-pulsing");
+    window.setTimeout(() => node.classList.remove("is-pulsing"), 520);
+  });
+  document.querySelectorAll('.topbar-actions a[aria-label="Cart"]').forEach((link) => {
+    link.classList.remove("cart-updated");
+    void link.offsetWidth;
+    link.classList.add("cart-updated");
+    window.setTimeout(() => link.classList.remove("cart-updated"), 520);
+  });
+}
+
 function syncCartCount() {
   const count = getCartItemCount();
   cartCountNodes.forEach((node) => {
     node.textContent = String(count);
     node.style.display = count > 0 ? "flex" : "none";
   });
+  if (count !== lastCartCount) {
+    pulseCartFeedback();
+    lastCartCount = count;
+  }
 }
 
 function syncWishlistBadge() {
@@ -130,6 +151,73 @@ function clearCart() {
   window.LuxRoom.cartItems = cartItems;
   syncCartCount();
   document.dispatchEvent(new Event("luxroom-cart-updated"));
+}
+
+function initMiniCartPreview() {
+  const cartLink = document.querySelector('.topbar-actions a[aria-label="Cart"]');
+  if (!cartLink || document.querySelector(".mini-cart-popover")) return;
+
+  const popover = document.createElement("div");
+  popover.className = "mini-cart-popover";
+  popover.setAttribute("aria-hidden", "true");
+  popover.setAttribute("role", "dialog");
+  popover.setAttribute("aria-label", "Cart preview");
+  document.body.appendChild(popover);
+
+  let closeTimer;
+  const positionPopover = () => {
+    const rect = cartLink.getBoundingClientRect();
+    const width = Math.min(340, window.innerWidth - 32);
+    const left = Math.max(16, Math.min(window.innerWidth - width - 16, rect.right - width));
+    popover.style.width = `${width}px`;
+    popover.style.top = `${rect.bottom + 14}px`;
+    popover.style.left = `${left}px`;
+  };
+
+  const renderPreview = () => {
+    const items = cartItems.slice(0, 2);
+    const productById = new Map(products.map((product) => [product.id, product]));
+    const total = cartItems.reduce((sum, item) => sum + Number(item.price) * Number(item.quantity), 0);
+    if (!items.length) {
+      popover.innerHTML = '<p class="mini-cart-eyebrow">Your selection</p><p class="mini-cart-empty">No objects here yet. Take your time.</p><a class="mini-cart-link" href="products.html">Explore the collection <span aria-hidden="true">↗</span></a>';
+      return;
+    }
+    popover.innerHTML = `<p class="mini-cart-eyebrow">Your selection · ${getCartItemCount()} ${getCartItemCount() === 1 ? "object" : "objects"}</p><div class="mini-cart-items">${items.map((item) => {
+      const product = productById.get(item.id);
+      return `<div class="mini-cart-item"><span class="mini-cart-item-image" style="background-image:url('${product?.image || "img/luxroom_visual_reference.png"}')" aria-hidden="true"></span><span class="mini-cart-item-copy"><strong>${item.name}</strong><small>${item.quantity} × $${Number(item.price).toFixed(0)}</small></span></div>`;
+    }).join("")}</div><div class="mini-cart-total"><span>Subtotal</span><strong>$${total.toFixed(0)}</strong></div><a class="mini-cart-link" href="cart.html">View cart <span aria-hidden="true">↗</span></a>`;
+  };
+
+  const open = () => {
+    window.clearTimeout(closeTimer);
+    renderPreview();
+    positionPopover();
+    popover.classList.add("is-open");
+    popover.setAttribute("aria-hidden", "false");
+  };
+  const close = () => {
+    closeTimer = window.setTimeout(() => {
+      popover.classList.remove("is-open");
+      popover.setAttribute("aria-hidden", "true");
+    }, 180);
+  };
+
+  cartLink.addEventListener("mouseenter", open);
+  cartLink.addEventListener("focusin", open);
+  cartLink.addEventListener("mouseleave", close);
+  cartLink.addEventListener("focusout", (event) => {
+    if (!popover.contains(event.relatedTarget)) close();
+  });
+  popover.addEventListener("mouseenter", open);
+  popover.addEventListener("mouseleave", close);
+  popover.addEventListener("focusin", open);
+  popover.addEventListener("focusout", (event) => {
+    if (!cartLink.contains(event.relatedTarget)) close();
+  });
+  window.addEventListener("resize", () => {
+    if (popover.classList.contains("is-open")) positionPopover();
+  });
+  document.addEventListener("luxroom-cart-updated", renderPreview);
 }
 
 function isWishlisted(productId) {
@@ -278,6 +366,7 @@ function initMotionSystem() {
 }
 
 initMotionSystem();
+initMiniCartPreview();
 
 window.LuxRoom = {
   products,

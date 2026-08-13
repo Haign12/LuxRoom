@@ -52,6 +52,40 @@ function updateCategoryControls() {
   });
 }
 
+function syncFilterAccessibility() {
+  document.querySelectorAll(".filter-list li").forEach((item) => {
+    item.setAttribute("role", "button");
+    item.setAttribute("tabindex", "0");
+    item.setAttribute("aria-pressed", String(item.classList.contains("active")));
+  });
+  document.querySelectorAll(".chip").forEach((chip) => {
+    chip.setAttribute("aria-pressed", String(chip.classList.contains("is-selected")));
+  });
+}
+
+function showAddedButtonState(button, productName) {
+  if (!button) return;
+  window.clearTimeout(Number(button.dataset.restoreTimer));
+  button.dataset.originalLabel = button.dataset.originalLabel || button.innerHTML;
+  button.classList.add("is-added");
+  button.innerHTML = '<span aria-hidden="true">✓</span> Added <span aria-hidden="true">↗</span>';
+  button.setAttribute("aria-label", `${productName} added to cart`);
+  button.dataset.restoreTimer = String(window.setTimeout(() => {
+    button.classList.remove("is-added");
+    button.innerHTML = button.dataset.originalLabel;
+    button.removeAttribute("aria-label");
+    delete button.dataset.restoreTimer;
+  }, 1900));
+}
+
+function refreshProductGridMotion() {
+  if (!productGrid) return;
+  productGrid.classList.remove("filter-refreshing");
+  void productGrid.offsetWidth;
+  productGrid.classList.add("filter-refreshing");
+  window.requestAnimationFrame(() => productGrid.classList.remove("filter-refreshing"));
+}
+
 function syncActiveFilterChips(totalItems) {
   const toolbar = document.querySelector(".active-filters");
   if (!toolbar) return;
@@ -96,10 +130,12 @@ function renderProducts() {
   const currentProducts = filtered.slice(startIndex, startIndex + itemsPerPage);
 
   if (totalItems === 0) {
-    productGrid.innerHTML = '<div class="empty-results"><p class="eyebrow">The current selection</p><h2>A quieter edit for now.</h2><p>No objects match this combination. Clear one filter and the room will open up again.</p><button class="clear-filters-btn" onclick="window.clearFilters()" type="button">Reset the edit <span aria-hidden="true">↗</span></button></div>';
+          productGrid.innerHTML = '<div class="empty-results"><p class="eyebrow">The current selection</p><h2>A quieter edit for now.</h2><p>No objects match this combination. Clear one filter and the room will open up again.</p><button class="clear-filters-btn" onclick="window.clearFilters()" type="button">Reset the edit <span aria-hidden="true">↗</span></button></div>';
+
   } else {
     productGrid.innerHTML = currentProducts.map((product, index) => `
-      <article class="product-card" style="animation-delay: ${index * 0.05}s">
+                <article class="product-card" style="animation-delay: ${index * 0.05}s">
+
         <div class="product-card-inner">
           <a href="./detail.html?product=${product.id}${roomBackContext}#product=${product.id}${roomBackFragment}" class="product-thumb ${product.tone}" style="background-image: url('./${product.image}');" aria-label="View ${product.name}">
             <span class="product-card-label">${product.category.toUpperCase()}</span>
@@ -114,7 +150,7 @@ function renderProducts() {
               <span class="price">$${product.price}</span>
             </div>
             <div class="product-actions-row">
-              <button class="add-to-cart-action" type="button" onclick="event.preventDefault(); window.LuxRoom.addToCart(${product.id}, 1); window.LuxRoom.showToast('Added 1x ${product.name} to cart!');">
+              <button class="add-to-cart-action" type="button" data-product-id="${product.id}" aria-label="Add ${product.name} to cart">
                 <span aria-hidden="true">+</span> Add to Cart
               </button>
             </div>
@@ -128,6 +164,8 @@ function renderProducts() {
   updateCategoryControls();
   updateCollectionCount(totalItems);
   syncActiveFilterChips(totalItems);
+  syncFilterAccessibility();
+  refreshProductGridMotion();
 }
 
 function renderPagination(totalPages) {
@@ -197,18 +235,29 @@ document.querySelectorAll(".collection-category").forEach((button) => {
   });
 });
 
-document.querySelectorAll(".filter-list li").forEach((item) => {
-  item.addEventListener("click", () => {
-    const group = item.closest(".filter-col");
-    const label = item.textContent.trim();
-    const groupTitle = group?.querySelector(".eyebrow")?.textContent.trim().toLowerCase();
-    group?.querySelectorAll("li").forEach((sibling) => sibling.classList.remove("active"));
-    item.classList.add("active");
+function activateFilterListItem(item) {
+  const group = item.closest(".filter-col");
+  const label = item.textContent.trim();
+  const groupTitle = group?.querySelector(".eyebrow")?.textContent.trim().toLowerCase();
+  group?.querySelectorAll("li").forEach((sibling) => {
+    sibling.classList.remove("active");
+    sibling.setAttribute("aria-pressed", "false");
+  });
+  item.classList.add("active");
+  item.setAttribute("aria-pressed", "true");
 
-    if (groupTitle === "room") activeFilters.room = label === "Every room" ? null : label;
-    if (groupTitle === "material") activeFilters.materialGroup = label === "All materials" ? null : label;
-    currentPage = 1;
-    renderProducts();
+  if (groupTitle === "room") activeFilters.room = label === "Every room" ? null : label;
+  if (groupTitle === "material") activeFilters.materialGroup = label === "All materials" ? null : label;
+  currentPage = 1;
+  renderProducts();
+}
+
+document.querySelectorAll(".filter-list li").forEach((item) => {
+  item.addEventListener("click", () => activateFilterListItem(item));
+  item.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    activateFilterListItem(item);
   });
 });
 
@@ -218,6 +267,7 @@ document.querySelectorAll(".color-chip").forEach((chip) => {
     chip.classList.toggle("is-selected");
     if (chip.classList.contains("is-selected")) activeFilters.colors.add(color);
     else activeFilters.colors.delete(color);
+    chip.setAttribute("aria-pressed", String(chip.classList.contains("is-selected")));
     currentPage = 1;
     renderProducts();
   });
@@ -229,6 +279,7 @@ document.querySelectorAll(".material-chip").forEach((chip) => {
     chip.classList.toggle("is-selected");
     if (chip.classList.contains("is-selected")) activeFilters.materials.add(material);
     else activeFilters.materials.delete(material);
+    chip.setAttribute("aria-pressed", String(chip.classList.contains("is-selected")));
     currentPage = 1;
     renderProducts();
   });
@@ -291,6 +342,20 @@ if (sortSelect) {
 
 if (productGrid) {
   productGrid.addEventListener("click", (event) => {
+    const addButton = event.target.closest(".add-to-cart-action[data-product-id]");
+    if (addButton) {
+      event.preventDefault();
+      event.stopPropagation();
+      const productId = Number(addButton.dataset.productId);
+      const product = window.LuxRoom.products.find((item) => item.id === productId);
+      if (product) {
+        window.LuxRoom.addToCart(productId, 1);
+        window.LuxRoom.showToast(`Added 1x ${product.name} to cart.`);
+        showAddedButtonState(addButton, product.name);
+      }
+      return;
+    }
+
     const heart = event.target.closest(".wishlist-heart[data-wishlist]");
     if (!heart) return;
     event.preventDefault();
