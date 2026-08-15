@@ -479,10 +479,18 @@ const searchButtons = document.querySelectorAll('button[aria-label="Search"], .i
 const searchOverlay = document.getElementById("global-search-overlay");
 const closeSearch = document.getElementById("close-search");
 if (searchOverlay) {
+  const setSearchOpen = (isOpen) => {
+    searchOverlay.classList.toggle("show", isOpen);
+    document.body.classList.toggle("lux-search-open", isOpen);
+    if (isOpen) {
+      requestAnimationFrame(() => {
+        document.getElementById("global-search-input")?.focus({ preventScroll: true });
+      });
+    }
+  };
   const toggleSearch = (event) => {
     event?.preventDefault();
-    searchOverlay.classList.toggle("show");
-    if (searchOverlay.classList.contains("show")) document.getElementById("global-search-input")?.focus();
+    setSearchOpen(!searchOverlay.classList.contains("show"));
   };
   searchButtons.forEach((button) => button.addEventListener("click", toggleSearch));
   closeSearch?.addEventListener("click", toggleSearch);
