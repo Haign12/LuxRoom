@@ -39,6 +39,9 @@ function standardizeHeaderIcons() {
   document.querySelectorAll(".topbar-actions").forEach((actions) => {
     actions.setAttribute("aria-label", "Quick actions");
     actions.innerHTML = `
+      <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="luxroom-main-menu">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
       <button class="icon-button" aria-label="Search" type="button">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
       </button>
@@ -57,6 +60,37 @@ function standardizeHeaderIcons() {
 }
 
 standardizeHeaderIcons();
+
+function initMobileMenu() {
+  document.querySelectorAll(".topbar").forEach((topbar) => {
+    const nav = topbar.querySelector(".main-nav");
+    const toggle = topbar.querySelector(".mobile-menu-toggle");
+    if (!nav || !toggle) return;
+
+    nav.id = "luxroom-main-menu";
+    const setOpen = (isOpen, moveFocus = false) => {
+      topbar.classList.toggle("menu-open", isOpen);
+      document.body.classList.toggle("lux-menu-open", isOpen);
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      if (moveFocus) nav.querySelector("a")?.focus();
+    };
+
+    toggle.addEventListener("click", () => setOpen(!topbar.classList.contains("menu-open"), true));
+    nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setOpen(false)));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && topbar.classList.contains("menu-open")) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 820 && topbar.classList.contains("menu-open")) setOpen(false);
+    });
+  });
+}
+
+initMobileMenu();
 
 const cartCountNodes = document.querySelectorAll("[data-cart-count]");
 const newsletterForms = document.querySelectorAll(".newsletter-form");

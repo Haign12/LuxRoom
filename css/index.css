@@ -516,3 +516,33 @@
 @media (prefers-reduced-motion: reduce) {
   .room-card-image { transition: none; }
 }
+
+/* Mobile quality pass: keep the white editorial rhythm without forcing desktop density. */
+@media (max-width: 700px) {
+  .home-page { overflow-x: clip; }
+  .home-hero { padding-inline: 20px; }
+  .hero-copy h1 { max-width: 10ch; font-size: clamp(3.5rem, 16vw, 5rem); line-height: .88; }
+  .hero-text { max-width: 34ch; font-size: 16px; line-height: 1.65; }
+  .hero-link, .text-link, .outline-link { min-height: 44px; align-items: center; }
+  .home-page h2 { font-size: clamp(2.65rem, 12vw, 4.1rem); line-height: .92; }
+  .manifesto-copy p, .room-edit-head > p:last-child, .edited-heading p:last-child, .studio-copy > p:not(.section-marker), .journal-title > p:last-child { font-size: 16px; line-height: 1.7; }
+  .collection-card-large .collection-image { min-height: 400px; }
+  .collection-image { min-height: 260px; }
+  .collection-meta h3, .product-copy h3 { font-size: 1.7rem; }
+  .product-image, .feature-product-main .product-image { min-height: 360px; }
+  .studio-image { min-height: 380px; }
+  .journal-gallery { grid-template-rows: 190px 190px; gap: 10px; }
+  .signup { gap: 28px; }
+  .home-page .newsletter-form { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; }
+  .home-page .newsletter-form input, .home-page .newsletter-form button { min-height: 52px; font-size: 16px; }
+  .home-footer { grid-template-columns: 1fr; gap: 22px; }
+  .home-footer > span { text-align: left; }
+}
+
+@media (max-width: 380px) {
+  .home-hero { padding-inline: 16px; }
+  .home-section { width: min(100% - 32px, 1360px); }
+  .hero-copy h1 { font-size: 3.35rem; }
+  .home-page .newsletter-form { grid-template-columns: 1fr; }
+  .home-page .newsletter-form button { justify-self: start; padding-left: 0; }
+}
