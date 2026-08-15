@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">LuxRoom mark</title>
+  <desc id="desc">A minimal room frame with a warm clay point of focus.</desc>
+  <path d="M12 51V13h40v38" fill="none" stroke="#171713" stroke-width="2.5" stroke-linecap="square"/>
+  <path d="M20 43V22h24v21" fill="none" stroke="#171713" stroke-width="2.5" stroke-linecap="square"/>
+  <path d="M12 51h40" fill="none" stroke="#171713" stroke-width="2.5" stroke-linecap="square"/>
+  <circle cx="48" cy="46" r="5" fill="#956B3E"/>
+</svg>
