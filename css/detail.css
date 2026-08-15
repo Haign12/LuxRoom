@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap');
 
 .detail-page {
   --detail-bg: #ffffff;
@@ -45,10 +44,10 @@
 .dg-img span { position: absolute; z-index: 1; right: 22px; bottom: 20px; color: #fff; font-size: .67rem; font-weight: 600; letter-spacing: .12em; opacity: 0; transition: opacity .3s ease; }
 .dg-img:hover, .dg-img.is-selected { filter: saturate(1); transform: translateY(-5px); }
 .dg-img:hover::after, .dg-img:hover span, .dg-img.is-selected::after, .dg-img.is-selected span { opacity: 1; }
-.bg-lux-room { background-image: url('../img/lux_detail_lounge_wide.jpg'); }
-.bg-lux-leaf { background-image: url('../img/lux_detail_lounge_closeup.jpg'); }
-.bg-lux-closeup { background-image: url('../img/lux_mineral_side_table.jpg'); }
-.bg-lux-room-wide { background-image: url('../img/lux_detail_lounge_wide.jpg'); }
+.bg-lux-room { background-image: url('../img/lux_detail_lounge_wide.webp'); }
+.bg-lux-leaf { background-image: url('../img/lux_detail_lounge_closeup.webp'); }
+.bg-lux-closeup { background-image: url('../img/lux_mineral_side_table.webp'); }
+.bg-lux-room-wide { background-image: url('../img/lux_detail_lounge_wide.webp'); }
 
 /* Product information */
 .d-info { width: min(100%, 960px); margin: 0 auto clamp(96px, 12vw, 158px); }
@@ -115,7 +114,7 @@
 .related-item { color: var(--detail-ink); }
 .related-image { min-height: 370px; background-position: center; background-size: cover; filter: saturate(.76); transition: filter .3s ease, transform .35s cubic-bezier(.23,1,.32,1); }
 .related-item:hover .related-image { filter: saturate(1); transform: translateY(-4px); }
-.related-one { background-image: url('../img/lux_mineral_side_table.jpg'); }.related-two { background-image: url('../img/lux_amber_wall_sconce.jpg'); }
+.related-one { background-image: url('../img/lux_mineral_side_table.webp'); }.related-two { background-image: url('../img/lux_amber_wall_sconce.webp'); }
 .related-item > div:last-child { padding-top: 16px; }
 .related-item span { color: var(--detail-clay); font-size: .63rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
 .related-item h3 { margin: 7px 0 0; font-size: 1.7rem; font-weight: 500; letter-spacing: -.04em; }

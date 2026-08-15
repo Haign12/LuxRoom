@@ -7,7 +7,11 @@
     <title>LuxRoom | Considered living</title>
     <link rel="stylesheet" href="css/design-system.css" />
     <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/index.css?v=room-type-20260813" />
+    <link rel="stylesheet" href="css/index.css?v=20260815-perf-assets" />
+    <link rel="preload" href="fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="css/title-spacing.css?v=ux-20260813-6" as="style" />
+    <link rel="preload" href="css/experience-upgrade.css?v=ux-20260813-10" as="style" />
   </head>
   <body class="home-page">
     <header class="topbar" aria-label="Primary navigation">
@@ -35,7 +39,7 @@
     <main>
       <section class="home-hero">
         <div class="hero-visual" aria-hidden="true">
-          <img src="img/luxroom_visual_reference.png" alt="" width="2560" height="1440" />
+          <img src="img/luxroom_visual_reference-960.webp" srcset="img/luxroom_visual_reference-960.webp 960w, img/luxroom_visual_reference.webp 1800w" sizes="(max-width: 700px) 100vw, 55vw" alt="" width="2560" height="1440" fetchpriority="high" decoding="async" />
         </div>
         <div class="hero-copy">
           <p class="eyebrow light">Curated interiors · Vietnam</p>
@@ -63,15 +67,15 @@
         </div>
         <div class="collection-grid">
           <a class="collection-card collection-card-large" href="./products.html">
-            <div class="collection-image image-seating" role="img" aria-label="Living room seating"></div>
+            <div class="collection-image image-seating lazy-bg" data-bg="img/lux_story_1.webp" role="img" aria-label="Living room seating"></div>
             <div class="collection-meta"><span>01</span><h3>Living, slowly</h3><p>Seating and tables for gathering well.</p></div>
           </a>
           <a class="collection-card" href="./products.html">
-            <div class="collection-image image-lighting" role="img" aria-label="Ambient lighting"></div>
+            <div class="collection-image image-lighting lazy-bg" data-bg="img/lux_amber_wall_sconce.webp" role="img" aria-label="Ambient lighting"></div>
             <div class="collection-meta"><span>02</span><h3>After light</h3><p>Soft illumination for the hours at home.</p></div>
           </a>
           <a class="collection-card" href="./products.html">
-            <div class="collection-image image-objects" role="img" aria-label="Natural linen and ceramic home objects"></div>
+            <div class="collection-image image-objects lazy-bg" data-bg="img/lux_gallery_closeup.webp" role="img" aria-label="Natural linen and ceramic home objects"></div>
             <div class="collection-meta"><span>03</span><h3>Small rituals</h3><p>Objects with a tactile presence.</p></div>
           </a>
         </div>
@@ -85,23 +89,23 @@
         </div>
         <div class="room-grid">
           <a class="room-card room-card-wide room-living" href="./products.html?room=Living#room=Living">
-            <div class="room-card-image" role="img" aria-label="Warm living room with sofa and natural materials"></div>
+            <div class="room-card-image lazy-bg" data-bg="img/lux_hero.webp" role="img" aria-label="Warm living room with sofa and natural materials"></div>
             <div class="room-card-overlay"><span>01 · 06 objects</span><h3>Living room</h3><b aria-hidden="true">↗</b></div>
           </a>
           <a class="room-card room-card-wide room-office" href="./products.html?room=Office#room=Office">
-            <div class="room-card-image" role="img" aria-label="Warm home office with wooden desk and lamp"></div>
+            <div class="room-card-image lazy-bg" data-bg="img/lux_consulting.webp" role="img" aria-label="Warm home office with wooden desk and lamp"></div>
             <div class="room-card-overlay"><span>02 · 03 objects</span><h3>Home office</h3><b aria-hidden="true">↗</b></div>
           </a>
           <a class="room-card room-dining" href="./products.html?room=Dining#room=Dining">
-            <div class="room-card-image" role="img" aria-label="Dining room with oak table and soft light"></div>
+            <div class="room-card-image lazy-bg" data-bg="img/lux_kitchen.webp" role="img" aria-label="Dining room with oak table and soft light"></div>
             <div class="room-card-overlay"><span>03 · 03 objects</span><h3>Dining room</h3><b aria-hidden="true">↗</b></div>
           </a>
           <a class="room-card room-bedroom" href="./products.html?room=Bedroom#room=Bedroom">
-            <div class="room-card-image" role="img" aria-label="Warm bedroom with cream bed and linen texture"></div>
+            <div class="room-card-image lazy-bg" data-bg="img/lux_bedroom.webp" role="img" aria-label="Warm bedroom with cream bed and linen texture"></div>
             <div class="room-card-overlay"><span>04 · 03 objects</span><h3>Bedroom</h3><b aria-hidden="true">↗</b></div>
           </a>
           <a class="room-card room-bathroom" href="./products.html?room=Bathroom#room=Bathroom">
-            <div class="room-card-image" role="img" aria-label="Quiet bathroom with sculptural stone bathtub"></div>
+            <div class="room-card-image lazy-bg" data-bg="img/lux_bathroom.webp" role="img" aria-label="Quiet bathroom with sculptural stone bathtub"></div>
             <div class="room-card-overlay"><span>05 · 01 object</span><h3>Bathroom</h3><b aria-hidden="true">↗</b></div>
           </a>
         </div>
@@ -114,15 +118,15 @@
         </div>
         <div class="product-edit">
           <a href="./detail.html?product=1" class="feature-product feature-product-main">
-            <div class="product-image product-sofa" role="img" aria-label="Contemporary seating collection"></div>
+            <div class="product-image product-sofa lazy-bg" data-bg="img/lux_detail_lounge_wide.webp" role="img" aria-label="Contemporary seating collection"></div>
             <div class="product-copy"><span>Seating / 01</span><h3>Low Form Lounge</h3><p>Generous proportions, softened edges.</p><b>View piece <i aria-hidden="true">↗</i></b></div>
           </a>
           <a href="./detail.html?product=9" class="feature-product">
-            <div class="product-image product-mineral" role="img" aria-label="Sculptural travertine side table beside lounge seating"></div>
+            <div class="product-image product-mineral lazy-bg" data-bg="img/lux_mineral_side_table.webp" role="img" aria-label="Sculptural travertine side table beside lounge seating"></div>
             <div class="product-copy"><span>Objects / 02</span><h3>Mineral Side Table</h3><p>A sculptural anchor for everyday objects.</p><b>View piece <i aria-hidden="true">↗</i></b></div>
           </a>
           <a href="./detail.html?product=17" class="feature-product">
-            <div class="product-image product-sconce" role="img" aria-label="Amber glass wall sconce in a warm interior"></div>
+            <div class="product-image product-sconce lazy-bg" data-bg="img/lux_amber_wall_sconce.webp" role="img" aria-label="Amber glass wall sconce in a warm interior"></div>
             <div class="product-copy"><span>Lighting / 03</span><h3>Atmosphere, held</h3><p>Light that changes the pace of a room.</p><b>View piece <i aria-hidden="true">↗</i></b></div>
           </a>
         </div>
@@ -136,7 +140,7 @@
       </section>
 
       <section class="studio home-section reveal" aria-labelledby="studio-title">
-        <div class="studio-image" role="img" aria-label="LuxRoom interior consultation"></div>
+        <div class="studio-image lazy-bg" data-bg="img/lux_gallery_main.webp" role="img" aria-label="LuxRoom interior consultation"></div>
         <div class="studio-copy">
           <p class="section-marker">05 / Room notes</p>
           <h2 id="studio-title">Start with<br>how a room <em>feels.</em></h2>
@@ -148,10 +152,10 @@
       <section class="journal home-section reveal" aria-labelledby="journal-title">
         <div class="journal-title"><p class="section-marker">From the community</p><h2 id="journal-title">A home, in<br>its own <em>rhythm.</em></h2><p>Tag your space with <strong>#LuxRoomLiving</strong></p></div>
         <div class="journal-gallery" aria-label="Interiors gallery">
-          <div class="journal-image gallery-one" role="img" aria-label="Warm interior shelf"></div>
-          <div class="journal-image gallery-two" role="img" aria-label="Dining area"></div>
-          <div class="journal-image gallery-three" role="img" aria-label="Bedroom detail"></div>
-          <div class="journal-image gallery-four" role="img" aria-label="Object closeup"></div>
+          <div class="journal-image gallery-one lazy-bg" data-bg="img/lux_gallery_leaf.webp" role="img" aria-label="Warm interior shelf"></div>
+          <div class="journal-image gallery-two lazy-bg" data-bg="img/lux_story_3.webp" role="img" aria-label="Dining area"></div>
+          <div class="journal-image gallery-three lazy-bg" data-bg="img/lux_bedroom.webp" role="img" aria-label="Bedroom detail"></div>
+          <div class="journal-image gallery-four lazy-bg" data-bg="img/lux_gallery_closeup.webp" role="img" aria-label="Object closeup"></div>
         </div>
       </section>
 

@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap');
 
 /* LuxRoom home: contemporary material editorial system */
 .home-page {
@@ -64,7 +63,7 @@
   align-items: flex-end;
   padding: 160px 8vw 84px;
   color: #fff;
-  background: linear-gradient(90deg, rgba(25, 32, 26, .78) 0%, rgba(25, 32, 26, .38) 52%, rgba(25, 32, 26, .08) 100%), url("../img/luxroom_visual_reference.png") center/cover no-repeat;
+  background: linear-gradient(90deg, rgba(25, 32, 26, .78) 0%, rgba(25, 32, 26, .38) 52%, rgba(25, 32, 26, .08) 100%) center/cover no-repeat;
   overflow: hidden;
 }
 .home-hero::after { content: ""; position: absolute; right: 8vw; top: 98px; width: 1px; height: 74px; background: rgba(255,255,255,.56); }
@@ -102,11 +101,12 @@
 .collection-card { display: block; color: var(--home-ink); }
 .collection-card-large { grid-row: span 2; }
 .collection-image { min-height: 270px; background-position: center; background-size: cover; filter: saturate(.82); transition: transform .6s cubic-bezier(.2,.7,.2,1), filter .6s ease; }
+.home-page .lazy-bg { background-image: none !important; }
 .collection-card-large .collection-image { min-height: 600px; }
 .collection-card:hover .collection-image { filter: saturate(1); transform: scale(.98); }
-.image-seating { background-image: url("../img/lux_story_1.png"); }
-.image-lighting { background-image: url("../img/lux_amber_wall_sconce.jpg"); }
-.image-objects { background-image: url("../img/lux_gallery_closeup.png"); }
+.image-seating { background-image: url("../img/lux_story_1.webp"); }
+.image-lighting { background-image: url("../img/lux_amber_wall_sconce.webp"); }
+.image-objects { background-image: url("../img/lux_gallery_closeup.webp"); }
 .collection-meta { padding: 16px 0 24px; }
 .collection-meta span,
 .product-copy span { color: var(--home-clay); font-size: .65rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
@@ -122,9 +122,9 @@
 .product-image { min-height: 420px; background-position: center; background-size: cover; filter: saturate(.78); transition: filter .45s ease, transform .6s cubic-bezier(.2,.7,.2,1); }
 .feature-product-main .product-image { min-height: 590px; }
 .feature-product:hover .product-image { filter: saturate(1); transform: scale(.985); }
-.product-sofa { background-image: url("../img/lux_detail_lounge_wide.jpg"); }
-.product-mineral { background-image: url("../img/lux_mineral_side_table.jpg"); }
-.product-sconce { background-image: url("../img/lux_amber_wall_sconce.jpg"); }
+.product-sofa { background-image: url("../img/lux_detail_lounge_wide.webp"); }
+.product-mineral { background-image: url("../img/lux_mineral_side_table.webp"); }
+.product-sconce { background-image: url("../img/lux_amber_wall_sconce.webp"); }
 .product-copy { padding: 18px 0 0; }
 .product-copy h3 { margin: 10px 0 7px; font-size: 1.65rem; }
 .product-copy p { margin: 0 0 19px; color: var(--home-muted); font-size: .86rem; }
@@ -139,7 +139,7 @@
 
 /* Consultation */
 .studio { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(42px, 8vw, 140px); align-items: center; }
-.studio-image { min-height: 650px; background: url("../img/lux_gallery_main.png") center/cover no-repeat; filter: saturate(.78); }
+.studio-image { min-height: 650px; background: url("../img/lux_gallery_main.webp") center/cover no-repeat; filter: saturate(.78); }
 .studio-copy { max-width: 440px; }
 .studio-copy h2 { margin-bottom: 36px; }
 .studio-copy > p:not(.section-marker) { margin-bottom: 35px; color: var(--home-muted); font-size: 1rem; line-height: 1.8; }
@@ -152,10 +152,10 @@
 .journal-title strong { color: var(--home-clay); font-weight: 600; }
 .journal-gallery { display: grid; grid-template-columns: 1.15fr .85fr; grid-template-rows: 230px 260px; gap: 16px; }
 .journal-image { background-position: center; background-size: cover; filter: saturate(.76); }
-.gallery-one { grid-row: span 2; background-image: url("../img/lux_gallery_leaf.png"); }
-.gallery-two { background-image: url("../img/lux_story_3.png"); }
-.gallery-three { background-image: url("../img/lux_bedroom.png"); }
-.gallery-four { display: none; background-image: url("../img/lux_gallery_closeup.png"); }
+.gallery-one { grid-row: span 2; background-image: url("../img/lux_gallery_leaf.webp"); }
+.gallery-two { background-image: url("../img/lux_story_3.webp"); }
+.gallery-three { background-image: url("../img/lux_bedroom.webp"); }
+.gallery-four { display: none; background-image: url("../img/lux_gallery_closeup.webp"); }
 
 /* Signup and footer */
 .signup { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; padding-bottom: clamp(96px, 13vw, 180px); }
@@ -322,8 +322,8 @@
 
 
 /* Corrected Home image semantics and a consistent warm material grade. */
-.image-objects { background-image: url("../img/lux_story_3.png"); }
-.product-bath { background-image: url("../img/lux_gallery_main.png"); background-position: left center; }
+.image-objects { background-image: url("../img/lux_story_3.webp"); }
+.product-bath { background-image: url("../img/lux_gallery_main.webp"); background-position: left center; }
 .product-atelier { background-position: center 54%; }
 .collection-image,
 .product-image,
@@ -411,11 +411,11 @@
   transition: transform 320ms cubic-bezier(.23, 1, .32, 1), filter 320ms ease;
 }
 
-.room-living .room-card-image { background-image: url('../img/lux_hero.png'); background-position: center 58%; }
-.room-office .room-card-image { background-image: url('../img/lux_consulting.png'); background-position: center; }
-.room-dining .room-card-image { background-image: url('../img/lux_kitchen.png'); background-position: center; }
-.room-bedroom .room-card-image { background-image: url('../img/lux_bedroom.png'); background-position: center; }
-.room-bathroom .room-card-image { background-image: url('../img/lux_bathroom.png'); background-position: center; }
+.room-living .room-card-image { background-image: url('../img/lux_hero.webp'); background-position: center 58%; }
+.room-office .room-card-image { background-image: url('../img/lux_consulting.webp'); background-position: center; }
+.room-dining .room-card-image { background-image: url('../img/lux_kitchen.webp'); background-position: center; }
+.room-bedroom .room-card-image { background-image: url('../img/lux_bedroom.webp'); background-position: center; }
+.room-bathroom .room-card-image { background-image: url('../img/lux_bathroom.webp'); background-position: center; }
 
 .room-card::after {
   position: absolute;

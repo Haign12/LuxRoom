@@ -31,7 +31,7 @@ function renderCart() {
   } else {
     cartContainer.innerHTML = items.map((item) => {
       const product = productById.get(item.id);
-      const image = product?.image || "img/luxroom_visual_reference.png";
+      const image = product?.image || "img/luxroom_visual_reference.webp";
       return `<article class="cart-row" data-cart-row="${item.id}">
         <div class="cart-product">
           <div class="cart-product-image" style="background-image:url('${image}')" role="img" aria-label="${item.name}"></div>

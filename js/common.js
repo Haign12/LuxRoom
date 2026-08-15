@@ -1,21 +1,21 @@
 const products = [
-  { id: 1, name: "Miro Lounge Chair", price: 320, tone: "thumb-a", image: "img/products/miro-lounge-chair.jpg", gallery: ["img/products/miro-lounge-chair.jpg", "img/lux_detail_lounge_wide.jpg", "img/lux_detail_lounge_closeup.jpg"], category: "Seating", room: "Living", materialGroup: "Textile", colors: ["Olive green"], materials: ["Textile"] },
-  { id: 2, name: "Rilo Oak Bed", price: 680, tone: "thumb-b", image: "img/products/rilo-oak-bed.jpg", category: "Seating", room: "Bedroom", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
-  { id: 3, name: "Arca Dining Table", price: 900, tone: "thumb-c", image: "img/products/arca-dining-table.jpg", category: "Tables", room: "Dining", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
-  { id: 4, name: "Noma Stone Bath", price: 230, tone: "thumb-d", image: "img/products/noma-stone-bath.jpg", category: "Light & form", room: "Bathroom", materialGroup: "Stone", colors: ["Cream"], materials: ["Stone"] },
-  { id: 5, name: "Silo Writing Desk", price: 210, tone: "thumb-e", image: "img/products/silo-writing-desk.jpg", category: "Tables", room: "Office", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
-  { id: 6, name: "Raku Lounge Chair", price: 430, tone: "thumb-f", image: "img/products/raku-lounge-chair.jpg", category: "Seating", room: "Living", materialGroup: "Textile", colors: ["Terracotta"], materials: ["Textile"] },
-  { id: 7, name: "Haven Wool Rug", price: 700, tone: "thumb-g", image: "img/products/haven-wool-rug.jpg", category: "Textiles", room: "Living", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
-  { id: 8, name: "Ona Modular Sofa", price: 180, tone: "thumb-h", image: "img/products/ona-modular-sofa.jpg", category: "Seating", room: "Living", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
-  { id: 9, name: "Koto Side Table", price: 460, tone: "thumb-i", image: "img/products/koto-side-table.jpg", category: "Tables", room: "Living", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
-  { id: 10, name: "Ora Pedestal Table", price: 240, tone: "thumb-j", image: "img/products/ora-pedestal-table.jpg", category: "Tables", room: "Dining", materialGroup: "Stoneware", colors: ["Cream"], materials: ["Stoneware"] },
-  { id: 11, name: "Audo Dining Chair", price: 210, tone: "thumb-k", image: "img/lux_story_2.png", category: "Seating", room: "Dining", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
-  { id: 12, name: "Dune Loveseat", price: 280, tone: "thumb-l", image: "img/lux_gallery_main.png", category: "Seating", room: "Living", materialGroup: "Textile", colors: ["Olive green"], materials: ["Textile"] },
-  { id: 13, name: "Moss Table Lamp", price: 160, tone: "thumb-m", image: "img/products-new/olive-desk-lamp.jpg", category: "Light & form", room: "Office", materialGroup: "Stoneware", colors: ["Olive green"], materials: ["Stoneware"] },
-  { id: 14, name: "Halo Wall Light", price: 120, tone: "thumb-n", image: "img/products-new/amber-wall-sconce.jpg", category: "Light & form", room: "Bedroom", materialGroup: "Stoneware", colors: ["Terracotta"], materials: ["Stoneware"] },
-  { id: 15, name: "Softline Linen Throw", price: 95, tone: "thumb-o", image: "img/products-new/linen-throw.jpg", category: "Textiles", room: "Bedroom", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
-  { id: 16, name: "Mori Keepsake Box", price: 145, tone: "thumb-p", image: "img/products-new/oak-keepsake-box.jpg", category: "Light & form", room: "Office", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
-  { id: 17, name: "Luma Amber Sconce", price: 190, tone: "thumb-q", image: "img/lux_luma_sconce_front.jpg", gallery: ["img/lux_luma_sconce_front.jpg", "img/lux_luma_sconce_side.jpg", "img/lux_luma_sconce_detail.jpg"], category: "Light & form", room: "Living", materialGroup: "Stoneware", colors: ["Terracotta"], materials: ["Stoneware"] },
+  { id: 1, name: "Miro Lounge Chair", price: 320, tone: "thumb-a", image: "img/products/miro-lounge-chair.webp", gallery: ["img/products/miro-lounge-chair.webp", "img/lux_detail_lounge_wide.webp", "img/lux_detail_lounge_closeup.webp"], category: "Seating", room: "Living", materialGroup: "Textile", colors: ["Olive green"], materials: ["Textile"] },
+  { id: 2, name: "Rilo Oak Bed", price: 680, tone: "thumb-b", image: "img/products/rilo-oak-bed.webp", category: "Seating", room: "Bedroom", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
+  { id: 3, name: "Arca Dining Table", price: 900, tone: "thumb-c", image: "img/products/arca-dining-table.webp", category: "Tables", room: "Dining", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
+  { id: 4, name: "Noma Stone Bath", price: 230, tone: "thumb-d", image: "img/products/noma-stone-bath.webp", category: "Light & form", room: "Bathroom", materialGroup: "Stone", colors: ["Cream"], materials: ["Stone"] },
+  { id: 5, name: "Silo Writing Desk", price: 210, tone: "thumb-e", image: "img/products/silo-writing-desk.webp", category: "Tables", room: "Office", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
+  { id: 6, name: "Raku Lounge Chair", price: 430, tone: "thumb-f", image: "img/products/raku-lounge-chair.webp", category: "Seating", room: "Living", materialGroup: "Textile", colors: ["Terracotta"], materials: ["Textile"] },
+  { id: 7, name: "Haven Wool Rug", price: 700, tone: "thumb-g", image: "img/products/haven-wool-rug.webp", category: "Textiles", room: "Living", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
+  { id: 8, name: "Ona Modular Sofa", price: 180, tone: "thumb-h", image: "img/products/ona-modular-sofa.webp", category: "Seating", room: "Living", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
+  { id: 9, name: "Koto Side Table", price: 460, tone: "thumb-i", image: "img/products/koto-side-table.webp", category: "Tables", room: "Living", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
+  { id: 10, name: "Ora Pedestal Table", price: 240, tone: "thumb-j", image: "img/products/ora-pedestal-table.webp", category: "Tables", room: "Dining", materialGroup: "Stoneware", colors: ["Cream"], materials: ["Stoneware"] },
+  { id: 11, name: "Audo Dining Chair", price: 210, tone: "thumb-k", image: "img/lux_story_2.webp", category: "Seating", room: "Dining", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
+  { id: 12, name: "Dune Loveseat", price: 280, tone: "thumb-l", image: "img/lux_gallery_main.webp", category: "Seating", room: "Living", materialGroup: "Textile", colors: ["Olive green"], materials: ["Textile"] },
+  { id: 13, name: "Moss Table Lamp", price: 160, tone: "thumb-m", image: "img/products-new/olive-desk-lamp.webp", category: "Light & form", room: "Office", materialGroup: "Stoneware", colors: ["Olive green"], materials: ["Stoneware"] },
+  { id: 14, name: "Halo Wall Light", price: 120, tone: "thumb-n", image: "img/products-new/amber-wall-sconce.webp", category: "Light & form", room: "Bedroom", materialGroup: "Stoneware", colors: ["Terracotta"], materials: ["Stoneware"] },
+  { id: 15, name: "Softline Linen Throw", price: 95, tone: "thumb-o", image: "img/products-new/linen-throw.webp", category: "Textiles", room: "Bedroom", materialGroup: "Textile", colors: ["Cream"], materials: ["Textile"] },
+  { id: 16, name: "Mori Keepsake Box", price: 145, tone: "thumb-p", image: "img/products-new/oak-keepsake-box.webp", category: "Light & form", room: "Office", materialGroup: "Oak & ash", colors: ["Natural oak"], materials: ["Oak & ash"] },
+  { id: 17, name: "Luma Amber Sconce", price: 190, tone: "thumb-q", image: "img/lux_luma_sconce_front.webp", gallery: ["img/lux_luma_sconce_front.webp", "img/lux_luma_sconce_side.webp", "img/lux_luma_sconce_detail.webp"], category: "Light & form", room: "Living", materialGroup: "Stoneware", colors: ["Terracotta"], materials: ["Stoneware"] },
 ];
 
 function injectExperienceStylesheets() {
@@ -34,6 +34,36 @@ function injectExperienceStylesheets() {
 }
 
 injectExperienceStylesheets();
+
+function initLazyBackgrounds() {
+  const nodes = Array.from(document.querySelectorAll('[data-bg]'));
+  if (!nodes.length) return;
+
+  const load = (node) => {
+    const source = node.dataset.bg;
+    if (!source || node.dataset.bgLoaded === 'true') return;
+    node.style.backgroundImage = `url("${source}")`;
+    node.dataset.bgLoaded = 'true';
+    node.classList.remove('lazy-bg');
+  };
+
+  if (!('IntersectionObserver' in window)) {
+    nodes.forEach(load);
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, currentObserver) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      load(entry.target);
+      currentObserver.unobserve(entry.target);
+    });
+  }, { rootMargin: '240px 0px' });
+
+  nodes.forEach((node) => observer.observe(node));
+}
+
+initLazyBackgrounds();
 
 function standardizeHeaderIcons() {
   document.querySelectorAll(".topbar-actions").forEach((actions) => {
@@ -218,7 +248,7 @@ function initMiniCartPreview() {
     }
     popover.innerHTML = `<p class="mini-cart-eyebrow">Your selection · ${getCartItemCount()} ${getCartItemCount() === 1 ? "object" : "objects"}</p><div class="mini-cart-items">${items.map((item) => {
       const product = productById.get(item.id);
-      return `<div class="mini-cart-item"><span class="mini-cart-item-image" style="background-image:url('${product?.image || "img/luxroom_visual_reference.png"}')" aria-hidden="true"></span><span class="mini-cart-item-copy"><strong>${item.name}</strong><small>${item.quantity} × $${Number(item.price).toFixed(0)}</small></span></div>`;
+      return `<div class="mini-cart-item"><span class="mini-cart-item-image" style="background-image:url('${product?.image || "img/luxroom_visual_reference.webp"}')" aria-hidden="true"></span><span class="mini-cart-item-copy"><strong>${item.name}</strong><small>${item.quantity} × $${Number(item.price).toFixed(0)}</small></span></div>`;
     }).join("")}</div><div class="mini-cart-total"><span>Subtotal</span><strong>$${total.toFixed(0)}</strong></div><a class="mini-cart-link" href="cart.html">View cart <span aria-hidden="true">↗</span></a>`;
   };
 
