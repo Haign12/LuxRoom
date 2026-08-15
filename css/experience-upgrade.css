@@ -898,3 +898,119 @@ body.lux-page-leaving > footer {
     animation: none !important;
   }
 }
+
+
+/* Quiet tactile motion layer: text arrives softly while image surfaces drift like light across material. */
+@keyframes luxroom-soft-reveal {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes luxroom-material-drift {
+  from { opacity: .72; transform: translate3d(0, 12px, 0) scale(1.018); }
+  to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes luxroom-statement-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+.lux-motion-ready .home-hero.is-visible .hero-copy > *,
+.lux-motion-ready .collection-hero.is-visible > *,
+.lux-motion-ready .story-hero.is-visible > *,
+.lux-motion-ready .auth-essay.is-visible > *,
+.lux-motion-ready .checkout-intro.is-visible > * {
+  animation: luxroom-soft-reveal 680ms var(--motion-ease) both;
+}
+
+.lux-motion-ready .home-hero.is-visible .hero-copy h1,
+.lux-motion-ready .collection-hero.is-visible h1,
+.lux-motion-ready .story-hero.is-visible h1,
+.lux-motion-ready .auth-essay.is-visible h1,
+.lux-motion-ready .checkout-intro.is-visible h1 {
+  animation-delay: 80ms;
+}
+
+.lux-motion-ready .home-hero.is-visible .hero-copy > :nth-child(3),
+.lux-motion-ready .collection-hero.is-visible > :nth-child(2),
+.lux-motion-ready .story-hero.is-visible > :nth-child(2) {
+  animation-delay: 180ms;
+}
+
+.lux-motion-ready .home-hero.is-visible .hero-copy > :last-child,
+.lux-motion-ready .collection-hero.is-visible > :last-child,
+.lux-motion-ready .story-hero.is-visible > :last-child {
+  animation-delay: 270ms;
+}
+
+.lux-motion-ready .home-hero.is-visible .hero-visual img,
+.lux-motion-ready .story-hero.is-visible .story-hero-image,
+.lux-motion-ready .story-image-essay.is-visible .essay-image,
+.lux-motion-ready .studio.is-visible .studio-image,
+.lux-motion-ready .material-triptych article.is-visible .material-image,
+.lux-motion-ready .d-gallery.is-visible .dg-img,
+.lux-motion-ready .product-grid-masonry .product-card.is-visible .product-thumb {
+  animation: luxroom-material-drift 900ms var(--motion-ease) both;
+  will-change: transform, opacity;
+}
+
+.lux-motion-ready .home-hero.is-visible .hero-visual img { animation-delay: 100ms; }
+.lux-motion-ready .story-hero.is-visible .story-hero-image { animation-delay: 120ms; }
+.lux-motion-ready .story-image-essay.is-visible .essay-image { animation-delay: 80ms; }
+.lux-motion-ready .studio.is-visible .studio-image { animation-delay: 100ms; }
+
+.luxroom-statement-ticker {
+  width: 100%;
+  overflow: hidden;
+  padding: 13px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.luxroom-statement-track {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: max-content;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  line-height: 1;
+  white-space: nowrap;
+  animation: luxroom-statement-marquee 42s linear infinite;
+}
+
+.luxroom-statement-track i {
+  color: var(--clay);
+  font-style: normal;
+}
+
+@media (max-width: 500px) {
+  .luxroom-statement-ticker { padding: 11px 0; }
+  .luxroom-statement-track { gap: 14px; padding-left: 14px; font-size: .54rem; letter-spacing: .12em; animation-duration: 48s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lux-motion-ready .home-hero.is-visible .hero-copy > *,
+  .lux-motion-ready .collection-hero.is-visible > *,
+  .lux-motion-ready .story-hero.is-visible > *,
+  .lux-motion-ready .auth-essay.is-visible > *,
+  .lux-motion-ready .checkout-intro.is-visible > *,
+  .lux-motion-ready .home-hero.is-visible .hero-visual img,
+  .lux-motion-ready .story-hero.is-visible .story-hero-image,
+  .lux-motion-ready .story-image-essay.is-visible .essay-image,
+  .lux-motion-ready .studio.is-visible .studio-image,
+  .lux-motion-ready .material-triptych article.is-visible .material-image,
+  .lux-motion-ready .d-gallery.is-visible .dg-img,
+  .lux-motion-ready .product-grid-masonry .product-card.is-visible .product-thumb {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    will-change: auto;
+  }
+  .luxroom-statement-track { animation: none !important; transform: none !important; }
+}
