@@ -27,4 +27,4 @@
 .story-statement-copy h2,
 .story-statement-copy p { margin-left: 0; margin-right: 0; }
 .newsletter-band .newsletter-form { align-items: center; }
-.newsletter-band .newsletter-form button { align-self: flex-start; margin-top: -4px; font-size: .76rem; line-height: 1.4; }
+.newsletter-band .newsletter-form button { align-self: flex-start; margin-top: 2px; font-size: .76rem; line-height: 1.4; }
