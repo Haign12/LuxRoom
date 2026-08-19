@@ -52,3 +52,42 @@
 .contact-details .contact-detail-block:nth-of-type(2) h3,
 .contact-details .contact-detail-block:nth-of-type(3) h3 { font-size: calc(.72rem + 2px); }
 .contact-quiet { background: #ffffff; }
+
+
+/* UI feedback 2026-08-19 #10: make required fields and consent explicit. */
+.contact-form .required-mark {
+  margin-left: .18em;
+  color: var(--clay);
+  font-weight: 600;
+}
+
+.contact-form .consent-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 22px 0 25px;
+  color: var(--muted);
+  font-size: .7rem;
+  line-height: 1.55;
+  cursor: pointer;
+}
+
+.contact-form .consent-check input {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  margin: 1px 0 0;
+  accent-color: var(--ink);
+}
+
+.contact-form .consent-check:focus-within {
+  color: var(--ink);
+}
+
+@media (max-width: 500px) {
+  .contact-form .consent-check {
+    margin-top: 20px;
+    margin-bottom: 23px;
+    font-size: .72rem;
+  }
+}

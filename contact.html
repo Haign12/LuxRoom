@@ -44,15 +44,16 @@
 <p class="eyebrow feedback-type-scale">Your note</p>
 <form class="contact-form" id="contact-form">
 <div class="form-row-2">
-<div class="form-group"><label for="first_name">First name</label><input autocomplete="given-name" id="first_name" name="first_name" required="" type="text"/></div>
-<div class="form-group"><label for="last_name">Last name</label><input autocomplete="family-name" id="last_name" name="last_name" required="" type="text"/></div>
+<div class="form-group"><label for="first_name">First name <span aria-hidden="true" class="required-mark">*</span></label><input autocomplete="given-name" id="first_name" name="first_name" required="" type="text"/></div>
+<div class="form-group"><label for="last_name">Last name <span aria-hidden="true" class="required-mark">*</span></label><input autocomplete="family-name" id="last_name" name="last_name" required="" type="text"/></div>
 </div>
 <div class="form-row-2">
-<div class="form-group"><label for="email">Email</label><input autocomplete="email" id="email" name="email" required="" type="email"/></div>
+<div class="form-group"><label for="email">Email <span aria-hidden="true" class="required-mark">*</span></label><input autocomplete="email" id="email" name="email" required="" type="email"/></div>
 <div class="form-group"><label for="phone">Phone</label><input autocomplete="tel" id="phone" name="phone" type="tel"/></div>
 </div>
 <fieldset class="subject-group"><legend>What can we help with?</legend><label><input checked="" name="subject" type="radio" value="product"/> Object enquiry</label><label><input name="subject" type="radio" value="room"/> Room consultation</label><label><input name="subject" type="radio" value="delivery"/> Delivery question</label></fieldset>
-<div class="form-group"><label for="message">Your room</label><textarea id="message" name="message" placeholder="Share a little about the room, its light, or what you are looking for." required="" rows="5"></textarea></div>
+<div class="form-group"><label for="message">Your room <span aria-hidden="true" class="required-mark">*</span></label><textarea id="message" name="message" placeholder="Share a little about the room, its light, or what you are looking for." required="" rows="5"></textarea></div>
+<label class="consent-check"><input name="contact_consent" required="" type="checkbox"/><span>I agree to the LuxRoom contact terms and consent to being contacted about this request. <span aria-hidden="true" class="required-mark">*</span></span></label>
 <button class="primary-button" type="submit">Send your note <span aria-hidden="true">↗</span></button>
 </form>
 </div>

@@ -40,3 +40,11 @@
 @media (max-width: 500px) {
   .newsletter-band .newsletter-form button { padding: 15px 0 10px; }
 }
+
+
+/* UI feedback 2026-08-19 #9: match the about hero title to the shared page-title scale. */
+.story-hero h1 { font-size: clamp(3.8rem, 8vw, 7rem); }
+
+@media (max-width: 500px) {
+  .story-hero h1 { font-size: 3.8rem; }
+}
