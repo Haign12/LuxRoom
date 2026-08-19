@@ -69,5 +69,6 @@
     document.querySelectorAll('.page-back-shell, .contact-image, .contact-visual, .contact-hero-image, .contact-media, .contact-photo, .contact-side-image').forEach((element) => element.remove());
   </script>
   <script>document.getElementById('contact-form').addEventListener('submit', (event) => { event.preventDefault(); window.LuxRoom.showToast('Thank you — your note is ready for the LuxRoom team.'); event.currentTarget.reset(); });</script>
-</body>
+    <script type="module" src="js/ui-feedback-init.js?v=ui-feedback-v0.4.1"></script>
+  </body>
 </html>
