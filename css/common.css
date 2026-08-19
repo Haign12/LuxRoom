@@ -356,3 +356,9 @@ h1, h2, h3 { line-height: .95; }
     will-change: auto;
   }
 }
+
+
+/* UI feedback 2026-08-19: canonical header wordmark across routes. */
+.topbar .brand { gap: 0; }
+.topbar .brand .luxroom-wordmark { color: var(--ink); font-family: var(--font-display); font-style: normal; font-weight: 500; letter-spacing: -.055em; }
+.topbar .brand .luxroom-wordmark > span { color: var(--clay); font-style: italic; }

@@ -157,3 +157,17 @@
 .di-header { gap: 20px; }
 .di-title { line-height: .94; }
 .di-kicker { margin-bottom: 20px; }
+
+
+/* UI feedback 2026-08-19 #1: the center gallery image is the visual anchor. */
+.d-gallery { grid-template-columns: minmax(0, .82fr) minmax(0, 1.36fr) minmax(0, .82fr); align-items: stretch; }
+.d-gallery .dg-img { min-height: clamp(360px, 42vw, 620px); }
+.d-gallery .dg-img:nth-child(2) { min-height: clamp(470px, 54vw, 760px); }
+
+@media (max-width: 700px) {
+  .d-gallery { grid-template-columns: 1fr 1fr; grid-template-areas: "center center" "left right"; }
+  .d-gallery .dg-img { min-height: 250px; }
+  .d-gallery .dg-img:nth-child(1) { grid-area: left; }
+  .d-gallery .dg-img:nth-child(2) { grid-area: center; min-height: 390px; }
+  .d-gallery .dg-img:nth-child(3) { grid-area: right; }
+}

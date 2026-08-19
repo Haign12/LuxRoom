@@ -46,3 +46,9 @@
 .contact-form-container .feedback-type-scale { font-size: .78rem; }
 .contact-details .feedback-nowrap { white-space: nowrap; }
 .footer h3 { font-size: .76rem; }
+
+
+/* UI feedback 2026-08-19 #4–#6: strengthen contact detail hierarchy and keep the quiet band white. */
+.contact-details .contact-detail-block:nth-of-type(2) h3,
+.contact-details .contact-detail-block:nth-of-type(3) h3 { font-size: calc(.72rem + 2px); }
+.contact-quiet { background: #ffffff; }

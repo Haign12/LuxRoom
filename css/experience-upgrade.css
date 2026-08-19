@@ -1014,3 +1014,11 @@ body.lux-page-leaving > footer {
   }
   .luxroom-statement-track { animation: none !important; transform: none !important; }
 }
+
+
+/* UI feedback 2026-08-19 #8: center the statement strip instead of auto-scrolling it. */
+.luxroom-statement-track { width: 100%; justify-content: center; padding-left: 0; animation: none; transform: none; }
+
+@media (max-width: 500px) {
+  .luxroom-statement-track { gap: 14px; padding-left: 0; }
+}
