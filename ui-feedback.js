@@ -15,7 +15,10 @@ button { cursor: pointer; }
 .ui-feedback-toolbar { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 2147483000; display: flex; flex-direction: column; gap: 12px; align-items: center; }
 .ui-feedback-tool { width: 54px; height: 54px; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; display: grid; place-items: center; color: #fff; background: #121212; box-shadow: 0 10px 26px rgba(0,0,0,.18); transition: transform .18s ease, background .18s ease, box-shadow .18s ease; position: relative; }
 .ui-feedback-tool:hover, .ui-feedback-tool:focus-visible { transform: translateY(-2px); background: #282828; box-shadow: 0 14px 28px rgba(0,0,0,.24); outline: 3px solid color-mix(in srgb, var(--ui-feedback-accent), transparent 65%); outline-offset: 2px; }
-.ui-feedback-tool.is-active { background: var(--ui-feedback-accent); color: #141414; }
+  .ui-feedback-tool.is-active { background: var(--ui-feedback-accent); color: #141414; }
+  .ui-feedback-launcher { width: 54px; height: 54px; }
+  .ui-feedback-launcher-label { position: absolute; right: 7px; bottom: 6px; font-size: 8px; line-height: 1; font-weight: 800; letter-spacing: .08em; }
+
 .ui-feedback-tool svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .ui-feedback-badge { position: absolute; top: -5px; right: -5px; min-width: 21px; height: 21px; padding: 0 5px; display: grid; place-items: center; border-radius: 99px; color: #fff; background: #d11b51; font-size: 11px; font-weight: 800; border: 2px solid #fff; }
 .ui-feedback-panel { position: fixed; right: 88px; top: 50%; transform: translateY(-50%); width: min(390px, calc(100vw - 112px)); max-height: min(640px, calc(100vh - 32px)); overflow: hidden; z-index: 2147482999; border: 1px solid #dedede; border-radius: 14px; background: #fff; box-shadow: 0 22px 60px rgba(0,0,0,.22); }
@@ -60,7 +63,8 @@ button { cursor: pointer; }
 .ui-feedback-button--primary { border-color: var(--ui-feedback-accent); background: var(--ui-feedback-accent); }
 .ui-feedback-button--primary:hover { filter: brightness(.95); }
 .ui-feedback-toast { position: fixed; right: 22px; bottom: 20px; z-index: 2147483020; padding: 11px 15px; border-radius: 8px; color: #fff; background: #151515; box-shadow: 0 10px 25px rgba(0,0,0,.2); font-size: 12px; }
-.ui-feedback-picking, .ui-feedback-picking * { cursor: crosshair !important; }
+  .ui-feedback-picking, .ui-feedback-picking * { cursor: crosshair !important; }
+  .ui-feedback-picker-layer { position: fixed; inset: 0; z-index: 2147482990; background: transparent; cursor: crosshair; }
 @media (max-width: 640px) {
   .ui-feedback-toolbar { right: 12px; gap: 9px; }
   .ui-feedback-tool { width: 48px; height: 48px; }
@@ -167,10 +171,11 @@ export function createUIFeedback(options = {}) {
 
   function renderToolbar() {
     if (!state.active) {
+      // Hidden by default: QWE is the only activation entry point.
       root.innerHTML = '';
       return;
     }
-    root.innerHTML = `<div class="ui-feedback-toolbar" role="toolbar" aria-label="UI Feedback tools">
+    root.innerHTML = `${state.picking ? '<div class="ui-feedback-picker-layer" data-picker-layer aria-hidden="true"></div>' : ''}<div class="ui-feedback-toolbar" role="toolbar" aria-label="UI Feedback tools">
       <button class="ui-feedback-tool ${state.panelOpen ? 'is-active' : ''}" data-action="list" aria-label="Mở danh sách feedback" title="Danh sách feedback">${ICONS.clipboard}<span class="ui-feedback-badge" ${state.comments.length ? '' : 'hidden'}>${state.comments.length}</span></button>
       <button class="ui-feedback-tool ${state.picking && state.mode === 'comment' ? 'is-active' : ''}" data-action="comment" aria-label="Thêm comment" title="Thêm comment">${ICONS.comment}</button>
       <button class="ui-feedback-tool ${state.picking && state.mode === 'edit' ? 'is-active' : ''}" data-action="edit" aria-label="Sửa nội dung UI" title="Sửa nội dung UI">${ICONS.pencil}</button>
@@ -183,16 +188,31 @@ export function createUIFeedback(options = {}) {
     if (state.modalOpen) renderModal();
   }
 
-  function bindToolbar() {
-    root.querySelectorAll('[data-action]').forEach((button) => {
-      button.addEventListener('click', () => {
-        const action = button.dataset.action;
-        if (action === 'list') togglePanel();
-        if (action === 'comment') beginPicking('comment');
-        if (action === 'edit') beginPicking('edit');
-      });
-    });
+  let lastToolbarAction = '';
+  let lastToolbarActionAt = 0;
+
+  function dispatchToolbarAction(action) {
+    if (action === 'activate') toggle();
+    if (action === 'list') togglePanel();
+    if (action === 'comment') beginPicking('comment');
+    if (action === 'edit') beginPicking('edit');
   }
+
+  function handleToolbarEvent(event) {
+    const button = event.composedPath().find((node) => node instanceof HTMLButtonElement && node.dataset?.action);
+    if (!button) return;
+    const action = button.dataset.action;
+    const now = performance.now();
+    if (event.type === 'click' && action === lastToolbarAction && now - lastToolbarActionAt < 500) return;
+    lastToolbarAction = action;
+    lastToolbarActionAt = now;
+    event.preventDefault();
+    event.stopPropagation();
+    dispatchToolbarAction(action);
+  }
+
+  function bindToolbar() {}
+
 
   function togglePanel(force) {
     state.panelOpen = typeof force === 'boolean' ? force : !state.panelOpen;
@@ -388,9 +408,15 @@ export function createUIFeedback(options = {}) {
     showToast(state.active ? 'UI Feedback đã bật' : 'UI Feedback đã tắt');
   }
 
+  function normalizeShortcutKey(event) {
+    const fromCode = typeof event.code === 'string' && event.code.startsWith('Key') ? event.code.slice(3) : '';
+    return (fromCode || event.key || '').toLowerCase();
+  }
+
   function keydown(event) {
-    if (isEditable(event.target)) return;
-    const key = event.key.toLowerCase();
+    // Shortcut is intentionally global so reviewers can activate the tool even
+    // when the page focus is inside a search or form field.
+    const key = normalizeShortcutKey(event);
     if (!config.shortcut.includes(key)) return;
     pressed.add(key);
     if (!event.repeat) {
@@ -405,19 +431,49 @@ export function createUIFeedback(options = {}) {
         toggle();
       } else {
         clearTimeout(shortcutTimer);
-        shortcutTimer = setTimeout(() => { recentShortcutKeys.length = 0; }, 700);
+        shortcutTimer = setTimeout(() => { recentShortcutKeys.length = 0; }, 1500);
       }
     }
   }
 
   function keyup(event) {
-    pressed.delete(event.key.toLowerCase());
+    pressed.delete(normalizeShortcutKey(event));
+  }
+
+  function elementAtPoint(clientX, clientY) {
+    const picker = root.querySelector('[data-picker-layer]');
+    if (picker) picker.style.display = 'none';
+    const element = document.elementFromPoint(clientX, clientY);
+    if (picker) picker.style.display = '';
+    if (!(element instanceof Element) || element === document.documentElement || element === document.body || element.closest('#ui-feedback-host')) return null;
+    return element;
   }
 
   function pointerMove(event) {
-    if (!state.picking || event.composedPath().includes(host)) return;
-    const element = event.target instanceof Element ? event.target : null;
-    if (element && element !== document.documentElement && element !== document.body) highlight(element);
+    if (!state.picking) return;
+    const element = elementAtPoint(event.clientX, event.clientY);
+    if (element) highlight(element);
+  }
+
+  let pickerHandledAt = 0;
+  function handlePickerPointerDown(event) {
+    if (!state.picking || event.target !== root.querySelector('[data-picker-layer]')) return;
+    const element = elementAtPoint(event.clientX, event.clientY);
+    if (!element) return;
+    event.preventDefault();
+    event.stopPropagation();
+    pickerHandledAt = performance.now();
+    openModal(element, state.mode);
+  }
+
+  function handlePickerClick(event) {
+    if (!state.picking || event.target !== root.querySelector('[data-picker-layer]')) return;
+    if (performance.now() - pickerHandledAt < 600) return;
+    const element = elementAtPoint(event.clientX, event.clientY);
+    if (!element) return;
+    event.preventDefault();
+    event.stopPropagation();
+    openModal(element, state.mode);
   }
 
   function pointerClick(event) {
@@ -431,21 +487,34 @@ export function createUIFeedback(options = {}) {
 
   function dispose() {
     stopPicking();
-    window.removeEventListener('keydown', keydown, true);
-    window.removeEventListener('keyup', keyup, true);
+    document.removeEventListener('keydown', keydown, true);
+    document.removeEventListener('keyup', keyup, true);
     window.removeEventListener('blur', () => pressed.clear());
     document.removeEventListener('pointermove', pointerMove, true);
+    document.removeEventListener('pointerdown', pointerClick, true);
     document.removeEventListener('click', pointerClick, true);
+    root.removeEventListener('pointerdown', handleToolbarEvent, true);
+    root.removeEventListener('click', handleToolbarEvent, true);
+    root.removeEventListener('pointermove', pointerMove, true);
+    root.removeEventListener('pointerdown', handlePickerPointerDown, true);
+    root.removeEventListener('click', handlePickerClick, true);
     host.remove();
     delete window.__uiFeedbackInstance;
   }
 
-  window.addEventListener('keydown', keydown, true);
-  window.addEventListener('keyup', keyup, true);
+  document.addEventListener('keydown', keydown, true);
+  document.addEventListener('keyup', keyup, true);
   window.addEventListener('blur', () => pressed.clear());
   document.addEventListener('pointermove', pointerMove, true);
+  document.addEventListener('pointerdown', pointerClick, true);
   document.addEventListener('click', pointerClick, true);
+  root.addEventListener('pointerdown', handleToolbarEvent, true);
+  root.addEventListener('click', handleToolbarEvent, true);
+  root.addEventListener('pointermove', pointerMove, true);
+  root.addEventListener('pointerdown', handlePickerPointerDown, true);
+  root.addEventListener('click', handlePickerClick, true);
   window.__uiFeedbackInstance = { toggle, exportMarkdown, getComments: () => [...state.comments], dispose };
+  renderToolbar();
   return window.__uiFeedbackInstance;
 }
 
