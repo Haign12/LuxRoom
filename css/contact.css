@@ -41,3 +41,8 @@
   .form-row-2, .subject-group { grid-template-columns: 1fr; }
   .contact-quiet { padding: 70px 0; }
 }
+
+/* Feedback refinements: clearer contact hierarchy and no forced heading wrap. */
+.contact-form-container .feedback-type-scale { font-size: .78rem; }
+.contact-details .feedback-nowrap { white-space: nowrap; }
+.footer h3 { font-size: .76rem; }

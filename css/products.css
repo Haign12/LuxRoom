@@ -878,3 +878,12 @@
     padding-top: 28px;
   }
 }
+
+/* Feedback refinement: make the empty active-filter chip easier to read. */
+.active-filters .feedback-type-scale { font-size: .76rem; }
+
+/* Feedback refinement: make the empty active-filter chip easier to read. */
+.active-filters .feedback-type-scale { font-size: .76rem; }
+
+/* Feedback refinement: make the empty active-filter chip easier to read. */
+.active-filters .feedback-type-scale { font-size: .76rem; }

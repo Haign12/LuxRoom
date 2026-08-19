@@ -1,74 +1,71 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact LuxRoom to begin a room consultation or object enquiry." />
-  <title>LuxRoom | Begin a room</title>
-  <link rel="stylesheet" href="css/design-system.css" />
-  <link rel="stylesheet" href="css/common.css" />
-  <link rel="stylesheet" href="css/contact.css" />
-  <link rel="stylesheet" href="css/contact-hotfix.css?v=ux-20260813-4" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Contact LuxRoom to begin a room consultation or object enquiry." name="description"/>
+<title>LuxRoom | Begin a room</title>
+<link href="css/design-system.css" rel="stylesheet"/>
+<link href="css/common.css" rel="stylesheet"/>
+<link href="css/contact.css" rel="stylesheet"/>
+<link href="css/contact-hotfix.css?v=ux-20260813-4" rel="stylesheet"/>
 </head>
 <body class="contact-page">
-  <header class="topbar" aria-label="Primary navigation">
-    <a class="brand" href="index.html" aria-label="LuxRoom home"><img class="luxroom-logo-mark" src="img/logo/luxroom-mark.svg" alt="" width="28" height="28"><span class="luxroom-wordmark">Lux<span>Room</span></span></a>
-    <nav class="main-nav" aria-label="Main menu">
-      <a href="index.html">Home</a>
-      <a href="products.html">Collection</a>
-      <a href="about.html">Our story</a>
-      <a class="active" href="contact.html">Contact</a>
-    </nav>
-    <div class="topbar-actions" aria-label="Quick actions">
-      <button class="icon-button nav-icon" aria-label="Search" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.2"></circle><path d="m16 16 4.2 4.2"></path></svg></button>
-      <a class="icon-button nav-icon" href="cart.html" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 5h2l1.6 9.2h9.5l1.6-6.7H7.1"></path><circle cx="9.1" cy="18.3" r="1"></circle><circle cx="16.4" cy="18.3" r="1"></circle></svg><span class="cart-badge" data-cart-count style="display:none">0</span></a>
-      <a class="icon-button nav-icon" href="wishlist.html" aria-label="Wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 8.6c0 5-8.8 10.2-8.8 10.2S3.2 13.6 3.2 8.6A4.6 4.6 0 0 1 12 6.7a4.6 4.6 0 0 1 8.8 1.9Z"></path></svg><span class="cart-badge" data-wishlist-count style="display:none">0</span></a>
-      <a class="icon-button nav-icon" href="auth.html" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.2"></circle><path d="M5.4 20c.8-3.3 3.1-5 6.6-5s5.8 1.7 6.6 5"></path></svg></a>
-    </div>
-  </header>
-
-  <main class="site-shell contact-main">
-    <section class="contact-intro">
-      <p class="eyebrow">Begin a conversation</p>
-      <h1>Tell us about<br />the <em>room.</em></h1>
-      <p>For a single object, a growing collection or a complete new rhythm at home, we are here to listen first.</p>
-    </section>
-
-    <section class="contact-grid" aria-label="Contact LuxRoom">
-      <aside class="contact-details">
-        <p class="eyebrow">Visit / write / call</p>
-        <div class="contact-detail-block"><h2>LuxRoom<br />Studio</h2><p>Ho Chi Minh City<br />By appointment</p></div>
-        <div class="contact-detail-block"><h3>Studio hours</h3><p>Tuesday–Saturday<br />10:00–18:00</p></div>
-        <div class="contact-detail-block"><h3>Contact</h3><p><a href="mailto:hello@luxroom.com">hello@luxroom.com</a><br /><a href="tel:+84798876074">+84 798 876 074</a></p></div>
-      </aside>
-
-      <div class="contact-form-container">
-        <p class="eyebrow">Your note</p>
-        <form class="contact-form" id="contact-form">
-          <div class="form-row-2">
-            <div class="form-group"><label for="first_name">First name</label><input id="first_name" name="first_name" type="text" autocomplete="given-name" required /></div>
-            <div class="form-group"><label for="last_name">Last name</label><input id="last_name" name="last_name" type="text" autocomplete="family-name" required /></div>
-          </div>
-          <div class="form-row-2">
-            <div class="form-group"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required /></div>
-            <div class="form-group"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" /></div>
-          </div>
-          <fieldset class="subject-group"><legend>What can we help with?</legend><label><input type="radio" name="subject" value="product" checked /> Object enquiry</label><label><input type="radio" name="subject" value="room" /> Room consultation</label><label><input type="radio" name="subject" value="delivery" /> Delivery question</label></fieldset>
-          <div class="form-group"><label for="message">Your room</label><textarea id="message" name="message" rows="5" required placeholder="Share a little about the room, its light, or what you are looking for."></textarea></div>
-          <button type="submit" class="primary-button">Send your note <span aria-hidden="true">↗</span></button>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <section class="contact-quiet"><div class="site-shell"><p class="eyebrow">No rush</p><h2>A considered answer<br />takes a little time.</h2><p>We respond within two working days, and can arrange an appointment when a conversation needs more room.</p></div></section>
-  <footer class="site-shell footer"><div><a class="footer-brand" href="index.html"><img class="luxroom-footer-mark" src="img/logo/luxroom-mark.svg" alt="" width="24" height="24"><span>LuxRoom</span></a><p>Contemporary furniture for considered living.</p></div><div><h3>Explore</h3><p><a href="products.html">Collection</a></p><p><a href="about.html">Our story</a></p></div><div><h3>Visit</h3><p>Ho Chi Minh City</p><p>By appointment</p></div><div><h3>Contact</h3><p><a href="contact.html">Start a conversation</a></p><p>hello@luxroom.com</p></div></footer>
-  <div class="search-overlay" id="global-search-overlay" aria-hidden="true"><div class="search-modal" role="dialog" aria-modal="true" aria-label="Search LuxRoom"><div class="search-input-wrapper"><input id="global-search-input" type="search" placeholder="Search the collection" /><button id="close-search" class="icon-button" type="button" aria-label="Close search">×</button></div></div></div>
-  <script src="js/common.js?v=ux-20260813-10"></script>
-  <script>
+<header aria-label="Primary navigation" class="topbar">
+<a aria-label="LuxRoom home" class="brand" href="index.html"><img alt="" class="luxroom-logo-mark" height="28" src="img/logo/luxroom-mark.svg" width="28"/><span class="luxroom-wordmark">Lux<span>Room</span></span></a>
+<nav aria-label="Main menu" class="main-nav">
+<a href="index.html">Home</a>
+<a href="products.html">Collection</a>
+<a href="about.html">Our story</a>
+<a class="active" href="contact.html">Contact</a>
+</nav>
+<div aria-label="Quick actions" class="topbar-actions">
+<button aria-label="Search" class="icon-button nav-icon" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24"><circle cx="11" cy="11" r="6.2"></circle><path d="m16 16 4.2 4.2"></path></svg></button>
+<a aria-label="Cart" class="icon-button nav-icon" href="cart.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24"><path d="M3.5 5h2l1.6 9.2h9.5l1.6-6.7H7.1"></path><circle cx="9.1" cy="18.3" r="1"></circle><circle cx="16.4" cy="18.3" r="1"></circle></svg><span class="cart-badge" data-cart-count="" style="display:none">0</span></a>
+<a aria-label="Wishlist" class="icon-button nav-icon" href="wishlist.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24"><path d="M20.8 8.6c0 5-8.8 10.2-8.8 10.2S3.2 13.6 3.2 8.6A4.6 4.6 0 0 1 12 6.7a4.6 4.6 0 0 1 8.8 1.9Z"></path></svg><span class="cart-badge" data-wishlist-count="" style="display:none">0</span></a>
+<a aria-label="Account" class="icon-button nav-icon" href="auth.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24"><circle cx="12" cy="8" r="3.2"></circle><path d="M5.4 20c.8-3.3 3.1-5 6.6-5s5.8 1.7 6.6 5"></path></svg></a>
+</div>
+</header>
+<main class="site-shell contact-main">
+<section class="contact-intro">
+<p class="eyebrow">Begin a conversation</p>
+<h1>Tell us about<br/>the <em>room.</em></h1>
+<p>For a single object, a growing collection or a complete new rhythm at home, we are here to listen first.</p>
+</section>
+<section aria-label="Contact LuxRoom" class="contact-grid">
+<aside class="contact-details">
+<p class="eyebrow">Visit / write / call</p>
+<div class="contact-detail-block"><h2 class="feedback-nowrap">LuxRoom<br/>Studio</h2><p>Ho Chi Minh City</p></div>
+<div class="contact-detail-block"><h3>Studio hours</h3><p>Tuesday–Saturday<br/>10:00–18:00</p></div>
+<div class="contact-detail-block"><h3>Contact</h3><p><a href="mailto:hello@luxroom.com">hello@luxroom.com</a><br/><a href="tel:+84798876074">+84 798 876 074</a></p></div>
+</aside>
+<div class="contact-form-container">
+<p class="eyebrow feedback-type-scale">Your note</p>
+<form class="contact-form" id="contact-form">
+<div class="form-row-2">
+<div class="form-group"><label for="first_name">First name</label><input autocomplete="given-name" id="first_name" name="first_name" required="" type="text"/></div>
+<div class="form-group"><label for="last_name">Last name</label><input autocomplete="family-name" id="last_name" name="last_name" required="" type="text"/></div>
+</div>
+<div class="form-row-2">
+<div class="form-group"><label for="email">Email</label><input autocomplete="email" id="email" name="email" required="" type="email"/></div>
+<div class="form-group"><label for="phone">Phone</label><input autocomplete="tel" id="phone" name="phone" type="tel"/></div>
+</div>
+<fieldset class="subject-group"><legend>What can we help with?</legend><label><input checked="" name="subject" type="radio" value="product"/> Object enquiry</label><label><input name="subject" type="radio" value="room"/> Room consultation</label><label><input name="subject" type="radio" value="delivery"/> Delivery question</label></fieldset>
+<div class="form-group"><label for="message">Your room</label><textarea id="message" name="message" placeholder="Share a little about the room, its light, or what you are looking for." required="" rows="5"></textarea></div>
+<button class="primary-button" type="submit">Send your note <span aria-hidden="true">↗</span></button>
+</form>
+</div>
+</section>
+</main>
+<section class="contact-quiet"><div class="site-shell"><p class="eyebrow">No rush</p><h2>A considered answer<br/>takes a little time.</h2><p>We respond within two working days, and can arrange an appointment when a conversation needs more room.</p></div></section>
+<footer class="site-shell footer"><div><a class="footer-brand" href="index.html"><img alt="" class="luxroom-footer-mark" height="24" src="img/logo/luxroom-mark.svg" width="24"/><span>LuxRoom</span></a><p>Contemporary furniture for considered living.</p></div><div><h3>Explore</h3><p><a href="products.html">Collection</a></p><p><a href="about.html">Our story</a></p></div><div><h3>Visit</h3><p>Ho Chi Minh City</p></div><div><h3>Contact</h3><p><a href="contact.html">Start a conversation</a></p><p id="footer-email">hello@luxroom.com</p></div></footer>
+<div aria-hidden="true" class="search-overlay" id="global-search-overlay"><div aria-label="Search LuxRoom" aria-modal="true" class="search-modal" role="dialog"><div class="search-input-wrapper"><input id="global-search-input" placeholder="Search the collection" type="search"/><button aria-label="Close search" class="icon-button" id="close-search" type="button">×</button></div></div></div>
+<script src="js/common.js?v=ux-20260813-10"></script>
+<script>
     document.querySelectorAll('.page-back-shell, .contact-image, .contact-visual, .contact-hero-image, .contact-media, .contact-photo, .contact-side-image').forEach((element) => element.remove());
   </script>
-  <script>document.getElementById('contact-form').addEventListener('submit', (event) => { event.preventDefault(); window.LuxRoom.showToast('Thank you — your note is ready for the LuxRoom team.'); event.currentTarget.reset(); });</script>
-    <script type="module" src="js/ui-feedback-init.js?v=ui-feedback-v0.4.1"></script>
-  </body>
+<script>document.getElementById('contact-form').addEventListener('submit', (event) => { event.preventDefault(); window.LuxRoom.showToast('Thank you — your note is ready for the LuxRoom team.'); event.currentTarget.reset(); });</script>
+<script src="js/ui-feedback-init.js?v=ui-feedback-v0.4.1" type="module"></script>
+</body>
 </html>
