@@ -1,4 +1,4 @@
-import { createUIFeedback } from '../ui-feedback.js?v=ui-feedback-v0.10.0-css-advanced';
+import { createUIFeedback } from '../ui-feedback.js?v=ui-feedback-v0.11.0-picker-inspector';
 
 createUIFeedback({
   storageKey: 'luxroom-ui-feedback',
