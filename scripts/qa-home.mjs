@@ -15,7 +15,8 @@ function assert(condition, message) {
 for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
   const value = match[1];
   if (value.startsWith('./')) {
-    assert(existsSync(resolve(root, value)), `Missing local link or asset: ${value}`);
+    const localPath = value.split(/[?#]/, 1)[0];
+    assert(existsSync(resolve(root, localPath)), `Missing local link or asset: ${value}`);
   }
 }
 

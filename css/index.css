@@ -101,12 +101,11 @@
 .collection-card { display: block; color: var(--home-ink); }
 .collection-card-large { grid-row: span 2; }
 .collection-image { min-height: 270px; background-position: center; background-size: cover; filter: saturate(.82); transition: transform .6s cubic-bezier(.2,.7,.2,1), filter .6s ease; }
-.home-page .lazy-bg { background-image: none !important; }
 .collection-card-large .collection-image { min-height: 600px; }
 .collection-card:hover .collection-image { filter: saturate(1); transform: scale(.98); }
 .image-seating { background-image: url("../img/lux_story_1.webp"); }
-.image-lighting { background-image: url("../img/lux_amber_wall_sconce.webp"); }
-.image-objects { background-image: url("../img/lux_gallery_closeup.webp"); }
+.image-lighting { background-image: url("../img/feedback/mood-lighting.jpg"); }
+.image-objects { background-image: url("../img/feedback/product-mineral.jpg"); }
 .collection-meta { padding: 16px 0 24px; }
 .collection-meta span,
 .product-copy span { color: var(--home-clay); font-size: .65rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
@@ -122,9 +121,9 @@
 .product-image { min-height: 420px; background-position: center; background-size: cover; filter: saturate(.78); transition: filter .45s ease, transform .6s cubic-bezier(.2,.7,.2,1); }
 .feature-product-main .product-image { min-height: 590px; }
 .feature-product:hover .product-image { filter: saturate(1); transform: scale(.985); }
-.product-sofa { background-image: url("../img/lux_detail_lounge_wide.webp"); }
-.product-mineral { background-image: url("../img/lux_mineral_side_table.webp"); }
-.product-sconce { background-image: url("../img/lux_amber_wall_sconce.webp"); }
+.product-sofa { background-image: url("../img/feedback/product-sofa.jpg"); }
+.product-mineral { background-image: url("../img/feedback/product-mineral.jpg"); }
+.product-sconce { background-image: url("../img/feedback/product-sconce.jpg"); }
 .product-copy { padding: 18px 0 0; }
 .product-copy h3 { margin: 10px 0 7px; font-size: 1.65rem; }
 .product-copy p { margin: 0 0 19px; color: var(--home-muted); font-size: .86rem; }
@@ -139,7 +138,7 @@
 
 /* Consultation */
 .studio { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(42px, 8vw, 140px); align-items: center; }
-.studio-image { min-height: 650px; background: url("../img/lux_gallery_main.webp") center/cover no-repeat; filter: saturate(.78); }
+.studio-image { min-height: 650px; background: url("../img/feedback/studio.jpg") center/cover no-repeat; filter: saturate(.78); }
 .studio-copy { max-width: 440px; }
 .studio-copy h2 { margin-bottom: 36px; }
 .studio-copy > p:not(.section-marker) { margin-bottom: 35px; color: var(--home-muted); font-size: 1rem; line-height: 1.8; }
@@ -153,7 +152,7 @@
 .journal-gallery { display: grid; grid-template-columns: 1.15fr .85fr; grid-template-rows: 230px 260px; gap: 16px; }
 .journal-image { background-position: center; background-size: cover; filter: saturate(.76); }
 .gallery-one { grid-row: span 2; background-image: url("../img/lux_gallery_leaf.webp"); }
-.gallery-two { background-image: url("../img/lux_story_3.webp"); }
+.gallery-two { background-image: url("../img/feedback/journal-gallery-two.jpg"); }
 .gallery-three { background-image: url("../img/lux_bedroom.webp"); }
 .gallery-four { display: none; background-image: url("../img/lux_gallery_closeup.webp"); }
 
@@ -322,7 +321,7 @@
 
 
 /* Corrected Home image semantics and a consistent warm material grade. */
-.image-objects { background-image: url("../img/lux_story_3.webp"); }
+.image-objects { background-image: url("../img/feedback/product-mineral.jpg"); }
 .product-bath { background-image: url("../img/lux_gallery_main.webp"); background-position: left center; }
 .product-atelier { background-position: center 54%; }
 .collection-image,

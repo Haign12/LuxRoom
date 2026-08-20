@@ -72,3 +72,15 @@
   .contact-page .topbar-actions { gap: 2px; }
   .contact-page .topbar-actions .nav-icon { width: 32px; height: 32px; }
 }
+
+/* 2026-08 feedback: visible form status for validation and submit completion. */
+.form-status {
+  min-height: 1.4em;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: .78rem;
+  line-height: 1.5;
+}
+.form-status[data-state="success"] { color: var(--moss); }
+.form-status[data-state="error"] { color: var(--clay); }
+.contact-form button[disabled] { opacity: .55; cursor: wait; }

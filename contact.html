@@ -54,7 +54,7 @@
 <fieldset class="subject-group"><legend>What can we help with?</legend><label><input checked="" name="subject" type="radio" value="product"/> Object enquiry</label><label><input name="subject" type="radio" value="room"/> Room consultation</label><label><input name="subject" type="radio" value="delivery"/> Delivery question</label></fieldset>
 <div class="form-group"><label for="message">Your room <span aria-hidden="true" class="required-mark">*</span></label><textarea id="message" name="message" placeholder="Share a little about the room, its light, or what you are looking for." required="" rows="5"></textarea></div>
 <label class="consent-check"><input name="contact_consent" required="" type="checkbox"/><span>I agree to the LuxRoom contact terms and consent to being contacted about this request. <span aria-hidden="true" class="required-mark">*</span></span></label>
-<button class="primary-button" type="submit">Send your note <span aria-hidden="true">↗</span></button>
+<button class="primary-button" type="submit">Send your note <span aria-hidden="true">↗</span></button><p aria-live="polite" class="form-status" id="contact-form-status" role="status"></p>
 </form>
 </div>
 </section>
@@ -66,7 +66,32 @@
 <script>
     document.querySelectorAll('.page-back-shell, .contact-image, .contact-visual, .contact-hero-image, .contact-media, .contact-photo, .contact-side-image').forEach((element) => element.remove());
   </script>
-<script>document.getElementById('contact-form').addEventListener('submit', (event) => { event.preventDefault(); window.LuxRoom.showToast('Thank you — your note is ready for the LuxRoom team.'); event.currentTarget.reset(); });</script>
+<script>
+const contactForm = document.getElementById('contact-form');
+const contactStatus = document.getElementById('contact-form-status');
+contactForm?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  if (!contactForm.checkValidity()) {
+    contactForm.reportValidity();
+    contactStatus.textContent = 'Please complete the required fields before sending your note.';
+    contactStatus.dataset.state = 'error';
+    return;
+  }
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
+  submitButton.setAttribute('aria-busy', 'true');
+  submitButton.firstChild.textContent = 'Sending… ';
+  window.setTimeout(() => {
+    contactForm.reset();
+    contactStatus.textContent = 'Thank you — your note is ready for the LuxRoom team.';
+    contactStatus.dataset.state = 'success';
+    submitButton.disabled = false;
+    submitButton.removeAttribute('aria-busy');
+    submitButton.firstChild.textContent = 'Send your note ';
+    window.LuxRoom?.showToast('Thank you — your note is ready for the LuxRoom team.');
+  }, 450);
+});
+</script>
 <script src="js/ui-feedback-init.js?v=ui-feedback-v0.4.1" type="module"></script>
 </body>
 </html>
