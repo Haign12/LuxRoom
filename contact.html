@@ -6,12 +6,16 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Contact LuxRoom to begin a room consultation or object enquiry." name="description"/>
 <title>LuxRoom | Begin a room</title>
+  <meta name="theme-color" content="#111111">
+  <link rel="canonical" href="https://ngh1aa.github.io/LuxRoom/contact.html">
 <link href="css/design-system.css" rel="stylesheet"/>
 <link href="css/common.css" rel="stylesheet"/>
 <link href="css/contact.css" rel="stylesheet"/>
 <link href="css/contact-hotfix.css?v=ux-20260813-4" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/a11y.css">
 </head>
 <body class="contact-page">
+<a class="skip-link" href="#main-content">Skip to content</a>
 <header aria-label="Primary navigation" class="topbar">
 <a aria-label="LuxRoom home" class="brand" href="index.html"><span class="luxroom-wordmark">Lux<span>Room</span></span></a>
 <nav aria-label="Main menu" class="main-nav">
@@ -27,7 +31,7 @@
 <a aria-label="Account" class="icon-button nav-icon" href="auth.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" viewbox="0 0 24 24"><circle cx="12" cy="8" r="3.2"></circle><path d="M5.4 20c.8-3.3 3.1-5 6.6-5s5.8 1.7 6.6 5"></path></svg></a>
 </div>
 </header>
-<main class="site-shell contact-main">
+<main id="main-content" class="site-shell contact-main">
 <section class="contact-intro">
 <p class="eyebrow">Begin a conversation</p>
 <h1>Tell us about<br/>the <em>room.</em></h1>
@@ -61,7 +65,7 @@
 </main>
 <section class="contact-quiet"><div class="site-shell"><p class="eyebrow">No rush</p><h2>A considered answer<br/>takes a little time.</h2><p>We respond within two working days, and can arrange an appointment when a conversation needs more room.</p></div></section>
 <footer class="site-shell footer"><div><a class="footer-brand" href="index.html"><img alt="" class="luxroom-footer-mark" height="24" src="img/logo/luxroom-mark.svg" width="24"/><span>LuxRoom</span></a><p>Contemporary furniture for considered living.</p></div><div><h3>Explore</h3><p><a href="products.html">Collection</a></p><p><a href="about.html">Our story</a></p></div><div><h3>Visit</h3><p>Ho Chi Minh City</p></div><div><h3>Contact</h3><p><a href="contact.html">Start a conversation</a></p><p id="footer-email">hello@luxroom.com</p></div></footer>
-<div aria-hidden="true" class="search-overlay" id="global-search-overlay"><div aria-label="Search LuxRoom" aria-modal="true" class="search-modal" role="dialog"><div class="search-input-wrapper"><input id="global-search-input" placeholder="Search the collection" type="search"/><button aria-label="Close search" class="icon-button" id="close-search" type="button">×</button></div></div></div>
+<div aria-hidden="true" class="search-overlay" id="global-search-overlay"><div aria-label="Search LuxRoom" aria-modal="true" class="search-modal" role="dialog"><div class="search-input-wrapper"><input id="global-search-input" placeholder="Search the collection" type="search"/ aria-label="Search the collection"><button aria-label="Close search" class="icon-button" id="close-search" type="button">×</button></div></div></div>
 <script src="js/common.js?v=ux-20260813-10"></script>
 <script>
     document.querySelectorAll('.page-back-shell, .contact-image, .contact-visual, .contact-hero-image, .contact-media, .contact-photo, .contact-side-image').forEach((element) => element.remove());

@@ -6,6 +6,8 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="LuxRoom curates contemporary furniture and objects for considered living." name="description"/>
 <title>LuxRoom | Considered living</title>
+  <meta name="theme-color" content="#111111">
+  <link rel="canonical" href="https://ngh1aa.github.io/LuxRoom/">
 <link href="img/logo/luxroom-mark.svg" rel="icon" type="image/svg+xml"/>
 <link href="css/design-system.css" rel="stylesheet"/>
 <link href="css/common.css" rel="stylesheet"/>
@@ -15,8 +17,10 @@
 <link as="image" fetchpriority="high" href="img/feedback/home-hero.jpg" rel="preload" type="image/jpeg"/>
 <link as="style" href="css/title-spacing.css?v=ux-20260813-6" rel="preload"/>
 <link as="style" href="css/experience-upgrade.css?v=ux-20260813-10" rel="preload"/>
+  <link rel="stylesheet" href="css/a11y.css">
 </head>
 <body class="home-page">
+<a class="skip-link" href="#main-content">Skip to content</a>
 <header aria-label="Primary navigation" class="topbar">
 <a aria-label="LuxRoom home" class="brand active" href="./index.html"><span class="luxroom-wordmark">Lux<span>Room</span></span></a>
 <nav aria-label="Main menu" class="main-nav">
@@ -26,7 +30,7 @@
 <a href="./contact.html">Contact</a>
 </nav>
 <div class="topbar-actions">
-<button aria-label="Search" class="icon-button">
+<button type="button" aria-label="Search" class="icon-button">
 <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
 </button>
 <a aria-label="Cart" class="icon-button" href="./cart.html">
@@ -38,7 +42,7 @@
 </a>
 </div>
 </header>
-<main>
+<main id="main-content">
 <section class="home-hero">
 <div aria-hidden="true" class="hero-visual">
 <img alt="" decoding="sync" fetchpriority="high" height="480" loading="eager" sizes="(max-width: 700px) 100vw, 55vw" src="img/feedback/home-hero.jpg" width="640"/>
@@ -162,7 +166,7 @@
 <div><p class="section-marker">Notes from LuxRoom</p><h2>New pieces,<br/>thoughtful spaces.</h2></div>
 <form aria-label="Newsletter signup" class="newsletter-form">
 <label class="sr-only" for="email">Email address</label>
-<input autocomplete="email" id="email" placeholder="Your email address" required="" type="email"/>
+<input autocomplete="email" id="email" placeholder="Your email address" required="" type="email"/ aria-label="Email address">
 <button aria-label="Subscribe" type="submit">Join with us <span aria-hidden="true">↗</span></button>
 </form>
 </section>
@@ -177,8 +181,8 @@
 <div aria-label="Search LuxRoom" aria-modal="true" class="search-modal" role="dialog">
 <div class="search-input-wrapper">
 <svg aria-hidden="true" class="search-modal-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
-<input autocomplete="off" id="global-search-input" placeholder="Search the collection" type="text"/>
-<button aria-label="Close search" class="icon-button" id="close-search"><svg aria-hidden="true" class="search-modal-close" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg></button>
+<input autocomplete="off" id="global-search-input" placeholder="Search the collection" type="text"/ aria-label="Search the collection">
+<button type="button" aria-label="Close search" class="icon-button" id="close-search"><svg aria-hidden="true" class="search-modal-close" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg></button>
 </div>
 </div>
 </div>

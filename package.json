@@ -2,5 +2,8 @@
   "devDependencies": {
     "marked": "^18.0.3",
     "md-to-pdf": "^5.2.5"
+  },
+  "scripts": {
+    "qa": "node scripts/qa-static.mjs"
   }
 }

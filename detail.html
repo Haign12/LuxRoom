@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Explore considered furniture and material details from LuxRoom." />
     <title>LuxRoom | Product detail</title>
+  <meta name="theme-color" content="#111111">
+  <link rel="canonical" href="https://ngh1aa.github.io/LuxRoom/detail.html">
     <link rel="stylesheet" href="css/design-system.css" />
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/detail.css" />
-  </head>
+    <link rel="stylesheet" href="css/a11y.css">
+</head>
   <body class="detail-page">
+<a class="skip-link" href="#main-content">Skip to content</a>
     <header class="topbar" aria-label="Primary navigation">
       <a class="brand" href="./index.html" aria-label="LuxRoom home"><span class="luxroom-wordmark">Lux<span>Room</span></span></a>
       <nav class="main-nav" aria-label="Main menu">
@@ -19,7 +23,7 @@
         <a href="./contact.html">Contact</a>
       </nav>
       <div class="topbar-actions">
-        <button class="icon-button" aria-label="Search">
+        <button type="button" class="icon-button" aria-label="Search">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
         </button>
         <a href="./cart.html" class="icon-button" aria-label="Cart">
@@ -32,7 +36,7 @@
       </div>
     </header>
 
-    <main class="product-detail-shell">
+    <main id="main-content" class="product-detail-shell">
       <section class="d-gallery" aria-label="Product gallery">
         <button class="dg-img bg-lux-room is-selected" type="button" data-gallery-image="0" aria-label="View product scene one"><span>01</span></button>
         <button class="dg-img bg-lux-leaf" type="button" data-gallery-image="1" aria-label="View product scene two"><span>02</span></button>
@@ -124,8 +128,8 @@
       <div class="search-modal" role="dialog" aria-modal="true" aria-label="Search LuxRoom">
         <div class="search-input-wrapper">
           <svg class="search-modal-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
-          <input type="text" id="global-search-input" placeholder="Search the collection" autocomplete="off" />
-          <button id="close-search" class="icon-button" aria-label="Close search"><svg class="search-modal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg></button>
+          <input type="text" id="global-search-input" placeholder="Search the collection" autocomplete="off" / aria-label="Search the collection">
+          <button type="button" id="close-search" class="icon-button" aria-label="Close search"><svg class="search-modal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg></button>
         </div>
       </div>
     </div>

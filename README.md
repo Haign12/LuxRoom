@@ -1,188 +1,85 @@
 # LuxRoom
 
-Nền tảng thương mại điện tử nội thất cao cấp với định hướng luxury-minimal.
+LuxRoom là website thương mại điện tử nội thất cao cấp theo định hướng **luxury-minimal**. Dự án được xây dựng bằng HTML5, CSS3 và JavaScript ES6+ thuần, phù hợp cho UI/UX case study, portfolio và triển khai static trên GitHub Pages.
 
-## Mô tả
+## Phạm vi trải nghiệm
 
-LuxRoom là website thương mại điện tử nội thất cao cấp, được thiết kế theo triết lý **luxury-minimal** — tối giản nhưng không kém phần sang trọng. Dự án tập trung giải quyết các vấn đề phổ biến trong mua sắm nội thất online:
-
-- **Khó hình dung sản phẩm** — Trang chi tiết sản phẩm với hình ảnh chất lượng cao, thông tin kỹ thuật đầy đủ
-- **Thiếu sự tin tưởng** — Giao diện chuyên nghiệp, nhất quán thể hiện uy tín thương hiệu
-- **Lo ngại về giao hàng** — Trang thành công rõ ràng với thông tin đơn hàng chi tiết
-- **Thông tin sản phẩm chưa đầy đủ** — Mỗi sản phẩm có mô tả, thông số kỹ thuật và hướng dẫn sử dụng
-- **Sự do dự khi thanh toán** — Luồng thanh toán tinh gọn, giảm thiểu các bước không cần thiết
-
-### Các luồng chính
-
-| Luồng | Mô tả |
-|-------|-------|
-| Khám phá sản phẩm | Trang chủ với bộ sưu tập nổi bật, trang danh sách sản phẩm với bộ lọc |
-| Chi tiết sản phẩm | Hình ảnh, mô tả, thông số kỹ thuật, thêm vào giỏ hàng |
-| Giỏ hàng & Thanh toán | Quản lý giỏ hàng, thông tin giao hàng, xác nhận đơn hàng |
-| Hồ sơ cá nhân | Đăng nhập/đăng ký, quản lý tài khoản |
-| Liên hệ & Newsletter | Form liên hệ, đăng ký nhận tin khuyến mãi |
-
-### Đối tượng sử dụng
-
-Dự án phù hợp để:
-
-- Sử dụng làm **UI/UX case study** cho portfolio Business Analyst
-- Luyện tập **front-end development** với HTML, CSS, JavaScript thuần
-- Tham khảo **design system** và định hướng luxury-minimal
+Website bao gồm trang chủ, bộ sưu tập, danh sách sản phẩm, chi tiết sản phẩm, giỏ hàng, checkout, wishlist, hồ sơ, authentication, liên hệ, giới thiệu và trang xác nhận. Dữ liệu và trạng thái giỏ hàng được xử lý phía client bằng JavaScript và `localStorage`.
 
 ## Công nghệ
 
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Design Tool**: Figma
-- **Không sử dụng framework** — pure vanilla implementation
+| Lớp | Công nghệ |
+|---|---|
+| Markup | HTML5 semantic elements |
+| Styling | CSS3, CSS custom properties, responsive media queries |
+| Interaction | Vanilla JavaScript ES6+ |
+| Icons | Inline SVG và Iconify khi cần |
+| Deployment | GitHub Pages hoặc bất kỳ static hosting nào |
 
-## Cài đặt
+## Cấu trúc thư mục
 
-### Yêu cầu
-
-- Trình duyệt hiện đại (Chrome, Firefox, Safari, Edge)
-- VS Code (khuyến nghị để sử dụng Live Server)
-
-### Các bước cài đặt
-
-**1. Clone repository**
-
-```bash
-git clone https://github.com/username/LuxRoom.git
-```
-
-**2. Mở thư mục project**
-
-```bash
-cd LuxRoom
-```
-
-**3. Chạy project**
-
-_Cách 1 — Mở trực tiếp bằng trình duyệt:_
-
-```bash
-# Mở file src/index.html trong trình duyệt
-# Windows: double-click file hoặc click chuột phải > Open with
-# macOS: open src/index.html
-# Linux: xdg-open src/index.html
-```
-
-_Cách 2 — Sử dụng Live Server (khuyến nghị):_
-
-1. Cài đặt extension **Live Server** trong VS Code
-2. Click chuột phải vào `src/index.html`
-3. Chọn **"Open with Live Server"**
-
-## Cấu trúc project
-
-```
+```text
 LuxRoom/
-├── src/                    # Các trang HTML
-│   ├── index.html          # Trang chủ
-│   ├── products.html       # Danh sách sản phẩm
-│   ├── detail.html         # Chi tiết sản phẩm
-│   ├── cart.html           # Giỏ hàng
-│   ├── checkout.html       # Thanh toán
-│   ├── about.html          # Giới thiệu
-│   ├── contact.html        # Liên hệ
-│   ├── auth.html           # Đăng nhập / Đăng ký
-│   ├── profile.html        # Hồ sơ cá nhân
-│   └── success.html        # Trang xác nhận đặt hàng thành công
-├── css/                    # Stylesheets
-│   ├── common.css          # Header, footer, navigation, newsletter
-│   ├── design-system.css   # Design tokens, biến CSS
-│   ├── index.css           # Trang chủ
-│   ├── products.css        # Danh sách sản phẩm
-│   ├── detail.css          # Chi tiết sản phẩm
-│   ├── cart.css            # Giỏ hàng
-│   ├── checkout.css        # Thanh toán
-│   ├── about.css           # Giới thiệu
-│   ├── contact.css         # Liên hệ
-│   ├── auth.css            # Đăng nhập / Đăng ký
-│   ├── profile.css         # Hồ sơ cá nhân
-│   └── success.css         # Trang thành công
-├── js/                     # JavaScript files
-│   ├── common.js           # Dữ liệu sản phẩm, xử lý cart, newsletter
-│   ├── index.js            # Logic trang chủ
-│   ├── products.js         # Logic danh sách sản phẩm
-│   ├── detail.js           # Logic chi tiết sản phẩm
-│   ├── cart.js             # Logic giỏ hàng
-│   ├── checkout.js         # Logic thanh toán
-│   ├── contact.js          # Logic liên hệ
-│   └── auth.js             # Logic xác thực
-├── public/assets/          # Hình ảnh mockup tham khảo từ Figma
-├── screenshots/           # Ảnh chụp màn hình các trang
-├── img/                    # Hình ảnh nội dung
-└── docs/ba_portfolio/      # Tài liệu BA (PRD, User Stories, BPMN, ERD)
+├── *.html                 # Các entry page của website
+├── css/
+│   ├── design-system.css  # Design tokens và nền tảng thị giác
+│   ├── common.css         # Header, footer, navigation, overlay dùng chung
+│   ├── a11y.css           # Skip link, focus-visible, reduced motion
+│   └── <page>.css         # CSS theo từng trang
+├── js/
+│   ├── common.js          # Runtime dùng chung, cart, wishlist, menu, lazy loading
+│   ├── <page>.js          # Logic riêng theo từng trang
+│   └── ui-feedback-init.js # Khởi tạo công cụ UI feedback
+├── img/                   # Hình ảnh nội dung và sản phẩm
+├── scripts/
+│   └── qa-static.mjs      # Kiểm tra HTML, metadata, alt và button type
+├── docs/                  # Tài liệu BA và case study
+├── screenshots/           # Ảnh minh họa các màn hình
+├── robots.txt
+├── sitemap.xml
+└── package.json
 ```
 
-## Cách sử dụng
+## Chạy local
 
-### Khám phá sản phẩm
+Có thể mở trực tiếp `index.html` cho các trang tĩnh cơ bản. Với các luồng có JavaScript, nên dùng một static server để xử lý đường dẫn và module ổn định.
 
-1. Mở `src/index.html` — trang chủ với bộ sưu tập nổi bật
-2. Click vào banner hoặc nút "Khám phá" để xem danh sách sản phẩm
-3. Trang `src/products.html` hiển thị các sản phẩm với bộ lọc theo danh mục
+```bash
+git clone https://github.com/Ngh1aa/LuxRoom.git
+cd LuxRoom
+python3 -m http.server 4173
+```
 
-### Xem chi tiết sản phẩm
+Sau đó mở <http://localhost:4173>.
 
-1. Click vào sản phẩm bất kỳ để mở `src/detail.html`
-2. Xem hình ảnh, mô tả, thông số kỹ thuật
-3. Chọn số lượng và nhấn "Thêm vào giỏ hàng"
+Nếu dùng VS Code, có thể chạy bằng extension Live Server.
 
-### Luồng giỏ hàng và thanh toán
+## Kiểm tra chất lượng
 
-1. Icon giỏ hàng ở header hiển thị số lượng sản phẩm đã thêm
-2. Truy cập `src/cart.html` để xem và chỉnh sửa giỏ hàng
-3. Nhấn "Thanh toán" để chuyển sang `src/checkout.html`
-4. Điền thông tin giao hàng và xác nhận đơn hàng
-5. Trang `src/success.html` xác nhận đặt hàng thành công
+Chạy bộ kiểm tra HTML trước khi commit:
 
-### Các trang khác
+```bash
+npm run qa
+```
 
-| Trang | Mục đích |
-|-------|----------|
-| `src/about.html` | Câu chuyện thương hiệu, giá trị cốt lõi |
-| `src/contact.html` | Form liên hệ, thông tin cửa hàng |
-| `src/auth.html` | Đăng nhập / Đăng ký tài khoản |
-| `src/profile.html` | Quản lý thông tin cá nhân |
+QA hiện kiểm tra `lang`, `title`, `meta description`, `viewport`, `main` landmark, `alt` của hình ảnh và `type` của button. Lớp `css/a11y.css` bổ sung skip link, trạng thái focus nhìn thấy được và hỗ trợ `prefers-reduced-motion` mà không thay đổi layout mặc định.
 
-### Về thiết kế Luxury-Minimal
+## Nguyên tắc tổ chức
 
-Dự án tuân thủ nguyên tắc thiết kế luxury-minimal:
+Các trang giữ nguyên HTML entry ở root để GitHub Pages có thể phục vụ trực tiếp. CSS được chia thành design system, lớp dùng chung, accessibility layer và stylesheet theo trang. JavaScript dùng `js/common.js` cho hành vi toàn cục, còn logic riêng được giữ trong module theo tên trang. Không sử dụng framework runtime để giảm phụ thuộc và giữ thời gian tải thấp.
 
-- **Màu sắc**: Tông màu trung tính (trắng, đen, be, xám) làm chủ đạo
-- **Typography**: Font chữ sans-serif rõ ràng, hierarchy rõ ràng
-- **Whitespace**: Sử dụng khoảng trắng dồi dào để tạo cảm giác sang trọng
-- **Hình ảnh**: Sản phẩm được chụp/placehound với nền sạch, tối giản
-- **Interaction**: Animation mềm mại, hover effects tinh tế
+## Deploy GitHub Pages
 
-## Tài liệu BA Portfolio
+Trong GitHub repository, chọn **Settings → Pages**, chọn branch cần publish và thư mục `/ (root)`. Vì project là static thuần, không cần bước build. Trang chủ được phục vụ từ `index.html`.
 
-Dự án được thiết kế như một **BA portfolio** hoàn chỉnh với các tài liệu phân tích trong `docs/ba_portfolio/`:
+## Ghi chú về thiết kế
 
-1. **PRD** — Product Requirements Document: Tổng quan sản phẩm, mục tiêu, User Stories
-2. **User Stories (Gherkin)** — Các kịch bản người dùng với acceptance criteria
-3. **BPMN** — Business Process Models: Sơ đồ quy trình nghiệp vụ
-4. **ERD** — Conceptual Data Architecture: Mô hình dữ liệu
+LuxRoom sử dụng bảng màu trung tính, typography rõ ràng, khoảng trắng rộng, ảnh sản phẩm nền sạch và animation tiết chế. Các chỉnh sửa cấu trúc trong branch refactor không thay đổi palette, spacing, typography, layout hoặc nội dung hiển thị hiện hữu.
 
-## Screenshots
+## Vai trò dự án
 
-Xem thêm hình ảnh minh họa trong thư mục `screenshots/`:
+Dự án được xây dựng cho portfolio **Business Analyst & UI/UX Designer**, kết hợp product thinking, user flow, design system và triển khai front-end static.
 
-| Trang | File |
-|-------|------|
-| Trang chủ | `screenshots/Home.png` |
-| Danh sách sản phẩm | `screenshots/Funiture - Product.png`, `Search.png` |
-| Chi tiết sản phẩm | `screenshots/detail product.png` |
-| Giỏ hàng | `screenshots/cart.png` |
-| Giới thiệu | `screenshots/About us.png` |
-| Liên hệ | `screenshots/Contact.png` |
-| Tài khoản | `screenshots/Account Dropdown.png` |
+## License
 
----
-
-**Vai trò**: Business Analyst & UI/UX Designer
-
-Được xây dựng với mục tiêu thể hiện kỹ năng phân tích nghiệp vụ và thiết kế trải nghiệm người dùng.
+Dự án phục vụ mục đích portfolio và học tập cá nhân.
