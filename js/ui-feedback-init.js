@@ -1,4 +1,4 @@
-import { createUIFeedback } from '../ui-feedback.js?v=ui-feedback-v0.7.0-visual-refresh';
+import { createUIFeedback } from '../ui-feedback.js?v=ui-feedback-v0.7.1-drag-transform-fix';
 
 createUIFeedback({
   storageKey: 'luxroom-ui-feedback',
