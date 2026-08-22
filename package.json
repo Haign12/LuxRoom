@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "qa": "node scripts/qa-home.mjs && node scripts/qa-product-detail.mjs && node scripts/qa-commerce-data.mjs && node scripts/qa-commerce-flow.mjs && node scripts/qa-all-pages.mjs"
+  },
   "devDependencies": {
     "marked": "^18.0.3",
     "md-to-pdf": "^5.2.5"

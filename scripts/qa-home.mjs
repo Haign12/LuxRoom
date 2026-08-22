@@ -1,7 +1,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 
-const root = '/home/ubuntu/LuxRoom';
+const root = resolve(process.cwd());
 const htmlPath = resolve(root, 'index.html');
 const cssPath = resolve(root, 'css/index.css');
 const html = readFileSync(htmlPath, 'utf8');

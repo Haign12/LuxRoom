@@ -1,3 +1,52 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>LuxRoom | Order confirmed</title>
-    <link rel="icon" type="image/svg+xml" href="img/logo/luxroom-mark.svg" /><link rel="stylesheet" href="css/design-system.css"><link rel="stylesheet" href="css/common.css"><link rel="stylesheet" href="css/success.css"></head><body class="success-page"><header class="topbar"><a class="brand" href="index.html"><span class="luxroom-wordmark">Lux<span>Room</span></span></a><nav class="main-nav"><a href="index.html">Home</a><a href="products.html">Collection</a><a href="about.html">Our story</a><a href="contact.html">Contact</a></nav><div class="topbar-actions"><a class="icon-button" href="cart.html" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2 3h2l3 12h10l2-8H6"/></svg></a><a class="icon-button" href="wishlist.html" aria-label="Wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg><span class="cart-badge" data-wishlist-count style="display:none">0</span></a><a class="icon-button" href="profile.html" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a></div></header><main class="site-shell success-main"><section class="success-message"><p class="eyebrow">Order confirmed / LUX–00193</p><div class="success-mark">✓</div><h1>Thank you for<br><em>making room.</em></h1><p>We have received your order. Soon, we will share a delivery note with the next considered steps for your objects.</p><div class="success-actions"><a class="primary-button" href="products.html">Continue the collection ↗</a><a class="secondary-button" href="profile.html">View your order</a></div></section><aside class="success-note"><p class="eyebrow">What happens next</p><ol><li><span>01</span><p>A confirmation note arrives in your inbox.</p></li><li><span>02</span><p>Our delivery team confirms a suitable window.</p></li><li><span>03</span><p>Your objects arrive, ready for their room.</p></li></ol></aside></main><footer class="site-shell footer"><div><a class="footer-brand" href="index.html"><img class="luxroom-footer-mark" src="img/logo/luxroom-mark.svg" alt="" width="24" height="24"><span>LuxRoom</span></a><p>Contemporary furniture for considered living.</p></div><div><h3>Explore</h3><p><a href="products.html">Collection</a></p><p><a href="about.html">Our story</a></p></div><div><h3>Visit</h3><p>Ho Chi Minh City</p><p>By appointment</p></div><div><h3>Contact</h3><p><a href="contact.html">Start a conversation</a></p><p>hello@luxroom.com</p></div></footer><script src="js/common.js?v=ux-20260813-10"></script>    <script type="module" src="js/ui-feedback-init.js?v=0.13.0"></script>
-  </body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Your LuxRoom order is confirmed. Review its arrival window and follow the delivery journey." />
+  <title>LuxRoom | Order confirmed</title>
+  <link rel="icon" type="image/svg+xml" href="img/logo/luxroom-mark.svg" />
+  <link rel="stylesheet" href="css/design-system.css" />
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/success.css" />
+</head>
+<body class="success-page">
+  <header class="topbar" aria-label="Primary navigation">
+    <a class="brand" href="index.html" aria-label="LuxRoom home"><span class="luxroom-wordmark">Lux<span>Room</span></span></a>
+    <nav class="main-nav" aria-label="Main menu"><a href="index.html">Home</a><a href="products.html">Collection</a><a href="about.html">Our story</a><a href="contact.html">Contact</a></nav>
+    <div class="topbar-actions"></div>
+  </header>
+
+  <main class="site-shell success-main">
+    <section class="success-message">
+      <p class="eyebrow" id="success-order-id">Order confirmed / —</p>
+      <div class="success-mark" aria-hidden="true">✓</div>
+      <h1>Thank you for<br><em>making room.</em></h1>
+      <p>We have received your order. The delivery journey below keeps every next step visible.</p>
+      <dl class="success-order-facts">
+        <div><dt>Estimated arrival</dt><dd id="success-arrival">—</dd></div>
+        <div><dt>Delivery</dt><dd id="success-delivery">Room delivery</dd></div>
+        <div><dt>Payment</dt><dd id="success-payment">—</dd></div>
+      </dl>
+      <div class="success-actions"><a class="primary-button" id="track-order-link" href="tracking.html">Track order <span aria-hidden="true">↗</span></a><a class="secondary-button" href="products.html">Continue the collection</a></div>
+    </section>
+
+    <section class="success-note" aria-labelledby="next-steps-title">
+      <p class="eyebrow">What happens next</p>
+      <h2 id="next-steps-title">From confirmation<br>to the room.</h2>
+      <ol id="success-timeline">
+        <li class="is-complete"><span>01</span><div><strong>Order confirmed</strong><p>A confirmation note arrives in your inbox.</p></div></li>
+        <li><span>02</span><div><strong>Preparing your piece</strong><p>We check each selected finish and prepare the order.</p></div></li>
+        <li><span>03</span><div><strong>Delivery scheduled</strong><p>Our room team confirms a suitable delivery window.</p></div></li>
+        <li><span>04</span><div><strong>Out for delivery</strong><p>Your objects begin their final journey to the room.</p></div></li>
+        <li><span>05</span><div><strong>Delivered</strong><p>Placed with care according to your selected service.</p></div></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-shell footer"></footer>
+  <script src="js/common.js?v=ux-20260823-1"></script>
+  <script src="js/success.js?v=ux-20260823-1"></script>
+  <script type="module" src="js/ui-feedback-init.js?v=0.13.0"></script>
+</body>
+</html>

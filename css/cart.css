@@ -64,6 +64,7 @@
 .cart-product-info { display: grid; gap: 7px; }
 .cart-product-info strong { font-family: var(--font-display); font-size: 1.18rem; font-weight: 500; letter-spacing: -.03em; }
 .cart-product-info span { color: var(--muted); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
+.cart-product-info small { color: var(--muted); font-size: .64rem; line-height: 1.45; }
 .cart-qty {
   display: inline-flex;
   align-items: center;
@@ -84,6 +85,9 @@
   font-size: .85rem;
   line-height: 1.7;
 }
+.cart-empty strong { display: block; color: var(--ink); font-family: var(--font-display); font-size: 1.6rem; font-weight: 500; }
+.cart-empty p { max-width: 460px; margin: 9px 0 16px; }
+.cart-empty a { display: inline-flex; padding-bottom: 5px; border-bottom: 1px solid currentColor; color: var(--ink); font-size: .62rem; font-weight: 600; letter-spacing: .11em; text-transform: uppercase; }
 .back-to-edit {
   display: inline-flex;
   align-items: center;
@@ -104,10 +108,14 @@
   background: var(--surface);
 }
 .order-summary-box h2 { margin: 8px 0 32px; font-size: 2.45rem; }
+.cart-destination { display: grid; gap: 7px; margin-bottom: 20px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.cart-destination > span { color: var(--muted); font-size: .59rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.cart-destination select { width: 100%; padding: 8px 20px 8px 0; border: 0; border-bottom: 1px solid var(--ink); background: transparent; color: var(--ink); font-size: .75rem; }
 .os-row { display: flex; justify-content: space-between; gap: 18px; padding: 13px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: .75rem; }
 .os-row strong, .os-row.total span, .os-row.total strong { color: var(--ink); }
 .os-row.total { margin-top: 8px; padding-top: 18px; font-size: .82rem; }
 .btn-checkout { width: 100%; margin-top: 26px; }
+.btn-checkout.is-disabled { opacity: .45; pointer-events: none; }
 .summary-note { margin: 18px 0 0; color: var(--muted); font-size: .68rem; line-height: 1.6; }
 .cart-assurance {
   display: grid;

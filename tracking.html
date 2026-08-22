@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Track a LuxRoom order from confirmation through room delivery." />
+  <title>LuxRoom | Track order</title>
+  <link rel="icon" type="image/svg+xml" href="img/logo/luxroom-mark.svg" />
+  <link rel="stylesheet" href="css/design-system.css" />
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/tracking.css" />
+</head>
+<body class="tracking-page">
+  <header class="topbar" aria-label="Primary navigation">
+    <a class="brand" href="index.html" aria-label="LuxRoom home"><span class="luxroom-wordmark">Lux<span>Room</span></span></a>
+    <nav class="main-nav" aria-label="Main menu"><a href="index.html">Home</a><a href="products.html">Collection</a><a href="about.html">Our story</a><a href="contact.html">Contact</a></nav>
+    <div class="topbar-actions"></div>
+  </header>
+
+  <main class="site-shell tracking-main">
+    <section class="tracking-hero">
+      <p class="eyebrow" id="tracking-order-id">Order / —</p>
+      <h1>Your room,<br><em>on its way.</em></h1>
+      <div class="tracking-hero-meta"><div><span>Current status</span><strong id="tracking-current-status">Confirmed</strong></div><div><span>Estimated arrival</span><strong id="tracking-arrival">—</strong></div></div>
+    </section>
+
+    <section class="tracking-layout" id="tracking-content">
+      <div class="tracking-journey">
+        <p class="eyebrow">Delivery journey</p>
+        <ol id="tracking-timeline"></ol>
+      </div>
+      <aside class="tracking-order-card">
+        <p class="eyebrow">Order details</p>
+        <div id="tracking-items" class="tracking-items"></div>
+        <dl class="tracking-facts"><div><dt>Delivery</dt><dd id="tracking-delivery">—</dd></div><div><dt>Address</dt><dd id="tracking-address">—</dd></div><div><dt>Payment</dt><dd id="tracking-payment">—</dd></div><div><dt>Total</dt><dd id="tracking-total">—</dd></div></dl>
+        <a class="secondary-button" href="contact.html">Ask the room team</a>
+      </aside>
+    </section>
+
+    <section class="tracking-empty" id="tracking-empty" hidden><p class="eyebrow">No order found</p><h2>The journey has not begun.</h2><p>Return to the collection or use the link from your order confirmation.</p><a class="primary-button" href="products.html">Explore pieces <span aria-hidden="true">↗</span></a></section>
+  </main>
+
+  <footer class="site-shell footer"></footer>
+  <script src="js/common.js?v=ux-20260823-1"></script>
+  <script src="js/tracking.js?v=ux-20260823-1"></script>
+  <script type="module" src="js/ui-feedback-init.js?v=0.13.0"></script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 import { access, readFile } from 'node:fs/promises';
 import path from 'node:path';
 
-const root = '/home/ubuntu/LuxRoom';
+const root = path.resolve(process.cwd());
 const routes = {
   'index.html': ['home-hero', 'collection'],
   'products.html': ['product-grid', 'filter'],
@@ -9,6 +9,8 @@ const routes = {
   'cart.html': ['cart-items', 'checkout'],
   'checkout.html': ['checkout-form', 'checkout-summary-items'],
   'success.html': ['order'],
+  'tracking.html': ['tracking-timeline', 'tracking-items'],
+  'wishlist.html': ['wishlist-grid', 'share-room'],
   'auth.html': ['form-login', 'form-register'],
   'profile.html': ['profile-layout'],
   'about.html': ['story-hero', 'material-triptych'],
@@ -28,7 +30,7 @@ for (const [file, hooks] of Object.entries(routes)) {
   for (const asset of assetPaths) await access(path.join(root, asset));
   assertions += assetPaths.length + 2;
 }
-const sharpSheets = ['css/common.css','css/products.css','css/cart.css','css/checkout.css','css/auth.css','css/profile.css','css/success.css','css/about.css','css/contact.css'];
+const sharpSheets = ['css/common.css','css/products.css','css/cart.css','css/checkout.css','css/auth.css','css/profile.css','css/success.css','css/tracking.css','css/about.css','css/contact.css'];
 for (const sheet of sharpSheets) {
   const source = await readFile(path.join(root, sheet), 'utf8');
   if (/border-radius\s*:\s*(?:[1-9]\d*|\d+\.\d+)(?:px|rem|%)/.test(source)) throw new Error(`${sheet}: contains a rounded UI surface`);

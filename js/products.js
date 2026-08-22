@@ -8,8 +8,13 @@ let currentPage = 1;
 
 const activeFilters = {
   category: "All",
+  collection: null,
+  search: null,
   room: null,
   materialGroup: null,
+  size: null,
+  availability: null,
+  delivery: null,
   colors: new Set(),
   materials: new Set(),
   priceMin: 0,
@@ -17,10 +22,44 @@ const activeFilters = {
   sort: "curated",
 };
 
+function getSizeBucket(product) {
+  const width = Number(product.dimensions?.width || 0);
+  if (width < 160) return "Under 160 cm";
+  if (width <= 200) return "160–200 cm";
+  return "200 cm+";
+}
+
+function getDeliveryBucket(product) {
+  const leadTime = Number(product.variants?.[0]?.leadTimeMax ?? product.leadTimeMax ?? 0);
+  if (leadTime <= 7) return "Ready to ship";
+  if (leadTime <= 14) return "1–2 weeks";
+  if (leadTime <= 28) return "2–4 weeks";
+  return "4–8 weeks";
+}
+
+function productSearchText(product) {
+  return [
+    product.name,
+    product.category,
+    product.collection,
+    product.room,
+    product.materialGroup,
+    product.style,
+    ...product.colors,
+    ...product.materials,
+    ...product.variants.flatMap((variant) => [variant.finish, variant.material, variant.color]),
+  ].join(" ").toLowerCase();
+}
+
 function productMatchesFilters(product) {
   if (activeFilters.category !== "All" && product.category !== activeFilters.category) return false;
+  if (activeFilters.collection && product.collection !== activeFilters.collection) return false;
+  if (activeFilters.search && !productSearchText(product).includes(activeFilters.search.toLowerCase())) return false;
   if (activeFilters.room && product.room !== activeFilters.room) return false;
   if (activeFilters.materialGroup && product.materialGroup !== activeFilters.materialGroup) return false;
+  if (activeFilters.size && getSizeBucket(product) !== activeFilters.size) return false;
+  if (activeFilters.availability && !product.variants.some((variant) => variant.stockStatus === activeFilters.availability)) return false;
+  if (activeFilters.delivery && getDeliveryBucket(product) !== activeFilters.delivery) return false;
   if (activeFilters.colors.size > 0 && !Array.from(activeFilters.colors).some((color) => product.colors.includes(color))) return false;
   if (activeFilters.materials.size > 0 && !Array.from(activeFilters.materials).some((material) => product.materials.includes(material))) return false;
   if (product.price < activeFilters.priceMin || product.price > activeFilters.priceMax) return false;
@@ -92,8 +131,13 @@ function syncActiveFilterChips(totalItems) {
 
   const parts = [];
   if (activeFilters.category !== "All") parts.push(activeFilters.category);
+  if (activeFilters.collection) parts.push(activeFilters.collection);
+  if (activeFilters.search) parts.push(`“${activeFilters.search}”`);
   if (activeFilters.room) parts.push(activeFilters.room);
   if (activeFilters.materialGroup) parts.push(activeFilters.materialGroup);
+  if (activeFilters.size) parts.push(activeFilters.size);
+  if (activeFilters.availability) parts.push(activeFilters.availability);
+  if (activeFilters.delivery) parts.push(activeFilters.delivery);
   activeFilters.colors.forEach((color) => parts.push(color));
   activeFilters.materials.forEach((material) => parts.push(material));
   if (activeFilters.priceMin > 0 || activeFilters.priceMax < 1000) {
@@ -148,6 +192,7 @@ function renderProducts() {
             <div class="product-meta-row">
               <h3>${product.name}</h3>
               <span class="price">$${product.price}</span>
+              <span class="product-fit-meta">${product.dimensions.width} × ${product.dimensions.depth} cm · ${product.variants.length} ${product.variants.length === 1 ? "finish" : "finishes"}</span>
             </div>
             <div class="product-actions-row">
               <button class="add-to-cart-action" type="button" data-product-id="${product.id}" aria-label="Add ${product.name} to cart">
@@ -192,8 +237,13 @@ window.setPage = function setPage(page) {
 
 window.clearFilters = function clearFilters() {
   activeFilters.category = "All";
+  activeFilters.collection = null;
+  activeFilters.search = null;
   activeFilters.room = null;
   activeFilters.materialGroup = null;
+  activeFilters.size = null;
+  activeFilters.availability = null;
+  activeFilters.delivery = null;
   activeFilters.colors.clear();
   activeFilters.materials.clear();
   activeFilters.priceMin = 0;
@@ -210,6 +260,7 @@ window.clearFilters = function clearFilters() {
   document.querySelectorAll(".filter-list li").forEach((item) => item.classList.remove("active"));
   document.querySelectorAll(".filter-list li:first-child").forEach((item) => item.classList.add("active"));
   document.querySelectorAll(".chip.is-selected").forEach((chip) => chip.classList.remove("is-selected"));
+  if (window.history?.replaceState) window.history.replaceState({}, "", "products.html");
   updatePriceSlider();
   currentPage = 1;
   renderProducts();
@@ -218,17 +269,40 @@ window.clearFilters = function clearFilters() {
 const filterToggle = document.querySelector(".filter-toggle");
 const expandedFilters = document.querySelector(".expanded-filters");
 if (filterToggle && expandedFilters) {
-  filterToggle.addEventListener("click", () => {
-    const isOpen = expandedFilters.classList.toggle("show");
+  const mobileFilterQuery = window.matchMedia("(max-width: 820px)");
+  const closeButton = document.createElement("button");
+  closeButton.className = "mobile-filter-close";
+  closeButton.type = "button";
+  closeButton.innerHTML = '<span>Refine the edit</span><span aria-hidden="true">×</span>';
+  closeButton.setAttribute("aria-label", "Close collection filters");
+  expandedFilters.prepend(closeButton);
+
+  const setFilterOpen = (isOpen) => {
+    expandedFilters.classList.toggle("show", isOpen);
     filterToggle.setAttribute("aria-expanded", String(isOpen));
     const icon = filterToggle.querySelector(".filter-toggle-icon");
     if (icon) icon.textContent = isOpen ? "−" : "+";
+    document.body.classList.toggle("collection-filter-open", mobileFilterQuery.matches && isOpen);
+  };
+
+  if (mobileFilterQuery.matches) setFilterOpen(false);
+  filterToggle.addEventListener("click", () => setFilterOpen(!expandedFilters.classList.contains("show")));
+  closeButton.addEventListener("click", () => {
+    setFilterOpen(false);
+    filterToggle.focus();
   });
+  mobileFilterQuery.addEventListener?.("change", (event) => setFilterOpen(!event.matches));
 }
 
 document.querySelectorAll(".collection-category").forEach((button) => {
   button.addEventListener("click", () => {
     activeFilters.category = button.dataset.category || "All";
+    activeFilters.collection = null;
+    activeFilters.search = null;
+    if (window.history?.replaceState) {
+      const categoryUrl = activeFilters.category === "All" ? "products.html" : `products.html?category=${encodeURIComponent(activeFilters.category)}`;
+      window.history.replaceState({}, "", categoryUrl);
+    }
     currentPage = 1;
     renderProducts();
     productGrid?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -237,8 +311,7 @@ document.querySelectorAll(".collection-category").forEach((button) => {
 
 function activateFilterListItem(item) {
   const group = item.closest(".filter-col");
-  const label = item.textContent.trim();
-  const groupTitle = group?.querySelector(".eyebrow")?.textContent.trim().toLowerCase();
+  const groupKey = group?.dataset.filterGroup;
   group?.querySelectorAll("li").forEach((sibling) => {
     sibling.classList.remove("active");
     sibling.setAttribute("aria-pressed", "false");
@@ -246,8 +319,9 @@ function activateFilterListItem(item) {
   item.classList.add("active");
   item.setAttribute("aria-pressed", "true");
 
-  if (groupTitle === "room") activeFilters.room = label === "Every room" ? null : label;
-  if (groupTitle === "material") activeFilters.materialGroup = label === "All materials" ? null : label;
+  if (groupKey && Object.hasOwn(activeFilters, groupKey)) {
+    activeFilters[groupKey] = item.dataset.filterValue || null;
+  }
   currentPage = 1;
   renderProducts();
 }
@@ -378,25 +452,54 @@ window.LuxRoom.refreshWishlistState = function refreshWishlistState() {
   });
 };
 
-function applyRoomQuery() {
-  const roomOptions = ["Living", "Dining", "Bedroom", "Bathroom", "Office"];
-  const searchRoom = new URLSearchParams(window.location.search).get("room");
-  const hashRoom = new URLSearchParams(window.location.hash.replace(/^#/, "")).get("room");
-  const requestedRoom = searchRoom || hashRoom;
-  const room = roomOptions.find((option) => option.toLowerCase() === requestedRoom?.trim().toLowerCase());
-  if (!room) return false;
+function applyUrlFilters() {
+  const query = new URLSearchParams(window.location.search);
+  const hash = new URLSearchParams(window.location.hash.replace(/^#/, ""));
+  const requestedRoom = query.get("room") || hash.get("room");
+  const requestedCategory = query.get("category");
+  const requestedCollection = query.get("collection");
+  const requestedSearch = query.get("search");
+  let applied = false;
 
-  activeFilters.room = room;
-  document.querySelectorAll(".filter-col").forEach((group) => {
-    const title = group.querySelector(".eyebrow")?.textContent.trim().toLowerCase();
-    if (title !== "room") return;
-    group.querySelectorAll("li").forEach((item) => item.classList.toggle("active", item.textContent.trim() === room));
+  const room = ["Living", "Dining", "Bedroom", "Bathroom", "Office"]
+    .find((option) => option.toLowerCase() === requestedRoom?.trim().toLowerCase());
+  if (room) {
+    activeFilters.room = room;
+    applied = true;
+  }
+
+  const category = ["Seating", "Tables", "Lighting", "Storage", "Textiles", "Objects"]
+    .find((option) => option.toLowerCase() === requestedCategory?.trim().toLowerCase());
+  if (category) {
+    activeFilters.category = category;
+    applied = true;
+  }
+
+  const collection = [...new Set(window.LuxRoom.products.map((product) => product.collection))]
+    .find((option) => option.toLowerCase() === requestedCollection?.trim().toLowerCase());
+  if (collection) {
+    activeFilters.collection = collection;
+    applied = true;
+  }
+
+  if (requestedSearch?.trim()) {
+    activeFilters.search = requestedSearch.trim();
+    applied = true;
+  }
+
+  document.querySelectorAll(".filter-col[data-filter-group]").forEach((group) => {
+    const value = activeFilters[group.dataset.filterGroup];
+    group.querySelectorAll("li").forEach((item) => {
+      const isActive = (item.dataset.filterValue || null) === (value || null);
+      item.classList.toggle("active", isActive);
+      item.setAttribute("aria-pressed", String(isActive));
+    });
   });
-  return true;
+  return applied;
 }
 
-const roomApplied = applyRoomQuery();
-currentPage = roomApplied ? 1 : currentPage;
+const urlFilterApplied = applyUrlFilters();
+currentPage = urlFilterApplied ? 1 : currentPage;
 renderProducts();
 window.addEventListener("wishlist-updated", window.LuxRoom.refreshWishlistState);
 window.LuxRoom.refreshWishlistState();

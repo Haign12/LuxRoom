@@ -1,3 +1,126 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>LuxRoom | Checkout</title>
-    <link rel="icon" type="image/svg+xml" href="img/logo/luxroom-mark.svg" /><link rel="stylesheet" href="css/design-system.css"><link rel="stylesheet" href="css/common.css"><link rel="stylesheet" href="css/checkout.css"></head><body class="checkout-page"><header class="topbar"><a class="brand" href="index.html"><span class="luxroom-wordmark">Lux<span>Room</span></span></a><nav class="main-nav"><a href="index.html">Home</a><a href="products.html">Collection</a><a href="about.html">Our story</a><a href="contact.html">Contact</a></nav><div class="topbar-actions"><a class="icon-button" href="cart.html" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2 3h2l3 12h10l2-8H6"/></svg><span class="cart-badge" data-cart-count>0</span></a><a class="icon-button" href="wishlist.html" aria-label="Wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg><span class="cart-badge" data-wishlist-count style="display:none">0</span></a><a class="icon-button" href="auth.html" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a></div></header><main class="site-shell checkout-main"><section class="checkout-intro"><p class="eyebrow">Checkout / 02 steps</p><h1>Bring the room<br><em>home.</em></h1></section><form class="checkout-layout" id="checkout-form"><div class="checkout-forms"><section class="form-section"><div class="section-number">01</div><div class="form-content"><div class="form-heading"><h2>Delivery</h2><p>Where should we bring your chosen objects?</p></div><div class="form-grid"><div class="form-group full-width"><label for="email">Email address</label><input id="email" type="email" required placeholder="you@example.com"></div><div class="form-group"><label for="fname">First name</label><input id="fname" type="text" required placeholder="First name"></div><div class="form-group"><label for="lname">Last name</label><input id="lname" type="text" required placeholder="Last name"></div><div class="form-group full-width"><label for="address">Address</label><input id="address" type="text" required placeholder="House number and street"></div><div class="form-group"><label for="city">City</label><input id="city" type="text" required placeholder="City"></div><div class="form-group"><label for="zip">Postal code</label><input id="zip" type="text" required placeholder="Postal code"></div></div></div></section><section class="form-section"><div class="section-number">02</div><div class="form-content"><div class="form-heading"><h2>Payment</h2><p>Transactions are simulated securely for this prototype.</p></div><div class="form-grid"><div class="form-group full-width"><label for="card-name">Name on card</label><input id="card-name" type="text" required placeholder="Name as printed"></div><div class="form-group full-width"><label for="card-number">Card number</label><input id="card-number" type="text" required placeholder="0000 0000 0000 0000" pattern="[0-9 ]+" minlength="16"></div><div class="form-group"><label for="card-expiry">Expiry date</label><input id="card-expiry" type="text" required placeholder="MM / YY"></div><div class="form-group"><label for="card-cvc">CVC</label><input id="card-cvc" type="text" required placeholder="000" pattern="[0-9]+" maxlength="4"></div></div></div></section></div><aside class="order-summary"><p class="eyebrow">Order ledger</p><h2>Your edit</h2><div class="summary-items" id="checkout-summary-items"></div><div class="summary-row"><span>Objects</span><span id="checkout-subtotal">$0</span></div><div class="summary-row"><span>Room delivery</span><span id="checkout-shipping">$0</span></div><div class="summary-row total"><span>Total</span><span id="checkout-total">$0</span></div><button class="primary-button place-order-btn" type="submit">Place order ↗</button><p class="order-note">You will receive a delivery note after confirmation.</p></aside></form></main><footer class="site-shell footer"><div><a class="footer-brand" href="index.html"><img class="luxroom-footer-mark" src="img/logo/luxroom-mark.svg" alt="" width="24" height="24"><span>LuxRoom</span></a><p>Contemporary furniture for considered living.</p></div><div><h3>Explore</h3><p><a href="products.html">Collection</a></p><p><a href="about.html">Our story</a></p></div><div><h3>Visit</h3><p>Ho Chi Minh City</p><p>By appointment</p></div><div><h3>Contact</h3><p><a href="contact.html">Start a conversation</a></p><p>hello@luxroom.com</p></div></footer><script src="js/common.js?v=ux-20260813-10"></script><script src="js/checkout.js"></script>    <script type="module" src="js/ui-feedback-init.js?v=0.13.0"></script>
-  </body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Complete your LuxRoom delivery and review every detail before placing your order." />
+  <title>LuxRoom | Checkout</title>
+  <link rel="icon" type="image/svg+xml" href="img/logo/luxroom-mark.svg" />
+  <link rel="stylesheet" href="css/design-system.css" />
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/checkout.css" />
+</head>
+<body class="checkout-page">
+  <header class="topbar" aria-label="Primary navigation">
+    <a class="brand" href="index.html" aria-label="LuxRoom home"><span class="luxroom-wordmark">Lux<span>Room</span></span></a>
+    <nav class="main-nav" aria-label="Main menu"><a href="index.html">Home</a><a href="products.html">Collection</a><a href="about.html">Our story</a><a href="contact.html">Contact</a></nav>
+    <div class="topbar-actions"></div>
+  </header>
+
+  <main class="site-shell checkout-main">
+    <section class="checkout-intro">
+      <p class="eyebrow">Checkout / 04 steps</p>
+      <h1>Bring the room<br><em>home.</em></h1>
+      <p>Contact, delivery, payment and one final review — every practical detail is visible before you place the order.</p>
+    </section>
+
+    <form class="checkout-layout" id="checkout-form">
+      <div class="checkout-forms">
+        <section class="form-section" id="contact-step">
+          <div class="section-number">01</div>
+          <div class="form-content">
+            <div class="form-heading"><h2>Contact</h2><p>For your confirmation note and delivery coordination.</p></div>
+            <div class="form-grid">
+              <div class="form-group"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" /></div>
+              <div class="form-group"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="+84 9xx xxx xxx" /></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section" id="delivery-step">
+          <div class="section-number">02</div>
+          <div class="form-content">
+            <div class="form-heading"><h2>Delivery</h2><p>Where and how should we bring your selected objects?</p></div>
+            <div class="form-grid">
+              <div class="form-group full-width"><label for="full-name">Full name</label><input id="full-name" name="fullName" type="text" autocomplete="name" required placeholder="Full name" /></div>
+              <div class="form-group full-width"><label for="address">Address</label><input id="address" name="address" type="text" autocomplete="street-address" required placeholder="House number and street" /></div>
+              <div class="form-group"><label for="province">Province / City</label><select id="province" name="province" autocomplete="address-level1" required><option value="">Select province / city</option><option value="Ho Chi Minh City">Ho Chi Minh City</option><option value="Hanoi">Hanoi</option><option value="Da Nang">Da Nang</option><option value="Other province">Other province</option></select></div>
+              <div class="form-group"><label for="district">District</label><input id="district" name="district" type="text" autocomplete="address-level2" required placeholder="District" /></div>
+              <div class="form-group"><label for="ward">Ward</label><input id="ward" name="ward" type="text" autocomplete="address-level3" required placeholder="Ward" /></div>
+              <div class="form-group"><label for="delivery-note">Delivery note</label><input id="delivery-note" name="deliveryNote" type="text" placeholder="Preferred time or room" /></div>
+            </div>
+
+            <fieldset class="choice-group delivery-methods">
+              <legend>Delivery method</legend>
+              <label class="choice-row"><input type="radio" name="deliveryMethod" value="room" checked /><span><strong>Room delivery</strong><small>Carefully delivered into your chosen room.</small></span><em id="room-delivery-fee">Included</em></label>
+              <label class="choice-row"><input type="radio" name="deliveryMethod" value="placement" /><span><strong>Room delivery + placement</strong><small>Delivered, positioned and packaging removed.</small></span><em>+$45</em></label>
+            </fieldset>
+
+            <fieldset class="access-fields" id="access-fields">
+              <legend>Delivery access</legend>
+              <p>These details help us prepare oversized pieces for a smooth arrival.</p>
+              <div class="form-grid">
+                <div class="form-group"><label for="elevator">Elevator available</label><select id="elevator" name="elevator"><option value="Yes">Yes</option><option value="No">No</option><option value="Not sure">Not sure</option></select></div>
+                <div class="form-group"><label for="floor">Floor</label><input id="floor" name="floor" type="number" inputmode="numeric" min="0" placeholder="0" /></div>
+                <div class="form-group full-width"><label for="access-notes">Special access notes</label><input id="access-notes" name="accessNotes" type="text" placeholder="Narrow doorway, stairs or parking instructions" /></div>
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <section class="form-section" id="payment-step">
+          <div class="section-number">03</div>
+          <div class="form-content">
+            <div class="form-heading"><h2>Payment</h2><p>Choose a payment path suited to your order.</p></div>
+            <fieldset class="choice-group payment-methods">
+              <legend>Payment method</legend>
+              <label class="choice-row"><input type="radio" name="paymentMethod" value="Bank transfer / QR" checked /><span><strong>Bank transfer / QR</strong><small>Transfer details appear after confirmation.</small></span></label>
+              <label class="choice-row"><input type="radio" name="paymentMethod" value="VNPay / local payment" /><span><strong>VNPay / local payment</strong><small>Continue through a local secure payment window.</small></span></label>
+              <label class="choice-row" id="deposit-payment" hidden><input type="radio" name="paymentMethod" value="30% made-to-order deposit" /><span><strong>30% made-to-order deposit</strong><small>The remaining balance is due before delivery.</small></span></label>
+              <label class="choice-row"><input type="radio" name="paymentMethod" value="Credit / Debit Card" /><span><strong>Credit / Debit Card</strong><small>Visa, Mastercard and local debit cards.</small></span></label>
+            </fieldset>
+            <div class="card-fields" id="card-fields" hidden>
+              <div class="form-grid">
+                <div class="form-group full-width"><label for="card-name">Name on card</label><input id="card-name" name="cardName" type="text" autocomplete="cc-name" placeholder="Name as printed" /></div>
+                <div class="form-group full-width"><label for="card-number">Card number</label><input id="card-number" name="cardNumber" type="text" inputmode="numeric" autocomplete="cc-number" placeholder="0000 0000 0000 0000" pattern="[0-9 ]{16,19}" /></div>
+                <div class="form-group"><label for="card-expiry">Expiry date</label><input id="card-expiry" name="cardExpiry" type="text" inputmode="numeric" autocomplete="cc-exp" placeholder="MM / YY" /></div>
+                <div class="form-group"><label for="card-cvc">CVC</label><input id="card-cvc" name="cardCvc" type="text" inputmode="numeric" autocomplete="cc-csc" placeholder="000" pattern="[0-9]{3,4}" maxlength="4" /></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section review-section" id="review-step">
+          <div class="section-number">04</div>
+          <div class="form-content">
+            <div class="form-heading"><h2>Review</h2><p>Everything stays editable until you place the order.</p></div>
+            <div class="review-grid">
+              <article><div><span>Contact</span><a href="#contact-step">Edit</a></div><p id="review-contact">Add your email and phone above.</p></article>
+              <article><div><span>Delivery address</span><a href="#delivery-step">Edit</a></div><p id="review-address">Add your delivery address above.</p></article>
+              <article><div><span>Delivery</span><a href="#delivery-step">Edit</a></div><p id="review-delivery">Room delivery</p></article>
+              <article><div><span>Payment</span><a href="#payment-step">Edit</a></div><p id="review-payment">Bank transfer / QR</p></article>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="order-summary">
+        <p class="eyebrow">Order ledger</p>
+        <h2>Your edit</h2>
+        <div class="summary-items" id="checkout-summary-items"></div>
+        <div class="summary-arrival"><span>Estimated arrival</span><strong id="checkout-arrival">—</strong><small id="checkout-delivery-label">Room delivery</small></div>
+        <div class="summary-row"><span>Objects</span><span id="checkout-subtotal">$0</span></div>
+        <div class="summary-row"><span>Room delivery</span><span id="checkout-shipping">Included</span></div>
+        <div class="summary-row total"><span>Total</span><span id="checkout-total">$0</span></div>
+        <button class="primary-button place-order-btn" type="submit">Place order <span aria-hidden="true">↗</span></button>
+        <p class="order-note">By placing the order you confirm the delivery details above. This portfolio prototype does not process a real payment.</p>
+      </aside>
+    </form>
+  </main>
+
+  <footer class="site-shell footer"></footer>
+  <script src="js/common.js?v=ux-20260823-1"></script>
+  <script src="js/checkout.js?v=ux-20260823-1"></script>
+  <script type="module" src="js/ui-feedback-init.js?v=0.13.0"></script>
+</body>
+</html>

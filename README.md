@@ -22,6 +22,20 @@ LuxRoom là website thương mại điện tử nội thất cao cấp, được
 | Hồ sơ cá nhân | Đăng nhập/đăng ký, quản lý tài khoản |
 | Liên hệ & Newsletter | Form liên hệ, đăng ký nhận tin khuyến mãi |
 
+### E-commerce UX upgrade — 23/08/2026
+
+Phiên bản hiện tại giữ nguyên visual direction luxury/editorial và bổ sung luồng mua nội thất hoàn chỉnh hơn:
+
+- Dữ liệu thật cho dimensions, materials, care, finish, availability, lead time và SKU.
+- Variant cập nhật ảnh, giá, tình trạng hàng và thời gian giao mà không reload trang.
+- Technical dimension visual và measure guide ngay trong PDP.
+- Bộ lọc Size, Availability và Delivery; filter drawer riêng cho mobile.
+- Giỏ hàng lưu đúng variant, ngày giao dự kiến, địa điểm và phí giao hàng.
+- Checkout 4 bước: Contact → Delivery → Payment → Review, với địa chỉ phù hợp thị trường Việt Nam.
+- Xác nhận đơn hàng, lưu order ID và trang theo dõi trạng thái giao hàng.
+- Wishlist được nâng thành Saved Room, có tổng giá trị, chia sẻ và yêu cầu tư vấn.
+- Search thực theo tên, category, room, material, tone, collection và style.
+
 ### Đối tượng sử dụng
 
 Dự án phù hợp để:

@@ -1,7 +1,7 @@
 import { readFile, access } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 
-const root = resolve('/home/ubuntu/LuxRoom');
+const root = resolve(process.cwd());
 const html = await readFile(resolve(root, 'detail.html'), 'utf8');
 const css = await readFile(resolve(root, 'css/detail.css'), 'utf8');
 const js = await readFile(resolve(root, 'js/detail.js'), 'utf8');

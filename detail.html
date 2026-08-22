@@ -51,22 +51,38 @@
         <div class="detail-copy-grid">
           <p class="di-desc" id="detail-description">A generous lounge chair with a soft, sculptural profile. Its low silhouette and tactile upholstery create an easy pause in a room — refined enough to hold its own, relaxed enough to live with every day.</p>
           <ul class="di-bullets">
-            <li><strong>Upholstery</strong><span>Olive bouclé / warm linen</span></li>
-            <li><strong>Leg finish</strong><span>Natural oak / walnut</span></li>
-            <li><strong>Dimensions</strong><span>Available on request</span></li>
+            <li><strong>Materials</strong><span id="detail-material-summary">Bouclé / solid oak</span></li>
+            <li><strong>Dimensions</strong><span id="detail-dimension-summary">W 82 × D 76 × H 70 cm</span></li>
+            <li><strong>Availability</strong><span id="detail-stock-summary">In stock</span></li>
           </ul>
         </div>
 
         <div class="product-options" aria-label="Product options">
           <fieldset class="option-group">
             <legend>Choose a finish</legend>
-            <div class="finish-options">
+            <div class="finish-options" id="finish-options">
               <button type="button" class="finish-option active" data-finish="Olive bouclé" aria-pressed="true"><span class="swatch swatch-olive"></span>Olive bouclé</button>
               <button type="button" class="finish-option" data-finish="Warm linen" aria-pressed="false"><span class="swatch swatch-linen"></span>Warm linen</button>
               <button type="button" class="finish-option" data-finish="Charcoal weave" aria-pressed="false"><span class="swatch swatch-charcoal"></span>Charcoal weave</button>
             </div>
           </fieldset>
         </div>
+
+        <section class="arrival-note" aria-labelledby="arrival-heading" aria-live="polite">
+          <div class="arrival-note-heading">
+            <p class="section-label" id="arrival-heading">Arrival</p>
+            <label for="detail-delivery-location">Delivery to
+              <select id="detail-delivery-location" aria-label="Delivery destination">
+                <option value="hcm">Ho Chi Minh City</option>
+                <option value="hanoi">Hanoi</option>
+                <option value="danang">Da Nang</option>
+                <option value="province">Other province</option>
+              </select>
+            </label>
+          </div>
+          <strong id="detail-arrival">Estimated 28 Aug — 02 Sep</strong>
+          <p><span id="detail-delivery-type">Room delivery included</span><br><small id="detail-placement-note">Includes careful delivery into your chosen room.</small></p>
+        </section>
 
         <div class="di-actions">
           <div class="quantity-picker" aria-label="Quantity selector">
@@ -75,7 +91,11 @@
             <button type="button" class="btn-qty" id="qty-plus" aria-label="Increase quantity">+</button>
           </div>
           <button class="add-cart-btn" id="add-to-cart" type="button">Add to cart <span aria-hidden="true">↗</span></button>
-          <p class="availability">Selected with care for your space.</p>
+          <p class="availability" id="detail-availability">In stock · Ready to ship</p>
+        </div>
+        <div class="added-confirmation" id="added-confirmation" hidden aria-live="polite">
+          <p>Added to your selection.</p>
+          <div><a href="cart.html">View selection <span aria-hidden="true">↗</span></a><button type="button" id="continue-browsing">Continue browsing</button></div>
         </div>
       </section>
 
@@ -89,19 +109,37 @@
         <div class="spec-accordions">
           <p class="section-label">Material notes</p>
           <div class="acc-item acc-open">
-            <button class="acc-head" type="button" aria-expanded="true"><span>Specifications</span><span class="acc-icon" aria-hidden="true">−</span></button>
-            <div class="acc-body"><p>Solid wood frame, high-resilience foam and a removable textile cover. The loose back cushion gives the silhouette its easy, enveloping shape.</p></div>
+            <button class="acc-head" type="button" aria-expanded="true"><span>Dimensions &amp; fit</span><span class="acc-icon" aria-hidden="true">−</span></button>
+            <div class="acc-body">
+              <p id="detail-dimension-copy">Overall W 82 × D 76 × H 70 cm. Seat height 41 cm. Seat depth 52 cm.</p>
+              <div class="dimension-visual" id="dimension-visual" data-shape="chair" role="img" aria-label="Technical dimensions for Lux Chair">
+                <div class="dimension-object" aria-hidden="true"><i></i><i></i><i></i></div>
+                <span class="measure measure-width"><b id="dimension-width">82 cm</b></span>
+                <span class="measure measure-height"><b id="dimension-height">70 cm</b></span>
+                <span class="measure measure-depth"><b id="dimension-depth">76 cm deep</b></span>
+              </div>
+              <details class="measure-guide"><summary>Measure your space</summary><p>Measure the room, the narrowest doorway and any turns along the delivery path. Allow at least 60 cm of clear circulation around the piece.</p></details>
+            </div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-head" type="button" aria-expanded="false"><span>Materials</span><span class="acc-icon" aria-hidden="true">+</span></button>
+            <div class="acc-body"><dl class="material-list" id="detail-materials"></dl></div>
           </div>
           <div class="acc-item">
             <button class="acc-head" type="button" aria-expanded="false"><span>Care &amp; longevity</span><span class="acc-icon" aria-hidden="true">+</span></button>
-            <div class="acc-body"><p>Vacuum gently with a soft brush and keep the piece away from sustained direct sunlight. Spot-clean textile promptly with a damp cloth.</p></div>
+            <div class="acc-body"><ul class="care-list" id="detail-care"></ul></div>
           </div>
           <div class="acc-item">
-            <button class="acc-head" type="button" aria-expanded="false"><span>Delivery &amp; placement</span><span class="acc-icon" aria-hidden="true">+</span></button>
-            <div class="acc-body"><p>Share your access conditions before delivery so our team can guide you through a smooth arrival and room placement.</p></div>
+            <button class="acc-head" type="button" aria-expanded="false"><span>Delivery &amp; returns</span><span class="acc-icon" aria-hidden="true">+</span></button>
+            <div class="acc-body"><p id="detail-delivery-policy">Room delivery includes careful handling into your chosen room. Packaging removal is available with placement service. Returnable pieces may be requested within 14 days; made-to-order pieces cannot be cancelled once production begins. Report transit damage within 48 hours.</p><a class="policy-link" href="contact.html">View full delivery policy <span aria-hidden="true">↗</span></a></div>
           </div>
         </div>
         <div class="spec-img bg-lux-room-wide" id="detail-spec-image" role="img" aria-label="Lux Chair in a warm room"></div>
+      </section>
+
+      <section class="owner-notes" aria-labelledby="owner-notes-title">
+        <div><p class="section-label">Notes from homes</p><h2 id="owner-notes-title">Lived with,<br><em>over time.</em></h2></div>
+        <blockquote><p>“Still feels as considered after a year as it did the first week.”</p><footer>— Minh, Ho Chi Minh City</footer><a href="contact.html">12 owner notes <span aria-hidden="true">↗</span></a></blockquote>
       </section>
 
       <section class="related-edit" aria-labelledby="related-title">
@@ -111,7 +149,17 @@
           <a href="./detail.html?product=3" class="related-item"><div class="related-image related-two" role="img" aria-label="Warm room lamp"></div><div><span>Lighting / 03</span><h3>Evening Light</h3></div></a>
         </div>
       </section>
+
+      <section class="recently-viewed" id="recently-viewed" hidden aria-labelledby="recently-viewed-title">
+        <div class="recently-viewed-heading"><p class="section-label">Recently viewed</p><h2 id="recently-viewed-title">A quiet return.</h2></div>
+        <div class="recently-viewed-grid" id="recently-viewed-grid"></div>
+      </section>
     </main>
+
+    <div class="mobile-purchase-bar" aria-label="Product purchase controls">
+      <div><strong id="mobile-detail-price">$320</strong><span id="mobile-detail-finish">Olive bouclé</span></div>
+      <button type="button" id="mobile-add-to-cart">Add to cart <span aria-hidden="true">↗</span></button>
+    </div>
 
     <footer class="detail-footer">
       <a class="brand" href="./index.html"><img class="luxroom-logo-mark" src="img/logo/luxroom-mark.svg" alt="" width="28" height="28"><span class="luxroom-wordmark">Lux<span>Room</span></span></a>
@@ -130,8 +178,8 @@
       </div>
     </div>
 
-    <script src="js/common.js?v=ux-20260813-10"></script>
-    <script src="js/detail.js?v=ux-20260813-4"></script>
+    <script src="js/common.js?v=ux-20260823-1"></script>
+    <script src="js/detail.js?v=ux-20260823-1"></script>
       <script type="module" src="js/ui-feedback-init.js?v=0.13.0"></script>
   </body>
 </html>
