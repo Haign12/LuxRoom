@@ -697,6 +697,11 @@ function initMotionSystem() {
 
 function initPageTransition() {
   const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  // Modern browsers can animate cross-document navigation natively. Prefer that
+  // path because it preserves browser history, focus and modifier-click behavior
+  // without delaying navigation in JavaScript.
+  const supportsNativePageTransitions = 'onpageswap' in window;
+  if (supportsNativePageTransitions || reduceMotion) return;
   const veil = document.createElement('div');
   veil.className = 'lux-veil';
   veil.setAttribute('aria-hidden', 'true');
@@ -707,8 +712,6 @@ function initPageTransition() {
       <span class="lux-veil__line" aria-hidden="true"></span>
     </div>`;
   document.body.appendChild(veil);
-
-  if (reduceMotion) return;
 
   document.body.classList.add('lux-page-entering');
   window.setTimeout(() => document.body.classList.remove('lux-page-entering'), 560);

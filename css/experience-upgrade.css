@@ -310,6 +310,28 @@
   --motion-duration: .72s;
 }
 
+/* Native MPA navigation is the primary route transition. The JavaScript veil
+   remains as a progressive fallback for browsers without pageswap support. */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: lux-native-page-out .26s var(--motion-ease) both;
+}
+
+::view-transition-new(root) {
+  animation: lux-native-page-in .52s var(--motion-ease) both;
+}
+
+@keyframes lux-native-page-out {
+  to { opacity: .72; transform: translate3d(0, -6px, 0); }
+}
+
+@keyframes lux-native-page-in {
+  from { opacity: 0; transform: translate3d(0, 12px, 0); }
+}
+
 .lux-motion-ready .motion-reveal {
   opacity: 1;
   transform: translate3d(0, 0, 0);
@@ -411,6 +433,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
   .lux-motion-ready .motion-reveal,
   .lux-motion-ready .motion-reveal:not(.is-visible),
   .lux-motion-ready .motion-reveal[data-motion-depth="deep"]:not(.is-visible) {
