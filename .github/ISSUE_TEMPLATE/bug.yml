@@ -1,0 +1,98 @@
+name: Bug report
+description: Báo lỗi chức năng, giao diện hoặc tương tác cần sửa
+title: "[BUG] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Cung cấp đủ thông tin bên dưới để lỗi có thể được kiểm tra và xử lý nhanh.
+
+  - type: input
+    id: page
+    attributes:
+      label: Trang / URL
+      description: Trang hoặc route đang xảy ra lỗi.
+      placeholder: "Ví dụ: /office hoặc https://..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Lỗi hiện tại
+      description: Mô tả ngắn gọn vấn đề đang xảy ra.
+      placeholder: "Điều gì đang bị sai?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Cách tái hiện
+      description: Các bước để nhìn thấy lỗi.
+      placeholder: |
+        1. Mở trang...
+        2. Bấm...
+        3. Quan sát...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Kết quả mong muốn
+      description: Sau khi sửa, hệ thống/giao diện nên hoạt động như thế nào?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Khu vực lỗi
+      options:
+        - UI / Visual
+        - UX / Flow
+        - Responsive
+        - Interaction / Animation
+        - JavaScript
+        - Link / Asset
+        - Accessibility
+        - Khác
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Mức độ
+      options:
+        - P0 - Chặn sử dụng
+        - P1 - Nghiêm trọng
+        - P2 - Trung bình
+        - P3 - Nhỏ / polish
+    validations:
+      required: true
+
+  - type: input
+    id: viewport
+    attributes:
+      label: Thiết bị / viewport
+      placeholder: "Ví dụ: Desktop 1440px, iPhone 390px, iPad 768px"
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Ảnh / video / ghi chú bổ sung
+      description: Kéo thả screenshot, video hoặc thêm thông tin liên quan.
+
+  - type: checkboxes
+    id: acceptance
+    attributes:
+      label: Xác nhận
+      options:
+        - label: Tôi đã kiểm tra để tránh tạo Issue trùng.
+          required: true
+        - label: Issue này chỉ mô tả một lỗi hoặc một nhóm lỗi liên quan trực tiếp.
+          required: true
