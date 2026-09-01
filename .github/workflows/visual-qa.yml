@@ -48,8 +48,8 @@ jobs:
           out.mkdir(parents=True, exist_ok=True)
 
           groups = {
-            'desktop': ['home-desktop','collection-desktop','detail-desktop','about-desktop','contact-desktop','cart-desktop','checkout-desktop','home-scrolled-desktop'],
-            'mobile': ['home-mobile','collection-mobile','detail-mobile','about-mobile','contact-mobile','cart-mobile','checkout-mobile','home-mobile-menu','collection-mobile-filter','detail-mobile-lower'],
+            'desktop': ['home-desktop','collection-desktop','detail-desktop','about-desktop','contact-desktop','cart-desktop','checkout-desktop','home-scrolled-desktop','home-desktop-shop','home-desktop-search'],
+            'mobile': ['home-mobile','collection-mobile','detail-mobile','about-mobile','contact-mobile','cart-mobile','checkout-mobile','home-mobile-menu','home-mobile-search','collection-mobile-filter','detail-mobile-lower'],
           }
 
           def make_sheet(name, items, cell=(360,240), cols=3):
