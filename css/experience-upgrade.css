@@ -314,6 +314,22 @@
   .topbar.menu-open .nav-discovery-flyout a:nth-of-type(even) { border-left: 0 !important; }
   .topbar.menu-open .nav-discovery-flyout a:hover,
   .topbar.menu-open .nav-discovery-flyout a:focus-visible { background: var(--surface); color: var(--ink) !important; }
+  .topbar.menu-open .nav-discovery > a.active {
+    position: relative;
+    font-weight: 700;
+  }
+  .topbar.menu-open .nav-discovery > a.active::after {
+    content: "";
+    position: absolute;
+    display: block !important;
+    left: 0;
+    right: auto;
+    bottom: 8px;
+    width: 24px;
+    height: 1px;
+    background: var(--ink);
+    transform: none;
+  }
   .mini-cart-popover { display: none; }
   .search-modal { width: min(100%, calc(100vw - 24px)); max-height: calc(100svh - var(--nav-h) - 20px); }
   .search-input-wrapper { min-height: 62px; padding-inline: 16px 8px; }
