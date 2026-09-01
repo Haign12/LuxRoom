@@ -1,0 +1,110 @@
+name: Apply Rooms Page And Hero Fix
+
+on:
+  push:
+    branches:
+      - uiux/rooms-page-hero-fix
+    paths:
+      - '.github/workflows/apply-rooms-page.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: uiux/rooms-page-hero-fix
+      - name: Apply scoped source changes
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          # 1) Rooms becomes a real destination while room-scoped PLPs still mark Rooms active.
+          p = Path('js/common.js')
+          s = p.read_text()
+          old = 'roomNav.innerHTML = \'<a class="nav-rooms-link" href="index.html#room-edit-title" aria-haspopup="true" aria-expanded="false">Rooms</a>\';'
+          new = 'roomNav.innerHTML = \'<a class="nav-rooms-link" href="rooms.html" aria-haspopup="true" aria-expanded="false">Rooms</a>\';'
+          if old not in s:
+              raise SystemExit('common.js Rooms href owner not found')
+          s = s.replace(old, new, 1)
+          old_active = '(isCollection && hasRoomScope) || (currentPage === "index.html" && window.location.hash === "#room-edit-title"),'
+          new_active = '(isCollection && hasRoomScope) || currentPage === "rooms.html",'
+          if old_active not in s:
+              raise SystemExit('common.js Rooms active owner not found')
+          s = s.replace(old_active, new_active, 1)
+          p.write_text(s)
+
+          # 2) Fix the mid-width Home hero overflow without changing Home content.
+          p = Path('css/index.css')
+          s = p.read_text()
+          old = '  .hero-copy h1 { margin-block: 15px 22px; font-size: clamp(3.7rem, 15vw, 6.5rem); }'
+          new = '  .hero-copy h1 { margin-block: 15px 22px; max-width: 100%; font-size: clamp(3.55rem, 11.8vw, 5.85rem); line-height: .88; }'
+          if old not in s:
+              raise SystemExit('index.css mobile hero owner not found')
+          s = s.replace(old, new, 1)
+          p.write_text(s)
+
+          # 3) Add Rooms and the failing ~700px viewport to visual regression coverage.
+          p = Path('qa/capture.mjs')
+          s = p.read_text()
+          old = "const wide = { width: 1920, height: 1080 };"
+          new = "const wide = { width: 1920, height: 1080 };\nconst mid = { width: 700, height: 900 };"
+          if old not in s:
+              raise SystemExit('capture viewport owner not found')
+          s = s.replace(old, new, 1)
+          old = "  ['home','index.html'],\n  ['collection','products.html'],"
+          new = "  ['home','index.html'],\n  ['rooms','rooms.html'],\n  ['collection','products.html'],"
+          if old not in s:
+              raise SystemExit('capture routes owner not found')
+          s = s.replace(old, new, 1)
+          old = "await capture('home-wide', 'index.html', wide);"
+          new = "await capture('home-wide', 'index.html', wide);\nawait capture('home-700', 'index.html', mid);"
+          if old not in s:
+              raise SystemExit('capture wide owner not found')
+          s = s.replace(old, new, 1)
+          old_metrics = """  const metrics = await page.evaluate(() => ({
+    title: document.title,
+    scrollWidth: document.documentElement.scrollWidth,
+    clientWidth: document.documentElement.clientWidth,
+    bodyHeight: document.body.scrollHeight,
+    h1: document.querySelector('h1')?.textContent?.trim() || '',
+    active: document.querySelector('.main-nav a.active')?.textContent?.trim() || '',
+  }));"""
+          new_metrics = """  const metrics = await page.evaluate(() => {
+    const accent = document.querySelector('#home-title em');
+    const accentRect = accent?.getBoundingClientRect();
+    return {
+      title: document.title,
+      scrollWidth: document.documentElement.scrollWidth,
+      clientWidth: document.documentElement.clientWidth,
+      bodyHeight: document.body.scrollHeight,
+      h1: document.querySelector('h1')?.textContent?.trim() || '',
+      active: document.querySelector('.main-nav a.active')?.textContent?.trim() || '',
+      heroAccentRight: accentRect ? Math.round(accentRect.right) : null,
+      heroAccentClipped: accentRect ? accentRect.right > window.innerWidth + 1 || accentRect.left < -1 : false,
+    };
+  });"""
+          if old_metrics not in s:
+              raise SystemExit('capture metrics owner not found')
+          s = s.replace(old_metrics, new_metrics, 1)
+          p.write_text(s)
+
+          # Keep the design contract aligned with the new page-role decision if the old wording exists.
+          p = Path('docs/DESIGN-CONTRACT.md')
+          if p.exists():
+              s = p.read_text()
+              s = s.replace('links to the existing homepage Shop-by-room hub', 'links to the dedicated `rooms.html` space-led editorial hub')
+              p.write_text(s)
+          PY
+      - name: Verify and commit
+        run: |
+          git diff --check
+          git diff --stat
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add js/common.js css/index.css qa/capture.mjs docs/DESIGN-CONTRACT.md
+          git commit -m 'fix: separate Rooms hub and repair Home hero overflow'
+          git push origin HEAD:uiux/rooms-page-hero-fix
