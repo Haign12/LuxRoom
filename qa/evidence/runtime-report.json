@@ -1,0 +1,184 @@
+[
+  {
+    "capture": "about-desktop",
+    "title": "LuxRoom | Our story",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "bodyHeight": 4645,
+    "h1": "Objects witha softer pointof view.",
+    "active": "Our story",
+    "errors": []
+  },
+  {
+    "capture": "about-mobile",
+    "title": "LuxRoom | Our story",
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "bodyHeight": 5685,
+    "h1": "Objects witha softer pointof view.",
+    "active": "Our story",
+    "errors": []
+  },
+  {
+    "capture": "cart-desktop",
+    "title": "LuxRoom | Your selection",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "bodyHeight": 2194,
+    "h1": "The room,in progress.",
+    "active": "",
+    "errors": []
+  },
+  {
+    "capture": "cart-mobile",
+    "title": "LuxRoom | Your selection",
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "bodyHeight": 2835,
+    "h1": "The room,in progress.",
+    "active": "",
+    "errors": []
+  },
+  {
+    "capture": "checkout-desktop",
+    "title": "LuxRoom | Checkout",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "bodyHeight": 3254,
+    "h1": "Bring the roomhome.",
+    "active": "",
+    "errors": []
+  },
+  {
+    "capture": "checkout-mobile",
+    "title": "LuxRoom | Checkout",
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "bodyHeight": 4855,
+    "h1": "Bring the roomhome.",
+    "active": "",
+    "errors": []
+  },
+  {
+    "capture": "collection-desktop",
+    "title": "LuxRoom | Collection",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "bodyHeight": 5347,
+    "h1": "Objects forreal rooms.",
+    "active": "Shop",
+    "errors": []
+  },
+  {
+    "capture": "collection-mobile-filter",
+    "title": "LuxRoom | Collection",
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "bodyHeight": 5491,
+    "h1": "Objects forreal rooms.",
+    "active": "Shop",
+    "errors": []
+  },
+  {
+    "capture": "collection-mobile",
+    "title": "LuxRoom | Collection",
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "bodyHeight": 5491,
+    "h1": "Objects forreal rooms.",
+    "active": "Shop",
+    "errors": []
+  },
+  {
+    "capture": "contact-desktop",
+    "title": "LuxRoom | Begin a room",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "bodyHeight": 2587,
+    "h1": "Tell us aboutthe room.",
+    "active": "Contact",
+    "errors": [
+      "console: Failed to load resource: the server responded with a status of 404 (File not found)"
+    ]
+  },
+  {
+    "capture": "contact-mobile",
+    "title": "LuxRoom | Begin a room",
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "bodyHeight": 3360,
+    "h1": "Tell us aboutthe room.",
+    "active": "Contact",
+    "errors": []
+  },
+  {
+    "capture": "detail-desktop",
+    "title": "LuxRoom | Miro Lounge Chair",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "bodyHeight": 4534,
+    "h1": "Miro Lounge Chair",
+    "active": "Shop",
+    "errors": []
+  },
+  {
+    "capture": "detail-mobile-lower",
+    "title": "LuxRoom | Miro Lounge Chair",
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "bodyHeight": 6006,
+    "h1": "Miro Lounge Chair",
+    "active": "Shop",
+    "errors": []
+  },
+  {
+    "capture": "detail-mobile",
+    "title": "LuxRoom | Miro Lounge Chair",
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "bodyHeight": 6006,
+    "h1": "Miro Lounge Chair",
+    "active": "Shop",
+    "errors": []
+  },
+  {
+    "capture": "home-desktop",
+    "title": "LuxRoom | Considered furniture for real rooms",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "bodyHeight": 7165,
+    "h1": "Rooms that feelconsidered.",
+    "active": "Home",
+    "errors": []
+  },
+  {
+    "capture": "home-mobile-menu",
+    "title": "LuxRoom | Considered furniture for real rooms",
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "bodyHeight": 8608,
+    "h1": "Rooms that feelconsidered.",
+    "active": "Home",
+    "errors": []
+  },
+  {
+    "capture": "home-mobile",
+    "title": "LuxRoom | Considered furniture for real rooms",
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "bodyHeight": 8608,
+    "h1": "Rooms that feelconsidered.",
+    "active": "Home",
+    "errors": []
+  },
+  {
+    "capture": "home-scrolled-desktop",
+    "title": "LuxRoom | Considered furniture for real rooms",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "bodyHeight": 7165,
+    "h1": "Rooms that feelconsidered.",
+    "active": "Home",
+    "errors": []
+  }
+]
