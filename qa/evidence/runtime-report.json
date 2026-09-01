@@ -7,6 +7,8 @@
     "bodyHeight": 4645,
     "h1": "Objects witha softer pointof view.",
     "active": "Our story",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -18,6 +20,8 @@
     "bodyHeight": 5685,
     "h1": "Objects witha softer pointof view.",
     "active": "Our story",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -29,6 +33,8 @@
     "bodyHeight": 2194,
     "h1": "The room,in progress.",
     "active": "",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -40,6 +46,8 @@
     "bodyHeight": 2835,
     "h1": "The room,in progress.",
     "active": "",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -51,6 +59,8 @@
     "bodyHeight": 3254,
     "h1": "Bring the roomhome.",
     "active": "",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -62,6 +72,8 @@
     "bodyHeight": 4855,
     "h1": "Bring the roomhome.",
     "active": "",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -73,6 +85,8 @@
     "bodyHeight": 4925,
     "h1": "Objects forreal rooms.",
     "active": "Shop",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -84,6 +98,8 @@
     "bodyHeight": 5347,
     "h1": "Objects forreal rooms.",
     "active": "Shop",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -95,6 +111,8 @@
     "bodyHeight": 5491,
     "h1": "Objects forreal rooms.",
     "active": "Shop",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -106,6 +124,8 @@
     "bodyHeight": 5491,
     "h1": "Objects forreal rooms.",
     "active": "Shop",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -117,6 +137,8 @@
     "bodyHeight": 5303,
     "h1": "Objects forreal rooms.",
     "active": "Rooms",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -128,6 +150,8 @@
     "bodyHeight": 5059,
     "h1": "Objects forreal rooms.",
     "active": "Rooms",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -139,6 +163,8 @@
     "bodyHeight": 6356,
     "h1": "Objects forreal rooms.",
     "active": "Shop",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -150,6 +176,8 @@
     "bodyHeight": 2587,
     "h1": "Tell us aboutthe room.",
     "active": "Contact",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [
       "console: Failed to load resource: the server responded with a status of 404 (File not found)"
     ],
@@ -163,6 +191,8 @@
     "bodyHeight": 3360,
     "h1": "Tell us aboutthe room.",
     "active": "Contact",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -174,6 +204,8 @@
     "bodyHeight": 4169,
     "h1": "Miro Lounge Chair",
     "active": "",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -185,6 +217,8 @@
     "bodyHeight": 4534,
     "h1": "Miro Lounge Chair",
     "active": "",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -196,6 +230,8 @@
     "bodyHeight": 5685,
     "h1": "Miro Lounge Chair",
     "active": "",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -207,6 +243,8 @@
     "bodyHeight": 5685,
     "h1": "Miro Lounge Chair",
     "active": "",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -218,6 +256,8 @@
     "bodyHeight": 6470,
     "h1": "Miro Lounge Chair",
     "active": "",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -229,6 +269,21 @@
     "bodyHeight": 7320,
     "h1": "Rooms that feelconsidered.",
     "active": "",
+    "heroAccentRight": 934,
+    "heroAccentClipped": false,
+    "errors": [],
+    "failedResponses": []
+  },
+  {
+    "capture": "home-700",
+    "title": "LuxRoom | Considered furniture for real rooms",
+    "scrollWidth": 700,
+    "clientWidth": 700,
+    "bodyHeight": 8397,
+    "h1": "Rooms that feelconsidered.",
+    "active": "",
+    "heroAccentRight": 382,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -240,6 +295,8 @@
     "bodyHeight": 7165,
     "h1": "Rooms that feelconsidered.",
     "active": "",
+    "heroAccentRight": 1485,
+    "heroAccentClipped": true,
     "errors": [],
     "failedResponses": []
   },
@@ -251,6 +308,8 @@
     "bodyHeight": 7165,
     "h1": "Rooms that feelconsidered.",
     "active": "",
+    "heroAccentRight": 1485,
+    "heroAccentClipped": true,
     "errors": [],
     "failedResponses": []
   },
@@ -262,6 +321,8 @@
     "bodyHeight": 7165,
     "h1": "Rooms that feelconsidered.",
     "active": "",
+    "heroAccentRight": 1485,
+    "heroAccentClipped": true,
     "errors": [],
     "failedResponses": []
   },
@@ -273,6 +334,8 @@
     "bodyHeight": 7165,
     "h1": "Rooms that feelconsidered.",
     "active": "",
+    "heroAccentRight": 1485,
+    "heroAccentClipped": true,
     "errors": [],
     "failedResponses": []
   },
@@ -284,6 +347,8 @@
     "bodyHeight": 8608,
     "h1": "Rooms that feelconsidered.",
     "active": "",
+    "heroAccentRight": 282,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -295,6 +360,8 @@
     "bodyHeight": 8608,
     "h1": "Rooms that feelconsidered.",
     "active": "",
+    "heroAccentRight": 282,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -306,6 +373,8 @@
     "bodyHeight": 8608,
     "h1": "Rooms that feelconsidered.",
     "active": "",
+    "heroAccentRight": 282,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -317,6 +386,8 @@
     "bodyHeight": 7165,
     "h1": "Rooms that feelconsidered.",
     "active": "",
+    "heroAccentRight": 1485,
+    "heroAccentClipped": true,
     "errors": [],
     "failedResponses": []
   },
@@ -325,9 +396,11 @@
     "title": "LuxRoom | Considered furniture for real rooms",
     "scrollWidth": 768,
     "clientWidth": 768,
-    "bodyHeight": 8501,
+    "bodyHeight": 8477,
     "h1": "Rooms that feelconsidered.",
     "active": "",
+    "heroAccentRight": 417,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   },
@@ -339,6 +412,60 @@
     "bodyHeight": 7483,
     "h1": "Rooms that feelconsidered.",
     "active": "",
+    "heroAccentRight": 1932,
+    "heroAccentClipped": true,
+    "errors": [],
+    "failedResponses": []
+  },
+  {
+    "capture": "rooms-1024",
+    "title": "Rooms | LuxRoom",
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "bodyHeight": 7103,
+    "h1": "Start withthe space.",
+    "active": "Rooms",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
+    "errors": [],
+    "failedResponses": []
+  },
+  {
+    "capture": "rooms-desktop",
+    "title": "Rooms | LuxRoom",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "bodyHeight": 7890,
+    "h1": "Start withthe space.",
+    "active": "Rooms",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
+    "errors": [],
+    "failedResponses": []
+  },
+  {
+    "capture": "rooms-mobile",
+    "title": "Rooms | LuxRoom",
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "bodyHeight": 9194,
+    "h1": "Start withthe space.",
+    "active": "Rooms",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
+    "errors": [],
+    "failedResponses": []
+  },
+  {
+    "capture": "rooms-tablet",
+    "title": "Rooms | LuxRoom",
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "bodyHeight": 9468,
+    "h1": "Start withthe space.",
+    "active": "Rooms",
+    "heroAccentRight": null,
+    "heroAccentClipped": false,
     "errors": [],
     "failedResponses": []
   }
