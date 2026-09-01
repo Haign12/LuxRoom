@@ -68,6 +68,15 @@ await capture('home-desktop-shop', 'index.html', desktop, async page => {
   await shopLink.hover();
   await page.locator('.nav-shop-flyout').waitFor({ state: 'visible' });
 });
+await capture('home-desktop-rooms', 'index.html', desktop, async page => {
+  const roomsLink = page.locator('.nav-rooms > a');
+  await roomsLink.hover();
+  await page.locator('.nav-rooms-flyout').waitFor({ state: 'visible' });
+});
+await capture('collection-room-desktop', 'products.html?room=Living', desktop);
+await capture('collection-room-mobile-menu', 'products.html?room=Living', mobile, async page => {
+  await page.locator('.mobile-menu-toggle').click();
+});
 await capture('home-desktop-search', 'index.html', desktop, async page => {
   await page.locator('button[aria-label="Search"]').click();
   await page.locator('#global-search-overlay.show').waitFor({ state: 'visible' });

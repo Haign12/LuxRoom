@@ -22,9 +22,13 @@ Protect the Quiet Architectural Commerce redesign from both rendered regressions
 
 ### Required state captures
 - Home desktop top
+- Home desktop Shop open
+- Home desktop Rooms open
+- Home desktop Search open
 - Home desktop scrolled header
 - Home mobile top
 - Home mobile menu open
+- Room-scoped Collection mobile menu open
 - Collection desktop top
 - Collection mobile top
 - Collection mobile filters open
