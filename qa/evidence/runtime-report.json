@@ -110,6 +110,28 @@
     "failedResponses": []
   },
   {
+    "capture": "collection-room-desktop",
+    "title": "LuxRoom | Collection",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "bodyHeight": 5303,
+    "h1": "Objects forreal rooms.",
+    "active": "Rooms",
+    "errors": [],
+    "failedResponses": []
+  },
+  {
+    "capture": "collection-room-mobile-menu",
+    "title": "LuxRoom | Collection",
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "bodyHeight": 5059,
+    "h1": "Objects forreal rooms.",
+    "active": "Rooms",
+    "errors": [],
+    "failedResponses": []
+  },
+  {
     "capture": "collection-tablet",
     "title": "LuxRoom | Collection",
     "scrollWidth": 768,
@@ -151,7 +173,7 @@
     "clientWidth": 1024,
     "bodyHeight": 4169,
     "h1": "Miro Lounge Chair",
-    "active": "Shop",
+    "active": "",
     "errors": [],
     "failedResponses": []
   },
@@ -162,7 +184,7 @@
     "clientWidth": 1440,
     "bodyHeight": 4534,
     "h1": "Miro Lounge Chair",
-    "active": "Shop",
+    "active": "",
     "errors": [],
     "failedResponses": []
   },
@@ -173,7 +195,7 @@
     "clientWidth": 390,
     "bodyHeight": 5685,
     "h1": "Miro Lounge Chair",
-    "active": "Shop",
+    "active": "",
     "errors": [],
     "failedResponses": []
   },
@@ -184,7 +206,7 @@
     "clientWidth": 390,
     "bodyHeight": 5685,
     "h1": "Miro Lounge Chair",
-    "active": "Shop",
+    "active": "",
     "errors": [],
     "failedResponses": []
   },
@@ -195,7 +217,7 @@
     "clientWidth": 768,
     "bodyHeight": 6470,
     "h1": "Miro Lounge Chair",
-    "active": "Shop",
+    "active": "",
     "errors": [],
     "failedResponses": []
   },
@@ -206,7 +228,18 @@
     "clientWidth": 1024,
     "bodyHeight": 7320,
     "h1": "Rooms that feelconsidered.",
-    "active": "Home",
+    "active": "",
+    "errors": [],
+    "failedResponses": []
+  },
+  {
+    "capture": "home-desktop-rooms",
+    "title": "LuxRoom | Considered furniture for real rooms",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "bodyHeight": 7165,
+    "h1": "Rooms that feelconsidered.",
+    "active": "",
     "errors": [],
     "failedResponses": []
   },
@@ -217,7 +250,7 @@
     "clientWidth": 1440,
     "bodyHeight": 7165,
     "h1": "Rooms that feelconsidered.",
-    "active": "Home",
+    "active": "",
     "errors": [],
     "failedResponses": []
   },
@@ -228,7 +261,7 @@
     "clientWidth": 1440,
     "bodyHeight": 7165,
     "h1": "Rooms that feelconsidered.",
-    "active": "Home",
+    "active": "",
     "errors": [],
     "failedResponses": []
   },
@@ -239,7 +272,7 @@
     "clientWidth": 1440,
     "bodyHeight": 7165,
     "h1": "Rooms that feelconsidered.",
-    "active": "Home",
+    "active": "",
     "errors": [],
     "failedResponses": []
   },
@@ -250,7 +283,7 @@
     "clientWidth": 390,
     "bodyHeight": 8608,
     "h1": "Rooms that feelconsidered.",
-    "active": "Home",
+    "active": "",
     "errors": [],
     "failedResponses": []
   },
@@ -261,7 +294,7 @@
     "clientWidth": 390,
     "bodyHeight": 8608,
     "h1": "Rooms that feelconsidered.",
-    "active": "Home",
+    "active": "",
     "errors": [],
     "failedResponses": []
   },
@@ -272,7 +305,7 @@
     "clientWidth": 390,
     "bodyHeight": 8608,
     "h1": "Rooms that feelconsidered.",
-    "active": "Home",
+    "active": "",
     "errors": [],
     "failedResponses": []
   },
@@ -283,7 +316,7 @@
     "clientWidth": 1440,
     "bodyHeight": 7165,
     "h1": "Rooms that feelconsidered.",
-    "active": "Home",
+    "active": "",
     "errors": [],
     "failedResponses": []
   },
@@ -294,7 +327,7 @@
     "clientWidth": 768,
     "bodyHeight": 8501,
     "h1": "Rooms that feelconsidered.",
-    "active": "Home",
+    "active": "",
     "errors": [],
     "failedResponses": []
   },
@@ -305,7 +338,7 @@
     "clientWidth": 1920,
     "bodyHeight": 7483,
     "h1": "Rooms that feelconsidered.",
-    "active": "Home",
+    "active": "",
     "errors": [],
     "failedResponses": []
   }
