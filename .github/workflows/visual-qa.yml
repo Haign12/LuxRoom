@@ -1,0 +1,87 @@
+name: Visual QA
+
+on:
+  push:
+    branches:
+      - uiux/luxroom-research-v2
+      - main
+    paths-ignore:
+      - 'qa/evidence/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Start static server
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/luxroom-server.log 2>&1 &
+          echo $! > /tmp/luxroom-server.pid
+          sleep 2
+      - name: Capture representative routes and states
+        run: node qa/capture.mjs
+      - name: Build visual contact sheets
+        run: |
+          python3 - <<'PY'
+          from PIL import Image, ImageOps, ImageDraw
+          from pathlib import Path
+          import json, math
+
+          raw = Path('qa/evidence/raw')
+          out = Path('qa/evidence')
+          out.mkdir(parents=True, exist_ok=True)
+
+          groups = {
+            'desktop': ['home-desktop','collection-desktop','detail-desktop','about-desktop','contact-desktop','cart-desktop','checkout-desktop','home-scrolled-desktop'],
+            'mobile': ['home-mobile','collection-mobile','detail-mobile','about-mobile','contact-mobile','cart-mobile','checkout-mobile','home-mobile-menu','collection-mobile-filter','detail-mobile-lower'],
+          }
+
+          def make_sheet(name, items, cell=(360,240), cols=3):
+            label_h = 28
+            rows = math.ceil(len(items)/cols)
+            sheet = Image.new('RGB', (cols*cell[0], rows*(cell[1]+label_h)), 'white')
+            draw = ImageDraw.Draw(sheet)
+            for i, item in enumerate(items):
+              img = Image.open(raw/f'{item}.png').convert('RGB')
+              crop_h = min(img.height, int(img.width * cell[1] / cell[0]))
+              img = img.crop((0,0,img.width,crop_h))
+              thumb = ImageOps.fit(img, cell, method=Image.Resampling.LANCZOS, centering=(0.5,0.0))
+              x=(i%cols)*cell[0]; y=(i//cols)*(cell[1]+label_h)
+              sheet.paste(thumb,(x,y+label_h))
+              draw.text((x+8,y+7),item,fill='black')
+            sheet.save(out/f'contact-{name}.jpg', quality=72, optimize=True)
+
+          for name, items in groups.items(): make_sheet(name, items)
+
+          report=[]
+          for p in sorted(raw.glob('*.json')):
+            d=json.loads(p.read_text())
+            report.append({'capture':p.stem, **d})
+          Path('qa/evidence/runtime-report.json').write_text(json.dumps(report,indent=2))
+          PY
+      - name: Upload full visual evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: luxroom-visual-qa
+          path: qa/evidence/
+          if-no-files-found: error
+      - name: Commit compact evidence
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add qa/evidence/contact-desktop.jpg qa/evidence/contact-mobile.jpg qa/evidence/runtime-report.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'qa: update rendered visual evidence'
+          git push
