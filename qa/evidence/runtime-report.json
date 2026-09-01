@@ -211,6 +211,28 @@
     "failedResponses": []
   },
   {
+    "capture": "home-desktop-search",
+    "title": "LuxRoom | Considered furniture for real rooms",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "bodyHeight": 7165,
+    "h1": "Rooms that feelconsidered.",
+    "active": "Home",
+    "errors": [],
+    "failedResponses": []
+  },
+  {
+    "capture": "home-desktop-shop",
+    "title": "LuxRoom | Considered furniture for real rooms",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "bodyHeight": 7165,
+    "h1": "Rooms that feelconsidered.",
+    "active": "Home",
+    "errors": [],
+    "failedResponses": []
+  },
+  {
     "capture": "home-desktop",
     "title": "LuxRoom | Considered furniture for real rooms",
     "scrollWidth": 1440,
