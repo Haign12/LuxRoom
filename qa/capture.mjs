@@ -13,8 +13,12 @@ async function capture(name, route, viewport, action) {
   const context = await browser.newContext({ viewport, deviceScaleFactor: 1, reducedMotion: 'reduce' });
   const page = await context.newPage();
   const errors = [];
+  const failedResponses = [];
   page.on('pageerror', e => errors.push(`pageerror: ${e.message}`));
   page.on('console', msg => { if (msg.type() === 'error') errors.push(`console: ${msg.text()}`); });
+  page.on('response', response => {
+    if (response.status() >= 400) failedResponses.push(`${response.status()} ${response.url()}`);
+  });
   await page.goto(`${base}/${route}`, { waitUntil: 'networkidle' });
   await page.evaluate(async () => { if (document.fonts?.ready) await document.fonts.ready; });
   await page.addStyleTag({ content: `*,*::before,*::after{animation-duration:0s!important;animation-delay:0s!important;scroll-behavior:auto!important}` });
@@ -29,12 +33,15 @@ async function capture(name, route, viewport, action) {
     h1: document.querySelector('h1')?.textContent?.trim() || '',
     active: document.querySelector('.main-nav a.active')?.textContent?.trim() || '',
   }));
-  await fs.writeFile(`${out}/${name}.json`, JSON.stringify({ ...metrics, errors }, null, 2));
+  await fs.writeFile(`${out}/${name}.json`, JSON.stringify({ ...metrics, errors, failedResponses }, null, 2));
   await context.close();
 }
 
 const desktop = { width: 1440, height: 1000 };
 const mobile = { width: 390, height: 844 };
+const tablet = { width: 768, height: 1024 };
+const smallLaptop = { width: 1024, height: 900 };
+const wide = { width: 1920, height: 1080 };
 const routes = [
   ['home','index.html'],
   ['collection','products.html'],
@@ -50,8 +57,17 @@ for (const [name, route] of routes) {
   await capture(`${name}-mobile`, route, mobile);
 }
 
+for (const [name, route] of routes.slice(0, 3)) {
+  await capture(`${name}-tablet`, route, tablet);
+  await capture(`${name}-1024`, route, smallLaptop);
+}
+await capture('home-wide', 'index.html', wide);
+
 await capture('home-mobile-menu', 'index.html', mobile, async page => {
   await page.locator('.mobile-menu-toggle').click();
+});
+await capture('home-mobile-search', 'index.html', mobile, async page => {
+  await page.locator('button[aria-label="Search"]').click();
 });
 await capture('collection-mobile-filter', 'products.html', mobile, async page => {
   await page.locator('.filter-toggle').click();
