@@ -67,6 +67,21 @@ Alternative branch:
 | contact.html | assisted conversion | How do I get useful help, and when will I hear back? | Send note |
 | auth.html / profile.html | utility / continuity | Can I resume my saved activity? | Sign in / manage account |
 
+### Global navigation refinement — 2026-09-01
+
+Detailed evidence and rationale: `docs/navigation-ia-refinement.md`.
+
+Locked primary navigation:
+
+`SHOP · ROOMS · OUR STORY · CONTACT`
+
+- The LuxRoom wordmark is the Home affordance; duplicate `HOME` text navigation is retired.
+- `SHOP` is the object-led axis and links to the full PLP, with Seating / Tables / Lighting / Storage / Textiles / Objects as children.
+- `ROOMS` is the space-led axis and links to the existing homepage Shop-by-room hub, with Living / Dining / Bedroom / Office / Bathroom as children routed to real `products.html?room=...` filters.
+- Desktop may use compact flyouts. Mobile must expose category and room children immediately in the open menu rather than requiring a nested disclosure.
+- `SHOP` is active for general/category/collection/search PLP scope; `ROOMS` is active when a valid room scope is present.
+- Do not add Collections / New / Journal / Trade / Sale to top-level navigation without new task/content evidence.
+
 ## 7. Preserve / change / remove / add
 
 ### Preserve

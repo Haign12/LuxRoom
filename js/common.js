@@ -162,50 +162,87 @@ function standardizeHeaderIcons() {
 
 standardizeHeaderIcons();
 
-function initShopNavigation() {
+function initDiscoveryNavigation() {
   const categories = ["Seating", "Tables", "Lighting", "Storage", "Textiles", "Objects"];
+  const rooms = ["Living", "Dining", "Bedroom", "Office", "Bathroom"];
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  const query = new URLSearchParams(window.location.search);
+  const hasRoomScope = Boolean(query.get("room"));
+  const mobileMenuQuery = window.matchMedia("(max-width: 820px)");
+
+  const setupFlyout = (wrapper, trigger, flyout) => {
+    const setExpanded = (expanded) => trigger.setAttribute("aria-expanded", String(mobileMenuQuery.matches || expanded));
+    setExpanded(false);
+    wrapper.addEventListener("mouseenter", () => setExpanded(true));
+    wrapper.addEventListener("mouseleave", () => setExpanded(false));
+    wrapper.addEventListener("focusin", () => setExpanded(true));
+    wrapper.addEventListener("focusout", (event) => {
+      if (!wrapper.contains(event.relatedTarget)) setExpanded(false);
+    });
+    trigger.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowDown" || mobileMenuQuery.matches) return;
+      event.preventDefault();
+      setExpanded(true);
+      flyout.querySelector("a")?.focus();
+    });
+    wrapper.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape" || mobileMenuQuery.matches) return;
+      setExpanded(false);
+      trigger.focus();
+    });
+    mobileMenuQuery.addEventListener?.("change", () => setExpanded(false));
+  };
+
   document.querySelectorAll(".main-nav").forEach((nav) => {
-    const collectionLink = Array.from(nav.children).find((node) => node.matches?.('a[href*="products.html"]'));
+    const directLinks = Array.from(nav.children).filter((node) => node.matches?.("a"));
+    const homeLink = directLinks.find((node) => node.matches?.('a[href*="index.html"]'));
+    const collectionLink = directLinks.find((node) => node.matches?.('a[href*="products.html"]'));
     if (!collectionLink || collectionLink.closest(".nav-shop")) return;
 
+    homeLink?.remove();
+
     const shop = document.createElement("div");
-    shop.className = "nav-shop";
+    shop.className = "nav-shop nav-discovery";
     collectionLink.before(shop);
     shop.appendChild(collectionLink);
     collectionLink.textContent = "Shop";
     collectionLink.setAttribute("aria-haspopup", "true");
     collectionLink.setAttribute("aria-expanded", "false");
 
-    const flyout = document.createElement("div");
-    flyout.className = "nav-shop-flyout";
-    flyout.setAttribute("aria-label", "Shop by category");
-    flyout.innerHTML = categories.map((category) => (
-      `<a href="products.html?category=${encodeURIComponent(category)}">${category}</a>`
-    )).join("");
-    shop.appendChild(flyout);
+    const shopFlyout = document.createElement("div");
+    shopFlyout.className = "nav-shop-flyout nav-discovery-flyout";
+    shopFlyout.setAttribute("aria-label", "Shop by category");
+    shopFlyout.innerHTML = categories
+      .map((category) => `<a href="products.html?category=${encodeURIComponent(category)}">${category}</a>`)
+      .join("");
+    shop.appendChild(shopFlyout);
 
-    const setExpanded = (expanded) => collectionLink.setAttribute("aria-expanded", String(expanded));
-    shop.addEventListener("mouseenter", () => setExpanded(true));
-    shop.addEventListener("mouseleave", () => setExpanded(false));
-    shop.addEventListener("focusin", () => setExpanded(true));
-    shop.addEventListener("focusout", (event) => {
-      if (!shop.contains(event.relatedTarget)) setExpanded(false);
-    });
-    collectionLink.addEventListener("keydown", (event) => {
-      if (event.key !== "ArrowDown") return;
-      event.preventDefault();
-      setExpanded(true);
-      flyout.querySelector("a")?.focus();
-    });
-    shop.addEventListener("keydown", (event) => {
-      if (event.key !== "Escape") return;
-      setExpanded(false);
-      collectionLink.focus();
-    });
+    const roomNav = document.createElement("div");
+    roomNav.className = "nav-rooms nav-discovery";
+    roomNav.innerHTML = '<a class="nav-rooms-link" href="index.html#room-edit-title" aria-haspopup="true" aria-expanded="false">Rooms</a>';
+    const roomsLink = roomNav.querySelector(".nav-rooms-link");
+    const roomsFlyout = document.createElement("div");
+    roomsFlyout.className = "nav-rooms-flyout nav-discovery-flyout";
+    roomsFlyout.setAttribute("aria-label", "Shop by room");
+    roomsFlyout.innerHTML = rooms
+      .map((room) => `<a href="products.html?room=${encodeURIComponent(room)}#room=${encodeURIComponent(room)}">${room}</a>`)
+      .join("");
+    roomNav.appendChild(roomsFlyout);
+    shop.after(roomNav);
+
+    const isCollection = currentPage === "products.html";
+    collectionLink.classList.toggle("active", isCollection && !hasRoomScope);
+    roomsLink.classList.toggle(
+      "active",
+      (isCollection && hasRoomScope) || (currentPage === "index.html" && window.location.hash === "#room-edit-title"),
+    );
+
+    setupFlyout(shop, collectionLink, shopFlyout);
+    setupFlyout(roomNav, roomsLink, roomsFlyout);
   });
 }
 
-initShopNavigation();
+initDiscoveryNavigation();
 
 function initMobileMenu() {
   document.querySelectorAll(".topbar").forEach((topbar) => {
