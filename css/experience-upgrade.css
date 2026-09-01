@@ -49,6 +49,7 @@
   transition: opacity var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out), visibility var(--duration-fast) var(--ease-out);
 }
 .nav-rooms-flyout { width: min(390px, calc(100vw - 32px)); }
+.nav-rooms-flyout > a:last-child:nth-of-type(odd) { grid-column: 1 / -1; }
 .nav-discovery-flyout::before {
   grid-column: 1 / -1;
   min-height: 42px;
@@ -299,9 +300,10 @@
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    transform: none;
+    transform: none !important;
   }
   .nav-shop-flyout::before, .nav-rooms-flyout::before { display: none; }
+  .nav-rooms-flyout > a:last-child:nth-of-type(odd) { grid-column: auto; }
   .topbar.menu-open .nav-discovery-flyout a {
     min-height: 44px !important;
     padding: 0 10px !important;
