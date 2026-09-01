@@ -21,10 +21,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Install Playwright
+      - name: Install visual QA tooling
         run: |
           npm install --no-save playwright@1.55.0
           npx playwright install --with-deps chromium
+          python3 -m pip install --quiet pillow
       - name: Start static server
         run: |
           python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/luxroom-server.log 2>&1 &
