@@ -1,21 +1,22 @@
 /* LuxRoom Design System — Quiet Architectural Commerce
    Source of truth for semantic tokens. Brand status C: logo-derived + digital proposals.
-   Verified logo colors: #171713 / #956B3E. */
+   2026-09-01 refinement: gallery-luxury neutral system inspired by contemporary
+   soft-minimal interiors; LuxRoom wordmark is intentionally monochrome in UI. */
 
 :root {
   /* Brand / semantic color roles */
-  --ink: #171713;
-  --clay: #956B3E;
-  --clay-strong: #7C542F;
-  --paper: #FFFDFC;
-  --canvas: #F4F0E8;
-  --canvas-deep: #E9E1D6;
-  --surface: #F8F5EF;
-  --stone: #6E675E;
-  --muted: #6E675E;
-  --moss: #65705F;
-  --hairline: #D9D1C6;
-  --line: #D9D1C6;
+  --ink: #141414;
+  --clay: #6B5545;
+  --clay-strong: #4F3C30;
+  --paper: #FBFAF7;
+  --canvas: #F0EDE7;
+  --canvas-deep: #E3DED5;
+  --surface: #F6F3EE;
+  --stone: #6B665F;
+  --muted: #6B665F;
+  --moss: #626B5E;
+  --hairline: #D5CEC4;
+  --line: #D5CEC4;
   --focus: #2E5A88;
   --success: #35634A;
   --warning: #8A641E;
@@ -89,12 +90,12 @@
   --card-radius-lg: var(--radius-md);
 
   /* Depth is reserved for overlays/floating surfaces */
-  --shadow-surface: 0 20px 60px rgba(23, 23, 19, .12);
+  --shadow-surface: 0 22px 70px rgba(20, 20, 20, .11);
   --shadow-hover: none;
   --shadow-hover-sm: none;
   --shadow-hover-lg: none;
-  --shadow-sm: 0 10px 30px rgba(23, 23, 19, .08);
-  --shadow-lg: 0 28px 80px rgba(23, 23, 19, .14);
+  --shadow-sm: 0 10px 30px rgba(20, 20, 20, .07);
+  --shadow-lg: 0 28px 80px rgba(20, 20, 20, .12);
 
   /* Motion */
   --ease-out: cubic-bezier(.23, 1, .32, 1);
