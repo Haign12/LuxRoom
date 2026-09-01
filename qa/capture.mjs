@@ -1,12 +1,13 @@
 import { chromium } from 'playwright';
 import fs from 'node:fs/promises';
-import path from 'node:path';
 
 const base = 'http://127.0.0.1:8765';
 const out = 'qa/evidence/raw';
 await fs.mkdir(out, { recursive: true });
 
-const browser = await chromium.launch({ headless: true });
+const launchOptions = { headless: true };
+if (process.env.CHROME_BIN) launchOptions.executablePath = process.env.CHROME_BIN;
+const browser = await chromium.launch(launchOptions);
 
 async function capture(name, route, viewport, action) {
   const context = await browser.newContext({ viewport, deviceScaleFactor: 1, reducedMotion: 'reduce' });
