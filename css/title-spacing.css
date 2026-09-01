@@ -8,3 +8,15 @@
     line-height: .88;
   }
 }
+
+@media (min-width: 1081px) {
+  .home-page .hero-copy {
+    padding-inline: clamp(42px, 3.5vw, 72px);
+  }
+
+  .home-page .hero-copy h1 {
+    max-width: 100%;
+    font-size: clamp(4.3rem, 5vw, 6.4rem);
+    line-height: .88;
+  }
+}
