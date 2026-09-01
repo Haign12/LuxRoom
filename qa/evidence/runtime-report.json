@@ -7,7 +7,8 @@
     "bodyHeight": 4645,
     "h1": "Objects witha softer pointof view.",
     "active": "Our story",
-    "errors": []
+    "errors": [],
+    "failedResponses": []
   },
   {
     "capture": "about-mobile",
@@ -17,7 +18,8 @@
     "bodyHeight": 5685,
     "h1": "Objects witha softer pointof view.",
     "active": "Our story",
-    "errors": []
+    "errors": [],
+    "failedResponses": []
   },
   {
     "capture": "cart-desktop",
@@ -27,7 +29,8 @@
     "bodyHeight": 2194,
     "h1": "The room,in progress.",
     "active": "",
-    "errors": []
+    "errors": [],
+    "failedResponses": []
   },
   {
     "capture": "cart-mobile",
@@ -37,7 +40,8 @@
     "bodyHeight": 2835,
     "h1": "The room,in progress.",
     "active": "",
-    "errors": []
+    "errors": [],
+    "failedResponses": []
   },
   {
     "capture": "checkout-desktop",
@@ -47,7 +51,8 @@
     "bodyHeight": 3254,
     "h1": "Bring the roomhome.",
     "active": "",
-    "errors": []
+    "errors": [],
+    "failedResponses": []
   },
   {
     "capture": "checkout-mobile",
@@ -57,7 +62,19 @@
     "bodyHeight": 4855,
     "h1": "Bring the roomhome.",
     "active": "",
-    "errors": []
+    "errors": [],
+    "failedResponses": []
+  },
+  {
+    "capture": "collection-1024",
+    "title": "LuxRoom | Collection",
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "bodyHeight": 4925,
+    "h1": "Objects forreal rooms.",
+    "active": "Shop",
+    "errors": [],
+    "failedResponses": []
   },
   {
     "capture": "collection-desktop",
@@ -67,7 +84,8 @@
     "bodyHeight": 5347,
     "h1": "Objects forreal rooms.",
     "active": "Shop",
-    "errors": []
+    "errors": [],
+    "failedResponses": []
   },
   {
     "capture": "collection-mobile-filter",
@@ -77,7 +95,8 @@
     "bodyHeight": 5491,
     "h1": "Objects forreal rooms.",
     "active": "Shop",
-    "errors": []
+    "errors": [],
+    "failedResponses": []
   },
   {
     "capture": "collection-mobile",
@@ -87,7 +106,19 @@
     "bodyHeight": 5491,
     "h1": "Objects forreal rooms.",
     "active": "Shop",
-    "errors": []
+    "errors": [],
+    "failedResponses": []
+  },
+  {
+    "capture": "collection-tablet",
+    "title": "LuxRoom | Collection",
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "bodyHeight": 6356,
+    "h1": "Objects forreal rooms.",
+    "active": "Shop",
+    "errors": [],
+    "failedResponses": []
   },
   {
     "capture": "contact-desktop",
@@ -99,7 +130,8 @@
     "active": "Contact",
     "errors": [
       "console: Failed to load resource: the server responded with a status of 404 (File not found)"
-    ]
+    ],
+    "failedResponses": []
   },
   {
     "capture": "contact-mobile",
@@ -109,7 +141,19 @@
     "bodyHeight": 3360,
     "h1": "Tell us aboutthe room.",
     "active": "Contact",
-    "errors": []
+    "errors": [],
+    "failedResponses": []
+  },
+  {
+    "capture": "detail-1024",
+    "title": "LuxRoom | Miro Lounge Chair",
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "bodyHeight": 4169,
+    "h1": "Miro Lounge Chair",
+    "active": "Shop",
+    "errors": [],
+    "failedResponses": []
   },
   {
     "capture": "detail-desktop",
@@ -119,27 +163,52 @@
     "bodyHeight": 4534,
     "h1": "Miro Lounge Chair",
     "active": "Shop",
-    "errors": []
+    "errors": [],
+    "failedResponses": []
   },
   {
     "capture": "detail-mobile-lower",
     "title": "LuxRoom | Miro Lounge Chair",
     "scrollWidth": 390,
     "clientWidth": 390,
-    "bodyHeight": 6006,
+    "bodyHeight": 5685,
     "h1": "Miro Lounge Chair",
     "active": "Shop",
-    "errors": []
+    "errors": [],
+    "failedResponses": []
   },
   {
     "capture": "detail-mobile",
     "title": "LuxRoom | Miro Lounge Chair",
     "scrollWidth": 390,
     "clientWidth": 390,
-    "bodyHeight": 6006,
+    "bodyHeight": 5685,
     "h1": "Miro Lounge Chair",
     "active": "Shop",
-    "errors": []
+    "errors": [],
+    "failedResponses": []
+  },
+  {
+    "capture": "detail-tablet",
+    "title": "LuxRoom | Miro Lounge Chair",
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "bodyHeight": 6470,
+    "h1": "Miro Lounge Chair",
+    "active": "Shop",
+    "errors": [],
+    "failedResponses": []
+  },
+  {
+    "capture": "home-1024",
+    "title": "LuxRoom | Considered furniture for real rooms",
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "bodyHeight": 7320,
+    "h1": "Rooms that feelconsidered.",
+    "active": "Home",
+    "errors": [],
+    "failedResponses": []
   },
   {
     "capture": "home-desktop",
@@ -149,7 +218,8 @@
     "bodyHeight": 7165,
     "h1": "Rooms that feelconsidered.",
     "active": "Home",
-    "errors": []
+    "errors": [],
+    "failedResponses": []
   },
   {
     "capture": "home-mobile-menu",
@@ -159,7 +229,19 @@
     "bodyHeight": 8608,
     "h1": "Rooms that feelconsidered.",
     "active": "Home",
-    "errors": []
+    "errors": [],
+    "failedResponses": []
+  },
+  {
+    "capture": "home-mobile-search",
+    "title": "LuxRoom | Considered furniture for real rooms",
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "bodyHeight": 8608,
+    "h1": "Rooms that feelconsidered.",
+    "active": "Home",
+    "errors": [],
+    "failedResponses": []
   },
   {
     "capture": "home-mobile",
@@ -169,7 +251,8 @@
     "bodyHeight": 8608,
     "h1": "Rooms that feelconsidered.",
     "active": "Home",
-    "errors": []
+    "errors": [],
+    "failedResponses": []
   },
   {
     "capture": "home-scrolled-desktop",
@@ -179,6 +262,29 @@
     "bodyHeight": 7165,
     "h1": "Rooms that feelconsidered.",
     "active": "Home",
-    "errors": []
+    "errors": [],
+    "failedResponses": []
+  },
+  {
+    "capture": "home-tablet",
+    "title": "LuxRoom | Considered furniture for real rooms",
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "bodyHeight": 8501,
+    "h1": "Rooms that feelconsidered.",
+    "active": "Home",
+    "errors": [],
+    "failedResponses": []
+  },
+  {
+    "capture": "home-wide",
+    "title": "LuxRoom | Considered furniture for real rooms",
+    "scrollWidth": 1920,
+    "clientWidth": 1920,
+    "bodyHeight": 7483,
+    "h1": "Rooms that feelconsidered.",
+    "active": "Home",
+    "errors": [],
+    "failedResponses": []
   }
 ]
