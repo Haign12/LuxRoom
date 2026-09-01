@@ -22,9 +22,10 @@ jobs:
       - name: Verify diff and commit
         run: |
           git diff --check
+          git restore .github/workflows/visual-qa.yml
           git diff --stat
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add docs/DESIGN-CONTRACT.md docs/visual-regression-plan.md js/common.js css/experience-upgrade.css qa/capture.mjs .github/workflows/visual-qa.yml
+          git add docs/DESIGN-CONTRACT.md docs/visual-regression-plan.md js/common.js css/experience-upgrade.css qa/capture.mjs
           git commit -m 'feat: add Rooms as space-led primary navigation'
           git push origin HEAD:uiux/header-rooms-navigation
