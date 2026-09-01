@@ -25,14 +25,20 @@ async function capture(name, route, viewport, action) {
   if (action) await action(page);
   await page.waitForTimeout(250);
   await page.screenshot({ path: `${out}/${name}.png`, fullPage: true });
-  const metrics = await page.evaluate(() => ({
-    title: document.title,
-    scrollWidth: document.documentElement.scrollWidth,
-    clientWidth: document.documentElement.clientWidth,
-    bodyHeight: document.body.scrollHeight,
-    h1: document.querySelector('h1')?.textContent?.trim() || '',
-    active: document.querySelector('.main-nav a.active')?.textContent?.trim() || '',
-  }));
+  const metrics = await page.evaluate(() => {
+    const accent = document.querySelector('#home-title em');
+    const accentRect = accent?.getBoundingClientRect();
+    return {
+      title: document.title,
+      scrollWidth: document.documentElement.scrollWidth,
+      clientWidth: document.documentElement.clientWidth,
+      bodyHeight: document.body.scrollHeight,
+      h1: document.querySelector('h1')?.textContent?.trim() || '',
+      active: document.querySelector('.main-nav a.active')?.textContent?.trim() || '',
+      heroAccentRight: accentRect ? Math.round(accentRect.right) : null,
+      heroAccentClipped: accentRect ? accentRect.right > window.innerWidth + 1 || accentRect.left < -1 : false,
+    };
+  });
   await fs.writeFile(`${out}/${name}.json`, JSON.stringify({ ...metrics, errors, failedResponses }, null, 2));
   await context.close();
 }
@@ -42,8 +48,10 @@ const mobile = { width: 390, height: 844 };
 const tablet = { width: 768, height: 1024 };
 const smallLaptop = { width: 1024, height: 900 };
 const wide = { width: 1920, height: 1080 };
+const mid = { width: 700, height: 900 };
 const routes = [
   ['home','index.html'],
+  ['rooms','rooms.html'],
   ['collection','products.html'],
   ['detail','detail.html?product=1'],
   ['about','about.html'],
@@ -57,11 +65,12 @@ for (const [name, route] of routes) {
   await capture(`${name}-mobile`, route, mobile);
 }
 
-for (const [name, route] of routes.slice(0, 3)) {
+for (const [name, route] of routes.slice(0, 4)) {
   await capture(`${name}-tablet`, route, tablet);
   await capture(`${name}-1024`, route, smallLaptop);
 }
 await capture('home-wide', 'index.html', wide);
+await capture('home-700', 'index.html', mid);
 
 await capture('home-desktop-shop', 'index.html', desktop, async page => {
   const shopLink = page.locator('.nav-shop > a');
